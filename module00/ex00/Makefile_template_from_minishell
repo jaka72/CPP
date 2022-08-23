@@ -1,0 +1,92 @@
+NAME	=	megaphone
+
+# for object files
+OBJ_DIR = obj_dir
+
+# LIBFT_DIR	= 	./libft
+# LIBFT_SRC	= 	$(LIBFT_DIR)/ft_memset.c					\
+# 				$(LIBFT_DIR)/ft_strlen.c					\
+# 				$(LIBFT_DIR)/ft_isalpha.c					\
+# 				$(LIBFT_DIR)/ft_add_str.c
+# LIBFT_OBJ	=	$(LIBFT_SRC:%.c=%.o)
+# LIBFT_A		=	$(LIBFT_DIR)/libft.a
+
+
+# for SYNTAX ERRORS 
+# SYNTAX_DIR		= 	./check_syntax
+# SYNTAX_SRC		= 	$(SYNTAX_DIR)/check_syntax.c			\
+# 					$(SYNTAX_DIR)/check_syntax_quotes.c		\
+# 					$(SYNTAX_DIR)/check_syntax_redirects_utils.c
+# SYNTAX_OBJ		=	$(patsubst %, $(OBJ_DIR)/%, $(SYNTAX_SRC:.cpp=.o))
+
+
+CPP_FILES		=	megaphone.cpp
+# WITH SUBFOLDER
+OBJ_FILES		=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
+# WITHOUT SUBFOLDER
+# 	OBJ_FILES		=	$(CPP_FILES:.cpp=.o)
+
+
+
+# OBJ			=	$(UTIL_OBJ)			\
+# 				$(INIT_OBJ)			\
+# 				$(MAIN_OBJ)
+
+# HEADER		=	minishell.h			\
+# 				typedef.h
+
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
+
+# TO INCLUDE THE READLINE LIBRARY
+# RLFLAG = $(shell brew --prefix readline)
+
+# all:		$(NAME)
+all:		make_obj_dir	$(NAME)
+
+
+### for folders for object files
+make_obj_dir:
+#	@mkdir -p $(OBJ_DIR)/ $(OBJ_DIR)/util/
+	@mkdir -p $(OBJ_DIR)/
+
+
+# libft:		$(LIBFT_A)
+
+# $(LIBFT_A):	$(LIBFT_OBJ) $(LIBFT_DIR)/libft.h
+# 	cd $(LIBFT_DIR); make ; cd ../
+
+
+
+
+# $(NAME):	$(LIBFT_A) $(OBJ) 	$(HEADER)
+$(NAME):	$(OBJ_FILES) #$(OBJ) 	#$(HEADER)
+#	gcc $(CFLAGS) $(OBJ) -I$(RLFLAG)/include -L$(RLFLAG)/lib -lreadline $(LIBFT_A) -o $(NAME)
+#	c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
+	c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
+
+# WITHOUT OBJ SUBFOLDER:
+#	%.o:		%.cpp 	#$(HEADER)
+# WITH OBJ SUBFOLDER:
+$(OBJ_DIR)/%.o:		%.cpp 	#$(HEADER)
+#	gcc -c $(CFLAGS) -I$(RLFLAG)/include -o $@ $<
+	c++ -c $(CFLAGS) -o $@ $<
+
+
+
+# FROM MINISHELL, TO INCLUDE THE READLINE LIBRARY
+# -I$(RLFLAG)/include 		# headers 	inside /Users/jmurovec/.brew/opt/readline/include
+# -L$(RLFLAG)/lib 			# libraries	inside /Users/jmurovec/.brew/opt/readline/lib
+# compile needs readline library and header, it called by 'brew --prefix readline'
+
+clean:
+	rm -f $(OBJ_FILES)
+	rm -rf $(OBJ_DIR)
+
+# fclean: libftclean clean
+fclean: clean
+	rm -f $(NAME)
+
+# libftclean:
+# 	cd $(LIBFT_DIR); make fclean; cd ../
+
+re: fclean all
