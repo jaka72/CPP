@@ -3,6 +3,8 @@
 ##	BUT TO STILL PRINT OUT "nothing to be done for all" - WHICH DOES NOT SHOW UP
 ##	IF I FIRST MAKE THE FOLDER
 
+## MinGW32-make    Make on Windows
+
 
 NAME		=	phonebook
 

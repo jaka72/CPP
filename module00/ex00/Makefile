@@ -9,7 +9,7 @@ OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 # HEADER	=	someheader.h			\
 # 				typedef.h
 
-CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
+CFLAGS		=	-std=c++98 -g -Wall -Wextra -Werror 
 
 
 all:		make_obj_dir	$(NAME)
