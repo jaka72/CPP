@@ -17,6 +17,6 @@ int main(void)
 	//std::string name1 = "Marta";
 	randomChump("Joseph");
 
-	randomChump("Matilda");
+	//randomChump("Matilda");
 	return (0);
 }
