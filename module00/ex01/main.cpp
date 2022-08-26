@@ -18,8 +18,8 @@ void	print_phonebook(PhoneBook pb, int count)
 	while (j < count)
 	{
 		std::cout << std:: setw(10) << j + 1 << " | ";
-		std::cout << std:: setw(10) << get_substr(pb.contact[j].first_name) << " | ";
-		std::cout << std:: setw(10) << get_substr(pb.contact[j].last_name) << " | ";
+		std::cout << std:: setw(10) << get_substr(pb.contact[j].firstname_orig) << " | ";
+		std::cout << std:: setw(10) << get_substr(pb.contact[j].lastname_orig) << " | ";
 		std::cout << std:: setw(10) << get_substr(pb.contact[j].nickname) << " | ";
 		std::cout << std::endl;
 		j++;
@@ -52,10 +52,10 @@ void	add_a_contact(PhoneBook &pb, int &count)
 	if (count == 8)
 		count = 7;
 	std::cout << "Enter contact " << count + 1 << ':' << std::endl;
-	std::cout << "  First_name:      ";
-	std::getline(std::cin, pb.contact[count].first_name);
-	std::cout << "  Last_name:       ";
-	std::getline(std::cin, pb.contact[count].last_name);
+	std::cout << "  Firstname_orig:      ";
+	std::getline(std::cin, pb.contact[count].firstname_orig);
+	std::cout << "  Lastname_orig:       ";
+	std::getline(std::cin, pb.contact[count].lastname_orig);
 	std::cout << "  Nickname:        ";
 	std::getline(std::cin, pb.contact[count].nickname);
 	std::cout << "  Phone number:    ";
