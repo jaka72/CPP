@@ -20,10 +20,18 @@
 class Zombie
 {
 	public:
-		void announce(void);
-		void setname_orig(std::string name_orig);
+		// IN THIS CASE THERE IS NO CONSTRUCTOR, BUT
+		//		THERE IS A SEPARATE FUNCTION THAT WILL
+		//		GIVE NAME TO EACH OF THE NEW INSTANCES
+		// Zombie(std::string name_orig)
+		// {
+		// 	name_private = name_orig;
+		// }
 
 		~Zombie(void);
+
+		void announce(void);
+		void setname_orig(std::string name_orig);
 
 	private:
 	// zombie 이름
