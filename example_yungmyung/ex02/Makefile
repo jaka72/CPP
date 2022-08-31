@@ -1,6 +1,7 @@
 SRCS = ./main.cpp
 
-CC = clang++
+# CC = clang++
+CC = c++
 NAME = hi_brain
 
 CFLANG = -Wall -Wextra -Werror -std=c++98

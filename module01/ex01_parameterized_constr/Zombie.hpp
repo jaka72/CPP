@@ -10,7 +10,7 @@ class Zombie
 	
 	public:
 
-		void    set_name(std::string name);
+		//void    set_name(std::string name);
 		void    announce();
 
 		// std::string    get_name()
@@ -19,10 +19,15 @@ class Zombie
 		// 	return name;
 		// }
 
-		// Zombie(std::string name)
-		// {
-		//     name_prive = name;
-		// }
+
+		// DUMMY CONSTRUCTOR
+		Zombie() {}
+
+		// PARAMETERIZED CONSTRUCTOR
+		Zombie(std::string name_public)
+		{
+		    name = name_public;
+		}
 
 		//Zombie()    // CONSTRUCTOR IS NOT NECESSARY APPARENTLY
 		//{           // THERE HAS TO BE A SEPARATE FUNCTION TO SET THE NAME

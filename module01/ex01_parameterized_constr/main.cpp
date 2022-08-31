@@ -1,8 +1,5 @@
 #include "Zombie.hpp"
 
-// Keyword "new" allocated memory for the array on the HEAP. So it is dinamic.
-// Not sure if we are allowed to use malloc()
-
 int	main(void)
 {
 	int n {3};
