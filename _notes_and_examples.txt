@@ -1,0 +1,18 @@
+
+
+
+WHAT IS THE DIFFERENCE? IT LOOKS LIKE THIS IS BOTH THE SAME:
+    Weapon wp1("Chainsaw");
+    Weapon wp2 = Weapon("Hammer");
+
+
+A REFERENCE -------------------------------------------------------------------------------
+
+A REFERENCE can be returned from a function, and this function can be on the left side:
+    double& setValue(int i)
+    {
+        return vals[i];   	// return a reference to the i-th element
+}		}
+    setValue(1) = 33;		// Change the 2nd element to 33
+
+    Cannot return a reference of a local variable (from the same scope)

@@ -5,12 +5,10 @@ HumanB::HumanB(std::string name_orig) : name(name_orig)
 {
     //name = name_orig;
     wp = NULL;
-    //setWeapon(NULL);
 }
 
 HumanB::~HumanB()
 {
-
 }
 
 void HumanB::setWeapon(Weapon &wp_orig)

@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 class Weapon
 {
     
@@ -11,7 +10,7 @@ class Weapon
         std::string  type;
 
     public:
-        // const std::string& getType() const;
+        // const std::string& getType() const;      // DOES IT NEED const AT END ???
         const std::string& getType();
 
         void setType(const std::string &type_orig);

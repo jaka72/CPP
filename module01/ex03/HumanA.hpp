@@ -17,7 +17,6 @@ class HumanA
 		~HumanA();
 
 		void	attack();
-		//void    setNames(std::string name_orig /*, Weapon wp_orig */);
 };
 
 #endif
