@@ -3,28 +3,37 @@
 
 #include <iostream>
 
+
+
 // fpn 			= fixed point number
 // frac_bits 	= fractional bits 
 class Fixed
 {
 	private:
-		int	fpn_value_prive;
+		int	fpn_prive;
 
 		static const int frac_bits {8};
 
 	public:
-		Fixed();	// default constructor
+		// default constructor
+			Fixed();
 					
 		// copy constructor
-		Fixed(const Fixed& f1);
+			Fixed(const Fixed& f1);
 
 		// copy assignment overload
-		// ...
+			Fixed &operator= (const Fixed &orig);
 
-		~Fixed();	// destructor
+		// destructor
+			~Fixed();
 
-		int 	getRawBits(void) const;
-		void	setRawBits(int const raw);
+		// Setter
+			void	setRawBits(int const raw);
+		
+		// Getter
+			int 	getRawBits(void) const;
 };
+
+
 
 #endif

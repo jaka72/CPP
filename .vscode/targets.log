@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Sep  8 18:43:51 2022
+# Make data base, printed on Sat Sep 10 11:40:06 2022
 
 # Variables
 
@@ -77,7 +75,7 @@ LC_NAME = nl_NL.UTF-8
 # environment
 VSCODE_CWD = /home/jaka
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/105/usr/share/glib-2.0/schemas
 # default
@@ -87,7 +85,7 @@ PATH = /home/jaka/.local/bin:/home/jaka/.local/bin:/usr/local/sbin:/usr/local/bi
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/jaka-HP-Linux:@/tmp/.ICE-unix/1874,unix/jaka-HP-Linux:/tmp/.ICE-unix/1874
+SESSION_MANAGER = local/jaka-HP-Linux:@/tmp/.ICE-unix/264661,unix/jaka-HP-Linux:/tmp/.ICE-unix/264661
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -113,7 +111,7 @@ XDG_SESSION_DESKTOP = cinnamon
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 8697
+GIO_LAUNCHED_DESKTOP_FILE_PID = 266828
 # automatic
 %F = $(notdir $%)
 # environment
@@ -131,7 +129,7 @@ QT_QPA_PLATFORMTHEME = qt5ct
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1962
+SSH_AGENT_PID = 264741
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -181,7 +179,7 @@ SNAP_USER_DATA = /home/jaka/snap/code/105
 # environment
 SHLVL = 0
 # environment
-XDG_SESSION_ID = c2
+XDG_SESSION_ID = c4
 # environment
 USER = jaka
 # environment
@@ -267,7 +265,7 @@ LC_ADDRESS = nl_NL.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 8745
+VSCODE_PID = 266872
 # variable set hash-table stats:
 # Load=128/1024=12%, Rehash=0, Collisions=15/150=10%
 
@@ -277,11 +275,14 @@ VSCODE_PID = 8745
 
 # Directories
 
-# . (device 2052, inode 9197): 16 files, no impossibilities.
+# . (device 2052, inode 9197): 17 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
+
+ 
+make: *** No rule to make target 'all'.  Stop.
 
 # No implicit rules.
 
@@ -293,7 +294,6 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
- 
 
 # Not a target:
 Makefile:
@@ -330,12 +330,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 291 B / avg = 12 B
-# current buf: size = 8162 B / used = 291 B / count = 24 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 300 B / avg = 12 B
+# current buf: size = 8162 B / used = 300 B / count = 25 / avg = 12 B
 
-# strcache performance: lookups = 27 / hit rate = 11%
+# strcache performance: lookups = 28 / hit rate = 10%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=1/27=4%
-# Finished Make data base on Thu Sep  8 18:43:51 2022
+# Load=25/8192=0%, Rehash=0, Collisions=1/28=4%
+# Finished Make data base on Sat Sep 10 11:40:06 2022
 
  
