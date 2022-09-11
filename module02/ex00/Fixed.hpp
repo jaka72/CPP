@@ -3,8 +3,6 @@
 
 #include <iostream>
 
-
-
 // fpn 			= fixed point number
 // frac_bits 	= fractional bits 
 class Fixed
@@ -21,7 +19,7 @@ class Fixed
 		// copy constructor
 			Fixed(const Fixed& f1);
 
-		// copy assignment overload
+		// copy assignment operator overload
 			Fixed &operator= (const Fixed &orig);
 
 		// destructor
@@ -33,7 +31,5 @@ class Fixed
 		// Getter
 			int 	getRawBits(void) const;
 };
-
-
 
 #endif

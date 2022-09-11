@@ -12,6 +12,37 @@ class Fixed
 		static const int	frac_bits {8};
 
 	public:
+		///// new for ex02 /////////////////////
+
+		Fixed operator*(const Fixed &fixed);
+		// {
+		// 	// if (this == &fixed) // protection
+		// 		// return *this;
+		// 	Fixed temp;
+		// 	temp.fpn_prive = fpn_prive + fixed.fpn_prive;
+		// 	// Can also be without the temp:
+		// 	//	this->fpn_prive = fpn_prive + fixed.fpn_prive;
+
+		// 	return temp;
+		// 	// return *this;
+		// }
+
+
+		// Fixed operator*(const Fixed &fixed)
+		// {
+		// 	// if (this == &fixed) // protection
+		// 		// return *this;
+		// 	Fixed temp;
+		// 	temp.fpn_prive = fpn_prive * fixed.fpn_prive;
+		// 	// Can also be without the temp:
+		// 	//	this->fpn_prive = fpn_prive + fixed.fpn_prive;
+
+		// 	return temp;
+		// 	// return *this;
+		// }
+
+		///////////////////////////////////////
+
 		// default constructor
 			Fixed();
 					

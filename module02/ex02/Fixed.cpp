@@ -4,6 +4,34 @@
 // const int Fixed::frac_bits = 8;	// why would this be better then 
 									// inside class definition ???
 
+// NEW FOR EX02 ////////////////////////////////////////////////////////////////////
+
+Fixed Fixed::operator*(const Fixed &fixed)
+{
+	//if (this == &fixed) // protection
+	//	return *this;
+
+	std::cout << "\n"; 
+	std::cout << "fpn: " << (fpn_prive >> 8) << "\n"; 
+	std::cout << "this.fpn: " << (this->fpn_prive >> 8) << "\n"; 
+	std::cout << "fixed.fpn: " << (fixed.fpn_prive >> 8) << "\n"; 
+	
+	
+	std::cout << "\n"; 
+
+	Fixed temp;
+	temp.fpn_prive = fpn_prive * fixed.fpn_prive;
+	// Can also be without the temp:
+	//	this->fpn_prive = fpn_prive + fixed.fpn_prive;
+
+	return temp;
+	// return *this;
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
 
 // DEFAULT CONSTRUCTOR
 // Also good: Fixed::Fixed()  :  fpn_prive = 0

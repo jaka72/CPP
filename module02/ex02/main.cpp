@@ -32,21 +32,28 @@ int	main()
 	// FROM SUBJECT:
 
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f ); // same as a = c;
+	Fixed aa(10);
+	// Fixed const b(Fixed(5.05f) * Fixed(2));
+
+	// ?????????? ?????????????????????????
+	// THIS b IS DISPLAYED WITHOUT CONVERTED BACK TO >> 8 ?????????????
+	Fixed const b (Fixed(5) * Fixed(2));
+	// Fixed const b( 10 );
+	// Fixed const c( 42.42f );
+	// Fixed const d( b );
+	// a = Fixed( 1234.4321f ); // same as a = c;
 	
 	std::cout << "\n";
 	std::cout << "a is " << a << "\n";
+	std::cout << "aa is " << aa << "\n";
 	std::cout << "b is " << b << '\n';
-	std::cout << "c is " << c << '\n';
-	std::cout << "d is " << d << "\n\n";
+	// std::cout << "c is " << c << '\n';
+	// std::cout << "d is " << d << "\n\n";
 	
-	std::cout << "a is " << std::setw(6) << a.toInt() << " as integer\n";
-	std::cout << "b is " << std::setw(6) << b.toInt() << " as integer\n";
-	std::cout << "c is " << std::setw(6) << c.toInt() << " as integer\n";
-	std::cout << "d is " << std::setw(6) << d.toInt() << " as integer\n\n";
+	// std::cout << "a is " << std::setw(6) << a.toInt() << " as integer\n";
+	// std::cout << "b is " << std::setw(6) << b.toInt() << " as integer\n";
+	// std::cout << "c is " << std::setw(6) << c.toInt() << " as integer\n";
+	// std::cout << "d is " << std::setw(6) << d.toInt() << " as integer\n\n";
 
 //////////////////////////////////////////////////////////////////////////////
  	// Fixed a;
