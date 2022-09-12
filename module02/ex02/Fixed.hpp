@@ -3,6 +3,13 @@
 
 #include <iostream>
 
+
+
+
+
+
+
+
 // fpn 			= fixed point number
 // frac_bits 	= fractional bits 
 class Fixed
@@ -14,7 +21,30 @@ class Fixed
 	public:
 		///// new for ex02 /////////////////////
 
-		Fixed operator*(const Fixed &fixed);
+		Fixed operator* (const Fixed &fixed);
+		Fixed operator/ (const Fixed &fixed);
+		Fixed operator+ (const Fixed &fixed);
+		Fixed operator- (const Fixed &fixed);
+
+		// COMPARISSON
+		// TO HAVE 2 ARGS IS ONLY POSSIBLE WITH "friend"
+		// friend bool operator== (const Fixed &f1, const Fixed &f2);
+		bool operator< (const Fixed &fixed);
+		bool operator> (const Fixed &fixed);
+		bool operator<= (const Fixed &fixed);
+		bool operator>= (const Fixed &fixed);
+		bool operator== (const Fixed &fixed);
+		bool operator!= (const Fixed &fixed);
+
+		// INCREMENTS
+		//	WHAT IS THE LOGIC WITH OR WITHOUT (int) 	?????
+		Fixed operator++ ();	// pre-increment
+		Fixed operator-- ();
+		Fixed operator++ (int);	// post-increment
+		Fixed operator-- (int a);
+
+
+
 		// {
 		// 	// if (this == &fixed) // protection
 		// 		// return *this;
@@ -56,8 +86,12 @@ class Fixed
 		// A CONSTRUCTOR THAT TAKES const float AS PARAMETER
 			Fixed(const float f);
 
+	
+
+	
+	
 		// copy assignment overload for the =
-			Fixed &operator=(const Fixed &orig);
+			Fixed &operator= (const Fixed &orig);
 
 		// destructor
 			~Fixed();
@@ -71,10 +105,26 @@ class Fixed
 		// Member functions
 		float toFloat(void) const;
 		float toInt(void) const;
+
+
+
+
+
 };
 
 // OVERLOAD FOR THE << OPERATOR, WHEN USED WITH std:ostream AND Fixed
 std::ostream &operator<<(std::ostream &out, const Fixed &f);
+
+
+// bool Fixed::operator== (const Fixed& f1, const Fixed& f2)
+// {
+// 	if (f1.fpn_prive == f2.fpn_prive)
+// 		return (true);
+// 	else
+// 		return (false);
+// 	// return  (f1.fpn_prive == f2.fpn_prive);
+// }
+
 
 
 #endif

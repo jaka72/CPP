@@ -1,6 +1,7 @@
 /* QUESTIONS:
 	WHY THE = OVERLOAD FUNCTION RETURNS  *this  ???
 
+	- Can we have more files_
 */
 
 
@@ -35,10 +36,10 @@ MinMax operator+(const MinMax& m1, const MinMax& m2)
 
 
 
-
 // WHAT IS THE DIFFERENCE? IT LOOKS LIKE THIS IS BOTH THE SAME:
     Weapon wp1("Chainsaw");
     Weapon wp2 = Weapon("Hammer");
+
 
 
 // A REFERENCE -------------------------------------------------------------------------------
@@ -56,8 +57,10 @@ This function can then be on the left side of the = operator:
     // So it saved 1 argument
 	// Cannot return a reference of a local variable (from the same scope)
 
-	// BIT SHIFTING -------------------------------------------------------------
 
+
+
+// BIT SHIFTING -------------------------------------------------------------
 	/*
 		The decimal number is multiplied or divided by 2, 4, 8, 16 ...etc
 				ie:	10 << 1 = 20		80 >> 1 = 40
