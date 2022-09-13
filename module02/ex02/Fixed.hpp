@@ -29,22 +29,26 @@ class Fixed
 		// COMPARISSON
 		// TO HAVE 2 ARGS IS ONLY POSSIBLE WITH "friend"
 		// friend bool operator== (const Fixed &f1, const Fixed &f2);
-		bool operator< (const Fixed &fixed);
-		bool operator> (const Fixed &fixed);
-		bool operator<= (const Fixed &fixed);
-		bool operator>= (const Fixed &fixed);
-		bool operator== (const Fixed &fixed);
-		bool operator!= (const Fixed &fixed);
+		
+		// IF HERE WITHOUT CONST, THEN THE const, THEN min() IS NOT WORKING 
+		//		error: passing ‘const Fixed’ as ‘this’ argument discards qualifiers
+		// bool operator< (const Fixed fixed) const;
+		  bool operator< (Fixed fixed) const;
+		// bool operator< (const Fixed fixed) const;
+
+		bool operator> (const Fixed &fixed) const;
+		bool operator<= (const Fixed &fixed) const;
+		bool operator>= (const Fixed &fixed) const;
+		bool operator== (const Fixed &fixed) const;
+		bool operator!= (const Fixed &fixed) const;
 
 		// INCREMENTS
-		//	WHAT IS THE LOGIC WITH OR WITHOUT (int) 	?????
 		Fixed operator++ ();	// pre-increment
 		Fixed operator-- ();
 		Fixed operator++ (int);	// post-increment
-		Fixed operator-- (int a);
+		Fixed operator-- (int);
 
-
-
+		
 		// {
 		// 	// if (this == &fixed) // protection
 		// 		// return *this;
@@ -102,13 +106,21 @@ class Fixed
 		// Getter
 			int 	getRawBits(void) const;
 
-		// Member functions
+		// MEMBER FUNCTIONS
 		float toFloat(void) const;
 		float toInt(void) const;
 
+		// static int min(int a, int b);
+		// static int min(const int a, const int b);
+		// static int max(int a, int b);
+		// static int max(const int a, const int b);
 
+		static Fixed &min(Fixed &f1, Fixed &f2);
+		static Fixed &max(Fixed &f1, Fixed &f2);
 
-
+		// WHEN ARE THESE CALLED? BECAUSE ABOVE ARE THE SAME, WITHOUT const ??
+		static const Fixed &min(const Fixed &f1, const Fixed &f2);
+		static const Fixed &max(const Fixed &f1, const Fixed &f2);
 
 };
 

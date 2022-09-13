@@ -18,7 +18,7 @@
 
 // COMPARISSON
 // variation A)
-bool	Fixed::operator== (const Fixed &fixed)
+bool	Fixed::operator== (const Fixed &fixed) const
 {
 	//std::cout << "From operator== " << this->fpn_prive / 256 << "\n";
 	return (this->fpn_prive == fixed.fpn_prive);
@@ -32,33 +32,70 @@ bool	Fixed::operator== (const Fixed &fixed)
 // 	return (f1.fpn_prive == f2.fpn_prive);
 // }
 
-bool	Fixed::operator!= (const Fixed &fixed)
+bool	Fixed::operator!= (const Fixed &fixed) const
 {
 	return (this->fpn_prive != fixed.fpn_prive);
 }
 
-bool	Fixed::operator< (const Fixed &fixed)
+// !!! HERE IT WAS CAUSING PROBLEMS BECAUSE OF THE COMBINATION  
+	// OF THE & AND THE "const" 
+	//	 OF PARAMETETRS AND ALSO AFTER FUNCTION NAME ???
+	//		ONLY A CERTAIN COMBINATION WORKS.
+	//		IT IS ABOUT 2 FUNCTIONS:
+	//			1) 	The Fixed::operator<()
+	//			2)	The const Fixed &Fixed::min()   --> which uses the operator<() 
+	// bool	Fixed::operator< (Fixed fixed) const
+	// 	MUST HAVE const AT END, OR THE const min() STOPS WORKING:
+	//		error: passing ‘const Fixed’ as ‘this’ argument discards qualifiers
+	//		THIS IS BECAUSE THE min(const ...) function must have "const args" due to the subject!
+	// 		SO THE LEFT ARG THAT COMES INTO THE <function MUST ALSO BE const! 
+// bool	Fixed::operator< (const Fixed fixed) const
+bool	Fixed::operator< (Fixed fixed) const
 {
 	return (this->fpn_prive < fixed.fpn_prive);
 }
 
-bool	Fixed::operator> (const Fixed &fixed)
+bool	Fixed::operator> (const Fixed &fixed) const
 {
 	return (this->fpn_prive > fixed.fpn_prive);
 }
 
-bool	Fixed::operator<= (const Fixed &fixed)
+bool	Fixed::operator<= (const Fixed &fixed) const
 {
 	return (this->fpn_prive <= fixed.fpn_prive);
 }
 
-bool	Fixed::operator>= (const Fixed &fixed)
+bool	Fixed::operator>= (const Fixed &fixed) const
 {
 	return (this->fpn_prive >= fixed.fpn_prive);
 }
 
-// INCREMENTS
-Fixed Fixed::operator++ ()
+// INCREMENTS ////////////////////////////////////////////////////////
+// PRE- AND -POST NEED TO BE DIFFERENT !!
+/*
+	See 14.8 learncpp
+	The C++ language increment specification has a special case:
+	The compiler checks if the overloaded operator has an int parameter.
+	Therefore we need to provide a dummy int parameter, for the post-incr.
+	If the overloaded operator has an int parameter, the operator is 
+	a postfix overload. If the overloaded operator has no parameter, 
+	the operator is a prefix overload.
+
+	So it returns temp with not-yet incremented value: 
+	Digit Digit::operator++ (int)		// POST-INCREMENT
+	{
+		Digit temp {*this};
+		std::cout << "This Before: " << this->m_digit << '\n';	// 44
+		std::cout << "Temp Before: " << temp.m_digit << '\n';	// 44
+		++this->m_digit;
+		std::cout << "This after: " << this->m_digit << '\n';	// 45
+		std::cout << "Temp after: " << temp.m_digit << '\n';	// 44
+		return (temp);
+	}
+
+*/
+
+Fixed Fixed::operator++ ()	// PRE-INCREMENT
 {
 	++this->fpn_prive;
 	return (*this);
@@ -70,28 +107,21 @@ Fixed Fixed::operator-- ()
 	return (*this);
 }
 
-// WHY WOULD PRE- AND -POST NEED TO BE DIFFERENT ???
-Fixed Fixed::operator++ (int)	// post-increment
+Fixed Fixed::operator++ (int)		// POST-INCREMENT
 {
-	this->fpn_prive++;
-	return (*this);
+	Fixed temp {*this};
+	//std::cout << "this: " << this->fpn_prive << ".  tmp: " << tmp.fpn_prive << '\n';
+	++this->fpn_prive;
+	//std::cout << "this: " << this->fpn_prive << ".  tmp: " << tmp.fpn_prive << '\n';
+	return (temp);
 }
 
-Fixed Fixed::operator-- (int)
+Fixed Fixed::operator-- (int)		// POST-INCREMENT
 {
-	this->fpn_prive--;
-	return (*this);
+	Fixed temp = *this;
+	--this->fpn_prive;
+	return (temp);
 }
-
-// WHY WOULD THIS VARIATION BE MORE CORRECT ??? 
-		// Fixed	Fixed::operator++(int)
-		// {
-		// 	Fixed tmp = *this;
-		// 	//std::cout << "this: " << this->fpn_prive << ".  tmp: " << tmp.fpn_prive << '\n';
-		// 	++this->fpn_prive;
-		// 	//std::cout << "this: " << this->fpn_prive << ".  tmp: " << tmp.fpn_prive << '\n';
-		// 	return (tmp);
-		// }
 
 
 // ARITHMETIC OPERATORS //////////////////////////////
@@ -271,6 +301,36 @@ float Fixed::toInt(void) const
 }
 
 
+Fixed &Fixed::min(Fixed &f1, Fixed &f2)
+{
+	if (f1 < f2)
+		return (f1);
+	return (f2);
+}
+
+Fixed &Fixed::max(Fixed &f1, Fixed &f2)
+{
+	if (f1 > f2)
+		return (f1);
+	return (f2);
+}
+
+// const Fixed &Fixed::min(const Fixed &f1, const Fixed &f2)
+//	HERE IT WAS A PROBLEM WITH THE COMBINATIONS OF THE & AND const 
+const Fixed &Fixed::min(const Fixed &f1, const Fixed &f2)
+{
+	if (f1 < f2)
+		return (f1);
+	return (f2);
+}
+
+const Fixed &Fixed::max(const Fixed &f1, const Fixed &f2)
+{
+	if (f1 > f2)
+		return (f1);
+	return (f2);
+}
+
 // OVERLOAD FOR THE << OPERATOR, for printing and converting the 
 //	fpn value from the object.
 //	The return type is ostream.
@@ -279,9 +339,6 @@ std::ostream &operator<<(std::ostream &out, Fixed const &f)
 {
 	//std::cout << "... " << f.getRawBits() << " ...\n";
 	//std::cout << "... " << f.toFloat() << " ...\n";
-
-
-
 	out << f.toFloat();
 	return (out);
 }

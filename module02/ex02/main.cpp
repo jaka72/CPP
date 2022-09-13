@@ -98,7 +98,7 @@ int	main()
 	// COMPARISSON
 	// Fixed x{33};
 	// Fixed y{44};
-	//std::cout << "Is less: " << (4 == 4) << "\n";
+	// std::cout << "Is less: " << (y < x) << "  :isless\n";
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -122,11 +122,27 @@ int	main()
 	//std::cout << "Increments:  " << x++ << "  ==>end \n";
 	//std::cout << "Increments:  " << x << "  ==>end \n";
 
+	// Fixed a;
+	// std::cout << a << std::endl;
+	// std::cout << ++a << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << a++ << std::endl;
+	// std::cout << a << std::endl;
+
+	// Fixed w{33};
+	// Fixed q{88};
+
+	// std::cout << "min:  " << Fixed::min(w, q) << " :min \n";
+
+
+	// FROM SUBJECT EX02
 	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
-
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
 }

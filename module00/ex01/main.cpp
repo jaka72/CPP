@@ -1,5 +1,8 @@
 #include "main.hpp"
 
+// CHECK FOR WHAT IS ALLOWE AS INPUT, MAYBE LIKE EMPTY INPUT ETC ... 
+
+
 void	print_phonebook(PhoneBook pb, int count)
 {
 	int	j;

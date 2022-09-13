@@ -1,12 +1,75 @@
 /* QUESTIONS:
+
+
+	Why are there needed both variants of the function min(), one with "const", 
+	and one without "const"?
+			static Fixed &min(Fixed &f1, Fixed &f2);
+			static const Fixed &min(const Fixed &f1, const Fixed &f2);
+	Because the >function is already with const: 
+			bool operator> (const Fixed &fixed) const;
+	So the first variant can never be used??? Becase the 2nd arg is always const.
+
+
 	WHY THE = OVERLOAD FUNCTION RETURNS  *this  ???
 
-	- Can we have more files_
+	- Can we have more files_ for the project, then stated in subject?
+
+	IS THERE ANY DIFFERENCE, WHERE ARE THESE const ??
+	- bool	Fixed::operator< (      Fixed fixed) const
+	- bool	Fixed::operator< (const Fixed fixed) 
+	- bool	Fixed::operator< (const Fixed fixed) const
+	- bool	const Fixed::operator< (const Fixed fixed) const
+		etc ...
+
+
+Cornelli
+nsterk
+corina
+rutger
+laura
+nduijf
+hman
+jbedaux
+
 */
 
 
 /////////////////////////////////////////////////////////
 // RANDOM NEW STUFF /////////////////////////////////////
+
+/*	The word "const" at different places:
+
+		AT END:
+		Box print(Box &bx) const;
+			Then call on some object: bx2.print(bx1);
+				Things in object bx2 wont be changed
+
+		AT ARG:
+		Box print(const Box &bx);	The arg won't be changed
+
+
+		IN FRONT:
+		const Box print(Box &b);
+		"CONST" before a function means that the return parameter is 
+		const, which only really makes sense if you return a reference 
+		or a pointer.
+		
+		ALL THREE ALSO POSSIBLE:
+		const Box print(const Box &b) const;
+
+*/
+
+
+
+/*  ->THIS    *THIS   			???
+	A function can return *this. 
+	The overloaded increment and decrement operators return the current
+	implicit object so multiple operators can be “chained” together. ???
+
+*/
+
+
+
 
 /*	RETURNING A CLASS OBJECT:
 	When initialising an int, it can have an if statement inside
@@ -52,12 +115,18 @@ This function can then be on the left side of the = operator:
         return arr[i];   	// return a reference to the i-th element
 	}
     setValue(1) = 33;		// Change the 2nd element to 33
-	// val[i] = 33;
+	// same as: arr[i] = 33;
 
     // So it saved 1 argument
 	// Cannot return a reference of a local variable (from the same scope)
-
-
+	
+	// L0OKS LIKE B0TH VARIANTS ARE WORKING:
+	//      no &								with &
+	Digit Digit::operator++()   /* OR */	Digit &Digit::operator++()
+	{										{
+		++m_digit;								++m_digit;
+		return *this;							return *this;
+	}										}
 
 
 // BIT SHIFTING -------------------------------------------------------------
