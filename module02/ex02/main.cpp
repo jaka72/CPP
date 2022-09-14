@@ -30,14 +30,6 @@
 
 
 
-
-
-
-
-
-
-
-
 int	main()
 {
 // TESTS FROM EX01:
@@ -138,11 +130,33 @@ int	main()
 	// FROM SUBJECT EX02
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed c(22);
+
+	std::cout << Fixed::max( a, c ) << std::endl;
+	std::cout << Fixed::min( a, c ) << std::endl;
+
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
+
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	
+
+	a.setRawBits(33);
+	c.setRawBits(77);
+	std::cout << "Value fpn: " << a <<"\n";
+	std::cout << "Value fpn: " << c <<"\n";
+
+
+	Fixed x_const (Fixed::min(a,c));
+	std::cout << "Value x_const: " << x_const <<"\n";
+	x_const.setRawBits(33);
+
+	Fixed aaa (Fixed::min(a,b));
+
+
+
+
 }
