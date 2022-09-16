@@ -1,5 +1,7 @@
 /* QUESTIONS:
 
+	We dont have to call a Destructor for every Constructor?
+		Just for the default?
 
 	Why are there needed both variants of the function min(), one with "const", 
 	and one without "const"?

@@ -2,8 +2,7 @@
 #define CLAPTRAP_H
 
 #include <iostream>
-
-
+#include "colors.h"
 
 /*
 	It is best practice to initialize the members immediately
@@ -13,20 +12,23 @@
 */
 class ClapTrap
 {
-	private:
+	// private:		//	IF THIS IS THE BASE CLASS FOR AN INHERITED CLASS
+	protected:		// 		THEN IT MUST BE protected, OR IT GIVES ERROR ????
 		std::string	m_name;
 		int			hit_pts;
 		int			energy_pts;
 		int			attack_damage;
+		bool		guard;
 
 	public:
 	// Constructors:
 		ClapTrap();
 		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap &claptrap);
+		ClapTrap(const ClapTrap &copy);
 		
 	// Destructor	
-		~ClapTrap();
+		virtual ~ClapTrap();	// WHY SHOULD HERE BE VIRTUAL ???
+		// ~ClapTrap();	// WHY SHOULD HERE BE VIRTUAL ???
 		
 	// Overloaded operators
 		ClapTrap &operator= (const ClapTrap &claptrap);
@@ -35,6 +37,9 @@ class ClapTrap
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+
+		void print_hit_pts();	// just for testing
+
 };
 
 #endif

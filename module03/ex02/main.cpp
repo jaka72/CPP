@@ -1,4 +1,3 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 /*
@@ -13,7 +12,6 @@
 
 	After attack(), probably victim should call takeDamage()
 
-
 */
 
 /*
@@ -22,22 +20,24 @@
 	- Why exactly is destruction in reverse mode? 
 */
 
+
 int main()
 {
 	ClapTrap marko("Marko");
-	// ClapTrap silvio("Silvio");
+	ScavTrap boris("Boris");
+	//ClapTrap silvio("Silvio");
 
-	// marko.attack("Silvio");
-	// silvio.takeDamage(7);
-	// silvio.beRepaired(3);
-	// silvio.takeDamage(7);
+	marko.attack("Boris");
+	boris.takeDamage(0);
 
-	// int i{0};
-	// while (i < 10)
-	// {
-	// 	marko.attack("Silvio");
-	// 	i++;
-	// }
+	boris.attack("Marko");
+	marko.takeDamage(20);
+
+	marko.beRepaired(3);
+
+	boris.guardGate();
+	boris.guardGate();
+
 
 	return (0);
 }
