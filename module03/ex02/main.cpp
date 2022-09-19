@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 /*
 	INSTRUCTIONS:
@@ -25,6 +25,8 @@ int main()
 {
 	ClapTrap marko("Marko");
 	ScavTrap boris("Boris");
+	
+	FragTrap donald("Donald");
 	//ClapTrap silvio("Silvio");
 
 	marko.attack("Boris");
@@ -37,6 +39,8 @@ int main()
 
 	boris.guardGate();
 	boris.guardGate();
+
+	donald.highFivesGuys();
 
 
 	return (0);

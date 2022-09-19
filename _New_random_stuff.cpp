@@ -39,6 +39,81 @@ jbedaux
 /////////////////////////////////////////////////////////
 // RANDOM NEW STUFF /////////////////////////////////////
 
+/*
+	NOT YET UNDERSTAND FULL THE & AND * IN SITUATIONS LIKE
+	ASSIGN= OVERLOAD AND ELSWHERE !!!
+*/
+
+
+/*
+	DIFFERENCE WHEN COPYING OBJECT BEFORE OR AFTER INITIALIZATION
+		Box b1;
+	When copying the data of object at the time of initialization
+    then copy is made through the COPY CONSTRUCTOR:  (built-in or newone ??)
+	    box b2 = b1;
+    	b2.show_data();
+ 
+ 	When copying the data of object after initialization then the
+	copy is done through DEFAULT ASSIGNMENT OPERATOR:
+		Box b3;
+		b3 = b1;		
+		b3.show_data();
+
+	SO, in case there are pointers as members in the object,
+	it needs a custom Overload of operator=
+*/
+
+
+
+/*
+	SHALLOW VS DEEP COPY - not clear ??????????????
+	if the variables of an object have been dynamically allocated,
+	(on heap) then it is required to do a Deep Copy in order to create 
+	a copy of the object.
+	If some variable of an object is on heap section, then the copied 
+	object variable will reference to the same memory location.
+
+	Cpp compiler "implicitly" creates a copy constructor AND the
+	overload for the assignemnt operator. 
+*/
+
+
+
+/*
+	INHERIT, DERIVE
+	Base class  -> Derived Class (inherits from the Base)
+		So, Derived class inherited members from the Base 
+
+	VIRTUAL DESTRUCTOR
+	The destructor of the base class should be virtual, which 
+	guarantees that the object of derived class is destructed properly,
+	 i.e., both base class and 	derived class destructors are called.
+
+	As a guideline, any time you have a virtual function in a class, 
+	you should immediately add a virtual destructor 
+	(even if it does nothing). This way, you ensure against any 
+	surprises later. 
+*/
+
+
+
+/*
+	Header Hierarchy:
+	The main.cpp includes all hpp files (Animal.hpp, Cat.hpp, Dog.hpp)
+	Each class is in cpp file, which includes its own hpp file
+			Animal.cpp  #include "Animal.hpp"
+			Cat.cpp     #include "cat.hpp"
+	If a class is a base class, it does not need any hpp included
+			(because it is arelady included in main.cpp)
+	If a class is derived, it needs included its base header:
+			Cat.cpp  #include Cat.hpp
+			Cat.hpp  #include Animal.hpp
+
+*/
+
+
+
+
 /*	The word "const" at different places:
 
 		AT END:

@@ -28,8 +28,9 @@ class FragTrap: public ClapTrap // , public ScavTrap
 		FragTrap &operator= (const FragTrap &scavtrap);
 
 		// Public member functions
+		void highFivesGuys(void);
 		//void takeDamage(unsigned int amount);
-		void guardGate();
+		//void guardGate();
 		//void print_hit_pts();	// just for testing
 
 };

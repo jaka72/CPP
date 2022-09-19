@@ -31,46 +31,36 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->attack_damage = 30;
 	//this->guard = false;
 	m_name = name;
-	std::cout << GRE"Constructor ScavTrap called to create " <<RES<< name << "\n";
-	//std::cout << "...Constructor ScavTrap called for this->m_name " << this->m_name << "\n";
-	//std::cout << "...Constructor ScavTrap called for m_name " << m_name << "\n";
-	//std::cout << "...Constructor ScavTrap called for hit_points " << hit_pts << "\n";
+	std::cout << GRE"Constructor FragTrap called to create " <<RES<< name << "\n";
+	//std::cout << "...Constructor FragTrap called for this->m_name " << this->m_name << "\n";
+	//std::cout << "...Constructor FragTrap called for m_name " << m_name << "\n";
+	//std::cout << "...Constructor FragTrap called for hit_points " << hit_pts << "\n";
 };
 
 
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)	// WHAT IS THIS LAST (copy) ???
+FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)	// WHAT IS THIS LAST (copy) ???
 {
-	std::cout << GRE"Copy Constructor ScavTrap called\n" << RES;
-	std::cout << GRE"   (It's a copy of the ScavTrap " << copy.m_name << "\n" << RES;
+	std::cout << GRE"Copy Constructor FragTrap called\n" << RES;
+	std::cout << GRE"   (It's a copy of the FragTrap " << copy.m_name << "\n" << RES;
 }
 
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << GRE"Destructor ScavTrap called for " << RES << m_name << "\n"; 
+	std::cout << GRE"Destructor FragTrap called for " << RES << m_name << "\n"; 
 }
 
 
 // Overloaded operators
-ScavTrap &ScavTrap::operator= (const ScavTrap &ScavTrap)
+FragTrap &FragTrap::operator= (const FragTrap &fragtrap)
 {
 	return (*this);
 }
 
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys(void)
 {
-	std::cout << BLU;
-	if (guard == false)
-	{
-		guard = true;
-		std::cout << "\nFunction guardgate() called ON: " << m_name << " is in Gate keeper mode\n"; 
-	}
-	else
-	{
-		guard = false;
-		std::cout << "\nFunction guardgate() called OFF: " << m_name << " is not in Gate keeper mode\n"; 
-	}
-	std::cout << RES;
+	std::cout << CYN"\nFunction highFivesGuys() called from FragTrap " << m_name << RES << "\n"; 
 }
+
