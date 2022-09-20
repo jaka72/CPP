@@ -1,4 +1,16 @@
-#include "main.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   utils.cpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/20 13:25:54 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/20 17:02:04 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "utils.hpp"
 
 void	print_line(void)
 {
@@ -18,11 +30,10 @@ std::string get_substr(std::string str)
 
 void	print_the_contact(PhoneBook	pb, int i)
 {
-	std::cout << "\nContact nr. " << i << '\n';
-	std::cout << "  First name:     " << pb.contact[i].firstname_orig << '\n';
-	std::cout << "  Last name:      " << pb.contact[i].lastname_orig << '\n';
+	std::cout << "\nContact nr. " << i + 1 << '\n';
+	std::cout << "  First name:     " << pb.contact[i].firstname << '\n';
+	std::cout << "  Last name:      " << pb.contact[i].lastname << '\n';
 	std::cout << "  Nickname:       " << pb.contact[i].nickname << '\n';
 	std::cout << "  Phone number:   " << pb.contact[i].phone_number << '\n';
 	std::cout << "  Darkest secret: " << pb.contact[i].darkest_secret << '\n';
-	// std::cout << std::endl;
 }

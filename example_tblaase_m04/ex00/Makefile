@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/29 17:05:55 by tblaase           #+#    #+#              #
-#    Updated: 2022/03/30 10:58:03 by tblaase          ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: tblaase <tblaase@student.42.fr>              +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/03/29 17:05:55 by tblaase       #+#    #+#                  #
+#    Updated: 2022/09/20 11:45:40 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,20 +49,26 @@ all: $(NAME)
 	@printf "$(GREEN)                                                                \n$(RESET)"
 	@printf "\n"
 
-#compile the executable
-$(NAME): $(OBJ)
-	@echo "$(YELLOW)Compiling [$(NAME)]...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(GREEN)Finished [$(NAME)]$(RESET)"
+
+
 
 #compile objects
 $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
+	@printf "compile object: "
+	@echo "     " $@
 	@mkdir -p $(OBJ_DIR)
-	@echo "$(YELLOW)Compiling [$@]...$(RESET)"
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
-	@printf "$(UP)$(CUT)"
-	@echo "$(GREEN)Finished [$@]$(RESET)"
-	@printf "$(UP)$(CUT)"
+
+
+
+#compile the executable
+$(NAME): $(OBJ)
+	@printf "$(GREEN)Make executable \n$(RESET)"
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+
+
+
 
 #clean rule
 clean:

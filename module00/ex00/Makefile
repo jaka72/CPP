@@ -3,46 +3,42 @@
 ##############################################
 
 NAME		=	megaphone
-
-CC			= c++
-
-OBJ_DIR 	=	obj_dir
+CC			=	c++
+CFLAGS		=	-std=c++98 -g -Wall -Wextra -Werror 
 
 CPP_FILES	=	megaphone.cpp
 
 
-OBJ_FILES	=	$(CPP_FILES:.cpp=.o)
-OBJ			=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
-# OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
+OBJ_DIR 	=	obj_dir
+# OBJ_FILES	=	$(CPP_FILES:.cpp=.o)
+# OBJ			=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
+OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-CFLAGS		=	-std=c++98 -g -Wall -Wextra -Werror 
+all:	$(NAME)
+
+#compile the objects
+$(OBJ_DIR)/%.o:		%.cpp
+	@if [ ! -d "$(OBJ_DIR)" ]; then \
+		mkdir -p $(OBJ_DIR)/; \
+	fi;
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 
-all:		make_obj_dir	$(NAME)
-
-
-make_obj_dir:
-	@mkdir -p $(OBJ_DIR)/
-
-
+#compile the executable
 $(NAME):	$(OBJ_FILES)
 	c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
+	@printf "$(GRN)\n --- CPP MODULE 04, EX00 --- \n\n$(RES)"
 
 
-$(OBJ_DIR)/%.o:		%.cpp
-	$(CC) -c $(CFLAGS) -o $@ $<
-	gcc -c $(CFLAGS) -I$(RLFLAG)/include -o $@ $<
-
-
+#clean rules
 clean:
 	rm -f $(OBJ_FILES)
 	rm -rf $(OBJ_DIR)
-	rm -rf *.o
-
 
 fclean: clean
 	rm -f $(NAME)
 
-
 re: fclean all
+
+.PHONY: all clean fclean re

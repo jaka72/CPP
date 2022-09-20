@@ -1,13 +1,30 @@
-#include "main.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/20 13:21:04 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/20 18:24:54 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include <iomanip>	// for setw()
+#include "utils.hpp"
+#include "PhoneBook.hpp"
 
 // CHECK FOR WHAT IS ALLOWE AS INPUT, MAYBE LIKE EMPTY INPUT ETC ... 
-
+//		like empty fields ,  
+//		too long string ...
+//		max input, negative ... etc
+// 		I allow multiple words for name, but if they are separated with tabs
+//		it will deform the table -> therefore tabs must be replaces with 'spaces
 
 void	print_phonebook(PhoneBook pb, int count)
 {
-	int	j;
+	int	j = 0;
 
-	j = 0;
 	print_line();
 	std::cout << std:: setw(10) << "Index" << " | " << "First Name" << " | "
 			<< "Last Name " << " | " << " Nickname  |\n";
@@ -21,8 +38,8 @@ void	print_phonebook(PhoneBook pb, int count)
 	while (j < count)
 	{
 		std::cout << std:: setw(10) << j + 1 << " | ";
-		std::cout << std:: setw(10) << get_substr(pb.contact[j].firstname_orig) << " | ";
-		std::cout << std:: setw(10) << get_substr(pb.contact[j].lastname_orig) << " | ";
+		std::cout << std:: setw(10) << get_substr(pb.contact[j].firstname) << " | ";
+		std::cout << std:: setw(10) << get_substr(pb.contact[j].lastname) << " | ";
 		std::cout << std:: setw(10) << get_substr(pb.contact[j].nickname) << " | ";
 		std::cout << std::endl;
 		j++;
@@ -39,14 +56,17 @@ void	choose_and_show(PhoneBook ph, int count)
 		return ;
 	std::cout << "Choose index: ";
 	std::cin >> index;
-	if (index < 1 || index > count)
+	if (index > count && index <= 8)
 	{
-		std::cout << "Index is out of range, try again.\n";
+		std::cout << "This field is empty, there are " << count
+					<< " contacts in the Phonebook\n";
+	}
+	else if (index < 1 || index > count)
+	{
+		std::cout << "Out of range, there are 1-8 contacts in the Phonebook\n";
 	}
 	else
-	{
 		print_the_contact(ph, index - 1);
-	}
 }
 
 
@@ -54,20 +74,18 @@ void	add_a_contact(PhoneBook &pb, int &count)
 {
 	if (count == 8)
 		count = 7;
-	std::cout << "Enter contact " << count + 1 << ':' << std::endl;
-	std::cout << "  Firstname_orig:      ";
-	std::getline(std::cin, pb.contact[count].firstname_orig);
-	std::cout << "  Lastname_orig:       ";
-	std::getline(std::cin, pb.contact[count].lastname_orig);
-	std::cout << "  Nickname:        ";
-	std::getline(std::cin, pb.contact[count].nickname);
-	std::cout << "  Phone number:    ";
-	std::getline(std::cin, pb.contact[count].phone_number);
-	std::cout << "  Darkest secret:  ";
-	std::getline(std::cin, pb.contact[count].darkest_secret);
+	std::cout << "Enter contact " << count + 1 << ":\n";
+	
+	get_name("First Name:", pb.contact[count].firstname);
+	get_name("Last Name:", pb.contact[count].lastname);
+	get_name("Nickname:", pb.contact[count].nickname);
+	// get_number(pb, count);
+	get_number(pb.contact[count].phone_number);
+	get_name("Darkest Secret:", pb.contact[count].darkest_secret);
 	count++;
 }
 
+// ADD CHECKING FOR EMPTY FIELDS
 
 int	main(void)
 {
@@ -81,7 +99,9 @@ int	main(void)
 	{
 		std::cout << "\nEnter a command (a=ADD, s=SEARCH or e=EXIT): ";
 		std::cin >> command;
-		std::cin.ignore(1000, '\n');
+		//std::cout << "\nEntered : " << command << "\n";
+		std::cin.ignore(1000, '\n');			// ignore all after first
+												// word until the newline
 		if (command == "a")
 			add_a_contact(phonebook, count);
 		else if (command == "s")

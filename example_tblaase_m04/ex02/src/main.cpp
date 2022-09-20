@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 09:47:42 by tblaase           #+#    #+#             */
-/*   Updated: 2022/04/06 11:47:57 by tblaase          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: tblaase <tblaase@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/03/30 09:47:42 by tblaase       #+#    #+#                 */
+/*   Updated: 2022/09/19 20:46:06 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main()
 	// uncomment the following to show that the Animal constructor is
 	// now only usable by the inheritant classes
 
-	// const Animal *animal = new Animal();
-	// animal->makeSound();
+	const Animal *animal = new Animal();
+	animal->makeSound();
 
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*meta[10];

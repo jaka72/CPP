@@ -2,51 +2,62 @@
 ## HOW TO MAKE THE OBJECT FOLDER, BEFORE MAKING OBJECT FILES
 ##	BUT TO STILL PRINT OUT "nothing to be done for all" - WHICH DOES NOT SHOW UP
 ##	IF I FIRST MAKE THE FOLDER
+##
 
-## MinGW32-make    Make on Windows
+# colors
+RES		=	\033[0m
+GRN		=	\033[32m
+YELLOW	=	\033[33m
+BLUE	=	\033[34m
+RED		=	\033[31m
+# UP		=	\033[A
+# CUT		=	\033[K
+
 
 
 NAME		=	phonebook
-
-OBJ_DIR 	=	obj_dir
-
-CPP_FILES	=	main.cpp	\
-				utils.cpp
-OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
-#OBJ_FILES	=	$(CPP_FILES:.cpp=.o)
-
-
-# HEADER	=	someheader.h			\
-# 				typedef.h
-
+CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
 
+CPP_FILES	=	main.cpp	\
+				utils.cpp	\
+				get_name_and_number.cpp
 
-# all:		make_obj_dir	$(NAME)
+OBJ_DIR 	=	obj_dir
+OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
+
+HEADERS		=	utils.hpp
+
+
+
+
 all:		$(NAME)
 
-
-### for folders for object files
-# make_obj_dir:
-# 	@mkdir -p $(OBJ_DIR)/
-
-
-# $(NAME):	$(LIBFT_A) $(OBJ) 	$(HEADER)
-$(NAME):	$(OBJ_FILES)	#$(HEADER)
-	@c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
-#	gcc $(CFLAGS) $(OBJ) -I$(RLFLAG)/include -L$(RLFLAG)/lib -lreadline $(LIBFT_A) -o $(NAME)
-
-
-
-$(OBJ_DIR)/%.o:		%.cpp 	#$(HEADER)
+#compile the objects
+$(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
+#	@printf "$(GRN)  make object \n\n$(RES)"
+	@if [ ! -d "$(OBJ_DIR)" ]; then \
+		mkdir -p $(OBJ_DIR)/; \
+	fi;
 	@c++ -c $(CFLAGS) -o $@ $<
-#	gcc -c $(CFLAGS) -I$(RLFLAG)/include -o $@ $<
 
+
+#compile the executable
+$(NAME):	$(OBJ_FILES)
+	@c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
+	@printf "$(GRN)\n --- CPP MODULE 04, EX01 --- \n\n$(RES)"
+
+
+#clean rule
 clean:
 	rm -f $(OBJ_FILES)
-#	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
+
+#fclean rule
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
