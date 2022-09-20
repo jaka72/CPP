@@ -1,13 +1,10 @@
 ##############################################
-#	DEFAULT
+#	NO MESSAGE "Nothing to be done for all .."
 ##############################################
 
 NAME		=	megaphone
-
 CC			= c++
-
 OBJ_DIR 	=	obj_dir
-
 CPP_FILES	=	megaphone.cpp
 
 
