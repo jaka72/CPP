@@ -6,13 +6,14 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:21:04 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/20 18:24:54 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/21 11:10:58 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iomanip>	// for setw()
 #include "utils.hpp"
 #include "PhoneBook.hpp"
+
 
 // CHECK FOR WHAT IS ALLOWE AS INPUT, MAYBE LIKE EMPTY INPUT ETC ... 
 //		like empty fields ,  
@@ -56,7 +57,7 @@ void	choose_and_show(PhoneBook ph, int count)
 		return ;
 	std::cout << "Choose index: ";
 	std::cin >> index;
-	if (index > count && index <= 8)
+	if (index > count && index <= MAX_CONTACTS)
 	{
 		std::cout << "This field is empty, there are " << count
 					<< " contacts in the Phonebook\n";
@@ -72,8 +73,8 @@ void	choose_and_show(PhoneBook ph, int count)
 
 void	add_a_contact(PhoneBook &pb, int &count)
 {
-	if (count == 8)
-		count = 7;
+	if (count == MAX_CONTACTS)
+		count = MAX_CONTACTS - 1;
 	std::cout << "Enter contact " << count + 1 << ":\n";
 	
 	get_name("First Name:", pb.contact[count].firstname);

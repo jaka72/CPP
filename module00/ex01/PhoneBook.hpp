@@ -3,10 +3,12 @@
 
 # include "Contact.hpp"
 
+# define MAX_CONTACTS 8
+
 class PhoneBook
 {
 	public:
-		Contact contact[8];
+		Contact contact[MAX_CONTACTS];
 };
 
 #endif
