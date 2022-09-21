@@ -3,6 +3,7 @@
 #include <ostream>
 #include <string>
 #include <cstring>		// PROBABLY SOME OF THESE ARE NOT USED
+#include <stdlib.h>		// for exit()
 
 // WHAT IF FIND IS THE SAME AS TARGET STRING, DO YOU GET INFINITE LOOP?
 
@@ -91,7 +92,7 @@ int main(int argc, char **argv)
 	//  std::cout << "NPOS: " << std::string::npos << '\n';
 	//  4.294.967.295
 	
-	int i {0};
+	int i = 0;
 	while (std::getline(infile, line))
 	{
 		//std::cout << "\nOuter loop: i" << i << '\n';

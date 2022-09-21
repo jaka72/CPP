@@ -1,0 +1,7818 @@
+00:00:00:00 - 00:00:04:14
+Welcome everyone to another session
+of Codam Masterclass.
+
+00:00:05:04 - 00:00:09:03
+For those that do not know yet,
+especially the ones that are watching us
+
+00:00:09:09 - 00:00:12:02
+from open
+as of the world of the 42 network.
+
+00:00:12:18 - 00:00:15:19
+But a masterclass is our in-depth
+
+00:00:15:19 - 00:00:18:21
+technical sessions on different
+
+00:00:20:00 - 00:00:21:00
+technical topics.
+
+00:00:21:00 - 00:00:22:17
+Very straightforward, right?
+
+00:00:22:17 - 00:00:24:16
+Today we talk about testing.
+
+00:00:24:16 - 00:00:30:00
+Many of you might have already
+watched the Clean Code Masterclass.
+
+00:00:30:23 - 00:00:35:23
+So this masterclass is about testing,
+because actually during that masterclass,
+
+00:00:36:07 - 00:00:38:11
+many of you indicated that
+
+00:00:39:00 - 00:00:43:18
+testing is another interesting topic
+for you to listen to, right?
+
+00:00:44:04 - 00:00:46:12
+That's why I see that we have a full room.
+
+00:00:46:22 - 00:00:50:08
+I don't think that I've ever seen
+the room that school in a while now.
+
+00:00:50:09 - 00:00:53:05
+So I'm very happy to see
+
+00:00:53:19 - 00:00:56:00
+who's going to give the session today.
+
+00:00:56:01 - 00:00:58:24
+We are welcoming Omar Cardamom.
+
+00:00:59:04 - 00:01:00:22
+If I pronounce it correctly.
+
+00:01:00:22 - 00:01:05:04
+He has actually 16 years of experience
+in the testing,
+
+00:01:05:04 - 00:01:10:05
+specifically test automation
+with C-sharp, C++, Python.
+
+00:01:10:24 - 00:01:11:22
+So it's.
+
+00:01:11:22 - 00:01:14:20
+It ranks home right? Also in a way.
+
+00:01:14:20 - 00:01:17:17
+So that's why we are super happy
+to have you.
+
+00:01:17:17 - 00:01:20:13
+Also,
+Omar is right now at this expert, Tom.
+
+00:01:20:13 - 00:01:25:12
+Tom, who worked in multiple startups
+before related again
+
+00:01:25:20 - 00:01:29:00
+this thing six years is more than enough
+you know, to actually
+
+00:01:29:23 - 00:01:33:18
+have you here you know, to share
+your knowledge with with our students
+
+00:01:35:02 - 00:01:36:05
+with no further due.
+
+00:01:36:05 - 00:01:37:06
+Because it's not about me.
+
+00:01:37:06 - 00:01:39:08
+It's about Omar, and it's about you guys.
+
+00:01:39:15 - 00:01:40:17
+Omar, take the stage.
+
+00:01:40:17 - 00:01:41:08
+Okay.
+
+00:01:41:08 - 00:01:41:20
+Thanks.
+
+00:01:48:18 - 00:01:50:08
+Though there is one single.
+
+00:01:50:08 - 00:01:53:23
+One single administrative thing,
+because we have
+
+00:01:53:23 - 00:01:59:13
+we have actually 558 registration
+for this for this event.
+
+00:01:59:14 - 00:02:00:03
+Okay.
+
+00:02:00:03 - 00:02:02:23
+So there is a bunch of other campuses
+joining us from
+
+00:02:03:24 - 00:02:05:11
+from far away.
+
+00:02:05:11 - 00:02:08:18
+So we actually organize the Slido.
+
+00:02:09:06 - 00:02:13:02
+I also shared
+the link of the Slido in the live stream.
+
+00:02:13:09 - 00:02:17:19
+So whenever a question pops up, please
+include it
+
+00:02:17:19 - 00:02:21:16
+in Slido, and Omar will address them
+at the end of the session.
+
+00:02:21:21 - 00:02:22:14
+Okay.
+
+00:02:22:15 - 00:02:25:23
+So even the people in the House, you can
+you can already do it.
+
+00:02:25:23 - 00:02:29:06
+Now is the taco soup or you can wait
+
+00:02:29:16 - 00:02:32:05
+until the end because we're going to
+throw the vegetables.
+
+00:02:32:22 - 00:02:33:04
+Okay.
+
+00:02:35:24 - 00:02:37:14
+So, yeah, thanks.
+
+00:02:37:14 - 00:02:38:09
+Thanks, Victoria.
+
+00:02:38:09 - 00:02:40:07
+As she mentioned, I'm.
+
+00:02:40:07 - 00:02:42:00
+Going I have 60.
+
+00:02:42:00 - 00:02:43:23
+Years of experience around testing now.
+
+00:02:43:23 - 00:02:47:09
+I started my career
+as a manual test engineer.
+
+00:02:47:19 - 00:02:49:09
+Then basically I saw that.
+
+00:02:49:09 - 00:02:51:16
+Automation is a bit more fun.
+
+00:02:52:02 - 00:02:55:14
+So for 16 years I started working on.
+
+00:02:55:14 - 00:03:00:02
+Different areas related to testing,
+and I worked in avionics projects
+
+00:03:00:03 - 00:03:03:09
+with, you know, huge military standards
+that you need to follow.
+
+00:03:03:14 - 00:03:06:19
+I also worked in startups
+and right now I am working at TomTom
+
+00:03:07:04 - 00:03:10:02
+and again
+they all had different aspects on testing.
+
+00:03:10:20 - 00:03:14:15
+And today the idea I had was first of all.
+
+00:03:15:11 - 00:03:18:15
+Yeah, this,
+so this you can see what I have prepared.
+
+00:03:19:14 - 00:03:22:09
+And the other thing is, yeah, we also had.
+
+00:03:22:09 - 00:03:26:20
+A talk with Vittoria and Nicolas
+and the suggestion was focusing
+
+00:03:26:20 - 00:03:29:21
+on, you know, something concrete
+so that it will be easy
+
+00:03:29:22 - 00:03:33:03
+to follow, you know, you know,
+you will be to specific information.
+
+00:03:33:03 - 00:03:36:03
+So and there are topics around
+testing that we can focus.
+
+00:03:36:20 - 00:03:39:15
+But I realized that whatever I.
+
+00:03:39:15 - 00:03:41:19
+Had. Peaked, it would not help.
+
+00:03:41:19 - 00:03:43:06
+You write better tests.
+
+00:03:43:06 - 00:03:46:12
+You know, the tools are online,
+you can find tutorials about everything.
+
+00:03:46:12 - 00:03:50:09
+But the thing that is missing
+is usually the testing mindset.
+
+00:03:51:09 - 00:03:52:05
+So what
+
+00:03:52:05 - 00:03:56:16
+I prepared today is some information.
+
+00:03:56:16 - 00:03:57:10
+About.
+
+00:03:57:10 - 00:04:01:00
+Why testing fails, you know,
+because all the companies, almost
+
+00:04:01:00 - 00:04:02:16
+all the country companies have.
+
+00:04:02:16 - 00:04:04:05
+Testing procedures, they have.
+
+00:04:04:05 - 00:04:06:14
+Dedicated testers,
+
+00:04:06:14 - 00:04:08:13
+and still almost no.
+
+00:04:08:13 - 00:04:10:22
+Product is free.
+
+00:04:10:22 - 00:04:13:19
+And today
+I will try to show you why that happens.
+
+00:04:13:19 - 00:04:16:01
+What are those policies that those.
+
+00:04:16:01 - 00:04:20:07
+Pitfalls and maybe in the end,
+I mean today maybe you want a little bit.
+
+00:04:20:07 - 00:04:24:12
+A specific idea about this specific tool
+or methodology, but.
+
+00:04:24:12 - 00:04:26:22
+You will have an idea about why.
+
+00:04:27:03 - 00:04:30:16
+Any of those methodologies
+that you encounter might fail
+
+00:04:30:16 - 00:04:32:22
+and what you can do to improve.
+
+00:04:33:06 - 00:04:34:10
+You know, those.
+
+00:04:36:04 - 00:04:39:05
+And this is something
+actually I would start this.
+
+00:04:40:12 - 00:04:43:09
+This would be my first flight
+and this would be my first topic.
+
+00:04:43:09 - 00:04:45:03
+But I want to. Show you something.
+
+00:04:45:03 - 00:04:47:21
+Because here you'll see the.
+Color palette.
+
+00:04:47:21 - 00:04:50:05
+It is gray. Sorry, it is blue.
+
+00:04:51:00 - 00:04:53:16
+But what I had. In mind was this. Darker.
+
+00:04:53:22 - 00:04:55:20
+Background.
+
+00:04:55:20 - 00:04:57:18
+So actually, I mean,
+
+00:04:58:20 - 00:05:01:03
+we just
+started and we already found a buck.
+
+00:05:01:08 - 00:05:03:11
+And this is not our problem.
+
+00:05:03:11 - 00:05:06:18
+Probably
+it is probably a bug about PowerPoint.
+
+00:05:06:18 - 00:05:09:22
+But I think it could be cool and
+
+00:05:09:22 - 00:05:10:17
+to talk about it.
+
+00:05:10:17 - 00:05:13:15
+But one of the things that I want to.
+
+00:05:13:15 - 00:05:17:04
+Have here, so we have Slido,
+you can ask some of your questions here.
+
+00:05:17:16 - 00:05:19:23
+But during this talk I will ask you.
+
+00:05:19:23 - 00:05:20:13
+Questions.
+
+00:05:20:13 - 00:05:21:04
+And I want.
+
+00:05:21:04 - 00:05:24:14
+This to be an interactive session
+where we can go over, you know,
+
+00:05:24:15 - 00:05:28:04
+the policies and test,
+you know, your perspective
+
+00:05:28:09 - 00:05:30:22
+and see,
+you know, what we can do to improve that.
+
+00:05:32:01 - 00:05:34:04
+And, you know, let's actually
+
+00:05:34:14 - 00:05:37:22
+let's just start the interaction say that
+I mean this is about.
+
+00:05:37:23 - 00:05:39:09
+You font we have great.
+
+00:05:39:09 - 00:05:41:05
+Originally now that you have blue
+
+00:05:42:14 - 00:05:45:03
+how would
+you you are supposed to create a bug.
+
+00:05:45:03 - 00:05:46:00
+Report for it.
+
+00:05:46:00 - 00:05:48:05
+In theory, if you are testing.
+
+00:05:48:05 - 00:05:50:09
+What we the thing that you will do is to.
+
+00:05:50:09 - 00:05:55:16
+Create that report and ideas.
+
+00:05:55:16 - 00:06:02:02
+At any moment
+I will just teach you as a victim.
+
+00:06:02:02 - 00:06:04:09
+So yeah.
+
+00:06:04:09 - 00:06:08:21
+But I'm doing so well, which.
+
+00:06:08:21 - 00:06:09:07
+Okay.
+
+00:06:13:05 - 00:06:13:19
+Yeah.
+
+00:06:13:19 - 00:06:15:15
+So these are supposed to be great.
+
+00:06:15:15 - 00:06:17:24
+And now it just blew me.
+
+00:06:17:24 - 00:06:18:14
+Away.
+
+00:06:20:09 - 00:06:22:04
+Because people probably.
+
+00:06:22:10 - 00:06:24:13
+Oh, yeah,
+
+00:06:26:19 - 00:06:27:18
+oh, yeah.
+
+00:06:27:18 - 00:06:29:17
+Okay. You know, it's like.
+
+00:06:29:17 - 00:06:31:13
+But myself, I guess
+
+00:06:32:04 - 00:06:34:20
+Marion's, um,
+
+00:06:34:20 - 00:06:38:06
+I guess
+if we're going to make a bug report for,
+
+00:06:38:21 - 00:06:42:07
+uh, uh,
+
+00:06:42:12 - 00:06:45:12
+I guess we'll start with what's happening.
+
+00:06:45:12 - 00:06:47:00
+What? I see that's wrong. Okay.
+
+00:06:47:00 - 00:06:51:07
+It should be like
+and in the development view, it's like,
+
+00:06:52:10 - 00:06:56:03
+you know, I would include this file
+because it's probably an issue in this
+
+00:06:56:03 - 00:06:56:16
+file.
+
+00:06:57:00 - 00:07:00:08
+Include information about what
+version of PowerPoint I'm using.
+
+00:07:00:08 - 00:07:02:15
+Yeah.
+All kinds of metadata like that, I guess.
+
+00:07:02:15 - 00:07:06:18
+And then I think I tried to reproduce it
+in the fresh violence.
+
+00:07:06:18 - 00:07:09:10
+If I can do that
+and include that information.
+
+00:07:09:10 - 00:07:10:08
+These are all here.
+
+00:07:10:08 - 00:07:12:09
+And let me show you something.
+
+00:07:12:09 - 00:07:14:03
+Okay. Now look at. This.
+
+00:07:14:03 - 00:07:16:17
+Will you be able
+to catch something? Yes. Here
+
+00:07:21:03 - 00:07:21:16
+I'm actually.
+
+00:07:21:16 - 00:07:23:16
+Using a browser. Oh, right.
+
+00:07:24:12 - 00:07:25:13
+Good points. Yes.
+
+00:07:25:13 - 00:07:25:18
+Yeah.
+
+00:07:25:18 - 00:07:27:23
+So, yeah, I definitely include
+which browser I'm using
+
+00:07:28:06 - 00:07:31:21
+and we'll probably try to see if it if it
+behaves the same in a different browser.
+
+00:07:32:07 - 00:07:36:20
+And if I have like a PowerPoint,
+but I have same in there exactly.
+
+00:07:36:20 - 00:07:38:21
+Like even while creating the bug report.
+
+00:07:38:21 - 00:07:42:11
+Actually you are, you know, doing further
+testing about, you know, providing
+
+00:07:42:12 - 00:07:46:05
+more information to the developer,
+you know, so this is where it works.
+
+00:07:46:05 - 00:07:48:07
+Because usually this is what happens.
+
+00:07:48:07 - 00:07:52:01
+You create a bug report saying that, okay,
+this is great, I open the browser
+
+00:07:52:02 - 00:07:53:10
+and suddenly it does blue.
+
+00:07:53:10 - 00:07:55:16
+And then if you want full screen.
+
+00:07:55:16 - 00:07:57:17
+And you don't include details like.
+
+00:07:58:01 - 00:07:59:16
+I am also using Linux by the way.
+
+00:08:00:23 - 00:08:03:12
+There's chrome, I'm Chrome needs an update
+there.
+
+00:08:03:12 - 00:08:05:21
+You can also see. That
+there are all kinds of extensions.
+
+00:08:05:21 - 00:08:06:20
+Chrome OS.
+
+00:08:06:21 - 00:08:11:02
+So there are a lot of information that is
+actually that might be causing this.
+
+00:08:11:02 - 00:08:12:24
+Error that you are seeing.
+
+00:08:12:24 - 00:08:15:12
+And if you do not. Include all. Those.
+
+00:08:15:12 - 00:08:18:19
+Potentially relevant information
+or if you don't test it yourself first,
+
+00:08:18:21 - 00:08:20:06
+you know, all those combinations.
+
+00:08:20:06 - 00:08:22:02
+Then you will send. It to the developer.
+
+00:08:22:02 - 00:08:24:23
+They will open the fire
+with the local power point they have
+
+00:08:24:24 - 00:08:26:01
+and it will just work
+
+00:08:26:01 - 00:08:29:00
+and they will say, I cannot produce
+sorry and the work will be closed.
+
+00:08:29:10 - 00:08:32:00
+And this basically happens every day
+on real life,
+
+00:08:32:04 - 00:08:34:05
+you know, in all those big projects.
+
+00:08:36:03 - 00:08:40:16
+So actually we we can even keep the.
+
+00:08:40:16 - 00:08:43:21
+Microphones around because I want to
+continue with the interaction.
+
+00:08:44:09 - 00:08:46:11
+So imagine that I gave you this.
+
+00:08:46:11 - 00:08:51:00
+This is a flow chart of a small system
+that. Is supposed to be doing something.
+
+00:08:51:16 - 00:08:54:08
+And I want to ask you, how many tests.
+
+00:08:54:08 - 00:08:57:11
+Would you need to verify that this works
+
+00:08:57:12 - 00:09:05:10
+correctly?
+
+00:09:05:10 - 00:09:08:06
+I guess first you'd have less than 70,
+
+00:09:08:19 - 00:09:12:07
+about 70, 70 negative
+
+00:09:12:21 - 00:09:16:15
+and one above in max,
+maybe one above, one below.
+
+00:09:17:08 - 00:09:17:24
+Is that about?
+
+00:09:17:24 - 00:09:21:16
+It also depends if it takes into a long
+term limits, basically.
+
+00:09:22:06 - 00:09:23:10
+Yeah. Okay.
+
+00:09:23:10 - 00:09:24:11
+These are I.
+
+00:09:24:11 - 00:09:28:05
+Mean, yeah, these are really basically
+good textbook answers and other.
+
+00:09:28:05 - 00:09:31:02
+Ideas.
+
+00:09:31:02 - 00:09:34:13
+Other inputs that are not digits. Yes.
+
+00:09:35:22 - 00:09:36:07
+Of course.
+
+00:09:36:07 - 00:09:36:24
+I mean, it depends.
+
+00:09:36:24 - 00:09:40:14
+For example, if this is C++
+and if this is accepting an integer,
+
+00:09:40:14 - 00:09:43:21
+you cannot just push it to think that
+you will have to be an integer anyway.
+
+00:09:43:21 - 00:09:46:01
+So it will be just about boundaries,
+right?
+
+00:09:47:02 - 00:09:51:07
+And other ideas.
+
+00:09:51:07 - 00:09:55:15
+I'd say check if it's stored in a check
+if it's stored in end. Mm.
+
+00:09:56:16 - 00:09:57:05
+Yeah.
+
+00:09:57:09 - 00:10:00:06
+So you need to make sure
+that it is actually doing something.
+
+00:10:00:08 - 00:10:02:16
+Yeah.
+Not just you know, provide the inputs.
+
+00:10:02:24 - 00:10:04:03
+Yep. That's what's up here.
+
+00:10:04:03 - 00:10:07:02
+And other ideas.
+
+00:10:07:02 - 00:10:08:16
+No input.
+
+00:10:09:00 - 00:10:11:01
+Yeah. Look, my could also be possible.
+
+00:10:11:01 - 00:10:14:15
+Some language is so low that, you know,
+you might skip the arguments.
+
+00:10:15:20 - 00:10:20:07
+Anything else?
+
+00:10:20:07 - 00:10:21:03
+Yeah.
+
+00:10:22:17 - 00:10:25:03
+If it's a function,
+how many parameters that have happened,
+
+00:10:25:08 - 00:10:28:05
+how does it combined with the other ones
+that you put into that function.
+
+00:10:28:05 - 00:10:31:05
+Yeah. Okay. That kind of was a mixture.
+
+00:10:32:19 - 00:10:35:22
+And actually, I mean, what you are saying
+is they are.
+
+00:10:36:03 - 00:10:36:21
+Correct.
+
+00:10:36:21 - 00:10:40:07
+And you actually while unit testing,
+you will actually do that.
+
+00:10:40:20 - 00:10:44:12
+And the thing is, I mean, it also depends.
+
+00:10:44:12 - 00:10:46:00
+A lot on the context.
+
+00:10:46:00 - 00:10:48:18
+So, you know, going
+I ask me to test you actually go
+
+00:10:48:21 - 00:10:51:24
+here, you know, try to calculate
+the number of different inputs
+
+00:10:51:24 - 00:10:54:00
+that you can take,
+you know, what you can provide with it.
+
+00:10:55:02 - 00:10:58:05
+But testing is actually,
+
+00:10:58:17 - 00:11:02:16
+you know, it was a lot of skepticism
+because this is what I show you.
+
+00:11:02:16 - 00:11:04:23
+But this does this is just a picture.
+
+00:11:05:01 - 00:11:07:08
+This is not the software you are testing
+or this is not the.
+
+00:11:07:08 - 00:11:09:09
+Intention,
+what the software should be doing.
+
+00:11:10:06 - 00:11:12:15
+And this might be the context.
+
+00:11:12:18 - 00:11:13:20
+So maybe this.
+
+00:11:13:20 - 00:11:16:22
+Code is a part of an anti-missile system
+and it runs on a.
+
+00:11:16:22 - 00:11:19:17
+Distributed
+computer network. Between two computers.
+
+00:11:19:17 - 00:11:23:09
+And it overlays three levels,
+you know, missiles, and it calculates
+
+00:11:23:10 - 00:11:27:19
+countermeasures and the threat level
+is a letter, you know, as collateral.
+
+00:11:27:20 - 00:11:30:08
+And only the threats in the range of F.
+
+00:11:30:12 - 00:11:32:06
+Should be, you know, calculated.
+
+00:11:32:06 - 00:11:35:22
+And it does a lot of filtering
+and scattering actually means, you know,
+
+00:11:36:03 - 00:11:38:23
+connecting to call out,
+verifying credentials and everything.
+
+00:11:40:06 - 00:11:44:04
+Now, with this in mind, things
+change a bit.
+
+00:11:44:19 - 00:11:46:05
+What you say is it'll make sense.
+
+00:11:46:05 - 00:11:48:07
+But, you know,
+if this is the. System that you.
+
+00:11:48:07 - 00:11:49:10
+Are supposed to be testing,
+
+00:11:49:10 - 00:11:49:22
+then you will
+
+00:11:49:22 - 00:11:53:07
+start thinking about other things like,
+you know, what happens if we all.
+
+00:11:53:07 - 00:11:54:18
+Saturate the readers?
+
+00:11:54:18 - 00:11:57:05
+You know, what happens if one or two.
+
+00:11:57:05 - 00:12:00:08
+Computers just drop from the network or,
+you know there's a problem?
+
+00:12:00:08 - 00:12:02:22
+Will the filtering or scattering fails
+because.
+
+00:12:02:22 - 00:12:05:09
+Of invalid credentials
+or something along the way?
+
+00:12:05:09 - 00:12:07:02
+Or maybe there is a security threat.
+
+00:12:07:02 - 00:12:11:07
+You know, those credentials
+might actually be stolen by other people.
+
+00:12:11:20 - 00:12:14:17
+And even with the numerical thing
+actually.
+
+00:12:14:19 - 00:12:17:24
+C So 70 is
+
+00:12:19:05 - 00:12:19:15
+basically.
+
+00:12:19:15 - 00:12:22:02
+F you know, in capital F in Oscar code.
+
+00:12:22:10 - 00:12:24:01
+And this check maybe, okay,
+
+00:12:24:01 - 00:12:26:19
+it might have filtering before,
+but it is doing a similar then.
+
+00:12:27:06 - 00:12:29:23
+But the requirement says, yeah,
+it should be.
+
+00:12:30:13 - 00:12:31:23
+You know, in a closed trench.
+
+00:12:31:23 - 00:12:33:04
+So it should also be.
+
+00:12:34:04 - 00:12:37:18
+And this is what I say, why I say, you
+know, testing.
+
+00:12:37:18 - 00:12:39:08
+Requires a bit of skepticism.
+
+00:12:39:08 - 00:12:41:18
+What I show
+you and this, for example, is a tester.
+
+00:12:41:19 - 00:12:43:19
+This happens to me as about, you know, I.
+
+00:12:43:19 - 00:12:45:06
+I will be testing your.
+
+00:12:45:06 - 00:12:47:13
+Module
+or self therapy or something like. That.
+
+00:12:48:00 - 00:12:50:10
+And if I go talk with. The developer.
+
+00:12:50:10 - 00:12:52:14
+And they will say, yeah,
+this is what it is doing,
+
+00:12:52:15 - 00:12:55:18
+you know, this is well,
+I mean, it just shakes the numbers.
+
+00:12:55:18 - 00:12:57:03
+And restores it somewhere.
+
+00:12:57:03 - 00:12:59:15
+And, you know,
+it will be very easy to test.
+
+00:13:00:08 - 00:13:03:06
+So if I just blow them,
+I will just, you know, create this.
+
+00:13:03:17 - 00:13:06:17
+And once we I create that.
+
+00:13:06:20 - 00:13:09:12
+I also need to support
+that these tests are enough.
+
+00:13:09:12 - 00:13:10:02
+Right.
+
+00:13:10:08 - 00:13:12:24
+And for that, what people usually do is.
+
+00:13:14:08 - 00:13:16:06
+Checking the coverage values.
+
+00:13:16:06 - 00:13:19:00
+And for a case like this, actually,
+even two tests.
+
+00:13:19:00 - 00:13:22:20
+Are enough to satisfy the coverage
+requirements.
+
+00:13:22:20 - 00:13:25:06
+Just like, yeah,
+she started at the beginning.
+
+00:13:25:06 - 00:13:27:13
+You can provide 60, 69.
+
+00:13:27:13 - 00:13:30:03
+That's 20 and both pats
+
+00:13:30:14 - 00:13:33:06
+this predicate here
+all the statements in theory.
+
+00:13:33:07 - 00:13:35:19
+They will be covered
+so I can create. My test.
+
+00:13:35:19 - 00:13:36:05
+Report.
+
+00:13:36:05 - 00:13:38:24
+Yeah,
+we have 100% coverage for everything.
+
+00:13:39:18 - 00:13:41:21
+I mean, we have test
+that takes us to believe
+
+00:13:41:24 - 00:13:44:23
+that, you know, I just to give you style
+boundary value testing.
+
+00:13:45:12 - 00:13:48:18
+But in the end we, you know,
+put it to the system and it doesn't work
+
+00:13:48:18 - 00:13:53:02
+because it cannot quite fit the lot. So
+
+00:13:54:16 - 00:13:57:12
+I mean, it's not always like that.
+
+00:13:57:12 - 00:13:58:15
+For example.
+
+00:13:58:24 - 00:14:01:08
+If you are working with people,
+foreign avionics project
+
+00:14:01:15 - 00:14:04:11
+and I did it for like ten years,
+when you have requirements,
+
+00:14:04:11 - 00:14:09:02
+it will be very detailed and
+it will be reviewed with multiple people.
+
+00:14:09:15 - 00:14:11:20
+But still the code coverage.
+
+00:14:11:20 - 00:14:12:18
+For example, it will.
+
+00:14:12:18 - 00:14:16:22
+Be used by, you know, a lot of people,
+the developers actually.
+
+00:14:16:22 - 00:14:19:13
+Like that, like seeing that, okay,
+I ran my unit tests
+
+00:14:19:14 - 00:14:20:18
+and the coalition is increasing.
+
+00:14:20:18 - 00:14:24:21
+I am doing something good or and managers
+to also log the time in.
+
+00:14:25:14 - 00:14:28:23
+When you start working at some place,
+if you check the your testing strategy,
+
+00:14:28:23 - 00:14:31:17
+you will probably see the eight.
+Percent number.
+
+00:14:31:19 - 00:14:32:18
+They will say.
+
+00:14:32:18 - 00:14:35:10
+We test until. We have 80% coverage.
+
+00:14:36:24 - 00:14:38:07
+This helps.
+
+00:14:38:07 - 00:14:41:14
+But let's check this example.
+
+00:14:41:14 - 00:14:46:11
+So here I mean, by the way,
+just out of pure coincidence, I have.
+
+00:14:46:11 - 00:14:47:21
+79% coverage.
+
+00:14:47:21 - 00:14:50:07
+So I mean, it.
+Was just a coincidence really.
+
+00:14:50:07 - 00:14:53:12
+But yeah, it is a good coincidence.
+
+00:14:53:12 - 00:14:56:10
+So I used Python because it looks.
+
+00:14:56:10 - 00:15:00:11
+Like picture the code and it is simple to,
+you know, just to have an executable
+
+00:15:00:12 - 00:15:03:12
+in like 15. Lines like this.
+
+00:15:03:12 - 00:15:06:08
+And here we see a code and
+
+00:15:07:14 - 00:15:12:18
+it's it is actually covers
+basically most of the cases that.
+
+00:15:12:23 - 00:15:14:01
+We need to cover.
+
+00:15:14:01 - 00:15:14:11
+It checks
+
+00:15:14:11 - 00:15:19:04
+if the value is really an integer,
+it checks if it is in the accepted range.
+
+00:15:19:14 - 00:15:20:24
+And yeah.
+
+00:15:20:24 - 00:15:24:21
+Otherwise the results,
+you know, returns too large or too small.
+
+00:15:25:24 - 00:15:26:16
+And when you.
+
+00:15:26:16 - 00:15:28:15
+Look at this, you'll see that these red.
+
+00:15:28:15 - 00:15:29:21
+Lines are not covered,
+
+00:15:29:21 - 00:15:33:00
+which means we didn't provide them
+in, really tell you some other larger.
+
+00:15:33:00 - 00:15:33:21
+Values.
+
+00:15:34:05 - 00:15:36:18
+But we provide an accepted value.
+
+00:15:37:11 - 00:15:40:16
+So obviously,
+I mean, this is not well-tested yet.
+
+00:15:40:16 - 00:15:45:01
+So the managers use the 7 to 9 numbers
+and says, yeah, we need to reach 8%.
+
+00:15:45:01 - 00:15:47:16
+Please, just, you know, test it further.
+
+00:15:47:16 - 00:15:49:02
+And someone comes and.
+
+00:15:49:02 - 00:15:50:17
+Says, yeah, this is actually I'm.
+
+00:15:50:17 - 00:15:53:03
+This is just numbers
+and all the checks are in place.
+
+00:15:53:03 - 00:15:56:09
+So I will just write a small
+test, something like this
+
+00:15:57:20 - 00:16:00:21
+check range with this string with none
+with a floating value.
+
+00:16:00:21 - 00:16:05:24
+And why not test all the numbers
+from -100 to 100.
+
+00:16:06:03 - 00:16:08:17
+And I'm going to choose.
+Every ten overkill.
+
+00:16:08:17 - 00:16:12:09
+But maybe the developer was a psychopath
+and he injected that quote here,
+
+00:16:12:09 - 00:16:14:21
+you know, like if it is -75.
+
+00:16:16:03 - 00:16:17:21
+Which helps to actually catching.
+
+00:16:17:21 - 00:16:20:10
+The psychopaths,
+you know, if you are implementing,
+
+00:16:20:10 - 00:16:22:19
+testing the features
+and something is not covered yet,
+
+00:16:22:19 - 00:16:24:21
+there might be something risky
+going on about that.
+
+00:16:26:07 - 00:16:30:05
+So we have these tests
+and we have 100% coverage.
+
+00:16:30:23 - 00:16:38:13
+Are we done?
+
+00:16:38:13 - 00:16:43:08
+At least no one is saying yes.
+
+00:16:43:08 - 00:16:43:24
+I mean,
+
+00:16:44:20 - 00:16:45:19
+let's look at this test.
+
+00:16:45:19 - 00:16:48:09
+Or do you see any obvious errors.
+
+00:16:48:09 - 00:16:57:00
+You know, on this one.
+
+00:16:57:00 - 00:16:59:05
+We're never checking what we get back.
+
+00:16:59:05 - 00:17:00:11
+Yeah, exactly.
+
+00:17:00:11 - 00:17:05:17
+And this is covering everything,
+but this is not verifying anything.
+
+00:17:06:03 - 00:17:08:02
+So we don't have any associations,
+any checks.
+
+00:17:08:02 - 00:17:09:14
+It actually. Just verifies
+
+00:17:09:14 - 00:17:13:11
+that it doesn't throw an exception
+and just peels in the middle. And
+
+00:17:15:17 - 00:17:18:09
+this is one of the main fallacies.
+
+00:17:18:09 - 00:17:20:22
+About coverage.
+
+00:17:21:12 - 00:17:24:03
+Because as I mentioned, I'm in manager
+select.
+
+00:17:24:03 - 00:17:25:11
+Seeing that 80%.
+
+00:17:25:11 - 00:17:29:07
+They will almost like seeing their,
+you know, coverage increase.
+
+00:17:29:19 - 00:17:33:04
+But the thing is, if you are not reviewing
+the tests properly,
+
+00:17:33:24 - 00:17:36:05
+then it doesn't really mean much.
+
+00:17:36:05 - 00:17:37:16
+I mean, actually, for example,
+
+00:17:37:16 - 00:17:41:03
+when I was working in avionics,
+we we had very hard, you.
+
+00:17:41:03 - 00:17:43:05
+Know, strict coverage requirements.
+
+00:17:43:05 - 00:17:47:13
+And when we turn on the system without
+doing anything, we will have more than 50.
+
+00:17:47:13 - 00:17:48:17
+Percent code coverage.
+
+00:17:48:17 - 00:17:51:12
+We thought, you know, just by turning it
+on, because.
+
+00:17:51:14 - 00:17:55:06
+All those inclusions in the initialization
+sequences and other stuff,
+
+00:17:55:18 - 00:17:58:23
+they,
+I mean, they already cover some piece.
+
+00:17:58:23 - 00:17:59:19
+Of the code.
+
+00:17:59:19 - 00:18:01:17
+And it doesn't mean anything.
+
+00:18:01:17 - 00:18:03:10
+Those pieces are not tested.
+
+00:18:03:10 - 00:18:08:12
+We basically did what is called
+a smoke test and that is basically.
+
+00:18:08:12 - 00:18:11:07
+You turn the engine on and check in.
+
+00:18:11:07 - 00:18:12:04
+A smoke is coming.
+
+00:18:12:04 - 00:18:12:21
+You know,
+
+00:18:12:21 - 00:18:15:24
+probably the first as usual to, you know,
+when you are buying the car, for example.
+
+00:18:17:09 - 00:18:19:15
+And again, just turning on.
+
+00:18:19:15 - 00:18:21:16
+The system,
+verifying that it is a smoke case.
+
+00:18:21:16 - 00:18:24:08
+But it doesn't mean that
+those features are covered.
+
+00:18:24:08 - 00:18:25:15
+So let's improve.
+
+00:18:25:15 - 00:18:26:20
+These. Tests
+
+00:18:27:20 - 00:18:33:22
+now. We separated them
+and we put assertions, okay,
+
+00:18:35:01 - 00:18:38:14
+so we are actually still checking
+the same thing, but we are researching.
+
+00:18:38:14 - 00:18:44:03
+On the return really says, well, now,
+you know, again we have the same coverage.
+
+00:18:44:03 - 00:18:47:00
+We didn't improve anything
+related to coverage, but are this correct
+
+00:18:48:12 - 00:18:52:19
+or are these enough?
+
+00:18:52:19 - 00:18:56:00
+The first thing I notice is
+
+00:18:58:02 - 00:19:00:06
+like, I don't know. And
+
+00:19:00:09 - 00:19:02:05
+in Python, this might be
+you know, I'm wondering
+
+00:19:02:05 - 00:19:04:12
+if double equals checks the type as well.
+
+00:19:05:09 - 00:19:07:18
+Well, yeah,
+I guess it can be the same if it's.
+
+00:19:07:18 - 00:19:10:08
+Yeah, never mind.
+
+00:19:11:04 - 00:19:13:21
+You mean here in. The.
+
+00:19:14:07 - 00:19:15:22
+Well for example a search results
+
+00:19:16:22 - 00:19:17:18
+in some language you
+
+00:19:17:18 - 00:19:20:11
+might want to triple equals,
+but I don't think Python even has that.
+
+00:19:20:19 - 00:19:25:00
+I know this is really part of code
+so you can just and it just assertive.
+
+00:19:25:00 - 00:19:28:22
+To the given predicates you know
+in this case the comparison is correct
+
+00:19:28:22 - 00:19:29:07
+or not.
+
+00:19:29:07 - 00:19:35:14
+Otherwise it throws an exception right?
+
+00:19:35:14 - 00:19:37:19
+I mean, think about our.
+
+00:19:38:00 - 00:19:39:06
+Previous example, actually.
+
+00:19:39:06 - 00:19:42:00
+Basically, I mean,
+it will connect to something similar.
+
+00:19:42:00 - 00:19:44:20
+I mean, this is an overkill.
+We again have ranges, you know.
+
+00:19:44:20 - 00:19:47:24
+Because we are looping with, you know,
+I know this is a number of parameters
+
+00:19:48:00 - 00:19:49:02
+and everything.
+
+00:19:49:06 - 00:19:50:16
+Let's just ignore that.
+
+00:19:50:16 - 00:19:52:08
+But the thing is
+
+00:19:53:13 - 00:19:54:12
+this will pass code.
+
+00:19:54:12 - 00:19:57:03
+Review
+and other developer will look at the code,
+
+00:19:57:16 - 00:20:01:01
+they will look at the tests
+and they will say, yeah, this is okay.
+
+00:20:01:11 - 00:20:03:01
+I so. Yeah.
+
+00:20:04:20 - 00:20:07:21
+So probably the
+
+00:20:08:07 - 00:20:09:15
+before doing
+
+00:20:09:15 - 00:20:13:22
+this kind of check ups,
+you need to figure out
+
+00:20:13:22 - 00:20:16:23
+is it really like the points
+where you should check
+
+00:20:16:23 - 00:20:21:16
+this should do the test
+because maybe look in this range is fine,
+
+00:20:21:16 - 00:20:26:13
+but maybe 51 would be like at 51
+it would be another result.
+
+00:20:26:15 - 00:20:29:07
+And since it's so it's like an automatic.
+
+00:20:29:07 - 00:20:31:01
+So you have like
+
+00:20:32:15 - 00:20:33:24
+kind of examining
+
+00:20:33:24 - 00:20:38:01
+the function like methodology
+so you see at which points
+
+00:20:38:01 - 00:20:40:12
+the function changes properties
+
+00:20:41:03 - 00:20:43:06
+like, like dramatically.
+
+00:20:43:12 - 00:20:43:19
+Yeah.
+
+00:20:43:19 - 00:20:46:19
+And you check like before this point,
+
+00:20:47:19 - 00:20:52:03
+like after this point,
+after like before like previous points.
+
+00:20:52:03 - 00:20:54:05
+So you check like the regions
+
+00:20:54:05 - 00:20:57:15
+they each region
+should behave like in a specific way.
+
+00:20:58:03 - 00:21:00:06
+So you need to like muppets
+
+00:21:00:15 - 00:21:03:08
+before you like check the function.
+
+00:21:03:15 - 00:21:06:24
+You need to map
+which region and you already know
+
+00:21:07:17 - 00:21:10:16
+how each region should behave
+in this case.
+
+00:21:11:10 - 00:21:16:05
+Before this, we should really to check
+if it's values is really relevant
+
+00:21:16:05 - 00:21:20:05
+to the test
+or it's just random from from our head.
+
+00:21:21:03 - 00:21:22:21
+Yeah. Okay.
+
+00:21:22:21 - 00:21:25:01
+Yeah. You have a correct intuition here.
+
+00:21:25:01 - 00:21:26:20
+I mean, what you say is.
+
+00:21:26:20 - 00:21:29:06
+Especially important
+if you are testing like
+
+00:21:29:11 - 00:21:33:14
+mathematical, you know, a complex formula,
+like a filtering algorithm
+
+00:21:33:15 - 00:21:37:11
+that can have different behaviors
+for different pages.
+
+00:21:37:11 - 00:21:39:21
+It can go, you know,
+negative, positive things like that.
+
+00:21:40:20 - 00:21:42:06
+This is a bit simple.
+
+00:21:42:06 - 00:21:46:11
+Some of what you suggest is actually
+also covered with, you know, these extra.
+
+00:21:46:23 - 00:21:49:21
+Tests we do in these poor loops.
+
+00:21:49:21 - 00:21:51:10
+And maybe there's another.
+
+00:21:51:10 - 00:21:54:20
+Function before that which ensures
+that the values are always between
+
+00:21:55:04 - 00:22:00:01
+-101 hundred,
+which means that in those cases, you know,
+
+00:22:00:03 - 00:22:05:08
+these tests will cover all the specific
+potential inputs that we can have.
+
+00:22:06:15 - 00:22:13:08
+Now. Yeah, I see what I see.
+
+00:22:13:08 - 00:22:18:16
+It's like on the code because it doesn't
+pass the review, but it might be wrong
+
+00:22:19:00 - 00:22:22:22
+because any value is less than equals
+zero and value is less than 50
+
+00:22:23:06 - 00:22:26:22
+and is an accepted French and
+
+00:22:28:18 - 00:22:31:06
+oh yeah.
+
+00:22:31:06 - 00:22:35:03
+So we have from the French
+
+00:22:35:12 - 00:22:36:04
+and it's
+
+00:22:37:00 - 00:22:38:22
+yeah. Regions.
+
+00:22:38:22 - 00:22:39:24
+Oh okay. Okay.
+
+00:22:39:24 - 00:22:41:12
+Open ended by the way in Python.
+
+00:22:41:12 - 00:22:43:24
+So zero is included
+but 50 is not for example.
+
+00:22:44:11 - 00:22:46:14
+So okay so it's passing to the next time.
+
+00:22:46:19 - 00:22:47:03
+So it's
+
+00:22:48:09 - 00:22:48:24
+well,
+
+00:22:49:02 - 00:22:52:11
+so the second thing I would say
+because yeah, we definitely have this,
+
+00:22:52:14 - 00:22:55:10
+this our space between 0 to 50
+
+00:22:55:22 - 00:22:59:02
+and this is the most crucial
+because we want
+
+00:22:59:09 - 00:23:01:22
+maybe another function depends on it
+
+00:23:01:22 - 00:23:04:05
+so we checking this would be cool.
+
+00:23:04:05 - 00:23:07:11
+But the other point technically, well,
+
+00:23:07:20 - 00:23:10:15
+we just took arbitrary range
+
+00:23:11:18 - 00:23:15:09
+which well in this case in this machine,
+let's say it may work,
+
+00:23:15:17 - 00:23:18:04
+but on different computer, I may not. So,
+
+00:23:19:08 - 00:23:21:11
+but it will be just
+
+00:23:21:11 - 00:23:24:01
+the points which are exceeding the range.
+
+00:23:24:22 - 00:23:28:03
+The sample randomly,
+some sort of theories.
+
+00:23:28:14 - 00:23:31:00
+We can use it. Yeah. To this.
+
+00:23:31:00 - 00:23:33:09
+What you say is. Also about the context.
+
+00:23:33:10 - 00:23:36:13
+And context is not about requirements,
+but it's supposed to be
+
+00:23:36:13 - 00:23:39:00
+where it is supposed to run,
+how fast it is supposed to run.
+
+00:23:39:00 - 00:23:42:22
+And you usually have different
+separate tests for that, like stress
+
+00:23:42:22 - 00:23:47:10
+tests, performance tests to measure that,
+how it behaves on the potential systems
+
+00:23:47:10 - 00:23:48:11
+that it will be. Again.
+
+00:23:49:15 - 00:23:50:07
+I mean,
+
+00:23:50:24 - 00:23:53:04
+I didn't want to trick you to bet,
+but I mean,
+
+00:23:53:04 - 00:23:55:10
+we actually have the same fallacy here.
+
+00:23:55:14 - 00:23:58:21
+And, you know, at first glance
+it will look stupid.
+
+00:23:58:21 - 00:24:00:12
+But I will explain.
+
+00:24:00:12 - 00:24:02:23
+Why I picked this example.
+
+00:24:02:23 - 00:24:03:11
+Because the.
+
+00:24:03:11 - 00:24:06:15
+Requirement here, for example,
+might be like that.
+
+00:24:06:15 - 00:24:09:00
+And that it says is.
+
+00:24:09:00 - 00:24:10:20
+Between zero and 50.
+
+00:24:10:20 - 00:24:12:00
+What's included?
+
+00:24:12:00 - 00:24:13:08
+It should return true.
+
+00:24:13:08 - 00:24:15:09
+Otherwise it should return false.
+
+00:24:15:09 - 00:24:16:16
+And you are probably.
+
+00:24:16:16 - 00:24:19:21
+Thinking, well, if I have data
+requirement, I won't write this code.
+
+00:24:19:21 - 00:24:23:10
+I mean, when you see it side
+by side, it is it doesn't just make sense.
+
+00:24:23:10 - 00:24:23:22
+Right.
+
+00:24:24:04 - 00:24:27:11
+But the thing is, I mean,
+I hit almost exactly
+
+00:24:27:11 - 00:24:32:02
+the same thing in a, you know, software
+that is sold by.
+
+00:24:32:02 - 00:24:34:00
+Like millions, you know.
+
+00:24:34:00 - 00:24:35:16
+Really expensive piece of software.
+
+00:24:35:16 - 00:24:39:06
+And everyone was actually happy
+about even the customer, even they didn't.
+
+00:24:39:06 - 00:24:41:04
+Complain that there was a bug there.
+
+00:24:41:04 - 00:24:44:05
+What happened is, you know,
+I saw some requirements and I.
+
+00:24:44:05 - 00:24:46:20
+Decided to write, test it myself.
+
+00:24:46:20 - 00:24:48:24
+And I was working on the UI level.
+
+00:24:48:24 - 00:24:50:09
+So I created my.
+
+00:24:50:09 - 00:24:54:12
+Test cases according to the requirement
+and I created like 1516 test cases.
+
+00:24:54:23 - 00:24:56:02
+And 12 of them failed.
+
+00:24:57:07 - 00:24:58:15
+And it's
+
+00:24:58:15 - 00:25:01:23
+weird because we were given
+the software as protested,
+
+00:25:01:23 - 00:25:05:19
+you know, it passed along
+from a lot of testing, stage stages, unit
+
+00:25:05:19 - 00:25:09:17
+tests, integration test system
+tests, and I have the integrated product.
+
+00:25:09:23 - 00:25:14:19
+They have 100% coverage on this specific
+module, but we still have failures.
+
+00:25:14:19 - 00:25:17:10
+So I was curious, I decided to talk.
+
+00:25:17:10 - 00:25:22:08
+With the developers about it and told them
+that I have 16 tests and 14 of them.
+
+00:25:22:08 - 00:25:25:02
+Failing and the first response.
+
+00:25:25:02 - 00:25:27:06
+From a developer,
+when you say something like that.
+
+00:25:27:06 - 00:25:29:24
+Is, you know, you're getting.
+
+00:25:29:24 - 00:25:31:17
+Angry basically.
+
+00:25:31:17 - 00:25:34:05
+Because I mean, no developer
+just goes around.
+
+00:25:34:05 - 00:25:37:20
+And just, you know, random type of code
+and expects that someone will accept it.
+
+00:25:38:01 - 00:25:40:03
+And because there's a developer,
+you want to.
+
+00:25:40:03 - 00:25:43:22
+Create something working, you want to
+create something, you are confident.
+
+00:25:43:22 - 00:25:46:23
+It's, you know, sometimes, yeah,
+maybe you are just creating a prototype
+
+00:25:46:23 - 00:25:50:11
+and you don't care about clean code
+or anything, but at least you know
+
+00:25:50:11 - 00:25:54:22
+you are supposed to be doing
+what you supposed to be doing.
+
+00:25:54:22 - 00:26:00:13
+So we started talking with them
+and they actually gave me the coverage.
+
+00:26:00:16 - 00:26:03:06
+Results
+and they said, Yeah, we have the tests.
+
+00:26:03:06 - 00:26:05:13
+All tests are review,
+the code is reviewed.
+
+00:26:05:13 - 00:26:07:24
+We have 100% coverage for that module.
+
+00:26:08:07 - 00:26:08:17
+And you.
+
+00:26:08:17 - 00:26:10:21
+Can't blame us for not testing it enough.
+
+00:26:11:16 - 00:26:14:22
+And I actually describe them more or.
+
+00:26:14:22 - 00:26:18:09
+Less the same example I told them, Yeah,
+I don't know about what you tested
+
+00:26:19:02 - 00:26:21:24
+because I'm, I have theirs,
+I have the box.
+
+00:26:22:03 - 00:26:23:16
+They, they are reproducing.
+
+00:26:23:16 - 00:26:25:08
+Well, they are not just a one time thing.
+
+00:26:25:08 - 00:26:28:02
+I also reproduce in an elder system,
+you know.
+
+00:26:28:02 - 00:26:31:05
+It is this will just, you know, believe
+
+00:26:31:05 - 00:26:33:23
+me, I mean, it's also something
+the testers have.
+
+00:26:34:07 - 00:26:36:12
+You get excited about finding books.
+
+00:26:36:12 - 00:26:38:01
+About sometimes, you know, convincing.
+
+00:26:38:01 - 00:26:39:20
+Developers that there's a. Bug there.
+
+00:26:39:20 - 00:26:41:01
+It can be a bit tricky.
+
+00:26:42:15 - 00:26:46:17
+And that they actually they just left the.
+
+00:26:46:17 - 00:26:47:04
+Meeting.
+
+00:26:47:04 - 00:26:51:00
+It was an online call and they said, okay,
+if you want to argue about this person.
+
+00:26:51:00 - 00:26:54:03
+And they just closed the meeting.
+Yeah, it.
+
+00:26:54:03 - 00:26:54:15
+Doesn't feel.
+
+00:26:54:15 - 00:26:57:05
+Good to earn it,
+but a couple of days later.
+
+00:26:57:05 - 00:26:58:12
+We got an email from their.
+
+00:26:58:12 - 00:27:01:14
+Product owner and
+
+00:27:01:14 - 00:27:04:06
+they told us that basically none of.
+
+00:27:04:06 - 00:27:07:08
+Them had any idea about the requirement
+that you are testing.
+
+00:27:07:24 - 00:27:09:03
+They didn't even know.
+
+00:27:09:03 - 00:27:11:07
+Where we park that requirement from.
+
+00:27:11:07 - 00:27:13:12
+Because that piece of code, you know, it.
+
+00:27:13:12 - 00:27:15:06
+Was working in a previous project.
+
+00:27:15:06 - 00:27:16:08
+So they just took the.
+
+00:27:16:08 - 00:27:17:17
+Module. Integrated.
+
+00:27:17:17 - 00:27:19:22
+Into the new project and it just.
+
+00:27:19:22 - 00:27:23:23
+Worked and no one was complaining
+because even the customer, you know,
+
+00:27:24:00 - 00:27:28:08
+they gave ranges, combinations
+and it was about the speed
+
+00:27:28:08 - 00:27:32:03
+and the distance to a specific point,
+you know.
+
+00:27:32:11 - 00:27:34:04
+Yeah, they do.
+
+00:27:34:04 - 00:27:36:03
+To, to be able to test it while driving.
+
+00:27:36:03 - 00:27:37:11
+This is what customers.
+
+00:27:37:11 - 00:27:40:00
+Do, for example, for places like,
+you know,
+
+00:27:40:12 - 00:27:44:13
+at TomTom, you know,
+you create an immigration softwares and.
+
+00:27:44:21 - 00:27:45:18
+The customers install.
+
+00:27:45:18 - 00:27:48:14
+It on their software
+and they go drive testing usually
+
+00:27:48:21 - 00:27:51:11
+and you'll drive
+and try to catch those issues.
+
+00:27:51:11 - 00:27:54:24
+But those combinations,
+it required a specific speed and.
+
+00:27:55:14 - 00:27:57:18
+Specific distance to a specific point.
+
+00:27:58:00 - 00:28:00:13
+I mean, it is hard to create
+and you might just.
+
+00:28:00:19 - 00:28:02:01
+See it when you're driving.
+
+00:28:02:01 - 00:28:05:00
+So, you know, you know,
+I was realizing that Botrytis.
+
+00:28:05:00 - 00:28:06:13
+Threat, you'd be checking the.
+
+00:28:06:13 - 00:28:10:11
+Features and we were able to catch it and
+
+00:28:11:18 - 00:28:12:21
+kitchen get back.
+
+00:28:12:21 - 00:28:17:13
+Actually it is an exciting thing
+for a tester as a developer, you know.
+
+00:28:17:16 - 00:28:21:05
+When you are writing a unit test and
+you find a bug, you fix it, you continue.
+
+00:28:21:12 - 00:28:25:18
+I mean, you don't go hide,
+fight for each other.
+
+00:28:25:18 - 00:28:26:24
+Is it you. Don't go to.
+
+00:28:26:24 - 00:28:30:00
+Help each other, but,
+you know, finding out what
+
+00:28:30:00 - 00:28:32:05
+basically makes us. Feel useful.
+
+00:28:32:05 - 00:28:33:12
+Because I will tell you.
+
+00:28:33:12 - 00:28:35:10
+Specific story about that later.
+
+00:28:35:10 - 00:28:36:19
+But finding a bug.
+
+00:28:36:19 - 00:28:39:06
+Yourself means that you actually.
+
+00:28:39:18 - 00:28:41:20
+Covered something that could.
+
+00:28:41:20 - 00:28:44:11
+Have been found by the customer and which.
+
+00:28:44:11 - 00:28:45:05
+Would cause.
+
+00:28:45:05 - 00:28:47:07
+Much more if it was found by the customer.
+
+00:28:48:10 - 00:28:54:11
+And oh yeah.
+
+00:28:54:11 - 00:28:54:20
+That.
+
+00:28:57:21 - 00:29:00:22
+In the assignment
+it says like between zero and 50.
+
+00:29:00:22 - 00:29:04:02
+Both included in
+the code is actually 50 is not included.
+
+00:29:04:02 - 00:29:04:22
+Yeah. Yeah.
+
+00:29:04:22 - 00:29:10:13
+Because like if you look at the code
+is actually it's the same sentence
+
+00:29:10:13 - 00:29:14:21
+as written on the human language,
+but it's written on the machine language
+
+00:29:15:11 - 00:29:18:17
+and in this case is just wrongly wrong.
+
+00:29:18:17 - 00:29:21:23
+Translation Yeah. Definitely. And
+
+00:29:23:14 - 00:29:25:22
+actually
+let me tell you why, why this happens.
+
+00:29:26:11 - 00:29:29:19
+I even brought some stuff
+and this is called White Box Test.
+
+00:29:30:03 - 00:29:32:03
+And as I mentioned,
+it happens in real life.
+
+00:29:32:03 - 00:29:33:18
+You know why it happens?
+
+00:29:33:18 - 00:29:35:10
+Because when someone else.
+
+00:29:35:10 - 00:29:38:21
+Reviews this code and
+and it will be another developer usually
+
+00:29:39:24 - 00:29:43:06
+because developers don't as testers
+with the preview of their code you don't.
+
+00:29:44:13 - 00:29:47:03
+And the developer doesn't go
+check the requirements.
+
+00:29:47:07 - 00:29:49:12
+They check the code base, you know. Okay.
+
+00:29:49:14 - 00:29:51:01
+I mean, I. Understand what is going on.
+
+00:29:51:01 - 00:29:53:05
+I understand what this code
+is supposed to be doing.
+
+00:29:53:08 - 00:29:54:15
+So let's check the tests.
+
+00:29:54:15 - 00:29:58:05
+And the tests are like this, check
+both of them.
+
+00:29:58:05 - 00:30:00:09
+And they are compatible.
+
+00:30:00:11 - 00:30:04:06
+And it makes sense because this was about
+supposed to be doing great.
+
+00:30:04:06 - 00:30:06:01
+They don't have in the reference.
+
+00:30:06:01 - 00:30:09:12
+And even if they see the requirements,
+maybe they read it.
+
+00:30:09:12 - 00:30:10:21
+At the beginning of the project
+
+00:30:10:21 - 00:30:14:07
+and they saw these zero and 50
+and there is zero and 50 there.
+
+00:30:15:03 - 00:30:17:12
+But I mean, it's. Not the same.
+
+00:30:17:12 - 00:30:21:23
+And so when you test by looking at.
+
+00:30:21:23 - 00:30:22:13
+The code.
+
+00:30:22:13 - 00:30:23:16
+It is called white.
+
+00:30:23:16 - 00:30:25:17
+Box testing. And white. Box.
+
+00:30:25:17 - 00:30:29:06
+I mean, technically it should be called
+transparent box testing.
+
+00:30:30:15 - 00:30:33:18
+And you you check the code and you modify
+your.
+
+00:30:33:18 - 00:30:35:04
+Inputs according to the
+
+00:30:35:04 - 00:30:38:03
+that you get, for example,
+or the pretentious you have in the code.
+
+00:30:38:14 - 00:30:40:24
+But white box testing,
+I mean. It can be very useful.
+
+00:30:40:24 - 00:30:44:04
+It can, you know, help
+you populating your data, for example.
+
+00:30:44:04 - 00:30:46:07
+But just as you saw it.
+
+00:30:46:07 - 00:30:48:21
+I mean, it can be problematic.
+
+00:30:48:21 - 00:30:53:11
+And as an analogy,
+I actually brought these toys here.
+
+00:30:54:05 - 00:30:56:14
+So this is
+
+00:30:57:07 - 00:31:01:19
+I don't know if everyone can see, but
+this is actually a transparent padlock.
+
+00:31:02:10 - 00:31:04:10
+And you can use this if you want to.
+
+00:31:04:12 - 00:31:07:03
+Learn about look. And.
+
+00:31:07:09 - 00:31:10:02
+You know, as a hobby.
+You know, I, I was curious.
+
+00:31:10:02 - 00:31:13:00
+I watch look, picking low
+gear, for example, a lot actually.
+
+00:31:13:00 - 00:31:15:21
+I can even try. Picking that
+while, you know, talking.
+
+00:31:17:08 - 00:31:19:02
+Now, the good thing is I do know.
+
+00:31:19:02 - 00:31:22:07
+Everyone probably everyone
+doesn't know how I look works.
+
+00:31:22:07 - 00:31:27:00
+But the thing is there are pins here
+and there are springs.
+
+00:31:27:00 - 00:31:29:01
+The springs push the pins downwards.
+
+00:31:29:12 - 00:31:33:08
+And what you need to do is
+you actually give a little bit of tension
+
+00:31:33:09 - 00:31:34:24
+so that the pins can be.
+
+00:31:34:24 - 00:31:39:00
+Squeezed between the cylinder
+and the body of the. Pit.
+
+00:31:39:13 - 00:31:42:03
+Then this is. This is called the.
+
+00:31:42:12 - 00:31:43:21
+Tension tool or something.
+
+00:31:43:21 - 00:31:47:04
+And this is called the peak you enter in.
+
+00:31:47:04 - 00:31:49:09
+And you can with this type.
+
+00:31:49:09 - 00:31:51:00
+Of, you know, transparent look.
+
+00:31:51:00 - 00:31:52:05
+You can see what.
+
+00:31:52:05 - 00:31:53:07
+You are doing and.
+
+00:31:53:07 - 00:31:56:04
+What where each pin. Supposed to be it.
+
+00:31:57:00 - 00:32:02:00
+So seeing this, you know,
+I was actually excited
+
+00:32:02:01 - 00:32:05:07
+because the first time I tried it, it
+I think it took around.
+
+00:32:05:13 - 00:32:07:17
+10 minutes to unlock. It.
+
+00:32:07:24 - 00:32:10:01
+And it is without. Any previous knowledge.
+
+00:32:10:18 - 00:32:12:14
+I was just pushing the pins.
+
+00:32:12:14 - 00:32:14:00
+I was trying to turn it.
+
+00:32:14:00 - 00:32:15:03
+I just.
+
+00:32:15:03 - 00:32:16:07
+You know, playing around with it.
+
+00:32:16:07 - 00:32:18:08
+And it just. Opened just like that.
+
+00:32:18:08 - 00:32:20:07
+And I said, okay,
+maybe it was just dumb luck.
+
+00:32:20:07 - 00:32:23:00
+I will try it again. I tried to do it
+and I was able to open it and.
+
+00:32:23:00 - 00:32:26:09
+I said, Yeah, maybe it is because I am
+looking inside it, you know, let me.
+
+00:32:26:10 - 00:32:28:11
+Close my eyes and try it again.
+
+00:32:28:11 - 00:32:28:23
+And again.
+
+00:32:28:23 - 00:32:31:17
+It was easier, you know, in
+a couple of seconds, you know, I was able.
+
+00:32:31:17 - 00:32:32:13
+To open it again.
+
+00:32:33:16 - 00:32:34:19
+Then I
+
+00:32:34:19 - 00:32:38:19
+got a bit ambitious and I bought this one.
+
+00:32:38:19 - 00:32:41:15
+You know,
+it is not a high security padlock.
+
+00:32:41:19 - 00:32:46:08
+I mean, it is just something from action,
+very cheap, probably very unsecure.
+
+00:32:46:14 - 00:32:48:09
+Maybe I can even open it like by.
+
+00:32:48:09 - 00:32:50:06
+Forcing it like this.
+
+00:32:50:12 - 00:32:53:04
+And I think it has been like almost two.
+
+00:32:53:04 - 00:32:54:06
+Months since I.
+
+00:32:54:06 - 00:32:57:19
+Bought it
+and I was able to open it only once.
+
+00:32:57:19 - 00:33:00:08
+The thing is, I cannot see
+what is going on.
+
+00:33:00:08 - 00:33:01:14
+I know the logic.
+
+00:33:01:14 - 00:33:06:00
+I know and I can do this one eyes closed,
+but as I can see.
+
+00:33:06:00 - 00:33:08:18
+You know what is going wrong. Now,
+
+00:33:08:18 - 00:33:09:03
+if I am.
+
+00:33:09:03 - 00:33:13:24
+Pushing too hard, you know, too low and
+I am trying to feel what I am doing wrong.
+
+00:33:13:24 - 00:33:16:03
+But no, there is no feedback that is.
+
+00:33:16:03 - 00:33:18:18
+Given back to me. This is much harder.
+
+00:33:19:08 - 00:33:23:00
+And then I realize this actually
+has a very similar opening and my tools
+
+00:33:23:00 - 00:33:24:09
+were actually not the correct ones.
+
+00:33:24:09 - 00:33:26:19
+I should have smaller amounts
+for this one.
+
+00:33:26:19 - 00:33:31:19
+So this is much like the difference
+between white box and black box testing.
+
+00:33:32:09 - 00:33:34:17
+When you are testing white box,
+you know you see.
+
+00:33:35:05 - 00:33:38:01
+What you are supposed to do anyways
+and what you are.
+
+00:33:38:01 - 00:33:40:17
+Supposed to do doesn't. Reflect,
+you know, the real life.
+
+00:33:40:17 - 00:33:47:18
+In real life
+you will have much more complexities. So
+
+00:33:50:12 - 00:33:51:24
+this is what you need to.
+
+00:33:51:24 - 00:33:53:19
+Know about coverage.
+
+00:33:53:19 - 00:33:55:06
+If your tests are.
+
+00:33:55:06 - 00:33:56:02
+Filled.
+
+00:33:57:01 - 00:34:00:12
+And if you are sure that your
+you are actually.
+
+00:34:00:12 - 00:34:02:16
+Covering to covering your requirements.
+
+00:34:02:16 - 00:34:03:23
+Properly,
+
+00:34:04:12 - 00:34:06:09
+then coverage really means a lot
+
+00:34:06:09 - 00:34:10:14
+covered, really shows you which, you know,
+what kind of.
+
+00:34:10:14 - 00:34:12:15
+Tests you still need to add.
+
+00:34:13:06 - 00:34:16:02
+But careful, it doesn't show you.
+
+00:34:16:18 - 00:34:19:00
+As I mentioned, a covered line
+
+00:34:19:14 - 00:34:22:20
+doesn't mean that it was well tested.
+
+00:34:22:20 - 00:34:26:01
+In that sense, this means a lot.
+
+00:34:26:01 - 00:34:27:22
+When you have missing coverage.
+
+00:34:27:22 - 00:34:29:02
+Then you should be careful.
+
+00:34:29:02 - 00:34:32:05
+Those missing lines
+probably means you still need.
+
+00:34:32:05 - 00:34:36:00
+To do further testing on it,
+but never trust on it.
+
+00:34:36:05 - 00:34:38:07
+And. Never trust on full coverage.
+
+00:34:38:07 - 00:34:40:08
+And you know,
+
+00:34:40:14 - 00:34:43:14
+after this,
+I am really sure that you will see that.
+
+00:34:43:14 - 00:34:46:01
+80% coverage somewhere
+and just. Have a chuckle.
+
+00:34:46:01 - 00:34:49:01
+And just out of curiosity, ask them,
+you know, why
+
+00:34:49:02 - 00:34:52:09
+they picked 8% and they will say,
+I don't know, it came.
+
+00:34:52:09 - 00:34:53:21
+From a textbook.
+
+00:34:53:21 - 00:34:56:16
+You know, they tried it before
+and it worked or it is just,
+
+00:34:56:16 - 00:34:57:18
+you know, industry standard.
+
+00:34:57:18 - 00:35:00:15
+They would even call it.
+
+00:35:00:15 - 00:35:05:06
+So just don't believe that they actually
+it kind of connects to the same point.
+
+00:35:05:06 - 00:35:06:21
+You know, it depends on the context.
+
+00:35:06:21 - 00:35:13:16
+And you all need to be skeptical
+about what's going on.
+
+00:35:13:16 - 00:35:16:17
+And what we are talking is was.
+
+00:35:16:17 - 00:35:21:09
+Mainly about quantifying
+the quality of the software.
+
+00:35:22:08 - 00:35:25:11
+And it's a big focus because,
+
+00:35:26:17 - 00:35:30:19
+I mean, whenever you are doing something
+you want to have a quantitative.
+
+00:35:30:20 - 00:35:33:18
+Measurement like it is not all this gut
+feeling thing that okay.
+
+00:35:33:18 - 00:35:36:21
+I mean if, if you don't have provable.
+
+00:35:36:21 - 00:35:38:17
+Numbers, how will you verify?
+
+00:35:38:17 - 00:35:42:12
+How would you prove that you
+your software is actually mature enough
+
+00:35:42:18 - 00:35:45:14
+good enough for really.
+
+00:35:45:17 - 00:35:47:13
+But you cannot just.
+
+00:35:47:13 - 00:35:51:00
+Blindly
+use numbers to assess the quality. And.
+
+00:35:51:13 - 00:35:53:15
+Imagine these two scenarios.
+
+00:35:53:15 - 00:35:55:11
+You have to release candidates.
+
+00:35:55:11 - 00:35:57:02
+You will run all the automated tests.
+
+00:35:57:02 - 00:35:58:02
+All the automated tests.
+
+00:35:58:02 - 00:36:00:14
+Are perfect by the rate
+they are up to standards,
+
+00:36:00:14 - 00:36:03:17
+they are up to the requirements
+that they are supposed to within.
+
+00:36:04:08 - 00:36:08:13
+One has one field test,
+the other one is 20.
+
+00:36:08:13 - 00:36:09:13
+Which one would you.
+
+00:36:09:13 - 00:36:10:15
+Rather release the first.
+
+00:36:10:15 - 00:36:13:20
+One or the second one? Now
+
+00:36:16:11 - 00:36:17:00
+that's
+
+00:36:18:24 - 00:36:20:01
+debatable under.
+
+00:36:20:01 - 00:36:21:10
+On what is failing.
+
+00:36:21:10 - 00:36:23:20
+Yeah, you need to check what is failing.
+
+00:36:24:04 - 00:36:26:08
+And here for example,
+this might be a PowerPoint
+
+00:36:26:08 - 00:36:30:18
+like we are using that one field test
+is whenever you try to save the file,
+
+00:36:30:20 - 00:36:33:09
+it crashes
+and you lose your all your changes.
+
+00:36:33:21 - 00:36:38:06
+But the 20 field tests are like this one,
+like the color is changing.
+
+00:36:38:23 - 00:36:41:10
+And so that actually
+
+00:36:41:10 - 00:36:44:24
+this is why you have those release notes.
+
+00:36:44:24 - 00:36:47:24
+If you read the actual I am
+I usually get clues about the release
+
+00:36:48:00 - 00:36:51:12
+notes of a specific software, you know,
+which is like a huge block of text.
+
+00:36:51:12 - 00:36:53:20
+But I get curious
+what kind of things they actually fix
+
+00:36:53:20 - 00:36:56:01
+because it gives me insights about,
+you know.
+
+00:36:56:10 - 00:36:59:03
+How they tested it,
+what kind of issues can happen.
+
+00:36:59:04 - 00:37:01:09
+On the on a product like that one.
+
+00:37:01:20 - 00:37:02:14
+And I read that.
+
+00:37:02:14 - 00:37:04:12
+And then there will always be a section
+like.
+
+00:37:04:12 - 00:37:05:17
+Known issues on books,
+
+00:37:06:21 - 00:37:09:01
+but there are issues, there are bugs.
+
+00:37:09:10 - 00:37:12:09
+But they still release it
+and it is really normal.
+
+00:37:12:09 - 00:37:12:24
+And if you are a.
+
+00:37:12:24 - 00:37:17:02
+Gamer, you are probably more used
+to, you know, having waiting for a game
+
+00:37:17:02 - 00:37:22:20
+for years and suddenly you have something
+that is not even playable.
+
+00:37:22:20 - 00:37:24:00
+And this is like that.
+
+00:37:24:00 - 00:37:25:24
+I mean, these numbers alone, just.
+
+00:37:25:24 - 00:37:28:20
+Like the coverage,
+as they don't mean much.
+
+00:37:29:06 - 00:37:32:24
+What it might help
+it is for example, there is.
+
+00:37:32:24 - 00:37:34:03
+Something called EFM. Yeah.
+
+00:37:34:03 - 00:37:36:24
+You go through a failure mode analysis
+or risk analysis.
+
+00:37:37:14 - 00:37:40:15
+You assign a. Point like a risk value.
+
+00:37:40:15 - 00:37:43:02
+To each specific test and then you.
+
+00:37:43:08 - 00:37:48:17
+You can compare this might have a value
+of 100, but these might have a video 0.1.
+
+00:37:48:20 - 00:37:52:11
+So and you can have a numerical comparison
+that you can do,
+
+00:37:52:24 - 00:37:56:00
+but the thing is, you can't do it blindly.
+
+00:37:56:07 - 00:37:58:13
+It again, depends on the context.
+
+00:37:58:13 - 00:38:01:21
+It depends on the requirements,
+it depends on the domain knowledge,
+
+00:38:01:23 - 00:38:03:06
+the experience that you have.
+
+00:38:03:06 - 00:38:06:02
+While you were assigning those values.
+
+00:38:07:02 - 00:38:08:19
+And I mentioned.
+
+00:38:08:19 - 00:38:11:03
+That I worked in avionics,
+for example, in avionics
+
+00:38:11:03 - 00:38:14:18
+this is very crucial
+because those filaments.
+
+00:38:15:05 - 00:38:17:19
+End up with critical two levels.
+
+00:38:18:15 - 00:38:20:21
+And the critical two level is something
+
+00:38:20:21 - 00:38:23:21
+interesting because, you know,
+it is not something you.
+
+00:38:24:05 - 00:38:26:07
+Would see with mobile applications
+or navigation.
+
+00:38:26:07 - 00:38:31:07
+The criticality
+means how likely a buck can kill people.
+
+00:38:31:07 - 00:38:33:05
+You know, unintended, of course.
+
+00:38:33:05 - 00:38:36:02
+Intentional.
+Yeah. They are vocal. Missions.
+
+00:38:36:02 - 00:38:40:09
+They they will do something
+but unintentional for an aircraft.
+
+00:38:40:16 - 00:38:42:16
+How likely a bug can.
+
+00:38:42:16 - 00:38:44:16
+Kill the pilot or shoot a. Missile?
+
+00:38:44:21 - 00:38:47:21
+You know, so
+
+00:38:47:21 - 00:38:52:03
+there will be huge graphs about
+potential failures that can go badly.
+
+00:38:52:03 - 00:38:55:15
+There will be ways
+it will be analyzed with domain experts.
+
+00:38:55:19 - 00:38:57:20
+It will be cross reviewed, cross check.
+
+00:38:58:05 - 00:39:00:18
+And if it is level eight,
+then you will have more.
+
+00:39:00:18 - 00:39:03:18
+Stricter standards
+about testing coverage and everything.
+
+00:39:04:24 - 00:39:08:02
+And if it is level E.
+
+00:39:08:08 - 00:39:11:07
+Deal one seven, it says, well,
+you don't have to test it.
+
+00:39:11:07 - 00:39:12:21
+We don't care if you test it or not.
+
+00:39:12:21 - 00:39:16:07
+And is the most common example is the.
+
+00:39:16:11 - 00:39:20:05
+Infotainment
+or entertainment systems in the planes.
+
+00:39:20:05 - 00:39:23:08
+And that's probably why
+those entertainment systems
+
+00:39:23:08 - 00:39:25:16
+don't really work
+well when you are on a plane.
+
+00:39:27:04 - 00:39:29:19
+Yeah, probably because I mean, you don't.
+
+00:39:29:19 - 00:39:33:03
+Any contractual obligation, of course,
+you want to release something shiny
+
+00:39:33:03 - 00:39:37:05
+so your maybe someone just, you know,
+tries to launch it, which is a movie,
+
+00:39:37:05 - 00:39:40:12
+you know, maybe play a couple of games
+and verify that it works.
+
+00:39:40:20 - 00:39:41:24
+Then you hop on the plane.
+
+00:39:41:24 - 00:39:44:20
+When everyone opens up, there's know
+monitors.
+
+00:39:44:20 - 00:39:46:12
+Then suddenly, yeah, nothing is working.
+
+00:39:46:12 - 00:39:49:23
+Everyone's learning and everything.
+
+00:39:49:23 - 00:39:51:06
+But still this.
+
+00:39:51:06 - 00:39:54:07
+I mean, there are simpler things.
+
+00:39:54:07 - 00:39:55:21
+That you can. Quantify. And
+
+00:39:56:22 - 00:39:58:08
+I think one of the best.
+
+00:39:58:08 - 00:40:00:23
+Examples is the performance test.
+
+00:40:00:23 - 00:40:05:13
+And basically a performance test
+can mean something very simple, like.
+
+00:40:05:20 - 00:40:09:10
+The maximum duration
+for this functionality to complete is.
+
+00:40:10:01 - 00:40:11:10
+5 seconds.
+
+00:40:11:13 - 00:40:13:20
+Or it can be about CPU measurements.
+
+00:40:13:20 - 00:40:14:03
+You know,
+
+00:40:14:03 - 00:40:19:01
+it shall not use more than 20% of the CPU
+or more than two gigabytes of RAM.
+
+00:40:19:01 - 00:40:23:16
+You inject your props, you will try to,
+you know, load your application
+
+00:40:23:16 - 00:40:27:02
+with different kinds of data to see
+if you are actually passing those limits.
+
+00:40:27:18 - 00:40:31:12
+And in that sense,
+it gives you a pretty confident value.
+
+00:40:31:14 - 00:40:35:09
+But of course, I think this was mentioned,
+it can depend on the computer.
+
+00:40:35:09 - 00:40:38:18
+So you should be referencing the results
+
+00:40:38:18 - 00:40:41:23
+of this, you know, with the same hardware
+and the environment and whatnot.
+
+00:40:43:18 - 00:40:46:20
+But we actually recently have a.
+
+00:40:46:23 - 00:40:48:12
+Problem about. It.
+
+00:40:48:12 - 00:40:53:07
+I mean, not exactly a problem, but,
+you know, it just it still does something.
+
+00:40:53:13 - 00:40:57:13
+And basically, I we are I am current.
+
+00:40:57:16 - 00:41:00:09
+I was part of performance testing team.
+
+00:41:00:09 - 00:41:01:15
+I am still part of the same team.
+
+00:41:01:15 - 00:41:04:17
+But we are not doing performance. Tests.
+
+00:41:04:17 - 00:41:10:12
+So we were trying to find a way to see,
+you know, not just failed.
+
+00:41:10:12 - 00:41:12:06
+The test because of performance.
+
+00:41:12:06 - 00:41:14:06
+But to see if there are any sudden.
+
+00:41:14:06 - 00:41:16:03
+Spikes going on.
+
+00:41:16:03 - 00:41:19:14
+So what we did was something like this.
+
+00:41:19:14 - 00:41:22:14
+We got an. Average value, you know.
+
+00:41:22:14 - 00:41:23:19
+Something like that.
+
+00:41:23:19 - 00:41:26:07
+And for every time
+you were getting a value,
+
+00:41:26:15 - 00:41:30:00
+if it was larger than expected
+that we weren't.
+
+00:41:30:15 - 00:41:33:09
+We were checking
+if it was, you know, between like 15.
+
+00:41:33:09 - 00:41:36:01
+Percent. French.
+These numbers are all arbitrary.
+
+00:41:36:01 - 00:41:39:22
+They are not, you know, they are just
+something things that we made up.
+
+00:41:39:22 - 00:41:42:08
+And it it makes it is okay.
+
+00:41:42:10 - 00:41:44:14
+It is good enough for us
+because we just wanted a.
+
+00:41:44:14 - 00:41:46:08
+Bit more confidence. And
+
+00:41:47:23 - 00:41:50:06
+so looking at
+
+00:41:50:06 - 00:41:54:06
+this,
+I mean, can you imagine what our problem.
+
+00:41:54:06 - 00:41:59:07
+Was with this?
+
+00:41:59:07 - 00:42:02:14
+Yeah, maybe someone else
+
+00:42:03:24 - 00:42:05:04
+you can't really see.
+
+00:42:05:04 - 00:42:08:19
+By how much it exceeds
+the threshold of the expected value.
+
+00:42:09:13 - 00:42:10:15
+Okay. Yeah.
+
+00:42:10:15 - 00:42:12:14
+Here, actually, in our look,
+I didn't want to.
+
+00:42:12:14 - 00:42:15:14
+Type it all, but yeah, you know, look,
+we have things like that, these
+
+00:42:15:21 - 00:42:18:09
+that people are expecting
+and this is what you got.
+
+00:42:19:21 - 00:42:23:22
+Anything else?
+
+00:42:23:22 - 00:42:24:06
+Yeah.
+
+00:42:27:00 - 00:42:31:05
+It depends on the context,
+but if the expected value
+
+00:42:31:05 - 00:42:34:05
+could be a negative value,
+then I think this won't work as
+
+00:42:34:05 - 00:42:39:04
+expected.
+
+00:42:39:04 - 00:42:41:01
+Yeah, actually, yeah, that's a good point.
+
+00:42:41:01 - 00:42:43:18
+But for us,
+I mean, it does all about durations.
+
+00:42:43:18 - 00:42:46:05
+And the CPU usage
+and memories of things like that.
+
+00:42:46:05 - 00:42:49:19
+So I expect the video was always positive.
+
+00:42:49:19 - 00:42:51:16
+So I mean, it is
+
+00:42:52:21 - 00:42:53:17
+maybe we can even
+
+00:42:53:17 - 00:42:56:22
+discuss that possibilities
+because we discussed.
+
+00:42:57:12 - 00:42:58:08
+What could go wrong.
+
+00:42:58:08 - 00:43:01:07
+I think we have an answer on that
+in truth.
+
+00:43:02:16 - 00:43:04:23
+But we know the catapult.
+
+00:43:05:03 - 00:43:05:10
+Yeah.
+
+00:43:06:00 - 00:43:09:09
+If it would overflowed,
+we'd still say it's false and afraid.
+
+00:43:11:01 - 00:43:14:24
+Actually, that's a good point.
+
+00:43:14:24 - 00:43:17:13
+But the thing is,
+I mean, this is just about, you.
+
+00:43:17:13 - 00:43:18:09
+Know, those spikes.
+
+00:43:18:09 - 00:43:22:06
+But on top of that, imagine we already
+have a hard cut if it is already there.
+
+00:43:22:06 - 00:43:26:00
+You know, about that time, that duration,
+
+00:43:26:01 - 00:43:29:10
+the test will be killed anyways
+and we will know that it took too long.
+
+00:43:30:21 - 00:43:32:15
+You know, the dilemma we had was actually.
+
+00:43:32:15 - 00:43:33:16
+A bit weird.
+
+00:43:33:16 - 00:43:37:21
+Because we started discussing
+what will we do if the.
+
+00:43:37:21 - 00:43:42:16
+Current value we got
+is smaller than the expected value?
+
+00:43:42:16 - 00:43:44:12
+Is this a problem?
+
+00:43:44:12 - 00:43:47:01
+If this is about. Duration
+
+00:43:48:09 - 00:43:52:00
+and you know, you just wanted
+to make your software faster, right?
+
+00:43:52:00 - 00:43:55:24
+And maybe someone implemented
+some improvement and now it is faster.
+
+00:43:57:12 - 00:44:01:22
+Do you think it can be a problem?
+
+00:44:01:22 - 00:44:02:09
+Yeah.
+
+00:44:04:14 - 00:44:06:20
+If it is much, much faster,
+
+00:44:07:03 - 00:44:09:20
+there might be an issue
+with what is actually being run.
+
+00:44:09:22 - 00:44:10:12
+Yeah.
+
+00:44:10:14 - 00:44:13:20
+Yeah. Actually,
+that was the thing we said.
+
+00:44:13:20 - 00:44:15:24
+Okay, I. Mean,
+we want it to. Be faster, but.
+
+00:44:16:08 - 00:44:17:12
+I mean, what if it was.
+
+00:44:17:12 - 00:44:18:12
+Too fast?
+
+00:44:18:12 - 00:44:20:16
+You know, something magical happened or.
+
+00:44:20:24 - 00:44:23:03
+Really improved the algorithm
+so that it is.
+
+00:44:23:03 - 00:44:25:03
+Not ten times faster, 100 times faster.
+
+00:44:26:06 - 00:44:28:23
+And I mean, this can happen
+
+00:44:28:23 - 00:44:32:01
+in and again, it is related to the.
+
+00:44:32:01 - 00:44:33:17
+Context and the test you are hearing.
+
+00:44:33:17 - 00:44:36:21
+But imagine that you have
+you are testing at risk API,
+
+00:44:36:23 - 00:44:39:23
+you are sending calls,
+getting the results, checking
+
+00:44:39:23 - 00:44:42:12
+if you got results,
+you know, and depending on that,
+
+00:44:42:12 - 00:44:45:20
+you are measuring how much it took
+to send the request and get response.
+
+00:44:47:01 - 00:44:50:23
+And imagine that in the
+test you forgot to check the status code
+
+00:44:51:06 - 00:44:54:02
+and they moved the pages on the server
+to somewhere else.
+
+00:44:54:08 - 00:44:57:04
+Now the link is not working
+and you are getting fluorophores
+
+00:44:57:18 - 00:45:00:20
+the operation that use the page
+5 seconds is now
+
+00:45:00:20 - 00:45:03:22
+taking 50 milliseconds
+without doing anything.
+
+00:45:04:17 - 00:45:06:13
+And you know
+
+00:45:07:21 - 00:45:08:17
+this again.
+
+00:45:08:17 - 00:45:11:09
+You know, interracial,
+they call it by reviews or anything, but
+
+00:45:12:13 - 00:45:15:06
+we actually refactor it and we.
+
+00:45:15:12 - 00:45:17:16
+Basically. Remove district.
+
+00:45:18:09 - 00:45:21:13
+But we said that if it is similar, then,
+you know, let's just.
+
+00:45:21:13 - 00:45:24:13
+You know, raise the alarms and spell
+that we also are engineer about it
+
+00:45:24:13 - 00:45:28:04
+to send a message,
+you know, to the analyzers
+
+00:45:28:18 - 00:45:32:07
+that we work on that
+so that we can see if something went bad
+
+00:45:32:22 - 00:45:42:12
+or actually
+it was a real performance improvement. So
+
+00:45:44:01 - 00:45:45:14
+this is one example.
+
+00:45:45:14 - 00:45:47:06
+Yeah. About conferring to quality.
+
+00:45:47:06 - 00:45:51:01
+But as I mentioned,
+I mean, you will have those coded
+
+00:45:51:01 - 00:45:54:17
+statements, you will have
+
+00:45:54:20 - 00:45:57:09
+requirements, coverage
+for example, and requirements coverage.
+
+00:45:57:09 - 00:46:01:00
+You, you will probably come across that
+and your requirements coverage.
+
+00:46:01:00 - 00:46:02:01
+Is usually done.
+
+00:46:02:01 - 00:46:03:12
+You will give an idea to.
+
+00:46:03:12 - 00:46:05:16
+A requirement and you put a.
+
+00:46:06:00 - 00:46:08:22
+Comment in your code
+saying that this piece of, quote,
+
+00:46:09:06 - 00:46:13:06
+actually implements this requirement
+so that people that are reviewing
+
+00:46:13:10 - 00:46:18:09
+can go back and forth, analyze, you know,
+if this is being implemented correctly.
+
+00:46:18:21 - 00:46:21:15
+You can do the same with tests.
+
+00:46:21:19 - 00:46:24:16
+You write your test
+and you will give it again,
+
+00:46:24:17 - 00:46:29:15
+a requirements traceability
+and so that you can see which tests are,
+
+00:46:30:03 - 00:46:34:09
+you know, implementing
+covering those requirements.
+
+00:46:34:09 - 00:46:36:03
+And if you don't have the.
+
+00:46:36:03 - 00:46:39:12
+Context, if you are not removing them
+properly, you will have the same thing.
+
+00:46:39:12 - 00:46:43:23
+You will have 100% requirements, coverage,
+but maybe they are just, you know.
+
+00:46:44:08 - 00:46:45:19
+In the end you are just putting.
+
+00:46:45:19 - 00:46:47:01
+Strings in the code.
+
+00:46:47:01 - 00:46:50:09
+If it is not reviewed properly,
+then you will again have the same.
+
+00:46:51:10 - 00:46:53:19
+And the point is.
+
+00:46:53:19 - 00:46:57:14
+Numbers can be made like I mean, numbers
+themselves don't lie usually.
+
+00:46:58:00 - 00:46:59:22
+Yeah, as far as I know.
+
+00:46:59:22 - 00:47:01:21
+But you can make them by.
+
+00:47:01:21 - 00:47:04:21
+Actually I had a statistician statistics.
+
+00:47:04:21 - 00:47:06:15
+Teacher and she will say that
+
+00:47:06:15 - 00:47:11:03
+statistician statistics
+is the art of lying with numbers.
+
+00:47:12:03 - 00:47:14:13
+So there's something unique
+
+00:47:14:13 - 00:47:17:14
+to be careful as well.
+
+00:47:17:14 - 00:47:20:09
+And this is another.
+
+00:47:20:09 - 00:47:22:07
+Textbook suggestion.
+
+00:47:22:19 - 00:47:24:11
+Of and again, this.
+
+00:47:24:11 - 00:47:26:15
+Is something you will see a lot.
+
+00:47:26:15 - 00:47:28:08
+And what it describes, you know.
+
+00:47:28:08 - 00:47:32:04
+This is called the test barometer
+and it says on the bottom, the first
+
+00:47:32:04 - 00:47:36:13
+level of tests will be unit tests
+and you will have a lot of them.
+
+00:47:37:01 - 00:47:39:03
+Then you will have integration tests
+
+00:47:39:03 - 00:47:42:16
+where you combine your modules together
+and do some further testing on them.
+
+00:47:42:16 - 00:47:44:24
+And on top of that,
+you will have entered tests.
+
+00:47:45:23 - 00:47:47:16
+Actually, in some
+
+00:47:47:16 - 00:47:49:22
+images you will see a minimal here.
+
+00:47:50:00 - 00:47:52:24
+The room drawn is a cloud or something.
+
+00:47:53:09 - 00:47:56:02
+And because. This is mostly.
+
+00:47:56:02 - 00:48:00:05
+You know, representative
+of the automated tests for most people.
+
+00:48:00:05 - 00:48:03:24
+But again, you know, if you have
+manual testing, it will probably be here.
+
+00:48:05:00 - 00:48:07:20
+And the situation
+is, as I mentioned, have more of them
+
+00:48:07:20 - 00:48:10:13
+here and less often on the top.
+
+00:48:11:01 - 00:48:14:18
+And do you know why it is like that?
+
+00:48:15:00 - 00:48:19:16
+No. Have more unit tests
+and this and test.
+
+00:48:19:16 - 00:48:22:20
+That's well
+
+00:48:26:01 - 00:48:30:07
+mostly because complexity and and and test
+
+00:48:30:07 - 00:48:33:08
+in this moment we have so many variation
+which we really cannot.
+
+00:48:33:08 - 00:48:35:01
+That's yeah.
+
+00:48:35:03 - 00:48:38:22
+That's basically the complexity
+growth and complexity costs.
+
+00:48:38:22 - 00:48:39:22
+Also grow.
+
+00:48:39:22 - 00:48:43:02
+Running thousands of unit tests,
+the only it can be content.
+
+00:48:43:02 - 00:48:44:14
+To in a couple of minutes.
+
+00:48:44:14 - 00:48:45:04
+But running.
+
+00:48:45:04 - 00:48:46:10
+Ten and time.
+
+00:48:46:10 - 00:48:47:09
+Tests know
+
+00:48:47:09 - 00:48:49:08
+your A-level tests
+can take a couple of hours
+
+00:48:49:08 - 00:48:51:16
+because you need to put system
+into specific cities.
+
+00:48:51:16 - 00:48:52:20
+You need to. Click, you know,
+
+00:48:53:21 - 00:48:55:10
+and when
+
+00:48:55:10 - 00:48:58:11
+you find a book here also it is very hard.
+
+00:48:58:11 - 00:49:01:16
+To find that the bug actually started.
+
+00:49:01:16 - 00:49:02:16
+Yeah, but if you are.
+
+00:49:02:16 - 00:49:04:17
+Just unit testing, I mean most.
+
+00:49:04:17 - 00:49:07:23
+Of time you will be just unit
+testing a single method or a class
+
+00:49:08:04 - 00:49:12:09
+and you will know where to look at
+when it does enter and test.
+
+00:49:12:17 - 00:49:16:06
+You know, when you create a bug here,
+a team will actually gather
+
+00:49:17:01 - 00:49:17:23
+the context, of course.
+
+00:49:17:23 - 00:49:21:21
+But then for example, for my case
+it to investigate or to analyze the bug.
+
+00:49:22:18 - 00:49:24:16
+They will do some kind of trials.
+
+00:49:24:16 - 00:49:26:21
+They will send it to a team
+that they think
+
+00:49:27:00 - 00:49:29:00
+should be responsible for that,
+but they will do it.
+
+00:49:29:00 - 00:49:29:20
+And other triage
+
+00:49:29:20 - 00:49:30:15
+and see, you know,
+
+00:49:30:15 - 00:49:32:16
+if it is related
+to one of their components
+
+00:49:32:16 - 00:49:35:11
+and depending on that, they will assign it
+to a developer to fix it.
+
+00:49:36:07 - 00:49:40:15
+And it can be costly and
+it gets even costlier and it is manual.
+
+00:49:40:16 - 00:49:45:05
+And when it is actually found by the
+you know, if if this is the parliament,
+
+00:49:45:15 - 00:49:49:11
+if manual testing is the cloth,
+the customer is actually like
+
+00:49:49:11 - 00:49:53:03
+about the class, you know,
+see what's wrong with the posting.
+
+00:49:53:03 - 00:49:55:20
+They are waiting for the product
+to be sacrificed to them.
+
+00:49:56:20 - 00:49:58:12
+And if they found the bug.
+
+00:49:58:12 - 00:50:00:18
+Then yeah, it is much more problematic.
+
+00:50:00:21 - 00:50:02:09
+And also.
+
+00:50:02:09 - 00:50:04:23
+If they. Don't find the bug as. Well,
+it is even.
+
+00:50:04:23 - 00:50:07:04
+More problematic. And yeah, recently.
+
+00:50:07:10 - 00:50:09:13
+This happened with the car manufacturer
+and if you
+
+00:50:09:14 - 00:50:12:17
+if they, if you switch the radio
+to a specific frequency,
+
+00:50:13:06 - 00:50:17:07
+then the car would crash the comfortable
+actually stop working.
+
+00:50:17:07 - 00:50:20:09
+I'm not
+I don't want to say the name here, but
+
+00:50:20:09 - 00:50:22:14
+I mean you can find that story
+for the very reason.
+
+00:50:24:00 - 00:50:25:23
+And it is something
+
+00:50:25:23 - 00:50:29:00
+that was just overlooked
+because it's just the read through.
+
+00:50:29:00 - 00:50:30:17
+I mean, how bad. Can it be?
+
+00:50:30:17 - 00:50:34:06
+I mean, maybe it will just be, you know,
+if there will be a parasite or something.
+
+00:50:34:06 - 00:50:36:00
+But it actually crashed the car.
+
+00:50:36:00 - 00:50:36:19
+They had to.
+
+00:50:36:19 - 00:50:41:19
+Recall the cars, you know, to replace
+or do that computer system.
+
+00:50:41:19 - 00:50:43:10
+There was no easy way of solving it.
+
+00:50:45:03 - 00:50:48:20
+So it can get really costly.
+
+00:50:48:20 - 00:50:51:06
+And this is why I mean,
+this is the most common seizure.
+
+00:50:51:06 - 00:50:53:10
+Some people say,
+oh, this is what the flow.
+
+00:50:53:16 - 00:50:56:01
+And there's an alternative to that.
+
+00:50:56:01 - 00:51:00:18
+And this is this one,
+the inverted pyramid.
+
+00:51:00:20 - 00:51:02:20
+And this also makes sense.
+
+00:51:04:00 - 00:51:06:05
+But why and we talked about you had the.
+
+00:51:06:06 - 00:51:08:04
+Cost, context and everything but why.
+
+00:51:08:04 - 00:51:11:00
+Would this make sense then?
+
+00:51:11:00 - 00:51:12:00
+I don't
+
+00:51:12:16 - 00:51:14:21
+know. Okay.
+
+00:51:14:21 - 00:51:17:10
+And these pyramids make sense
+
+00:51:17:10 - 00:51:21:06
+when you are not sure about
+is it the bugs exist or not?
+
+00:51:21:12 - 00:51:23:04
+So you can first detect
+
+00:51:23:04 - 00:51:26:21
+the does exist enough
+to try to find out where it is exactly.
+
+00:51:26:23 - 00:51:27:22
+It it.
+
+00:51:29:04 - 00:51:29:20
+Can be.
+
+00:51:29:20 - 00:51:36:19
+Yeah.
+
+00:51:36:19 - 00:51:38:22
+Yeah. Oh,
+
+00:51:39:00 - 00:51:39:13
+okay.
+
+00:51:39:13 - 00:51:40:23
+Maybe first you.
+
+00:51:44:22 - 00:51:47:23
+I guess the end to end
+just will to actually
+
+00:51:47:23 - 00:51:52:03
+use cases
+that programmers don't think of naturally.
+
+00:51:52:20 - 00:51:53:04
+This.
+
+00:51:53:04 - 00:51:59:16
+Yeah, there's also a very fair point.
+
+00:51:59:16 - 00:52:03:18
+Perhaps projects that are still
+being developed, not done yet,
+
+00:52:03:21 - 00:52:07:10
+perhaps that the user makes like an issue
+saying like I want this feature and
+
+00:52:08:13 - 00:52:10:23
+there are no unit tests for that yet.
+
+00:52:11:04 - 00:52:12:02
+Might be.
+
+00:52:12:02 - 00:52:16:20
+I mean, in theory, if you have the code
+then you should also have the uniqueness.
+
+00:52:16:20 - 00:52:17:12
+That's
+
+00:52:18:10 - 00:52:18:18
+what I mean.
+
+00:52:18:18 - 00:52:22:10
+It's like it was like
+I don't have this feature.
+
+00:52:23:00 - 00:52:25:19
+The feature wasn't there yet
+
+00:52:25:19 - 00:52:28:19
+and then the issue gets made
+and then new unit this gets made
+
+00:52:28:23 - 00:52:31:21
+for that to create that feature perhaps.
+
+00:52:32:03 - 00:52:38:16
+Yeah, it is actually it is an interesting
+way of describing test driven programing.
+
+00:52:38:16 - 00:52:41:13
+I will say that's true in development,
+but on the internal level,
+
+00:52:41:13 - 00:52:43:12
+because testing development
+usually starts here.
+
+00:52:43:12 - 00:52:47:01
+But on that level, you can also do that
+and it's also fair
+
+00:52:48:05 - 00:52:51:11
+writing.
+
+00:52:51:11 - 00:52:55:14
+And I would say that's again depends
+because for example,
+
+00:52:56:22 - 00:52:59:16
+I don't know, like a recipe,
+let's say we have very strict
+
+00:52:59:16 - 00:53:03:12
+rules,
+very little limited on number of methods.
+
+00:53:04:03 - 00:53:06:24
+So there is not many variations
+that we can test.
+
+00:53:07:05 - 00:53:11:06
+Therefore, in from other hand,
+when we utilize this,
+
+00:53:11:16 - 00:53:15:17
+we create great complexity
+depends on the integration,
+
+00:53:15:22 - 00:53:20:07
+it depends on the relation between to how
+we use those methods and those functions.
+
+00:53:20:24 - 00:53:24:14
+And it's literally growing together
+with the complexity of the system.
+
+00:53:24:21 - 00:53:27:07
+Let's say
+we want to have very complex system
+
+00:53:27:07 - 00:53:30:01
+to doing something crazy
+based on simple principles.
+
+00:53:30:13 - 00:53:33:12
+Therefore, there's
+no need to test again and again and again,
+
+00:53:33:23 - 00:53:36:20
+because let's say we can even prove
+in some moment
+
+00:53:36:21 - 00:53:39:12
+that we executed
+
+00:53:40:01 - 00:53:45:21
+almost all of our Google tests, but
+integration still would be problematic.
+
+00:53:47:10 - 00:53:50:07
+Yeah, I mean, that's also.
+
+00:53:50:07 - 00:53:51:09
+Fair, actually. Yeah.
+
+00:53:51:09 - 00:53:54:07
+This also kind of connects
+
+00:53:55:11 - 00:53:56:03
+to the.
+
+00:53:56:03 - 00:53:58:07
+Use cases about the intent is.
+
+00:53:58:07 - 00:54:01:01
+I mean, in the end, you can have millions.
+
+00:54:01:01 - 00:54:01:20
+Of unit tests.
+
+00:54:01:20 - 00:54:02:22
+But the.
+
+00:54:02:22 - 00:54:05:16
+Customer is not using your unit.
+
+00:54:05:16 - 00:54:08:04
+I mean, they don't care what you do it
+on the unit level.
+
+00:54:08:16 - 00:54:12:17
+They care about this one
+even the higher runs because this is what.
+
+00:54:12:21 - 00:54:14:23
+They will be. Using.
+
+00:54:14:23 - 00:54:17:21
+And this can sometimes make sense.
+
+00:54:18:12 - 00:54:19:21
+Again, it depends.
+
+00:54:19:21 - 00:54:21:24
+Is actually the correct. Answer
+and it might.
+
+00:54:22:08 - 00:54:26:10
+Be the, you know, the generic correct
+answer for every single data.
+
+00:54:26:13 - 00:54:27:07
+Maybe
+
+00:54:28:21 - 00:54:32:16
+to think here, for example,
+imagine actually I.
+
+00:54:33:00 - 00:54:36:00
+I again
+have an experience about that. Yeah.
+
+00:54:36:00 - 00:54:38:07
+I think yeah. 16 years you.
+You come across.
+
+00:54:39:09 - 00:54:41:17
+For example, in one case we
+
+00:54:41:17 - 00:54:44:10
+I was working in a company
+and they decided to completely.
+
+00:54:44:10 - 00:54:47:24
+Rewrite their architecture
+because it was a monolithic architecture
+
+00:54:48:00 - 00:54:50:10
+and they wanted to go into a service
+based.
+
+00:54:50:10 - 00:54:51:07
+Architecture.
+
+00:54:51:15 - 00:54:53:19
+So which means that yeah, they will.
+
+00:54:53:19 - 00:54:57:15
+Try to reuse
+as much as possible from the old code. But
+
+00:54:58:18 - 00:55:00:09
+in the end
+
+00:55:00:21 - 00:55:05:07
+they will only change the core core module
+and the rest will stay the same.
+
+00:55:05:15 - 00:55:06:24
+That everything will be.
+
+00:55:06:24 - 00:55:07:15
+Refactored.
+
+00:55:07:15 - 00:55:12:09
+What they wanted was at any point
+the overall functionality should.
+
+00:55:12:09 - 00:55:13:23
+Not be broken.
+
+00:55:14:16 - 00:55:17:19
+The problem is
+they really didn't have any dentists
+
+00:55:18:12 - 00:55:21:03
+well and the unit tests were now.
+
+00:55:21:03 - 00:55:23:11
+Obsolete because the code was.
+
+00:55:23:11 - 00:55:26:16
+Changing
+and it is actually one of another.
+
+00:55:26:16 - 00:55:27:21
+Point about this.
+
+00:55:27:21 - 00:55:30:22
+You know, people say this
+and they say that.
+
+00:55:30:22 - 00:55:33:09
+Yeah, right. Unit tests
+for every piece of code that you have.
+
+00:55:33:21 - 00:55:36:01
+But if you are not careful about how you.
+
+00:55:36:01 - 00:55:40:11
+Write unit tests because there are
+concepts like mocking or stubbing where.
+
+00:55:40:11 - 00:55:44:10
+You actually instead of
+using an existing function, you fake.
+
+00:55:44:10 - 00:55:46:19
+It, you write your own implementation.
+
+00:55:47:10 - 00:55:49:12
+And you use that one.
+
+00:55:49:23 - 00:55:53:06
+And later maybe they change the arguments
+of that function.
+
+00:55:53:06 - 00:55:55:05
+And now you have to maintain not just.
+
+00:55:55:05 - 00:55:57:08
+The unit. Tests but also the mocks.
+
+00:55:57:08 - 00:55:58:05
+Also the fact that.
+
+00:55:58:05 - 00:56:03:07
+You have and with small changes
+that happens in a different component.
+
+00:56:03:07 - 00:56:06:07
+It you know, the results
+down to the unit test
+
+00:56:06:07 - 00:56:09:18
+that you are trained
+and it can cause a dependency.
+
+00:56:09:18 - 00:56:12:21
+You know, a complexity
+that you are were not actually ready for.
+
+00:56:15:15 - 00:56:17:03
+The it can be avoided with.
+
+00:56:17:03 - 00:56:19:19
+Using, you know, good testing practices
+and things like that.
+
+00:56:19:19 - 00:56:24:09
+But again, it is something
+that depends on the context.
+
+00:56:24:09 - 00:56:27:21
+So here
+and another example could be if you are.
+
+00:56:28:09 - 00:56:30:14
+Again, this is something you will come
+across, you know,
+
+00:56:30:14 - 00:56:34:05
+working with legacy code, they will give
+you a code that is 30 years old.
+
+00:56:34:05 - 00:56:37:08
+They say, yeah, we want to rewrite it,
+but they don't want to break anything.
+
+00:56:37:17 - 00:56:38:18
+You cannot just go, Yeah.
+
+00:56:38:18 - 00:56:39:24
+Let's write the module,
+
+00:56:39:24 - 00:56:44:01
+you know, unit tests for this module
+and see, you know, and refactor it slowly.
+
+00:56:44:01 - 00:56:47:22
+No, you will go ahead on your computer,
+factor out of things.
+
+00:56:47:22 - 00:56:50:08
+All those units would be absolute
+obsolete.
+
+00:56:50:18 - 00:56:53:01
+So instead of writing unit tests.
+
+00:56:53:01 - 00:56:55:24
+You write your intent tests, verify
+the current functional, so.
+
+00:56:55:24 - 00:56:58:19
+Then start changing things and ensure.
+
+00:56:58:19 - 00:56:59:22
+That that is not broken.
+
+00:57:01:01 - 00:57:03:05
+But another team is
+
+00:57:04:19 - 00:57:06:04
+imaging your projects.
+
+00:57:06:04 - 00:57:09:23
+I mean, as far as I know, you, you write,
+you know, homework style projects,
+
+00:57:09:23 - 00:57:10:10
+you work on.
+
+00:57:10:10 - 00:57:15:21
+Things and for you writing a unit test,
+at least one unit test per function.
+
+00:57:16:07 - 00:57:18:00
+It might actually not make sense.
+
+00:57:18:00 - 00:57:19:23
+Some of the functions will be too simple,
+
+00:57:19:23 - 00:57:23:15
+some of them will be too obvious,
+and you will anyways have that fallacy
+
+00:57:23:15 - 00:57:27:09
+to fall into that trap of seeing the code
+and writing the unit test for you.
+
+00:57:27:18 - 00:57:29:22
+And it can.
+
+00:57:29:22 - 00:57:31:15
+Make sense for as the complexity.
+
+00:57:31:15 - 00:57:34:12
+Increases. But for. You, maybe it is.
+
+00:57:35:07 - 00:57:38:09
+Better to go with an integration test
+run and contest
+
+00:57:38:16 - 00:57:41:08
+or I have a cousin actually and he.
+
+00:57:41:12 - 00:57:42:10
+He works.
+
+00:57:42:10 - 00:57:44:07
+In a hyper casual.
+
+00:57:44:07 - 00:57:45:24
+Game development company.
+
+00:57:45:24 - 00:57:49:24
+And what they do is, you know, they see
+a gaming trend and they just create a.
+
+00:57:49:24 - 00:57:51:24
+Mobile game in like two weeks.
+
+00:57:51:24 - 00:57:55:17
+And put. It on the market
+and see if it will work or not.
+
+00:57:56:02 - 00:57:59:20
+And in two weeks, they actually don't care
+if the product has, you know, high.
+
+00:58:00:02 - 00:58:02:07
+Coverage in the unit tests or anything.
+
+00:58:02:07 - 00:58:03:18
+They just deploy it
+
+00:58:03:18 - 00:58:07:13
+and see if it is working without crashing
+and if it is doing what they want to do.
+
+00:58:07:13 - 00:58:11:06
+And if it looks fancy danger,
+they just release it.
+
+00:58:11:06 - 00:58:17:11
+So it will depend on the context that
+this is the most common textbook example.
+
+00:58:17:22 - 00:58:21:02
+This is exact opposite of it,
+but this is also true
+
+00:58:21:12 - 00:58:24:22
+because this is the only best practice
+
+00:58:24:23 - 00:58:28:09
+that you need to follow for all the
+I am blankly following best practices
+
+00:58:28:09 - 00:58:31:17
+itself is not the best practice unit
+to think about.
+
+00:58:31:17 - 00:58:34:17
+The context, what you are doing,
+what you are trying. To it, you
+
+00:58:39:17 - 00:58:45:12
+so you know if for example I think we all.
+
+00:58:45:12 - 00:58:47:01
+Live on YouTube right now. Right.
+
+00:58:47:01 - 00:58:50:19
+So I probably have friends watching
+and they.
+
+00:58:50:19 - 00:58:51:14
+Know that, you know,
+
+00:58:51:14 - 00:58:54:21
+I've been working on test automation
+for years and I am actually.
+
+00:58:54:21 - 00:58:56:19
+Pretty good at it, I would say.
+
+00:58:56:19 - 00:59:00:11
+But and I like it
+because because of these reasons,
+
+00:59:00:15 - 00:59:03:15
+you know, when you are mentally testing
+something, it is not always repeatable.
+
+00:59:03:15 - 00:59:06:21
+Like we talked about the color issue
+that we had at the beginning.
+
+00:59:07:18 - 00:59:11:21
+What happens, you know,
+if you don't provide all the inputs,
+
+00:59:11:21 - 00:59:15:18
+you know, something goes wrong,
+but automation gives you that idea.
+
+00:59:15:18 - 00:59:18:05
+When you repeat the automated tests again.
+
+00:59:18:05 - 00:59:21:03
+You know that the computer will do
+the same thing.
+
+00:59:21:06 - 00:59:22:02
+You know.
+
+00:59:22:04 - 00:59:23:22
+Exactly, almost exactly.
+
+00:59:23:22 - 00:59:25:02
+The timings might change.
+
+00:59:25:02 - 00:59:27:06
+And it is something
+you need to be careful.
+
+00:59:27:06 - 00:59:29:23
+But it is as much repeatable
+than a minimal test.
+
+00:59:30:23 - 00:59:32:13
+They are reliable.
+
+00:59:32:13 - 00:59:33:07
+Because you know,
+
+00:59:33:07 - 00:59:36:11
+you know it is because sometimes
+then you are manually testing, you take.
+
+00:59:36:11 - 00:59:38:09
+Shortcuts. The page is already open.
+
+00:59:38:09 - 00:59:42:01
+I want to just log out and log in again
+just to verify the you know,
+
+00:59:42:05 - 00:59:43:16
+follow the rules.
+
+00:59:43:16 - 00:59:47:01
+It is almost always faster
+and it is integrate well.
+
+00:59:47:01 - 00:59:49:01
+But the problem is it is dumb
+
+00:59:50:07 - 00:59:52:08
+and it is for now.
+
+00:59:52:08 - 00:59:56:23
+I am sure that in a couple of years
+we will have a which can.
+
+00:59:57:03 - 00:59:59:13
+Analyze your requirements,
+which will have domain.
+
+00:59:59:13 - 01:00:01:22
+Knowledge from other things,
+which. Will analyze.
+
+01:00:01:22 - 01:00:05:15
+The bug reports that you had before
+and actually
+
+01:00:05:16 - 01:00:07:23
+I want to be the one inventing that, but
+
+01:00:08:16 - 01:00:11:16
+I'm not there yet.
+
+01:00:11:16 - 01:00:16:06
+But for now, I mean, it only does
+what you are telling it to do.
+
+01:00:16:11 - 01:00:19:11
+And if you don't,
+you can't give it the feeling.
+
+01:00:19:11 - 01:00:22:11
+You can't really easily force it. The
+
+01:00:23:16 - 01:00:24:13
+context of the
+
+01:00:24:13 - 01:00:27:16
+application, you just give it inputs
+
+01:00:28:08 - 01:00:31:13
+and it just,
+you know, repeats those chores for you.
+
+01:00:32:02 - 01:00:35:21
+And because of that, some people
+even believe that you cannot actually.
+
+01:00:36:06 - 01:00:38:02
+Find bugs with automation.
+
+01:00:38:02 - 01:00:42:22
+I don't agree with that
+because if you are writing future specific
+
+01:00:43:21 - 01:00:47:10
+automated tests,
+then if the feature is not correctly
+
+01:00:47:10 - 01:00:52:04
+implemented, it will find those bugs,
+but otherwise, if a test.
+
+01:00:52:04 - 01:00:53:13
+Has passed and. If.
+
+01:00:53:13 - 01:00:54:00
+Someone.
+
+01:00:54:00 - 01:00:55:20
+Hasn't broken
+anything, you know, intentionally,
+
+01:00:55:20 - 01:01:01:10
+then it will just continue to pass
+and it will not provide any value.
+
+01:01:01:10 - 01:01:03:14
+The value. Actually the value it will.
+
+01:01:03:14 - 01:01:06:21
+Provide is like some level of confidence
+
+01:01:07:20 - 01:01:10:14
+because you will see that
+
+01:01:10:14 - 01:01:13:20
+once you run all those automated tests
+and you release.
+
+01:01:13:20 - 01:01:16:01
+It, you know,
+you also do your minimal testing maybe.
+
+01:01:16:15 - 01:01:19:09
+And you realize that. Customers are happy.
+
+01:01:19:11 - 01:01:22:23
+So you have built some confidence
+on your automation, test it.
+
+01:01:24:17 - 01:01:29:06
+And what can happen is, for example,
+something like that.
+
+01:01:29:06 - 01:01:32:19
+Again, I experienced myself and
+
+01:01:34:14 - 01:01:36:15
+it is called the dancing monkey problem.
+
+01:01:37:04 - 01:01:38:06
+So you have a fully.
+
+01:01:38:06 - 01:01:42:11
+Automated test suit so that you
+which is like a website web
+
+01:01:42:11 - 01:01:44:20
+server
+kind of thing, you know, is doing some.
+
+01:01:44:20 - 01:01:48:06
+Online stuff and you have automated tests.
+
+01:01:48:14 - 01:01:49:07
+For everything.
+
+01:01:49:07 - 01:01:52:06
+You cover all the requirements
+and you ship it, you know,
+
+01:01:52:08 - 01:01:56:07
+really easy to whatever and the customers
+start using it and you'll get a.
+
+01:01:56:07 - 01:01:59:07
+Call and they tell you that, okay, it's
+perfect.
+
+01:01:59:19 - 01:02:00:15
+As usual.
+
+01:02:00:15 - 01:02:02:10
+I mean, everything works greatly.
+
+01:02:02:10 - 01:02:04:12
+People don't find any issues.
+
+01:02:04:12 - 01:02:07:03
+But what is the dancing monkey about?
+
+01:02:07:09 - 01:02:09:03
+You know,
+is it an Easter egg or something?
+
+01:02:09:03 - 01:02:10:06
+And you will.
+
+01:02:10:06 - 01:02:12:00
+Surprise that dancing monkey
+
+01:02:12:00 - 01:02:14:19
+and you open the website yourself
+and there's a monkey.
+
+01:02:14:19 - 01:02:15:09
+There.
+
+01:02:15:09 - 01:02:17:01
+You know, doing a silly dance, some.
+
+01:02:17:01 - 01:02:19:07
+Animation, something like that.
+
+01:02:19:07 - 01:02:21:10
+The thing is, if you didn't tell the.
+
+01:02:21:10 - 01:02:24:03
+Automation
+to look for that dancing monkey.
+
+01:02:24:17 - 01:02:26:22
+It won't look for that dancing monkey.
+
+01:02:26:22 - 01:02:27:16
+And if it is not.
+
+01:02:27:16 - 01:02:31:14
+Looking anything like if there is
+no buttons or anything behind that, then.
+
+01:02:32:13 - 01:02:33:21
+You won't be able to see it.
+
+01:02:33:21 - 01:02:35:05
+You know, if you were also.
+
+01:02:35:05 - 01:02:37:20
+Adding a couple of mental tests,
+exploratory tests, something.
+
+01:02:37:20 - 01:02:41:21
+Like that,
+then you will obviously catch it.
+
+01:02:42:04 - 01:02:44:09
+But automation tests doesn't have that
+
+01:02:45:18 - 01:02:47:10
+about vision.
+
+01:02:47:10 - 01:02:48:18
+Basically.
+
+01:02:48:18 - 01:02:50:19
+And you know, you might think that.
+
+01:02:50:19 - 01:02:54:08
+Yeah, it would be very easy to catch on
+Dancing Monkey what you are talking about.
+
+01:02:54:12 - 01:02:56:12
+But what I experienced. Was, for example.
+
+01:02:57:05 - 01:03:00:03
+We had a hybrid test. Set.
+
+01:03:00:06 - 01:03:02:01
+Basically the tests. For.
+
+01:03:02:01 - 01:03:05:07
+Automated, but it will come
+to a specific point and it will.
+
+01:03:05:07 - 01:03:08:17
+Say, okay, go to the radar system
+and just click off to,
+
+01:03:09:02 - 01:03:11:08
+you know, from the other thing,
+from the other hardware
+
+01:03:11:12 - 01:03:13:13
+so that there will be a communication
+problem there.
+
+01:03:13:20 - 01:03:17:06
+We will literally have steps like that,
+like pulling out the cable
+
+01:03:17:06 - 01:03:19:15
+or breaking something,
+you know, in the middle of the test.
+
+01:03:21:00 - 01:03:23:04
+And so the thing
+
+01:03:23:04 - 01:03:26:10
+is, a tester, a manual tester
+who is actually good.
+
+01:03:26:10 - 01:03:28:02
+With their domain.
+
+01:03:28:02 - 01:03:30:15
+Is looking at. The screen,
+the automation tests.
+
+01:03:30:15 - 01:03:31:23
+They are doing something.
+
+01:03:31:23 - 01:03:33:24
+Everything was going fine.
+
+01:03:33:24 - 01:03:36:03
+And towards the end of the project,
+you know.
+
+01:03:36:12 - 01:03:38:02
+End of the release.
+
+01:03:38:02 - 01:03:39:21
+One of the. Project owners, he.
+
+01:03:39:21 - 01:03:40:23
+Came and decided.
+
+01:03:40:23 - 01:03:45:06
+To have a look and he was shocked
+because the fonts Were incorrect.
+
+01:03:46:20 - 01:03:48:02
+We had no. Idea about. It.
+
+01:03:48:02 - 01:03:49:24
+No tester was asked to.
+
+01:03:49:24 - 01:03:51:09
+Check if the fonts were correct.
+
+01:03:51:09 - 01:03:54:24
+No, we had no requirements
+about the font size or anything,
+
+01:03:55:19 - 01:03:57:24
+and so we didn't put anything.
+
+01:03:57:24 - 01:03:59:13
+I mean, for us, yeah, maybe they just.
+
+01:03:59:13 - 01:04:02:03
+Decide to change it.
+I mean, it can happen.
+
+01:04:02:18 - 01:04:04:21
+So dancing monkeys. Is very abstract.
+
+01:04:05:13 - 01:04:06:21
+Incorrect points.
+
+01:04:06:21 - 01:04:10:05
+It happened in a unique project
+like the most,
+
+01:04:10:05 - 01:04:13:15
+you know,
+stricter rules in place and everything.
+
+01:04:13:15 - 01:04:15:02
+But still it can happen.
+
+01:04:16:08 - 01:04:17:06
+In that sense.
+
+01:04:17:06 - 01:04:19:23
+I mean, I still like. Automation.
+
+01:04:20:01 - 01:04:23:02
+And I like building test automation.
+
+01:04:23:02 - 01:04:26:04
+Solutions, but I also know that
+it is not really trustworthy.
+
+01:04:26:04 - 01:04:28:07
+I mean. It is trustworthy, but it is dumb.
+
+01:04:28:10 - 01:04:32:20
+So use it cautiously.
+
+01:04:32:20 - 01:04:35:17
+We don't have much topics yet.
+
+01:04:35:17 - 01:04:37:17
+I have actually two topics
+
+01:04:37:17 - 01:04:41:19
+and they both basically require their own
+master class.
+
+01:04:41:19 - 01:04:42:13
+But I just.
+
+01:04:42:13 - 01:04:44:07
+Wanted to give you some initial hints
+
+01:04:44:07 - 01:04:47:17
+or maybe if you can, you know,
+if you want to follow that path,
+
+01:04:47:18 - 01:04:52:01
+if you just want to try out these things,
+it might be helpful in the future.
+
+01:04:52:12 - 01:04:54:07
+And one thing is testing.
+
+01:04:54:07 - 01:04:55:18
+And. Development.
+
+01:04:55:23 - 01:04:58:12
+And to be honest,
+
+01:04:58:12 - 01:05:02:08
+I mean, it's a great idea and
+
+01:05:03:14 - 01:05:05:15
+how it works.
+Let me tell. It to you. Yeah.
+
+01:05:05:15 - 01:05:06:15
+If you don't know about it.
+
+01:05:07:23 - 01:05:09:15
+You start with an empty canvas.
+
+01:05:09:15 - 01:05:10:12
+You open your.
+
+01:05:10:12 - 01:05:13:01
+Source and you first write a test.
+
+01:05:13:02 - 01:05:17:02
+You start writing because, for example,
+you will write that rain check.
+
+01:05:17:02 - 01:05:20:19
+You think it's the first requirement is
+yeah, it should not,
+
+01:05:20:19 - 01:05:23:08
+except invisible is like a string.
+
+01:05:23:24 - 01:05:26:16
+Then you write your pitch.
+
+01:05:26:16 - 01:05:29:07
+It is treat it as an empty value
+
+01:05:30:05 - 01:05:34:19
+and the test will fail
+because you are expecting a false value.
+
+01:05:34:19 - 01:05:37:17
+But it either return the painting
+or just return.
+
+01:05:37:17 - 01:05:39:15
+True, it should be you.
+
+01:05:39:15 - 01:05:41:07
+Then you. Implement it.
+
+01:05:41:07 - 01:05:44:19
+You do the invalid check.
+
+01:05:45:21 - 01:05:46:17
+If you need to.
+
+01:05:46:17 - 01:05:50:01
+You know, after doing those continuous
+if you need to do something else, you.
+
+01:05:50:06 - 01:05:52:02
+Do a bit of your factoring.
+
+01:05:52:02 - 01:05:56:08
+Then you rerun your test, verify
+that everything is passing.
+
+01:05:57:00 - 01:05:58:00
+Then you write your second.
+
+01:05:58:00 - 01:06:01:17
+Future test for the second feature
+and the loop continues.
+
+01:06:03:00 - 01:06:03:18
+And the
+
+01:06:03:18 - 01:06:06:13
+good thing is at each step you don't do
+
+01:06:06:20 - 01:06:09:15
+each test, you are adding like,
+imagine the first case where.
+
+01:06:09:15 - 01:06:11:23
+We had these check. Range tests.
+
+01:06:11:23 - 01:06:13:23
+And they weren't asserting anything.
+
+01:06:13:23 - 01:06:15:08
+You won't have that case.
+
+01:06:15:08 - 01:06:17:15
+Because you need to start with test.
+
+01:06:17:15 - 01:06:19:21
+The test should fail first.
+
+01:06:19:21 - 01:06:20:15
+This ensures.
+
+01:06:20:15 - 01:06:21:13
+That the test.
+
+01:06:21:13 - 01:06:23:23
+You are writing
+is actually adding some value.
+
+01:06:25:18 - 01:06:26:23
+Another thing is
+
+01:06:26:23 - 01:06:29:19
+as you don't have the code yet,
+you don't have that.
+
+01:06:29:19 - 01:06:34:00
+Follows to know you don't have that bias
+to check the code to see
+
+01:06:34:00 - 01:06:34:20
+what kind of inputs
+
+01:06:34:20 - 01:06:37:23
+you should provide, patterns
+that you are looking at the requirements.
+
+01:06:38:12 - 01:06:40:19
+And it is.
+
+01:06:40:19 - 01:06:42:21
+Helping you develop the application.
+
+01:06:46:06 - 01:06:46:17
+And it's
+
+01:06:46:17 - 01:06:55:01
+just okay, so by following this.
+
+01:06:55:04 - 01:06:58:11
+You know, right, failing
+test, make it pass and reflect approach.
+
+01:06:59:14 - 01:07:02:02
+You are actually
+getting rid of all those fallacies.
+
+01:07:02:07 - 01:07:06:01
+But the problem is,
+I mean, it is really a different mindset.
+
+01:07:06:23 - 01:07:08:08
+I am a developer and tester.
+
+01:07:08:08 - 01:07:09:23
+For 16 years.
+
+01:07:09:23 - 01:07:11:15
+Whenever I try this, I mean it looks.
+
+01:07:11:15 - 01:07:12:19
+Really easy on the tutorials.
+
+01:07:12:19 - 01:07:14:24
+I try to apply it to my project
+
+01:07:15:09 - 01:07:18:21
+and I get stuck because for me
+it just feels natural.
+
+01:07:18:21 - 01:07:20:15
+I just want to write my code because.
+
+01:07:20:15 - 01:07:23:19
+I know the teacher won't feel
+I know instant also
+
+01:07:23:19 - 01:07:26:06
+for everything you know, I will have
+all the necessary checks in place.
+
+01:07:26:23 - 01:07:29:13
+I just don't want to do that.
+
+01:07:29:13 - 01:07:33:04
+And so in this as it's a bit tricky,
+it's a bit
+
+01:07:33:23 - 01:07:37:13
+hard to make that switch,
+but people who can make.
+
+01:07:37:13 - 01:07:39:03
+The switch sworn. By it.
+
+01:07:39:03 - 01:07:41:09
+You know. So I'm give it a try.
+
+01:07:42:06 - 01:07:43:21
+But even if you don't, I
+
+01:07:45:01 - 01:07:47:07
+want you to do something else
+
+01:07:48:09 - 01:07:52:07
+and imagine for example,
+you are working in a huge system
+
+01:07:52:07 - 01:07:53:11
+and you found the book here
+
+01:07:53:11 - 01:07:56:20
+and you have these units integration tests
+and and everything.
+
+01:07:57:13 - 01:08:01:10
+What happens usually when you create
+a work to the level will fix it and ship
+
+01:08:01:11 - 01:08:05:01
+it, send it to us and be tested
+and verify that the bug is fixed.
+
+01:08:06:15 - 01:08:10:08
+Most of the time people
+don't think you know why it hasn't
+
+01:08:10:08 - 01:08:13:20
+failed here or here, how we actually went
+
+01:08:13:20 - 01:08:17:04
+all the way towards there.
+
+01:08:17:04 - 01:08:19:13
+This is a discipline that you can have.
+
+01:08:20:00 - 01:08:22:10
+In fact, I think all those years I
+
+01:08:23:01 - 01:08:25:16
+there was one team that was doing this.
+
+01:08:25:21 - 01:08:27:17
+Very meticulous sleep.
+
+01:08:27:17 - 01:08:31:16
+And I worked there,
+you know, almost for almost a year. And
+
+01:08:32:19 - 01:08:33:22
+for a
+
+01:08:33:22 - 01:08:36:23
+couple of months,
+I was not able to find a single book.
+
+01:08:37:00 - 01:08:40:22
+They were coming up with new features,
+but they have kind of a test.
+
+01:08:40:22 - 01:08:42:14
+Driven development approach.
+
+01:08:42:14 - 01:08:45:20
+They were testing,
+you know, sort of really nicely.
+
+01:08:45:20 - 01:08:48:19
+You know, on the unit and integration
+level before giving it to me.
+
+01:08:49:12 - 01:08:51:24
+And they were doing reviews
+and everything.
+
+01:08:52:20 - 01:08:55:05
+Because of that,
+I was able to find anything.
+
+01:08:55:05 - 01:08:55:18
+And in
+
+01:08:55:18 - 01:08:59:10
+doing standups in the morning, you know,
+they would ask me about the test results.
+
+01:08:59:10 - 01:09:01:22
+You know, I will take a sad face
+because nothing is failing
+
+01:09:02:16 - 01:09:07:06
+mean this is weird but it really
+
+01:09:07:06 - 01:09:09:17
+I mean, if nothing is failing,
+I am there for nothing.
+
+01:09:10:17 - 01:09:14:24
+I'm maybe it's I'm and on the other hand
+that maybe something is actually wrong
+
+01:09:14:24 - 01:09:17:01
+and I am not capable
+of catching that issue.
+
+01:09:17:03 - 01:09:20:06
+I mean, in both cases, you know,
+it makes me feel bad.
+
+01:09:20:06 - 01:09:22:02
+So I want to find somebody.
+
+01:09:22:02 - 01:09:24:02
+And finally,
+you know, after a couple of months,
+
+01:09:24:02 - 01:09:26:04
+I found my first book, you know,
+I was excited.
+
+01:09:26:04 - 01:09:28:10
+Yeah, I found it and I gave it to them.
+
+01:09:29:06 - 01:09:30:12
+So the first thing they did,
+
+01:09:31:12 - 01:09:32:09
+they check
+
+01:09:32:09 - 01:09:36:04
+their tests, they checked the patch,
+you know where it should have been caught.
+
+01:09:36:04 - 01:09:40:03
+They checked that module and they realized
+that there was a specific condition
+
+01:09:40:03 - 01:09:42:08
+that they actually didn't cover that.
+
+01:09:43:03 - 01:09:45:16
+And what they did,
+they didn't actually fix the issue yet.
+
+01:09:45:17 - 01:09:49:02
+Just like Tristram Development,
+they wrote a test for it.
+
+01:09:49:02 - 01:09:49:23
+At the integration.
+
+01:09:49:23 - 01:09:55:10
+Level of security level,
+they verified that the bug I sent them.
+
+01:09:55:23 - 01:09:58:07
+Really exists on that specific module.
+
+01:09:58:07 - 01:09:59:01
+By creating.
+
+01:09:59:01 - 01:10:01:13
+That, then they continue to
+
+01:10:02:16 - 01:10:03:08
+implement it.
+
+01:10:03:08 - 01:10:07:03
+It verified that those tests are missing
+now and they gave it back to me.
+
+01:10:07:06 - 01:10:09:10
+And during this.
+
+01:10:09:10 - 01:10:12:01
+Whole year
+I was able to find a total of two bugs.
+
+01:10:12:18 - 01:10:15:10
+Nothing at the.
+
+01:10:15:10 - 01:10:17:16
+So in the end I was fired together.
+
+01:10:17:16 - 01:10:19:05
+With them because of downsizing. But
+
+01:10:21:05 - 01:10:23:03
+so. I mean, yeah, I think perfect
+
+01:10:23:03 - 01:10:26:02
+does not mean anything in your life.
+
+01:10:27:19 - 01:10:29:23
+And this is the.
+
+01:10:29:23 - 01:10:31:13
+Takeaway you need to have.
+
+01:10:31:13 - 01:10:33:04
+I mean, yeah, as I mentioned, I may.
+
+01:10:33:04 - 01:10:35:07
+Be test driven programing is.
+
+01:10:35:07 - 01:10:36:13
+If you're it and it might.
+
+01:10:36:13 - 01:10:37:17
+Be strange to start.
+
+01:10:37:17 - 01:10:39:24
+With it but yeah, at least.
+
+01:10:39:24 - 01:10:41:14
+Have approach.
+
+01:10:41:14 - 01:10:46:13
+You know when in your small projects
+if you come across a bug,
+
+01:10:47:04 - 01:10:51:21
+even if you don't have unit tests, think
+about why didn't you think about that.
+
+01:10:51:21 - 01:10:54:20
+Scenario while writing your code.
+
+01:10:54:20 - 01:10:56:19
+I mean, it's a slippery slope.
+
+01:10:56:19 - 01:10:58:14
+As a tester, for example,
+I tried creating.
+
+01:10:58:14 - 01:11:00:23
+Mobile. Games, but I was testing.
+
+01:11:00:23 - 01:11:02:09
+It too much.
+
+01:11:02:09 - 01:11:05:23
+I was trying to make it work
+and every condition, every kind of phone
+
+01:11:06:00 - 01:11:07:14
+combination and anything.
+
+01:11:07:14 - 01:11:08:07
+And in the.
+
+01:11:08:07 - 01:11:11:04
+Very basic mobile game,
+it took like four or five months.
+
+01:11:11:04 - 01:11:14:15
+And before I could release it,
+I mean, the hype was over and I was just,
+
+01:11:14:16 - 01:11:16:23
+you know,
+I just played it myself, basically,
+
+01:11:18:11 - 01:11:19:13
+but it didn't sound too right.
+
+01:11:19:13 - 01:11:27:22
+But this is my final point,
+and it's about testability.
+
+01:11:28:07 - 01:11:31:17
+Again, this is a topic that you know,
+you can take.
+
+01:11:32:05 - 01:11:35:00
+A lot of hours discuss,
+but I give you a shortcut
+
+01:11:35:00 - 01:11:38:19
+about it.
+
+01:11:38:19 - 01:11:41:12
+So yeah, as here, I mean, every story.
+
+01:11:41:12 - 01:11:43:02
+Is more or less testable.
+
+01:11:43:02 - 01:11:46:17
+But according to
+what makes a piece of software
+
+01:11:46:17 - 01:11:53:06
+more or less testable, no.
+
+01:11:53:06 - 01:11:58:14
+I guess to what extent you can beforehand
+know what you expected to do.
+
+01:11:58:14 - 01:12:00:12
+Exactly. Yeah.
+
+01:12:00:12 - 01:12:04:18
+I mean, yeah, because sometimes you won't.
+
+01:12:04:18 - 01:12:06:11
+Even have requirements.
+
+01:12:06:11 - 01:12:06:24
+They will just.
+
+01:12:06:24 - 01:12:08:06
+Give you the software and ask you to.
+
+01:12:08:06 - 01:12:10:14
+Test it and you say, well, what is this?
+
+01:12:10:14 - 01:12:13:13
+Everything I mean, you need to have
+some kind of knowledge beforehand.
+
+01:12:13:13 - 01:12:15:13
+It can come from domain experience
+or whatever.
+
+01:12:16:09 - 01:12:17:06
+And other ideas.
+
+01:12:18:06 - 01:12:20:10
+Yeah, I think depending on
+
+01:12:21:01 - 01:12:24:12
+the outputs, if the output is um,
+
+01:12:25:17 - 01:12:30:13
+well let's say you have a, the game
+example is maybe hard to analyze
+
+01:12:30:19 - 01:12:33:21
+what's happening on the screen
+because your output is just visual.
+
+01:12:34:14 - 01:12:39:03
+Yeah, something like this.
+
+01:12:39:03 - 01:12:44:16
+I think the structure software
+is way more testable
+
+01:12:44:19 - 01:12:49:04
+because each model
+you can like if it's many models
+
+01:12:49:05 - 01:12:53:02
+and you know which
+which output should be of each model,
+
+01:12:53:11 - 01:12:57:03
+it's really easy to catch
+to the exact point where it's paired.
+
+01:12:58:11 - 01:12:59:13
+So it's fair.
+
+01:13:02:00 - 01:13:03:14
+And other, I guess.
+
+01:13:07:24 - 01:13:09:00
+I'd say
+
+01:13:09:00 - 01:13:12:14
+from my own experience as well,
+how well isolated the system is.
+
+01:13:12:14 - 01:13:16:16
+If you have a system that's very dependent
+on external and dependencies,
+
+01:13:16:16 - 01:13:20:11
+you're going to to make a lot of stuff
+which you already explain is not great.
+
+01:13:21:01 - 01:13:25:12
+So I think probably I will.
+
+01:13:25:12 - 01:13:27:07
+Independence, I guess is the word.
+
+01:13:27:07 - 01:13:29:07
+Yeah. This sort of core.
+
+01:13:30:15 - 01:13:32:04
+And I so
+
+01:13:32:04 - 01:13:37:08
+there's a.
+
+01:13:37:08 - 01:13:41:05
+You know, so in my experience a function
+that actually returns something,
+
+01:13:41:05 - 01:13:45:14
+it's easier to test the void function
+that just does something in the middle.
+
+01:13:45:15 - 01:13:46:23
+Yeah, yeah.
+
+01:13:46:23 - 01:13:47:16
+Yeah, yeah.
+
+01:13:47:16 - 01:13:50:03
+Exactly.
+
+01:13:50:03 - 01:13:51:11
+And guess
+
+01:13:52:07 - 01:13:53:24
+so again.
+I mean, it depends on if you are.
+
+01:13:53:24 - 01:13:55:22
+Testing on the UI level or the code level.
+
+01:13:55:22 - 01:14:00:04
+But yeah, I mean, concern is,
+you know, whatever you guys have saying.
+
+01:14:00:04 - 01:14:02:07
+So the high complexity, the tight.
+
+01:14:02:07 - 01:14:05:13
+Coupling between modules,
+dependance on global static state
+
+01:14:05:14 - 01:14:07:21
+so that. You are not returning something
+but instead
+
+01:14:07:22 - 01:14:10:11
+just changing your global variable.
+
+01:14:10:11 - 01:14:14:04
+Sequential coupling, coupling the behavior
+of the function changes.
+
+01:14:14:16 - 01:14:17:10
+You know, depending on the order
+you call it,
+
+01:14:18:04 - 01:14:21:00
+if you call something else first,
+then it will behave differently
+
+01:14:21:00 - 01:14:23:15
+because of actually it might have
+something to do with this one.
+
+01:14:24:09 - 01:14:25:17
+There might be side effects.
+
+01:14:25:17 - 01:14:26:23
+You might be just calling
+
+01:14:26:23 - 01:14:30:01
+strange function, but it might be storing
+something, the database,
+
+01:14:30:01 - 01:14:33:16
+and after a while it just, you know,
+overflows or something that happens
+
+01:14:34:04 - 01:14:37:20
+and how to manipulate inputs or yeah,
+maybe the function doesn't
+
+01:14:37:20 - 01:14:40:22
+even have an input
+and you have to create a file
+
+01:14:41:04 - 01:14:44:09
+which will create something else,
+which will trigger a chain of events
+
+01:14:44:09 - 01:14:46:08
+to provide that specific value with that.
+
+01:14:47:20 - 01:14:50:04
+And. One of the best solutions.
+
+01:14:50:04 - 01:14:51:15
+To that is the clean.
+
+01:14:51:15 - 01:14:54:12
+Code practices,
+and there is already a great master class.
+
+01:14:54:12 - 01:14:55:12
+About it
+
+01:14:56:07 - 01:14:57:09
+and you can actually.
+
+01:14:57:09 - 01:15:00:15
+Check that and while watching that,
+you know, if you have already watched it,
+
+01:15:00:15 - 01:15:03:18
+maybe you can now watch the game
+with the testability perspective.
+
+01:15:04:14 - 01:15:06:02
+All the changes.
+
+01:15:06:02 - 01:15:09:10
+That is done on the code
+to have the clean coding.
+
+01:15:09:10 - 01:15:11:05
+Practices also helps.
+
+01:15:11:05 - 01:15:12:24
+With the testability.
+
+01:15:13:05 - 01:15:17:16
+So this actually gives you
+a good indication.
+
+01:15:17:16 - 01:15:19:14
+I experience it a lot.
+
+01:15:19:14 - 01:15:23:13
+And myself, you know,
+I try to write a unit test for my module
+
+01:15:23:13 - 01:15:27:09
+and I realize that I am not able
+to pass a specific value for.
+
+01:15:28:02 - 01:15:28:10
+One of the.
+
+01:15:28:10 - 01:15:31:11
+Variables
+because of the dependency that I caused.
+
+01:15:31:18 - 01:15:34:01
+Then I realized that there is a code.
+
+01:15:34:01 - 01:15:34:13
+That I'm.
+
+01:15:34:13 - 01:15:36:17
+Not being able to write the test easily.
+
+01:15:36:20 - 01:15:39:16
+Tells me that I did.
+Not design my quote in a good way.
+
+01:15:40:20 - 01:15:42:20
+So, you know.
+
+01:15:42:20 - 01:15:47:19
+Just for the sake of trying to run unit
+tests for whatever you are working on, it.
+
+01:15:47:19 - 01:15:48:19
+Might help.
+
+01:15:48:19 - 01:15:51:23
+You see what kind of architectural
+or design flaws
+
+01:15:51:23 - 01:15:54:23
+that you might have in your code.
+
+01:15:55:02 - 01:15:58:09
+But having said that, I will end up.
+
+01:15:58:09 - 01:16:01:08
+With a three. Question
+
+01:16:01:12 - 01:16:03:18
+how would you test a random number.
+
+01:16:03:18 - 01:16:16:23
+Generator? Yep.
+
+01:16:16:23 - 01:16:19:09
+Uh, not this one.
+
+01:16:19:09 - 01:16:20:18
+That one is. Probably.
+
+01:16:20:18 - 01:16:23:09
+The best way. Will be just something.
+
+01:16:23:15 - 01:16:25:10
+So if
+
+01:16:26:11 - 01:16:28:02
+the set is random,
+
+01:16:28:02 - 01:16:31:02
+there will be no tendency towards value.
+
+01:16:31:20 - 01:16:34:11
+But we need to also think,
+
+01:16:34:11 - 01:16:36:14
+and I take in minds
+
+01:16:39:04 - 01:16:42:08
+and the what I think
+
+01:16:42:08 - 01:16:46:14
+the size of the sample, because there is
+some threshold where before this
+
+01:16:47:08 - 01:16:50:12
+we can manipulate ourselves to believe
+that let's say
+
+01:16:50:14 - 01:16:54:00
+the random number
+generator is really random.
+
+01:16:54:12 - 01:16:58:15
+But exiting this set we start noticing
+that is repeatable.
+
+01:16:59:05 - 01:17:06:09
+So yeah.
+
+01:17:06:09 - 01:17:11:13
+As far as I know, the best way to test
+the random number generator is actually
+
+01:17:12:19 - 01:17:15:02
+compare kind of the
+
+01:17:17:18 - 01:17:19:20
+first you have kind of
+
+01:17:21:12 - 01:17:23:21
+the quality.
+
+01:17:24:02 - 01:17:28:02
+So it's test quality for random number
+generators.
+
+01:17:28:17 - 01:17:33:15
+And second, you can measure the actual
+like some some random,
+
+01:17:33:20 - 01:17:37:01
+something random, for example, like
+
+01:17:38:02 - 01:17:39:12
+what is in radiation,
+
+01:17:39:12 - 01:17:42:09
+like the half life of the
+
+01:17:43:13 - 01:17:45:07
+active particles.
+
+01:17:45:07 - 01:17:48:06
+But also I think in much magical analysis
+they have, uh,
+
+01:17:48:20 - 01:17:52:06
+uh, I don't remember
+how they called the moment,
+
+01:17:52:11 - 01:17:56:17
+but they have some kind of quality
+that you really can measure
+
+01:17:56:22 - 01:17:59:18
+their random, random bits of some
+
+01:18:00:22 - 01:18:01:20
+process.
+
+01:18:01:20 - 01:18:03:13
+Yeah. Okay.
+
+01:18:04:02 - 01:18:08:23
+I'd say I tested a lot, but
+
+01:18:11:02 - 01:18:13:08
+anyway, we
+
+01:18:17:22 - 01:18:18:07
+yeah.
+
+01:18:18:07 - 01:18:22:19
+I think quantify how random it is like
+and then you kind of need to use case.
+
+01:18:22:19 - 01:18:27:03
+I think because as she mentioned,
+there's like you can kind of quantify
+
+01:18:27:03 - 01:18:30:06
+like the randomness I don't know
+really call it and then see if that is
+
+01:18:30:06 - 01:18:33:07
+random enough for you to good enough
+is random.
+
+01:18:33:07 - 01:18:34:24
+I think it can ever be truly random.
+
+01:18:34:24 - 01:18:36:24
+It's always some based on it I suppose.
+
+01:18:37:17 - 01:18:38:20
+Um, yeah, I think.
+
+01:18:38:20 - 01:18:40:15
+Is it good enough
+for what you want to do with it?
+
+01:18:40:15 - 01:18:42:08
+The thing that's the most important here.
+
+01:18:42:08 - 01:18:44:23
+So really it's all about context, I think,
+
+01:18:44:23 - 01:18:47:07
+because sometimes it doesn't matter
+if you get three times the same ones
+
+01:18:47:07 - 01:18:51:06
+and random, but like,
+sometimes you really need like, yeah.
+
+01:18:51:08 - 01:18:52:16
+LICHTMAN Randomness, suppose
+
+01:18:54:02 - 01:18:54:18
+yeah.
+
+01:18:55:06 - 01:18:57:04
+This was I think there was one.
+
+01:18:57:04 - 01:18:58:13
+Or that you.
+
+01:18:58:13 - 01:19:01:03
+Would, I think, need to do
+a. Little different tests. On it.
+
+01:19:01:03 - 01:19:01:24
+But one of them.
+
+01:19:01:24 - 01:19:04:21
+Could be running it a lot of. Times
+and then looking at the.
+
+01:19:04:21 - 01:19:09:12
+Last two or three digits
+and then comparing if there's more.
+
+01:19:09:12 - 01:19:11:08
+Of one group.
+
+01:19:11:08 - 01:19:14:13
+So then you can make a graph
+about the results.
+
+01:19:15:00 - 01:19:16:17
+Yeah, that is I mean.
+
+01:19:16:17 - 01:19:18:02
+Kind of a simplification on that,
+
+01:19:18:02 - 01:19:20:17
+the data that you are getting
+because you can also create the data
+
+01:19:20:17 - 01:19:22:17
+with the exact outputs
+that you're getting as well.
+
+01:19:23:04 - 01:19:25:06
+It's yeah, but that was something.
+
+01:19:25:10 - 01:19:30:19
+Okay, maybe it, uh.
+
+01:19:31:04 - 01:19:32:05
+Rather might be common.
+
+01:19:32:05 - 01:19:33:13
+That's very how we can do it.
+
+01:19:33:13 - 01:19:36:01
+But like, uh, just from
+
+01:19:37:04 - 01:19:39:09
+my mind, that suggests that
+
+01:19:39:09 - 01:19:42:09
+if it looks not random,
+it's much like random.
+
+01:19:42:09 - 01:19:45:02
+That's probably make it less random
+to feel more random.
+
+01:19:45:02 - 01:19:45:23
+Yeah. Yeah.
+
+01:19:45:23 - 01:19:47:22
+So I think like. With the shuffle.
+
+01:19:47:22 - 01:19:48:24
+Algorithm, right.
+
+01:19:48:24 - 01:19:51:15
+Yeah. So maybe this is the feeling.
+
+01:19:51:23 - 01:19:52:08
+Yeah.
+
+01:19:52:08 - 01:19:54:18
+This I actually, I mean is a good case.
+
+01:19:54:18 - 01:19:56:06
+I mean what you were saying.
+
+01:19:56:06 - 01:19:58:20
+Or I mean you have the correct intuition
+about that and.
+
+01:19:59:04 - 01:19:59:18
+There is.
+
+01:19:59:18 - 01:20:02:10
+There are like
+really mathematical formulas about that.
+
+01:20:02:10 - 01:20:05:10
+Like you try to get square testing
+or there are tools.
+
+01:20:05:22 - 01:20:07:23
+Where it's the cool name
+
+01:20:09:06 - 01:20:10:18
+I can I can.
+
+01:20:10:18 - 01:20:12:15
+Remember it now. But yeah, there are.
+
+01:20:12:15 - 01:20:13:23
+Existing tools.
+
+01:20:13:23 - 01:20:14:17
+That are. Created.
+
+01:20:14:17 - 01:20:18:00
+Specifically to test
+if a random number generator
+
+01:20:18:00 - 01:20:20:13
+is actually now, you know, really random.
+
+01:20:21:01 - 01:20:24:13
+And it is basically statistical
+statistical analysis.
+
+01:20:24:13 - 01:20:28:00
+And you yeah, you create buckets,
+you check, you know,
+
+01:20:28:00 - 01:20:31:16
+you generate maybe, I don't know,
+trillions of numbers or something.
+
+01:20:31:16 - 01:20:34:02
+And you see if the distribution looks okay
+
+01:20:34:11 - 01:20:37:20
+from the normal random distribution
+that you will expect.
+
+01:20:38:06 - 01:20:40:12
+But it is something
+I mean, it's a very valid.
+
+01:20:40:12 - 01:20:45:00
+Feature that you might have,
+but it is something really tricky and.
+
+01:20:45:22 - 01:20:46:24
+It is not something.
+
+01:20:46:24 - 01:20:48:07
+That you can improve it.
+
+01:20:48:07 - 01:20:50:22
+You know, those testable two practices,
+unfortunately, that it is
+
+01:20:51:09 - 01:20:55:00
+basically the correlation
+and does like you said, I mean,
+
+01:20:55:00 - 01:20:59:22
+the context here is also again important
+because maybe if it is too random.
+
+01:21:00:18 - 01:21:03:11
+The end to end. Users feeling.
+
+01:21:03:12 - 01:21:04:20
+Might not be that good.
+
+01:21:04:20 - 01:21:08:04
+Because if you don't know the story,
+the shuffle algorithm.
+
+01:21:09:02 - 01:21:11:05
+You were having with the.
+
+01:21:11:07 - 01:21:13:11
+Songs, people are saying that, yeah,
+it is not random.
+
+01:21:13:11 - 01:21:17:16
+It is all just playing the same songs
+over and over and there is some weirdness
+
+01:21:17:23 - 01:21:20:07
+and then check the code.
+It was actually random.
+
+01:21:20:12 - 01:21:22:11
+It was just about the intuition.
+
+01:21:22:11 - 01:21:24:14
+So they switched the random.
+
+01:21:24:14 - 01:21:25:15
+Number generator.
+
+01:21:25:15 - 01:21:26:07
+So it can.
+
+01:21:26:07 - 01:21:29:10
+Avoid recently played tracks
+things like that.
+
+01:21:29:10 - 01:21:30:24
+So it was no.
+
+01:21:30:24 - 01:21:35:10
+More, you know, really random,
+but it was about the users wanted.
+
+01:21:35:19 - 01:21:39:16
+So yeah, it depends.
+
+01:21:39:16 - 01:21:41:01
+It depends is. Yeah.
+
+01:21:41:01 - 01:21:43:06
+One of the things
+that you will probably remember.
+
+01:21:43:22 - 01:21:45:05
+About oh all.
+
+01:21:45:05 - 01:21:48:15
+This stuff that, about.
+
+01:21:48:15 - 01:21:51:06
+So yeah, this is the take away from this.
+
+01:21:51:06 - 01:21:53:02
+I mean good code is.
+
+01:21:53:02 - 01:21:59:13
+Testable and good tested code
+is usually reliable but again, it depends.
+
+01:21:59:15 - 01:22:01:11
+There are two factors that can affect it.
+
+01:22:02:22 - 01:22:05:02
+And my final.
+
+01:22:05:02 - 01:22:07:10
+Takeaway would be this one. No.
+
+01:22:07:24 - 01:22:08:13
+Those lines.
+
+01:22:08:13 - 01:22:11:08
+Yeah, they are waiting for it.
+
+01:22:11:16 - 01:22:12:17
+It's not about tools.
+
+01:22:12:17 - 01:22:14:22
+It's not about what. Framework you use.
+
+01:22:14:22 - 01:22:20:11
+It's not about the number,
+the expectations of your managers.
+
+01:22:20:11 - 01:22:21:24
+You know, it's not about that.
+
+01:22:21:24 - 01:22:23:17
+It's about the. Mindset.
+
+01:22:23:17 - 01:22:25:00
+You need to have it.
+
+01:22:25:00 - 01:22:27:24
+You need to be able to produce a bit
+skeptical.
+
+01:22:28:17 - 01:22:31:18
+Are you
+sometimes you even need to be kind of
+
+01:22:31:18 - 01:22:34:17
+a hacker, actually,
+
+01:22:34:18 - 01:22:37:18
+by the way, this book, there was another
+story will tell you about this.
+
+01:22:38:08 - 01:22:40:02
+You know, I started.
+
+01:22:40:02 - 01:22:41:16
+Learning this just as a hobby, but some.
+
+01:22:41:16 - 01:22:44:06
+Testers actually really practice on look,
+
+01:22:44:20 - 01:22:48:10
+anyone knows those kinds of testers.
+
+01:22:48:10 - 01:22:52:22
+Yeah, well, there is a testing called
+
+01:22:53:00 - 01:22:56:13
+physical penetration testing
+and there's actually.
+
+01:22:57:08 - 01:23:00:14
+Mean there's penetration testing
+where you try to infiltrate
+
+01:23:00:18 - 01:23:02:17
+server, for example, to try to steal data.
+
+01:23:02:17 - 01:23:05:22
+So it is kind of like being a whitehat
+hacker, ethical hacker.
+
+01:23:06:04 - 01:23:09:11
+You get a contract to try to see
+if you can
+
+01:23:09:11 - 01:23:12:12
+steal the data from the server
+and you create the report about,
+
+01:23:14:00 - 01:23:15:00
+you know, what
+
+01:23:15:08 - 01:23:17:19
+kind of pull in the results that you want.
+
+01:23:17:19 - 01:23:19:20
+The second penetration
+testing on the other end.
+
+01:23:19:20 - 01:23:23:23
+Really does it physically for example here
+you know when.
+
+01:23:23:23 - 01:23:26:05
+I came here there was. A.
+
+01:23:26:20 - 01:23:29:09
+Gate at the end, I passed through that.
+
+01:23:29:21 - 01:23:33:09
+Then there was a security,
+you know, that turn ticket at the.
+
+01:23:33:20 - 01:23:35:01
+Entrance and there was that.
+
+01:23:35:01 - 01:23:38:09
+And I am sure there are things
+like server rooms that are there
+
+01:23:38:13 - 01:23:41:11
+rooms that I shouldn't be accessing
+and the physical.
+
+01:23:41:11 - 01:23:42:09
+Penetration test there.
+
+01:23:42:09 - 01:23:46:05
+So of course they'll do it with their,
+you know, with their
+
+01:23:46:09 - 01:23:47:19
+understanding of each other.
+
+01:23:47:19 - 01:23:51:11
+They will not do it for fun.
+
+01:23:51:11 - 01:23:53:10
+They actually try to break in.
+
+01:23:53:10 - 01:23:54:10
+They go to.
+
+01:23:54:10 - 01:23:54:20
+The door.
+
+01:23:54:20 - 01:23:58:22
+For example, and they use social
+engineering skills, for example.
+
+01:23:58:22 - 01:24:01:04
+I think I saw some of you
+playing ping pong.
+
+01:24:01:09 - 01:24:03:14
+Maybe you I don't know.
+
+01:24:03:14 - 01:24:06:01
+And maybe I could have tried to. You know.
+
+01:24:06:01 - 01:24:07:14
+As you know, I am that guy.
+
+01:24:07:14 - 01:24:09:20
+Could you just let me in?
+You know, Victoria, you knows.
+
+01:24:09:21 - 01:24:12:15
+That I would be here. And,
+you know, I could try doing that.
+
+01:24:12:15 - 01:24:14:03
+And when I come in, I could actually.
+
+01:24:14:03 - 01:24:16:16
+Try to break into a room and. Check
+if anyone.
+
+01:24:16:16 - 01:24:19:07
+Actually saw me and try to stop me
+
+01:24:19:17 - 01:24:22:07
+or if I was able
+to block the cameras or anything.
+
+01:24:23:05 - 01:24:24:20
+And that would be a.
+
+01:24:24:20 - 01:24:29:22
+Penetration testers life, but
+it is not a good way to end presentation.
+
+01:24:29:22 - 01:24:31:10
+So I am going. Back to the slides.
+
+01:24:33:00 - 01:24:35:18
+So yeah, I mean don't
+forget, I mean there are a lot of tools.
+
+01:24:35:18 - 01:24:38:02
+There are a lot of materials
+and you can just Google them
+
+01:24:38:02 - 01:24:40:24
+with depending on the language
+that you are using. But
+
+01:24:42:01 - 01:24:43:11
+don't forget about it.
+
+01:24:43:11 - 01:24:46:06
+Don't forget about. Fallacies.
+Maybe you will. Forget.
+
+01:24:46:10 - 01:24:49:05
+And may you I am I.
+
+01:24:49:05 - 01:24:51:21
+Believe that you will be able
+to remember it like five years later.
+
+01:24:51:21 - 01:24:53:22
+Oh, there was a bald guy,
+you know, talking about that.
+
+01:24:53:22 - 01:24:56:22
+I don't remember his name, but he said,
+yeah, it doesn't really work like that.
+
+01:24:57:12 - 01:24:58:14
+And if you can do that.
+
+01:24:58:14 - 01:25:01:20
+Actually, that will be more than enough
+for me from this blog.
+
+01:25:01:20 - 01:25:11:07
+So thanks everyone everyone.
+
+01:25:11:07 - 01:25:14:05
+I was going to have.
+
+01:25:14:05 - 01:25:16:14
+Yes, thank you so much, Omer.
+
+01:25:16:14 - 01:25:17:19
+Exactly on time. A
+
+01:25:18:22 - 01:25:19:17
+bit earlier
+
+01:25:19:17 - 01:25:23:17
+that we have actually
+another half an hour of Q&A.
+
+01:25:23:17 - 01:25:27:15
+So I would like to continue
+throwing the catch box
+
+01:25:28:14 - 01:25:31:24
+to the people that actually have questions
+for the people at home.
+
+01:25:31:24 - 01:25:35:19
+I would like to encourage you
+to go to Slido Dot com and then include
+
+01:25:35:19 - 01:25:39:02
+the event name is called Masterclass
+Testing
+
+01:25:39:11 - 01:25:44:00
+and I will be your voice if that's okay.
+
+01:25:44:06 - 01:25:44:13
+Right.
+
+01:25:44:13 - 01:25:47:13
+So I will read out loud
+whenever I see an interesting question.
+
+01:25:47:13 - 01:25:50:14
+And then if you could address Kubis,
+
+01:25:51:09 - 01:25:54:18
+who has the first question?
+
+01:25:54:18 - 01:25:56:14
+Okay. Yes, sir.
+
+01:25:56:14 - 01:25:57:17
+Okay.
+
+01:25:57:17 - 01:26:03:24
+Okay.
+
+01:26:03:24 - 01:26:07:15
+If I go to the tests, the test code, sir.
+
+01:26:08:10 - 01:26:10:09
+How do you test that? The test code.
+
+01:26:10:09 - 01:26:12:14
+There's actually a really good question.
+
+01:26:12:14 - 01:26:15:05
+I mean, who you got to cross over
+to watch the Watchmen?
+
+01:26:15:05 - 01:26:15:18
+I mean.
+
+01:26:16:19 - 01:26:21:00
+So it's a bit tricky, unfortunately.
+
+01:26:21:18 - 01:26:24:23
+I mean, you usually don't
+exactly test the.
+
+01:26:24:23 - 01:26:26:13
+Test code itself.
+
+01:26:26:13 - 01:26:30:18
+But the test code is part of a series of.
+
+01:26:30:21 - 01:26:33:17
+You know, frameworks,
+tools and libraries that you have.
+
+01:26:34:23 - 01:26:36:18
+If you are writing your own framework.
+
+01:26:36:18 - 01:26:38:24
+And framework
+does not have to be a complex.
+
+01:26:38:24 - 01:26:40:06
+You know. Tool to interrogate.
+
+01:26:40:06 - 01:26:42:06
+It might just be some,
+you know, middle layer.
+
+01:26:42:06 - 01:26:45:09
+To create documentation
+or read the input from files and things.
+
+01:26:45:09 - 01:26:46:03
+Like that.
+
+01:26:46:05 - 01:26:47:13
+What we do.
+
+01:26:47:13 - 01:26:48:21
+For example, personally.
+
+01:26:48:21 - 01:26:51:00
+I, we create tests.
+
+01:26:51:00 - 01:26:54:17
+Real unit tests for those framework.
+
+01:26:54:17 - 01:26:55:14
+Cases.
+
+01:26:55:20 - 01:26:58:09
+But then the test, actual test
+
+01:26:58:09 - 01:27:01:17
+itself, they are mainly just reviewed.
+
+01:27:01:19 - 01:27:04:11
+I mean, but not just like a code.
+
+01:27:04:11 - 01:27:06:00
+Review where you're blind to check it.
+
+01:27:06:00 - 01:27:08:10
+We track the results.
+
+01:27:08:10 - 01:27:09:23
+We see it.
+
+01:27:09:23 - 01:27:13:11
+Check if they are just random, the
+failing, for example, if they are flaky.
+
+01:27:14:02 - 01:27:18:21
+And we also try to check if they are
+meaningful or things like that.
+
+01:27:20:05 - 01:27:21:14
+So it
+
+01:27:21:18 - 01:27:23:23
+usually just depends on the complexity.
+
+01:27:23:23 - 01:27:27:09
+But you don't test the test scenario
+most of the time.
+
+01:27:27:12 - 01:27:38:06
+But the remaining parts
+of the parameter, uh.
+
+01:27:39:18 - 01:27:42:21
+I would like to ask about documentation
+
+01:27:43:17 - 01:27:46:07
+because well, every project
+
+01:27:46:19 - 01:27:50:15
+being a project, it's built
+
+01:27:50:21 - 01:27:53:01
+by people, many people and
+
+01:27:54:13 - 01:27:58:21
+how to get confidence that, let's say
+
+01:27:59:03 - 01:28:01:14
+sort of framework of documentation
+
+01:28:02:01 - 01:28:04:23
+gives you enough information
+to, let's say,
+
+01:28:05:05 - 01:28:08:24
+not only catch the fact
+but also prevent it in some
+
+01:28:10:03 - 01:28:14:12
+point of the process
+of creation of software.
+
+01:28:14:12 - 01:28:17:14
+Oh, yeah, it is.
+
+01:28:17:14 - 01:28:19:08
+I mean, the basic answer. Is it depends.
+
+01:28:19:08 - 01:28:22:02
+So it depends. On the context.
+
+01:28:22:05 - 01:28:24:24
+For the avionics projects, you will have
+
+01:28:26:10 - 01:28:28:19
+sometimes up to 6 to 7 layers of.
+
+01:28:28:19 - 01:28:29:11
+Requirements.
+
+01:28:29:11 - 01:28:32:11
+It will start with the either
+airplane show flight.
+
+01:28:32:11 - 01:28:34:19
+I mean, like something
+very high level like that.
+
+01:28:34:19 - 01:28:35:05
+And on.
+
+01:28:35:05 - 01:28:39:15
+The low level it will say
+great range function should accept an.
+
+01:28:39:15 - 01:28:42:18
+Integer parameters, get range,
+function, return or something like that.
+
+01:28:43:03 - 01:28:43:21
+And in that
+
+01:28:45:14 - 01:28:47:17
+you have a whole bunch.
+
+01:28:47:17 - 01:28:51:03
+Of different levels that you can review
+and compare to each other.
+
+01:28:51:03 - 01:28:53:16
+If the lower level is compatible
+with the higher one
+
+01:28:53:16 - 01:28:55:17
+and if it is compatible with the code
+and things like.
+
+01:28:57:08 - 01:29:00:08
+On the other hand,
+for most of the projects,
+
+01:29:00:08 - 01:29:03:00
+if it is not like health care
+or other stuff
+
+01:29:04:15 - 01:29:05:07
+like that.
+
+01:29:05:07 - 01:29:11:02
+Having an examination and the best thing
+you can do is traceability I think.
+
+01:29:11:19 - 01:29:13:20
+So that you can. Track.
+
+01:29:13:20 - 01:29:17:19
+How that is implemented or tested
+and it can give some level of confidence.
+
+01:29:18:18 - 01:29:22:13
+But otherwise it basically boils.
+
+01:29:22:13 - 01:29:24:03
+Down to the gut feeling.
+
+01:29:24:03 - 01:29:25:13
+I mean, not just gut feeling,
+
+01:29:25:13 - 01:29:30:10
+but the domain experience that you have
+or the inputs from other domain experts.
+
+01:29:30:10 - 01:29:33:13
+You know, you can have inputs
+from your customer and things like that.
+
+01:29:34:08 - 01:29:37:05
+And unfortunately, there is no like a.
+
+01:29:37:05 - 01:29:40:24
+Silver bullet that can give you
+yeah, now you have complete documentation,
+
+01:29:40:24 - 01:29:46:24
+you don't even have that for quote and
+documentation is a whole different. Um,
+
+01:29:47:09 - 01:29:51:18
+I want to take one of the, I would like
+to take one of the questions from Manu.
+
+01:29:52:07 - 01:29:57:02
+Can we also measure coverage
+for integration tests and to end test,
+
+01:29:57:10 - 01:30:01:04
+if yes, how
+or it only makes sense for unit tests.
+
+01:30:01:08 - 01:30:02:24
+Many things. Yeah.
+
+01:30:02:24 - 01:30:08:05
+Uh, actually,
+in the end industry, most people take.
+
+01:30:09:09 - 01:30:10:17
+Coverage for unit tests.
+
+01:30:10:17 - 01:30:13:09
+As asked here, you know,
+
+01:30:13:09 - 01:30:14:21
+the main reason is.
+
+01:30:14:21 - 01:30:15:24
+If you are collecting.
+
+01:30:15:24 - 01:30:17:19
+Coverage from unit. Tests.
+
+01:30:17:19 - 01:30:20:22
+Whatever you do on the layers
+should not include
+
+01:30:20:22 - 01:30:23:24
+any new coverage.
+
+01:30:23:24 - 01:30:25:17
+And that's the that's the problem.
+
+01:30:25:17 - 01:30:27:06
+I mean, if you.
+
+01:30:28:05 - 01:30:30:12
+Are intuitive, for example,
+you should already have one.
+
+01:30:30:12 - 01:30:32:18
+Hundred percent coverage
+on a specific module
+
+01:30:32:19 - 01:30:34:13
+that like that we showed you, you know,
+
+01:30:34:13 - 01:30:36:15
+you cannot improve that
+with the integration test.
+
+01:30:36:22 - 01:30:41:19
+So people just to keep it on that,
+however,
+
+01:30:41:22 - 01:30:46:19
+it's really completely fine to do it
+on any level that you want.
+
+01:30:46:19 - 01:30:49:04
+Actually, you can separate those results.
+
+01:30:49:05 - 01:30:49:12
+You can.
+
+01:30:49:12 - 01:30:53:03
+Say that these actually
+maybe you should even explicitly.
+
+01:30:53:03 - 01:30:54:00
+Do that.
+
+01:30:54:05 - 01:30:57:12
+You can say, okay, these are the coverage
+from the United States,
+
+01:30:57:17 - 01:30:59:20
+these are the coverage
+from the integration. Tests, and.
+
+01:30:59:20 - 01:31:02:04
+These are the. Coverage
+from the anthem tests.
+
+01:31:02:04 - 01:31:03:19
+And I mentioned.
+
+01:31:03:19 - 01:31:06:22
+That in avionics projects,
+there are very contractual,
+
+01:31:06:22 - 01:31:11:07
+you know, strict requirements
+about how much coverage you have to have.
+
+01:31:11:07 - 01:31:14:16
+In code pieces to getting. Baked.
+
+01:31:14:16 - 01:31:18:14
+And we didn't have any unit tests at all
+like zero now.
+
+01:31:18:21 - 01:31:21:09
+And we had a cloud. I mean.
+
+01:31:22:13 - 01:31:23:13
+Even that didn't exist.
+
+01:31:23:13 - 01:31:26:07
+I won't lie. I mean, there was something,
+but it was. Like basically checking.
+
+01:31:26:07 - 01:31:28:12
+If we can compile it or not.
+
+01:31:28:12 - 01:31:31:02
+You I mean, right now we have all this.
+
+01:31:31:02 - 01:31:33:15
+Continuous integration
+and continuous development practices.
+
+01:31:33:15 - 01:31:34:03
+You know, whenever.
+
+01:31:34:03 - 01:31:37:10
+You submit a code, it takes two tests
+automatically and it get integrated.
+
+01:31:37:10 - 01:31:38:24
+Into your software like immediate.
+
+01:31:38:24 - 01:31:40:10
+You don't even see it happening.
+
+01:31:40:10 - 01:31:41:14
+For us, integration.
+
+01:31:41:14 - 01:31:44:13
+Will take like three or four days,
+sometimes even work
+
+01:31:44:18 - 01:31:47:16
+to actually make everything work together.
+
+01:31:48:06 - 01:31:49:05
+So our tests.
+
+01:31:49:05 - 01:31:53:03
+Were on intent test level
+and we were trying to cover
+
+01:31:53:16 - 01:31:57:18
+those contractual obligations
+that we could cover in any level.
+
+01:31:57:24 - 01:31:59:16
+We don't.
+
+01:31:59:16 - 01:32:03:20
+So it is definitely possible
+and the approach is not actually different
+
+01:32:04:02 - 01:32:06:07
+because to have coverage,
+basically it works like that.
+
+01:32:06:07 - 01:32:10:12
+Your instrument, your code and
+what it does is maybe I can show it here.
+
+01:32:10:12 - 01:32:12:15
+So we have this simple code, right?
+
+01:32:13:07 - 01:32:17:24
+When you instrument it, it is either
+in assembly level or directly in the code.
+
+01:32:17:24 - 01:32:19:00
+It says.
+
+01:32:19:00 - 01:32:24:06
+Why print one, print two,
+print three, print 4.56 to each level.
+
+01:32:24:06 - 01:32:27:24
+Or if you have branches like there,
+you can have other instrumentation there.
+
+01:32:27:24 - 01:32:31:22
+And when you run it, if you print,
+you know, a bunch of numbers that file
+
+01:32:32:01 - 01:32:34:22
+and the software will know
+that all that number is coming from here.
+
+01:32:35:01 - 01:32:37:06
+And I know that this line is covered.
+
+01:32:37:06 - 01:32:38:14
+I didn't get the. Number.
+
+01:32:38:14 - 01:32:39:23
+The unit number from. This one.
+
+01:32:39:23 - 01:32:41:21
+So I don't I know that it is not covered.
+
+01:32:42:21 - 01:32:44:01
+And as long as you.
+
+01:32:44:01 - 01:32:47:06
+Instrument your application,
+it doesn't matter which level
+
+01:32:47:22 - 01:32:52:07
+get the coverage, you can get the coverage
+on the end test level as well.
+
+01:32:52:18 - 01:32:56:05
+It is a bit tricky, it's a bit hard,
+but it is also meaningful
+
+01:32:56:05 - 01:32:57:14
+and you can absolutely do it.
+
+01:32:57:14 - 01:33:03:06
+It's okay.
+
+01:33:03:06 - 01:33:08:10
+So you when you start to talk about
+your experience were well
+
+01:33:08:10 - 01:33:12:02
+it was no unit tests all and like
+so you have very long career
+
+01:33:12:16 - 01:33:18:09
+in testing so I would be interested
+to hear your vision.
+
+01:33:18:11 - 01:33:23:05
+That's how it from the time
+when you started testing in general
+
+01:33:23:14 - 01:33:29:09
+and what is the most recent technologies
+that maybe make it fully automatic
+
+01:33:29:10 - 01:33:33:08
+for like artificial intelligence
+involved in these all these high,
+
+01:33:33:12 - 01:33:37:05
+super high tech?
+
+01:33:37:05 - 01:33:39:18
+Uh, I'm from there extra.
+
+01:33:39:18 - 01:33:44:07
+When we started our single test studio
+running our entire history, it.
+
+01:33:44:07 - 01:33:47:10
+Will take around one and a half months
+completely manual.
+
+01:33:47:12 - 01:33:50:04
+We will take your hundreds
+of pieces of paper.
+
+01:33:50:21 - 01:33:55:02
+Sit actually really real helicopter
+mock up, for example, for hours.
+
+01:33:55:09 - 01:34:00:10
+And we will say, okay, press b one
+this be one OC verify that it used to.
+
+01:34:00:10 - 01:34:01:03
+Be this.
+
+01:34:01:03 - 01:34:03:13
+Yes, and
+we will just really check everything.
+
+01:34:04:02 - 01:34:05:01
+And this is why I.
+
+01:34:05:01 - 01:34:07:22
+Started to make automation
+because that was boring.
+
+01:34:07:22 - 01:34:10:08
+I mean. We were
+we still. Wrote the same tests.
+
+01:34:10:08 - 01:34:14:06
+You know, we didn't fall into that policy
+of just, you know, testing blindly
+
+01:34:14:06 - 01:34:16:23
+and our tests were meaningful
+with the requirements.
+
+01:34:17:10 - 01:34:18:23
+But it, it is, it was faster.
+
+01:34:19:24 - 01:34:21:24
+Uh, when I
+
+01:34:21:24 - 01:34:25:02
+left the company, you know,
+there were discussions.
+
+01:34:26:01 - 01:34:27:18
+Writing lower level tests.
+
+01:34:27:18 - 01:34:30:06
+We were actually trying
+to convince our managers that, yeah,
+
+01:34:30:06 - 01:34:33:11
+it could actually be meaningful,
+but it wasn't easy
+
+01:34:33:24 - 01:34:38:07
+because was also new for the auditors
+that we were having.
+
+01:34:38:07 - 01:34:38:19
+You know, do
+
+01:34:38:19 - 01:34:41:04
+other people that were working
+on the project, they were saying, no.
+
+01:34:41:06 - 01:34:43:05
+I mean, that coverage doesn't.
+
+01:34:43:05 - 01:34:45:10
+Mean anything
+because we need to have all the coverage
+
+01:34:45:10 - 01:34:46:24
+from the Internet, this level.
+
+01:34:46:24 - 01:34:49:11
+And that does almost like a belief.
+
+01:34:49:11 - 01:34:52:05
+Uh, but I know that it.
+
+01:34:52:05 - 01:34:54:23
+Is for the specific company
+
+01:34:54:23 - 01:34:57:21
+now there are more component level tests
+
+01:34:58:03 - 01:35:01:20
+and now they can run their tests
+more efficiently.
+
+01:35:02:08 - 01:35:04:08
+When I come to Netherlands, actually,
+it is.
+
+01:35:04:08 - 01:35:08:06
+Probably the first time
+that I got introduced to unit tests
+
+01:35:08:07 - 01:35:10:14
+in like a business. Level.
+
+01:35:11:19 - 01:35:12:12
+I like.
+
+01:35:12:12 - 01:35:13:22
+The idea,
+
+01:35:14:10 - 01:35:15:13
+I like to concerts.
+
+01:35:15:13 - 01:35:19:05
+But I didn't like. How it was implement.
+
+01:35:19:05 - 01:35:21:05
+Uh, unfortunately, even now
+
+01:35:21:05 - 01:35:25:00
+we are working with different teams
+and some team produces something.
+
+01:35:25:00 - 01:35:28:23
+The other team integrate it
+into their own component and uses that.
+
+01:35:28:23 - 01:35:31:05
+Almost every team has this dilemma.
+
+01:35:31:07 - 01:35:32:15
+You know, the component.
+
+01:35:32:15 - 01:35:37:08
+They gave us is really well tested
+because no one.
+
+01:35:37:08 - 01:35:40:10
+Has the time to go over
+other people's unit tests.
+
+01:35:40:20 - 01:35:42:12
+And like meticulously.
+
+01:35:42:12 - 01:35:44:09
+Analyze it against the requirements
+and everything.
+
+01:35:44:09 - 01:35:46:21
+You want to believe that it is okay.
+
+01:35:46:21 - 01:35:49:12
+But it unfortunately doesn't happen.
+
+01:35:49:12 - 01:35:52:00
+Maybe it could be avoided
+
+01:35:52:00 - 01:35:56:10
+if people have this presentation before.
+
+01:35:56:10 - 01:35:59:11
+But this city, I mean, those policies,
+I mean,
+
+01:36:00:12 - 01:36:04:11
+it's really bugging me, but it is not
+something, you know, you can easily fix
+
+01:36:05:13 - 01:36:07:02
+when what I I'm trying to.
+
+01:36:07:02 - 01:36:10:05
+Fix it is basically this,
+you know, try to teach people that.
+
+01:36:10:12 - 01:36:13:00
+You. Need to be careful
+about what you are doing.
+
+01:36:13:00 - 01:36:16:04
+So into a unit testing all those know
+integration, they're all testing
+
+01:36:16:04 - 01:36:16:16
+everything.
+
+01:36:16:16 - 01:36:19:10
+They are really, you know,
+they have a great method.
+
+01:36:20:04 - 01:36:21:21
+But on implementation.
+
+01:36:21:21 - 01:36:24:24
+Most of the. Time, unfortunately. It
+
+01:36:24:24 - 01:36:28:07
+it is not
+I mean, I won't say it fails, but it is.
+
+01:36:28:07 - 01:36:29:19
+Not up to standards.
+
+01:36:29:19 - 01:36:33:00
+They should be.
+
+01:36:33:00 - 01:36:36:06
+Can I have a question
+about the test driven developments?
+
+01:36:36:20 - 01:36:40:00
+So I'm trying, but what I've found
+
+01:36:40:00 - 01:36:44:18
+is that to write a test, you have to
+
+01:36:44:24 - 01:36:50:10
+you need a clear idea about the function,
+about what it's about to do.
+
+01:36:50:19 - 01:36:52:23
+What is important, its output is. Yeah,
+
+01:36:54:01 - 01:36:56:06
+and sometimes you not you just don't know.
+
+01:36:56:23 - 01:37:00:10
+So what's your advice in that case
+
+01:37:02:08 - 01:37:04:18
+or let's say maybe, you know,
+
+01:37:05:01 - 01:37:09:05
+on a higher level you do know
+but but the program is supposed to do
+
+01:37:10:05 - 01:37:13:20
+you could write it
+well maybe arthritis but
+
+01:37:15:05 - 01:37:18:03
+yeah it's it's a conflict sometimes
+
+01:37:18:06 - 01:37:22:07
+I just don't know
+what the function is supposed to do yet.
+
+01:37:22:14 - 01:37:23:02
+Yeah.
+
+01:37:24:05 - 01:37:26:01
+Well I mean
+
+01:37:26:10 - 01:37:30:12
+one thing if you don't know what exactly
+the function.
+
+01:37:30:12 - 01:37:31:11
+Should be doing.
+
+01:37:31:11 - 01:37:35:07
+And you should not be writing it,
+so you should not be writing.
+
+01:37:35:07 - 01:37:36:00
+It yet.
+
+01:37:36:13 - 01:37:38:03
+Well, not not in the test.
+
+01:37:38:03 - 01:37:42:05
+I mean if you are not sure what the code
+will exactly do, you know, then I mean
+
+01:37:43:08 - 01:37:45:02
+where is the point in starting with that.
+
+01:37:45:02 - 01:37:47:21
+But I understand. Your point
+because you have an overall idea.
+
+01:37:47:21 - 01:37:50:21
+You're having a high level idea
+about how things will connect and work.
+
+01:37:51:06 - 01:37:54:03
+But for that specific function,
+you know, it is not clear yet.
+
+01:37:54:17 - 01:37:57:00
+And this is why I mentioned
+that you can even.
+
+01:37:57:00 - 01:37:59:09
+Use the inverse of Parliament and even.
+
+01:37:59:09 - 01:38:00:08
+The inverted pyramid.
+
+01:38:00:08 - 01:38:03:18
+Is okay to use test driven development.
+
+01:38:04:06 - 01:38:06:11
+Because you can write your internal test
+
+01:38:09:11 - 01:38:11:18
+and implement everything you know until
+
+01:38:12:23 - 01:38:14:00
+it is required to.
+
+01:38:14:00 - 01:38:16:01
+Actually make that thing work.
+
+01:38:16:01 - 01:38:18:10
+That is also. Okay
+and it depends on your context.
+
+01:38:18:10 - 01:38:21:21
+And if you are working on a small project
+that is really complete acceptable.
+
+01:38:22:13 - 01:38:23:23
+And actually even.
+
+01:38:23:23 - 01:38:29:06
+For a larger project,
+maybe you can still create that and test.
+
+01:38:29:19 - 01:38:33:07
+And once that enter test pieces,
+
+01:38:33:15 - 01:38:36:07
+it will be the signal. To you that future
+
+01:38:36:07 - 01:38:38:20
+is now ready for deployment.
+
+01:38:39:17 - 01:38:45:17
+So it won't exactly be in the merit
+of test driven development, but still.
+
+01:38:45:17 - 01:38:48:24
+I mean, you can make use it in this way
+in whatever logic
+
+01:38:48:24 - 01:38:51:03
+it puts your, you know, thoughts.
+
+01:38:52:14 - 01:38:55:05
+And I go,
+
+01:38:55:11 - 01:38:57:11
+oh yeah,
+
+01:38:57:23 - 01:38:59:00
+yeah, let's go there.
+
+01:38:59:00 - 01:39:01:00
+Because she was the. Again
+for a long. Time.
+
+01:39:01:17 - 01:39:05:12
+I don't know. Yes.
+
+01:39:05:12 - 01:39:10:11
+I had a question about testing as a career
+path that the Nils kind of touched on,
+
+01:39:10:11 - 01:39:14:07
+which is that what do you think
+about the future proof owners of testing?
+
+01:39:14:10 - 01:39:17:23
+Because you mentioned a I that I presume
+it's kind of on the horizon.
+
+01:39:17:23 - 01:39:19:18
+How close do you think that horizon is?
+
+01:39:19:18 - 01:39:22:06
+Because you already have currently a tools
+that, for example,
+
+01:39:22:14 - 01:39:23:22
+autocomplete code and, stuff like that.
+
+01:39:25:14 - 01:39:27:03
+I mean yeah for.
+
+01:39:27:03 - 01:39:30:01
+I actually it is hard to say
+I don't know if you guys so though
+
+01:39:30:15 - 01:39:34:19
+it can generate images from you know,
+the sentences that you give
+
+01:39:35:01 - 01:39:38:06
+and it is scary
+because if you told about it
+
+01:39:38:06 - 01:39:40:15
+like two years ago,
+they would say, yeah, it's crazy.
+
+01:39:40:15 - 01:39:41:17
+Probably it will take it
+
+01:39:41:17 - 01:39:44:15
+like 15 more years before we can implement
+something like that.
+
+01:39:44:16 - 01:39:46:01
+I know it is here now.
+
+01:39:46:01 - 01:39:49:17
+People are actually using it for a I mean.
+
+01:39:51:02 - 01:39:52:06
+I am not scared.
+
+01:39:52:06 - 01:39:55:15
+Of the future of testing
+because if I would.
+
+01:39:55:16 - 01:40:00:09
+Big and developers should also be
+I mean because in the end turning.
+
+01:40:00:09 - 01:40:05:02
+Requirements in the code is also
+that is not really hard to do
+
+01:40:05:03 - 01:40:09:04
+if your requirements are well defined
+so and it is about communication
+
+01:40:09:04 - 01:40:12:13
+and areas is getting better
+and better at understanding the context
+
+01:40:13:14 - 01:40:16:18
+from your natural language.
+
+01:40:16:18 - 01:40:18:12
+But I for example those A.I.
+
+01:40:18:12 - 01:40:20:13
+development, I see. It as an opportunity.
+
+01:40:20:16 - 01:40:24:10
+I mean really,
+there are a lot of open points you can do.
+
+01:40:24:11 - 01:40:25:02
+You can.
+
+01:40:25:02 - 01:40:27:11
+Check the book history to actually.
+
+01:40:27:11 - 01:40:29:01
+Guess, you know.
+
+01:40:29:01 - 01:40:30:04
+Well, potential new.
+
+01:40:30:04 - 01:40:32:07
+Box that will come in the future.
+
+01:40:32:07 - 01:40:33:17
+You can check your performance.
+
+01:40:33:17 - 01:40:35:18
+History,
+you know, use some machine learning
+
+01:40:35:18 - 01:40:38:13
+and generate potential performance
+pitfalls.
+
+01:40:38:22 - 01:40:41:05
+That you can encounter. And. Even use.
+
+01:40:41:11 - 01:40:45:04
+I automatically generate,
+you know, some of the test code.
+
+01:40:46:24 - 01:40:49:23
+In that sense
+that it is more like an opportunity.
+
+01:40:49:23 - 01:40:52:21
+I would say.
+
+01:40:52:21 - 01:40:57:09
+But in general
+actually the career paths of testing is.
+
+01:40:57:14 - 01:41:03:13
+Interesting because yeah,
+I also heard it in a conference and it.
+
+01:41:04:05 - 01:41:06:11
+Makes sense because test engineers.
+
+01:41:06:16 - 01:41:08:08
+Usually start this test engineers.
+
+01:41:08:08 - 01:41:09:18
+Like me, they switch to.
+
+01:41:09:18 - 01:41:11:05
+Test automation because is more.
+
+01:41:11:05 - 01:41:13:11
+Fun then they switch to development.
+
+01:41:14:07 - 01:41:16:16
+Now you have years. Of experience.
+
+01:41:16:16 - 01:41:17:15
+About testing.
+
+01:41:17:15 - 01:41:18:06
+You know, all.
+
+01:41:18:06 - 01:41:20:18
+These policies, approaches and stuff, but
+
+01:41:21:15 - 01:41:25:09
+it feels boring because you know,
+you are writing scripts anyway.
+
+01:41:25:09 - 01:41:27:24
+They are doing it for you
+and you are not getting paid by.
+
+01:41:27:24 - 01:41:30:05
+The bug or anything. At once.
+
+01:41:30:05 - 01:41:32:12
+You start automation frameworks for
+
+01:41:32:13 - 01:41:36:09
+you have a tendency
+to switch to the development side as well.
+
+01:41:36:09 - 01:41:39:09
+Actually,
+I was talking with that about my manager.
+
+01:41:39:09 - 01:41:42:18
+I think in the last one
+and a half or two years
+
+01:41:43:02 - 01:41:45:06
+I didn't really write the single test.
+
+01:41:45:16 - 01:41:48:01
+I am mostly. Working on the.
+
+01:41:48:01 - 01:41:51:01
+Infrastructure and things like that
+and it's a bit fear.
+
+01:41:51:01 - 01:41:54:10
+Then even after you know that I am still.
+
+01:41:54:10 - 01:41:56:00
+Here, you know, talking about testing.
+
+01:41:59:08 - 01:41:59:22
+To another
+
+01:41:59:22 - 01:42:05:14
+point is, you know, it's also
+a bit trickier because testers also don't
+
+01:42:05:17 - 01:42:09:18
+have always have the respect testing
+is thought to be
+
+01:42:09:18 - 01:42:12:15
+you know, you don't need
+as much technical skills as a developers.
+
+01:42:14:03 - 01:42:18:06
+So you might get a different pay,
+a lower pay grade.
+
+01:42:18:06 - 01:42:20:07
+You know, you might have other.
+
+01:42:20:07 - 01:42:21:18
+Problems like the visibility.
+
+01:42:21:18 - 01:42:24:01
+Things like you do with
+testing is not as visible.
+
+01:42:24:01 - 01:42:26:07
+As what will do it development.
+
+01:42:26:07 - 01:42:28:18
+Unfortunately,
+there are challenges like that
+
+01:42:29:00 - 01:42:31:22
+if you want to pull of that. But
+
+01:42:32:00 - 01:42:36:00
+having said that, it is still a good idea.
+
+01:42:36:00 - 01:42:37:19
+For example, if you want to sneak.
+
+01:42:37:19 - 01:42:41:10
+Into a domain
+that you are not experienced enough.
+
+01:42:42:01 - 01:42:47:11
+If you want to work in, I don't know, say,
+for example, you you have no idea.
+
+01:42:47:11 - 01:42:49:09
+Is that the up
+or you know how to work on air.
+
+01:42:49:09 - 01:42:51:10
+But you can, you know, work as a quality
+
+01:42:51:10 - 01:42:55:02
+assurance engineer, manual test engineer
+or something like that for that website.
+
+01:42:55:14 - 01:42:59:05
+So that at least will get into it
+and your work can continue from there.
+
+01:43:01:06 - 01:43:04:00
+I mean,
+it's a bad advice and it's a good career.
+
+01:43:04:00 - 01:43:07:17
+I mean, for 16 years I've been asked
+a lot of times, you know, where you're
+
+01:43:07:17 - 01:43:12:06
+not just switching to a developer, but
+I like testing, I like breaking things.
+
+01:43:12:06 - 01:43:15:03
+And if you like breaking things,
+I mean, you just, you know,
+
+01:43:15:08 - 01:43:16:22
+give it a try at least.
+
+01:43:16:22 - 01:43:20:16
+And to be honest, I mean, is it
+the will look very unusual
+
+01:43:21:24 - 01:43:25:11
+that there are some companies
+which makes rotations
+
+01:43:25:18 - 01:43:29:10
+so each developer should spend
+like two weeks per year.
+
+01:43:29:10 - 01:43:31:02
+As a test or something like that or.
+
+01:43:31:02 - 01:43:34:00
+Sometimes a it's imprint.
+
+01:43:34:11 - 01:43:36:16
+One of the developer spheres tester set.
+
+01:43:37:02 - 01:43:39:08
+And for every you know,
+they become the tester
+
+01:43:39:08 - 01:43:41:16
+and they don't focus on development
+but just test
+
+01:43:43:14 - 01:43:43:23
+it is.
+
+01:43:43:23 - 01:43:47:10
+Yeah, I mean I, I am I can say about.
+
+01:43:47:21 - 01:43:49:15
+You know, I can.
+
+01:43:49:15 - 01:43:50:12
+All I can say is.
+
+01:43:50:12 - 01:43:54:00
+These details and you can decide yourself
+the career path.
+
+01:43:54:01 - 01:43:57:15
+But I think it.
+
+01:43:57:15 - 01:43:59:10
+Okay, now last question.
+
+01:43:59:10 - 01:44:01:24
+Okay,
+let's question in the front. So then.
+
+01:44:03:02 - 01:44:06:02
+Who and.
+
+01:44:08:18 - 01:44:10:14
+So. Somewhere you.
+
+01:44:10:14 - 01:44:12:19
+Said that
+
+01:44:13:02 - 01:44:15:11
+if you can write the test easily,
+it means that you're not
+
+01:44:15:20 - 01:44:18:06
+designing your code well or.
+
+01:44:18:06 - 01:44:19:12
+Something. Like that.
+
+01:44:19:12 - 01:44:23:13
+And I have the problem nowadays
+that usually okay,
+
+01:44:23:14 - 01:44:25:11
+it starts with something simple.
+
+01:44:25:11 - 01:44:28:03
+Check
+if you have enough argument or argument.
+
+01:44:28:11 - 01:44:31:22
+It's just like, okay,
+if it's not two or three, it just false.
+
+01:44:32:08 - 01:44:33:24
+It's just an easy go.
+
+01:44:33:24 - 01:44:35:11
+And then later on.
+
+01:44:35:11 - 01:44:37:15
+I have something more difficult
+with, for example.
+
+01:44:37:15 - 01:44:38:01
+English.
+
+01:44:38:01 - 01:44:41:23
+They want to check
+if the link list is well initialized
+
+01:44:41:23 - 01:44:45:15
+or if the data in the link
+has been modified correctly.
+
+01:44:46:03 - 01:44:49:17
+And when I have to do that,
+I get like this huge chunk of code
+
+01:44:50:04 - 01:44:53:10
+where I make some sort of like
+and separate program
+
+01:44:53:16 - 01:44:55:12
+and then I only return false or two.
+
+01:44:55:12 - 01:44:56:19
+But I'm not actually
+
+01:44:56:19 - 01:45:01:03
+testing the data itself in the test here,
+but not only within the.
+
+01:45:01:03 - 01:45:03:14
+Server or something like
+that. And then my question is
+
+01:45:05:03 - 01:45:07:06
+in, yeah,
+
+01:45:07:06 - 01:45:10:16
+what am
+I doing bit and questioning every day and
+
+01:45:12:00 - 01:45:13:11
+there's yeah.
+
+01:45:13:11 - 01:45:17:02
+When do you know that
+you write too much code
+
+01:45:17:02 - 01:45:18:05
+for testing
+
+01:45:20:10 - 01:45:21:06
+for for your like.
+
+01:45:21:06 - 01:45:23:15
+Separate test books. Yeah.
+
+01:45:23:15 - 01:45:25:16
+I mean as always, it depends.
+
+01:45:27:09 - 01:45:28:13
+But yeah.
+
+01:45:28:13 - 01:45:31:05
+I mean, it's just right like.
+
+01:45:31:22 - 01:45:33:00
+Like in Denmark, because.
+
+01:45:33:00 - 01:45:34:17
+Sometimes people write mocks.
+
+01:45:34:17 - 01:45:37:18
+Which is almost a duplication
+of the real system, you know.
+
+01:45:38:07 - 01:45:40:21
+And it tells you something.
+
+01:45:42:14 - 01:45:44:13
+One approach,
+I mean, it's not the only thing.
+
+01:45:44:13 - 01:45:47:04
+For example, we call it the Beyonce rule.
+
+01:45:47:16 - 01:45:50:11
+So I sorry, not if you.
+
+01:45:50:13 - 01:45:51:05
+Okay.
+
+01:45:51:05 - 01:45:53:07
+It's about if you like it, you put a test.
+
+01:45:53:16 - 01:45:55:12
+That has to be on. The other ones.
+
+01:45:55:12 - 01:45:56:13
+If you can't find the.
+
+01:45:56:13 - 01:45:59:15
+Simple name for your. Test
+and that test itself.
+
+01:45:59:15 - 01:46:00:24
+Is too complicated already.
+
+01:46:02:09 - 01:46:05:02
+The test
+should be focusing on a very specific.
+
+01:46:05:02 - 01:46:07:04
+Aspect of the thing that you're doing.
+
+01:46:07:04 - 01:46:10:07
+It is on the unit test level.
+
+01:46:10:08 - 01:46:11:08
+This can give.
+
+01:46:11:08 - 01:46:12:21
+You your first unit.
+
+01:46:12:21 - 01:46:15:15
+And on the other one
+
+01:46:15:15 - 01:46:18:01
+you can actually still break. Down.
+
+01:46:18:01 - 01:46:22:14
+You say, for example, link list
+and you know, find if an item
+
+01:46:22:14 - 01:46:25:24
+is at a specific point, for example,
+you know, searching for
+
+01:46:27:03 - 01:46:28:01
+the tests.
+
+01:46:28:01 - 01:46:31:01
+I mean, it is always a good thing
+if the tests are independent.
+
+01:46:31:01 - 01:46:33:04
+But you can also have sequential. Tests.
+
+01:46:33:04 - 01:46:36:20
+Which need. To run. One after the other.
+
+01:46:36:20 - 01:46:38:10
+And for that, you can start with.
+
+01:46:38:10 - 01:46:40:14
+You know, creation of the link. List.
+
+01:46:40:14 - 01:46:43:04
+Then you can use the data output,
+
+01:46:43:04 - 01:46:46:17
+you know, the verified data from that one
+and use it in the second step.
+
+01:46:46:17 - 01:46:47:16
+Use the, you know,
+
+01:46:47:16 - 01:46:50:17
+verify that and pass it to the third step,
+you know, things like that.
+
+01:46:51:10 - 01:46:54:00
+So that might be a trick.
+That you can use.
+
+01:46:54:00 - 01:46:54:08
+And that's
+
+01:46:55:11 - 01:46:58:03
+thank you.
+
+01:46:58:03 - 01:47:00:18
+Um, can I have the microphone? Yes.
+
+01:47:01:23 - 01:47:03:06
+Thank you so much, Omar.
+
+01:47:03:06 - 01:47:06:03
+For for the insight, I realize
+
+01:47:06:03 - 01:47:09:03
+that this is actually an art in itself.
+
+01:47:09:03 - 01:47:12:12
+And I wanted to ask you
+the like the last, last question.
+
+01:47:12:12 - 01:47:16:07
+How many test experts
+are there in TomTom, like,
+
+01:47:16:15 - 01:47:18:15
+I guess for this sort of big company?
+
+01:47:18:15 - 01:47:21:05
+Is there like teams of you?
+
+01:47:21:06 - 01:47:22:02
+Yeah, it's right.
+
+01:47:22:02 - 01:47:25:07
+I was wondering how many of you are there?
+
+01:47:25:07 - 01:47:27:23
+Is this a hard to say, actually?
+
+01:47:27:23 - 01:47:28:04
+I mean.
+
+01:47:28:04 - 01:47:32:06
+I really don't know the exact number,
+but I know this think this is something
+
+01:47:32:07 - 01:47:33:22
+maybe my. Manager is already there.
+
+01:47:33:22 - 01:47:36:00
+Which.
+
+01:47:36:00 - 01:47:41:22
+Yeah, because for example, I heard that
+there was only one person with a.
+
+01:47:41:22 - 01:47:47:04
+Higher grade than me and all TomTom
+this stone, the number that I know.
+
+01:47:47:12 - 01:47:49:12
+But on the other hand, for. Each project.
+
+01:47:51:06 - 01:47:51:23
+There
+
+01:47:51:23 - 01:47:55:03
+can be, for example, for the integration.
+
+01:47:55:03 - 01:47:57:01
+Project we had, I think our team.
+
+01:47:57:01 - 01:48:02:01
+Had like seven, eight dedicated testers
+who were focusing on only.
+
+01:48:02:01 - 01:48:05:19
+The entrance tests
+and the developers were like 450 people.
+
+01:48:06:16 - 01:48:07:23
+And in our units, for.
+
+01:48:07:23 - 01:48:12:00
+Example, this can get bigger
+if you will have 50 developers on tour to.
+
+01:48:12:00 - 01:48:16:05
+Testers
+because we had to create a lot more tests.
+
+01:48:16:05 - 01:48:18:08
+So I can't. Give you an exact number.
+
+01:48:18:18 - 01:48:19:10
+But yeah.
+
+01:48:19:10 - 01:48:23:20
+We have a lot of domain experts
+and very dedicated testers, you know,
+
+01:48:23:22 - 01:48:27:11
+that are focusing on every very specific
+aspect of our software.
+
+01:48:29:04 - 01:48:30:08
+That's really impressive.
+
+01:48:30:08 - 01:48:34:24
+And I wanted to emphasize to
+you guys that,
+
+01:48:34:24 - 01:48:39:09
+this is also maybe a sort of a career
+that you want to shoot, right?
+
+01:48:39:24 - 01:48:43:07
+Um, many, many times students come to me
+
+01:48:43:07 - 01:48:47:02
+and they feel a little bit insecure
+about their internships.
+
+01:48:47:02 - 01:48:49:23
+And so they say, like,
+they have big ambitions, but
+
+01:48:50:04 - 01:48:52:18
+they are in doubt
+about their own capabilities.
+
+01:48:53:03 - 01:48:56:01
+And one thing
+that actually mentioned that, I thought
+
+01:48:56:19 - 01:48:59:02
+that's actually a good tip
+I can always give them is like
+
+01:48:59:16 - 01:49:04:20
+if any of you like you want your computer
+to do an internship in July.
+
+01:49:04:20 - 01:49:08:12
+But yeah, well, how much did you learn
+about algorithms that much?
+
+01:49:08:24 - 01:49:11:15
+Why don't you take an internship
+in testing into a company
+
+01:49:12:08 - 01:49:17:14
+that does test AI and then by reviewing
+code and like, you know, testing it
+
+01:49:17:14 - 01:49:20:22
+and so on, you can actually
+develop yourself into the me.
+
+01:49:21:11 - 01:49:24:18
+It's also like, honestly,
+this is my lesson to learn
+
+01:49:25:00 - 01:49:28:07
+because this is the type of devices
+I need to give to the students.
+
+01:49:29:15 - 01:49:31:10
+So thank you so much, guys.
+
+01:49:31:10 - 01:49:33:09
+Let's give a round of applause to Omer.
+
+01:49:33:09 - 01:49:33:21
+Yeah,
+
+01:49:38:04 - 01:49:39:14
+that's because a.
+
+01:49:39:14 - 01:49:42:17
+Bag of swag or a bag of swag with our.
+
+01:49:43:00 - 01:49:43:12
+Great.
+
+01:49:43:15 - 01:49:46:17
+Nobody has yet the code name Kop only you.
+
+01:49:47:00 - 01:49:49:16
+So you'll get them soon.
+
+01:49:49:16 - 01:49:51:10
+Not yet but.
+
+01:49:51:10 - 01:49:52:23
+Can I show you. The first one.
+
+01:49:52:23 - 01:49:54:14
+Yeah. In the eyes.
+
+01:49:54:14 - 01:49:56:12
+Oh my text is
+
+01:49:57:03 - 01:49:58:02
+that I wrote.
+
+01:49:58:02 - 01:50:01:10
+Sure and of course
+and of course a bottle of champagne
+
+01:50:01:10 - 01:50:05:08
+because Corinne always says, you know,
+life is too short to drink, but champagne.
+
+01:50:05:08 - 01:50:07:10
+So things are.
+
+01:50:07:12 - 01:50:07:19
+Okay.
+
+01:50:07:19 - 01:50:10:18
+Round of applause once again
+and for you to thank you.
+
+01:50:11:15 - 01:50:15:22
+And also thanks to you
+for the opportunity.
+
+01:50:15:23 - 01:50:18:03
+I take second round for. Joining
+and for the interaction.
+
+01:50:18:03 - 01:50:27:18
+If you read about the
+great things that I girls.

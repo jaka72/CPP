@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   zombieHorde.cpp                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/21 18:33:54 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/21 18:33:55 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 Zombie *zombieHorde(int N, std::string name)
 {
-	int i {0};
+	int i = 0;
 	Zombie	*horde;
 	horde = new Zombie[N];	// THIS AUTOMATICALLY CALLS THE DESTRUCTOR 5 TIMES
 

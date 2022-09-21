@@ -98,7 +98,7 @@ void	Account::makeDeposit( int deposit )
 	_amount = _amount + deposit;
 	this->_nbDeposits++;
 	std::cout << "amount:" << _amount << ";";
-	std::cout << "nb_deposits:" << _nbDeposits << ";\n";
+	std::cout << "nb_deposits:" << _nbDeposits << ";";
 	_totalNbDeposits++;
 	_totalAmount += deposit;
 }
@@ -122,32 +122,60 @@ bool	Account::makeWithdrawal( int withdrawal )
 	}
 	else
 	{
-		//_nbWithdrawals--;
 		std::cout << "refused" << "\n";
 		return (0);
 	}
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "nb_withdrawals:" << _nbWithdrawals << ";\n";
-
-
 	return (1);
 }
 
 
 // MY ADDED FUNCTIONS ////////////////////////
 
-void displayAccounts(Account *arr)
+void print_all_accounts(Account **arr)
 {
 	int i = 0;
 	while (i < 8)
 	{
-		arr[i].displayStatus();
+		arr[i]->displayStatus();
+		i++;
+	}
+	std::cout << "\n";
+
+}
+
+void initialize_objects(Account **arr, int *amounts)
+{
+	int i = 0;
+	while (i < 8)
+	{
+		arr[i] = new Account(amounts[i]);
+		i++;
+	}
+	// std::cout << "\n";
+}
+
+void depositing(Account **arr, int *deposits)
+{
+	int i = 0;
+	while (i < 8)
+	{
+		arr[i]->makeDeposit(deposits[i]);
+		i++;
+	}
+	std::cout << "\n";
+}
+
+void withdrawing(Account **arr, int *withdrawals)
+{
+	int i = 0;
+	while (i < 8)
+	{
+		arr[i]->makeWithdrawal(withdrawals[i]);
 		i++;
 	}
 }
-
-
-
 
 ////////////////////////////////////////////////////////////////////
 
@@ -159,80 +187,46 @@ int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
 
-int main()
-{
-	Account *arr[8];
+// int main()
+// {
+// 	Account *arr[8];
 
-	int amounts[8] = {42, 54, 957, 432, 1234, 0, 754, 16576};
-	int	deposits[8] = {5, 765, 564, 2, 87, 23, 9, 20};
-	int withdrawals[8] = {999, 34, 657, 4, 76, 999, 657, 7654};
+// 	int amounts[8] = {42, 54, 957, 432, 1234, 0, 754, 16576};
+// 	int	deposits[8] = {5, 765, 564, 2, 87, 23, 9, 20};
+// 	int withdrawals[8] = {999, 34, 657, 4, 76, 999, 657, 7654};
 
+// 	int i;
+// 	initialize_objects(arr, amounts);
 
-	// INITIALIZE OBJECTS
-	int i = 0;
-	while (i < 8)
-	{
-		arr[i] = new Account(amounts[i]);
-		i++;
-	}
-	std::cout << "\n";
+// 	// GENERAL STATS
+// 	Account::displayAccountsInfos();
 
-	// GENERAL STATS
-	Account::displayAccountsInfos();
+// 	// PRINT ALL ACCOUNTS
+// 	print_all_accounts(arr);
+// 	// std::cout << "\n";
 
+// 	//std::cout << "	DEPOSITING: \n";
+// 	depositing(arr, deposits);
 
-	displayAccounts(*arr);
-	std::cout << "\n";
+// 	// GENERAL STATS
+// 	Account::displayAccountsInfos();
+	
+// 	// PRINT ALL ACCOUNTS
+// 	print_all_accounts(arr);
+// 	std::cout << "\n";
 
-	// DEPOSITING
-	std::cout << "	DEPOSITING: \n";
-	i = 0;
-	while (i < 8)
-	{
-		arr[i]->makeDeposit(deposits[i]);
-		i++;
-	}
+// 	// WITHDRAWING
+// 	// std::cout << "	WITHDRAWALS: \n";
+// 	withdrawing(arr, withdrawals);
 
-	std::cout << "\n";
+// 	// GENERAL STATS
+// 	Account::displayAccountsInfos();
 
-	// GENERAL STATS
-	Account::displayAccountsInfos();
-	i = 0;
-	while (i < 8)
-	{
-		arr[i]->displayStatus();
-		i++;
-	}
-
-	std::cout << "\n";
-
-	// WITHDRAWING
-	std::cout << "	WITHDRAWALS: \n";
-	i = 0;
-	while (i < 8)
-	{
-		arr[i]->makeWithdrawal(withdrawals[i]);
-		i++;
-	}
-
-	std::cout << "\n";
-
-	// GENERAL STATS
-	Account::displayAccountsInfos();
-	i = 0;
-	while (i < 8)
-	{
-		arr[i]->displayStatus();
-		i++;
-	}
-
-
-	// CLOSING
-	std::cout << "\n";
-	i = 0;
-	while (i < 8)
-	{
-		delete arr[i];
-		i++;
-	}
-}
+// 	// CLOSING
+// 	i = 0;
+// 	while (i < 8)
+// 	{
+// 		delete arr[i];
+// 		i++;
+// 	}
+// }

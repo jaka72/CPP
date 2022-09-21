@@ -8,8 +8,8 @@ int main()
 	std::string *stringPTR = &str1;     // POINTER
 	std::string &stringREF = str1;      // REFERENCE
 
-	std::string *asd;
-		asd = &str1;
+	// std::string *asd;
+	// 	asd = &str1;
 	
 	std::cout << "str1:                " << str1 << "\n";           // STRING VALUE
 	std::cout << "The address of str1: " << &str1 << "\n\n";		// THE ADRES

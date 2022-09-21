@@ -28,7 +28,7 @@ $(OBJ_DIR)/%.o:		%.cpp
 #compile the executable
 $(NAME):	$(OBJ_FILES)
 	c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
-	@printf "$(GRN)\n --- CPP MODULE 04, EX00 --- \n\n$(RES)"
+	@printf "$(GRN)\n --- CPP MODULE00, EX00: MEGAPHONE --- \n\n$(RES)"
 
 
 #clean rules

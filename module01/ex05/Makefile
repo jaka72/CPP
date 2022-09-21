@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/09/21 18:44:47 by jaka          ########   odam.nl          #
+#    Updated: 2022/09/21 19:03:45 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,20 +21,17 @@ RED		=	\033[31m
 
 
 
-NAME		=	unnecessary_violence
+NAME		=	harl_2.0
 
 CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
 
-CPP_FILES	=	main.cpp	\
-				HumanA.cpp	\
-				HumanB.cpp	\
-				Weapon.cpp
+CPP_FILES	=	main.cpp Harl.cpp
 
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
-HEADERS		=	HumanA.hpp HumanB.hpp Weapon.hpp
+HEADERS		=	Harl.hpp
 
 
 
@@ -52,7 +49,7 @@ $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
 #compile the executable
 $(NAME):	$(OBJ_FILES)
 	@c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
-	@printf "$(GRN)\n --- CPP MODULE01, EX03:  Unnecessary violence --- \n\n$(RES)"
+	@printf "$(GRN)\n --- CPP MODULE01, EX05:  Harl_2.0 --- \n\n$(RES)"
 
 
 #clean rule

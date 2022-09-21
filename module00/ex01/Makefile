@@ -45,7 +45,7 @@ $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
 #compile the executable
 $(NAME):	$(OBJ_FILES)
 	@c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
-	@printf "$(GRN)\n --- CPP MODULE 04, EX01 --- \n\n$(RES)"
+	@printf "$(GRN)\n --- CPP MODULE00, EX01: PHONEBOOK --- \n\n$(RES)"
 
 
 #clean rule

@@ -1,4 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/21 19:02:33 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/21 19:02:49 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
+#include "Harl.hpp"
+
 
 /*
 	Constr and Destrucor must always have (), like a function!
@@ -29,59 +43,13 @@
 		even if the function name already has it ( void Harl::init ) ...
 */
 
-class Harl
-{
-	public:
-		Harl();
-		~Harl();
-
-		void complain(std::string level);
-	
-		typedef struct s_data
-		{
-			std::string level;
-			// function pointer
-			void (Harl::*pointerToFunction)(void);
-
-		} t_data;
-		
-		t_data data[4];
-
-	private:
-		void debug();
-		void info();
-		void warning();
-		void aaa();
-		void init();
-};
-
-void Harl::init()
-{
-	data[0].level = "debug";
-	data[1].level = "info";
-	data[2].level = "warning";
-	data[3].level = "aaa";
-
-	data[0].pointerToFunction = &Harl::debug; // how to write this
-	data[1].pointerToFunction = &Harl::info; // how to write this
-	data[2].pointerToFunction = &Harl::warning; // how to write this
-	data[3].pointerToFunction = &Harl::aaa; // how to write this
-}
-
-Harl::Harl()  // ????
-{
-	init();
-}
 
 
-Harl::~Harl()
-{
-}
 
 
 void Harl::complain(std::string level)
 {
-	int i {0};
+	int i = 0;
 
 	while (i < 4)
 	{
