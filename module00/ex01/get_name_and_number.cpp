@@ -6,11 +6,12 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 17:16:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/20 18:31:13 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/23 16:45:01 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iomanip>	// for setw()
+#include <stdlib.h>   // exit
 
 #include "utils.hpp"
 
@@ -28,12 +29,14 @@ int check_if_empty(std::string &str)
 }
 
 
-int	get_number(std::string &field)
+int	get_number(std::string str, std::string &field)
 {
 	while (1)
 	{
-		std::cout << std::setw(18) << std::left << "Phone Number:";
+		std::cout << std::setw(18) << std::left << str;
 		std::getline(std::cin, field);
+		if (check_if_eof() != 0)
+			exit (1);
 		if (check_if_empty(field) == 1)
 			continue ;
 		int i = 0;
@@ -41,7 +44,7 @@ int	get_number(std::string &field)
 		{
 			if (!isdigit(field[i]) && !isspace(field[i]))
 			{
-				std::cout << "Phone number must only be digits!\n";
+				std::cout << "Phone number can only be digits!\n";
 				break ;
 			}
 			if (isspace(field[i]) && field[i] != ' ')
@@ -58,10 +61,10 @@ int	get_name(std::string str, std::string &field)
 {
 	while (1)
 	{
-		
-		std::cout << std::setw(18) << std::left << str;	
-		// std::cout << "  " << str << "    ";	
+		std::cout << std::setw(18) << std::left << str;
 		std::getline(std::cin, field);
+		if (check_if_eof() != 0)
+			exit (1);
 		if (check_if_empty(field) == 1)
 			continue ;
 		int i = 0;

@@ -6,17 +6,19 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:21:04 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/22 15:47:37 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/09/23 19:16:58 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iomanip>	// for setw()
+#include <iomanip>	// for setw()
+#include <string>	// getline
+#include <bits/stdc++.h> // atoi
 #include "utils.hpp"
 #include "PhoneBook.hpp"
 
-// PROBLEM: IF DIGIT OVERFLOW WHEN SEARCH, IT STARTS LOOPING ENDLESSLY
 
-// Check: more words for the name  allowed?
+// #include "libft.h"
+#include "libft/libft.h"
 
 // ctrl-D should exit ?
 
@@ -29,6 +31,7 @@
 // 		I allow multiple words for name, but if they are separated with tabs
 //		it will deform the table -> therefore tabs must be replaced with 'spaces
 //		Over nine entries must override the oldest, not the last !!
+
 
 void	print_phonebook(PhoneBook pb, int count)
 {
@@ -56,18 +59,33 @@ void	print_phonebook(PhoneBook pb, int count)
 	print_line();
 }
 
+int	check_and_choose_index(std::string &str, int &index)
+{
+	std::cout << "Choose index: ";
+	getline(std::cin, str);			// Getline needs string
+	char chr[str.length() + 1];		//	Convert to char* and
+	strcpy(chr, str.c_str());		//	copy from string to char*
+	index = ft_atoi(chr);				// atoi needs char*
+	if (check_if_eof() != 0)
+	{
+		std::cout << "\n";
+		return (1);
+	}
+	return (0);
+}
 
-void	choose_and_show(PhoneBook ph, int count)
+
+int	choose_and_show(PhoneBook ph, int count)
 {
 	int	index;
-
+	std::string str;
 	if (count == 0)
-		return ;
-	std::cout << "Choose index: ";
-	std::cin >> index;
-	
-	if (index >= 2147483647)
-		index = 0;
+		return (0);
+	while (str == "")		
+	{
+		if (check_and_choose_index(str, index) != 0)
+			return (1);
+	}
 	if (index > count && index <= MAX_CONTACTS)
 	{
 		std::cout << "This field is empty, there are " << count
@@ -76,9 +94,11 @@ void	choose_and_show(PhoneBook ph, int count)
 	else if (index < 1 || index > count)
 	{
 		std::cout << "Out of range, there are 1-8 contacts in the Phonebook\n";
+		choose_and_show(ph, count);
 	}
 	else
 		print_the_contact(ph, index - 1);
+	return (0);
 }
 
 
@@ -86,15 +106,14 @@ void	add_a_contact(PhoneBook &pb, int &count, int &counter)
 {
 	int current = count; 
 	if (current == MAX_CONTACTS)
-		current = counter % 8;
+		current = counter % MAX_CONTACTS;
 	std::cout << "Enter contact " << current + 1 << ":\n";
 	get_name("First Name:", pb.contact[current].firstname);
 	get_name("Last Name:", pb.contact[current].lastname);
 	get_name("Nickname:", pb.contact[current].nickname);
-	// get_number(pb, count);
-	get_number(pb.contact[current].phone_number);
+	get_number("Phone Number:", pb.contact[current].phone_number);
 	get_name("Darkest Secret:", pb.contact[current].darkest_secret);
-	if (count < 8)
+	if (count < MAX_CONTACTS)
 		count++;
 	counter++;
 }
@@ -104,24 +123,24 @@ void	add_a_contact(PhoneBook &pb, int &count, int &counter)
 void	fill_phonebook(PhoneBook &pb, int &count, int &counter)
 {
 	int i = 0;
-	while (i < 8)
+	while (i < MAX_CONTACTS)
 	{
 		int current = count; 
 		if (current == MAX_CONTACTS)
-			current = counter % 8;
+			current = counter % MAX_CONTACTS;
 		pb.contact[current].firstname = "aaa";
 		pb.contact[current].lastname = "aaa";
 		pb.contact[current].nickname = "aaa";
 		pb.contact[current].phone_number = "123";
 		pb.contact[current].darkest_secret = "aaa";
-		if (count < 8)
+		if (count < MAX_CONTACTS)
 			count++;
 		counter++;
 		i++;
 	}
 }
 
-
+// MAIN FOR TESTING
 int	main(void)
 {
 	std::string	command;
@@ -131,23 +150,20 @@ int	main(void)
 	int			counter = 0; 
 
 	// JUST FOR TESTING, TO FILL THE PHONEBOOK
-	fill_phonebook(phonebook, count, counter);
+	//fill_phonebook(phonebook, count, counter);
 	while (1)
 	{
 		std::cout << "\nEnter a command (a=ADD, s=SEARCH or e=EXIT): ";
-		std::cin >> command;
-		if(std::cin.eof())
-		{
-			std::cin.clear();
-			return (0);						// If ctrl-D
-		}
-		std::cin.ignore(1000, '\n');		// ignore all after first word until the newline												
+		getline(std::cin, command);
+		if (check_if_eof() != 0)
+			return (1);
 		if (command == "a")
 			add_a_contact(phonebook, count, counter);
 		else if (command == "s")
 		{
 			print_phonebook(phonebook, count);
-			choose_and_show(phonebook, count);
+			if (choose_and_show(phonebook, count) != 0)
+				return (1);
 			std::cin.clear();
 		}
 		else if (command == "e")
@@ -157,3 +173,36 @@ int	main(void)
 	}
 	return (0);
 }
+
+// MAIN FOR EVALUATION
+// int	main(void)
+// {
+// 	std::string	command;
+// 	std::string	sub_str;
+// 	PhoneBook	phonebook;
+// 	int			count = 0;
+// 	int			counter = 0; 
+
+// 	// JUST FOR TESTING, TO FILL THE PHONEBOOK
+// 	fill_phonebook(phonebook, count, counter);
+// 	while (1)
+// 	{
+// 		std::cout << "\nEnter a command (ADD, SEARCH or EXIT): ";
+// 		getline(std::cin, command);
+// 		if (check_if_eof() != 0)
+// 			return (1);
+// 		if (command == "ADD")
+// 			add_a_contact(phonebook, count, counter);
+// 		else if (command == "SEARCH")
+// 		{
+// 			print_phonebook(phonebook, count);
+// 			choose_and_show(phonebook, count);
+// 			std::cin.clear();
+// 		}
+// 		else if (command == "EXIT")
+// 			return (0);
+// 		else
+// 			continue ;
+// 	}
+// 	return (0);
+// }

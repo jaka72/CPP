@@ -19,9 +19,20 @@ NAME		=	phonebook
 CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
 
-CPP_FILES	=	main.cpp	\
-				utils.cpp	\
-				get_name_and_number.cpp
+
+
+LIBFT_DIR		=	libft
+# LIBFT_SRC		=	$(LIBFT_DIR)/ft_atoi.c
+# LIBFT_OBJ		=	$(LIBFT_SRC:%.c=%.o)
+LIBFT_A			=	$(LIBFT_DIR)/libft.a
+
+
+CPP_FILES	=	main.cpp				\
+				utils.cpp				\
+				get_name_and_number.cpp 
+#				ft_atoi.cpp				\
+#				ft_isdigit.cpp
+
 
 OBJ_DIR 	=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
@@ -29,9 +40,14 @@ OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 HEADERS		=	utils.hpp
 
 
-
-
 all:		$(NAME)
+
+
+# $(LIBFT_A):	$(LIBFT_OBJ) $(LIBFT_DIR)/libft.h
+$(LIBFT_A):					$(LIBFT_DIR)/libft.h
+	cd $(LIBFT_DIR); make ; cd -;
+
+
 
 #compile the objects
 $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
@@ -43,8 +59,10 @@ $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
 
 
 #compile the executable
-$(NAME):	$(OBJ_FILES)
-	@c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
+$(NAME):	$(LIBFT_A) $(OBJ_FILES)
+# $(NAME):			   $(OBJ_FILES)
+	@c++ $(CFLAGS) $(OBJ_FILES) $(LIBFT_A) -o $(NAME)
+	# @c++ $(CFLAGS) $(OBJ_FILES)  		   -o $(NAME)
 	@printf "$(GRN)\n --- CPP MODULE00, EX01: PHONEBOOK --- \n\n$(RES)"
 
 
@@ -55,8 +73,11 @@ clean:
 
 
 #fclean rule
-fclean: clean
+fclean: libftclean clean
 	rm -f $(NAME)
+
+libftclean:
+	cd $(LIBFT_DIR); make fclean; cd - ;
 
 re: fclean all
 
