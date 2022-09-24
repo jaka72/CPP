@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:21:04 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/23 19:16:58 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/24 16:21:36 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 // #include "libft.h"
 #include "libft/libft.h"
 
-// ctrl-D should exit ?
-
 // 
 
 // CHECK FOR WHAT IS ALLOWED AS INPUT, MAYBE LIKE EMPTY INPUT ETC ... 
@@ -32,6 +30,9 @@
 //		it will deform the table -> therefore tabs must be replaced with 'spaces
 //		Over nine entries must override the oldest, not the last !!
 
+// Can we have comments or commented-out lines in the function ?
+
+// Fix if alphabet when expecting index, choose index
 
 void	print_phonebook(PhoneBook pb, int count)
 {
@@ -67,10 +68,7 @@ int	check_and_choose_index(std::string &str, int &index)
 	strcpy(chr, str.c_str());		//	copy from string to char*
 	index = ft_atoi(chr);				// atoi needs char*
 	if (check_if_eof() != 0)
-	{
-		std::cout << "\n";
 		return (1);
-	}
 	return (0);
 }
 
@@ -150,7 +148,7 @@ int	main(void)
 	int			counter = 0; 
 
 	// JUST FOR TESTING, TO FILL THE PHONEBOOK
-	//fill_phonebook(phonebook, count, counter);
+	fill_phonebook(phonebook, count, counter);
 	while (1)
 	{
 		std::cout << "\nEnter a command (a=ADD, s=SEARCH or e=EXIT): ";

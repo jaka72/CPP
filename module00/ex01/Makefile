@@ -7,8 +7,8 @@
 # colors
 RES		=	\033[0m
 GRN		=	\033[32m
-YELLOW	=	\033[33m
-BLUE	=	\033[34m
+YEL		=	\033[33m
+BLU	=	\033[34m
 RED		=	\033[31m
 # UP		=	\033[A
 # CUT		=	\033[K
@@ -19,19 +19,16 @@ NAME		=	phonebook
 CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
 
+MAKEFLAGS		+= --no-print-directory 
 
 
 LIBFT_DIR		=	libft
-# LIBFT_SRC		=	$(LIBFT_DIR)/ft_atoi.c
-# LIBFT_OBJ		=	$(LIBFT_SRC:%.c=%.o)
 LIBFT_A			=	$(LIBFT_DIR)/libft.a
 
 
 CPP_FILES	=	main.cpp				\
 				utils.cpp				\
 				get_name_and_number.cpp 
-#				ft_atoi.cpp				\
-#				ft_isdigit.cpp
 
 
 OBJ_DIR 	=	obj_dir
@@ -41,17 +38,22 @@ HEADERS		=	utils.hpp
 
 
 all:		$(NAME)
+	@printf "$(GRN)PHONEBOOK DONE\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE00, EX01: PHONEBOOK --- \n\n$(RES)"
 
 
-# $(LIBFT_A):	$(LIBFT_OBJ) $(LIBFT_DIR)/libft.h
-$(LIBFT_A):					$(LIBFT_DIR)/libft.h
-	cd $(LIBFT_DIR); make ; cd -;
+##### $(LIBFT_A):	$(LIBFT_OBJ) $(LIBFT_DIR)/libft.h
+#  $(LIBFT_A):					$(LIBFT_DIR)/libft.h
+ $(LIBFT_A):
+	@printf "$(GRN)MAKE LIBFT \n$(RES)"
+	@cd $(LIBFT_DIR); make ; cd -;
+	@printf "$(GRN)MAKE PHONEBOOK \n$(RES)"
 
 
 
 #compile the objects
 $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
-#	@printf "$(GRN)  make object \n\n$(RES)"
+	@printf "$(BLU)  make $@ \n$(RES)"
 	@if [ ! -d "$(OBJ_DIR)" ]; then \
 		mkdir -p $(OBJ_DIR)/; \
 	fi;
@@ -60,24 +62,21 @@ $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
 
 #compile the executable
 $(NAME):	$(LIBFT_A) $(OBJ_FILES)
-# $(NAME):			   $(OBJ_FILES)
 	@c++ $(CFLAGS) $(OBJ_FILES) $(LIBFT_A) -o $(NAME)
-	# @c++ $(CFLAGS) $(OBJ_FILES)  		   -o $(NAME)
-	@printf "$(GRN)\n --- CPP MODULE00, EX01: PHONEBOOK --- \n\n$(RES)"
 
 
 #clean rule
 clean:
-	rm -f $(OBJ_FILES)
-	rm -rf $(OBJ_DIR)
+	@rm -f $(OBJ_FILES)
+	@rm -rf $(OBJ_DIR)
 
 
 #fclean rule
 fclean: libftclean clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 libftclean:
-	cd $(LIBFT_DIR); make fclean; cd - ;
+	@cd $(LIBFT_DIR); make fclean; cd - ;
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:25:54 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/23 16:44:57 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/24 13:55:21 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int check_if_eof()
 	if (std::cin.eof())
 	{
 		std::cin.clear();		// IS THIS NECESSSARY ??
+		std::cout << "\n";
 		return (1);
 	}
 	return (0);
