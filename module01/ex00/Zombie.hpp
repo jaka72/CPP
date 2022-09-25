@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:32:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/21 18:33:00 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/25 17:33:30 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,14 @@ class Zombie
 		std::string name;
 	
 	public:
-		Zombie(std::string name_public)
-		{
-			name = name_public;
-		}
-		~Zombie(void)
-		{
-			std::cout << name << " destroyed.\n";
-		}
+		Zombie(std::string name_public);
+		
+		~Zombie();
+		
 		void	announce(void);
 };
 
-Zombie *newZombie(std::string name);
-void    randomChump(std::string name);
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif

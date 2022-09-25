@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:33:54 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/21 18:33:55 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/25 19:16:10 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,16 @@ Zombie *zombieHorde(int N, std::string name)
 {
 	int i = 0;
 	Zombie	*horde;
-	horde = new Zombie[N];	// THIS AUTOMATICALLY CALLS THE DESTRUCTOR 5 TIMES
+	horde = new Zombie[N];	// THIS AUTOMATICALLY CALLS THE Default CONSTRUCTOR 5 TIMES ???
+							// IS IT POSSIBLE TO DO THIS VIA PARAMETERIZED CONSTRUCTOR ??
+							// 		something like  horde = new Zombie[3]("Johan")
 
 	while (i < N)
 	{
-		//zb[i] = new Zombie;
-		//zb[i] = new Zombie(name);
-		// std::cout << i << " print name: " << zb[i]->get_name << "\n";
-		
 		horde[i].set_name(name);
-        horde[i].announce();
-		
-		//std::cout << i << " " << horde[i].get_name() << "\n";
+		horde[i].announce();
 		i++;
 	}
 
-	// return zb[0];
 	return (horde);
 }
