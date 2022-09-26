@@ -6,11 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 17:16:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/24 16:18:34 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/26 13:27:03 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iomanip>	// for setw()
+#include <iomanip>	// for setw()
 #include <stdlib.h>   // exit
 #include "utils.hpp"
 
@@ -23,7 +23,6 @@ int check_if_empty(std::string &str)
 			return (0);
 		i++;
 	}
-	//std::cout << "Field must not be empty!\n";
 	return (1);
 }
 

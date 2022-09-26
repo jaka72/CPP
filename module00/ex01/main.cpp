@@ -6,13 +6,14 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:21:04 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/24 16:21:36 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/26 14:26:30 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iomanip>	// for setw()
 #include <string>	// getline
-#include <bits/stdc++.h> // atoi
+////// #include <bits/stdc++.h> // atoi
+// #include <cstdlib>
 #include "utils.hpp"
 #include "PhoneBook.hpp"
 
@@ -66,7 +67,8 @@ int	check_and_choose_index(std::string &str, int &index)
 	getline(std::cin, str);			// Getline needs string
 	char chr[str.length() + 1];		//	Convert to char* and
 	strcpy(chr, str.c_str());		//	copy from string to char*
-	index = ft_atoi(chr);				// atoi needs char*
+	// index = ft_atoi(chr);				// atoi needs char*
+	index = atoi(chr);				// atoi needs char*
 	if (check_if_eof() != 0)
 		return (1);
 	return (0);

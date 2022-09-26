@@ -1,14 +1,22 @@
-##
-## HOW TO MAKE THE OBJECT FOLDER, BEFORE MAKING OBJECT FILES
-##	BUT TO STILL PRINT OUT "nothing to be done for all" - WHICH DOES NOT SHOW UP
-##	IF I FIRST MAKE THE FOLDER
-##
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/09/26 14:31:44 by jmurovec      #+#    #+#                  #
+#    Updated: 2022/09/26 15:30:48 by jmurovec      ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+
 
 # colors
 RES		=	\033[0m
 GRN		=	\033[32m
 YEL		=	\033[33m
-BLU	=	\033[34m
+BLU		=	\033[34m
 RED		=	\033[31m
 # UP		=	\033[A
 # CUT		=	\033[K
@@ -22,32 +30,22 @@ CFLAGS		=	-std=c++98 -Wall -Wextra -Werror
 MAKEFLAGS		+= --no-print-directory 
 
 
-LIBFT_DIR		=	libft
-LIBFT_A			=	$(LIBFT_DIR)/libft.a
-
-
 CPP_FILES	=	main.cpp				\
-				utils.cpp				\
-				get_name_and_number.cpp 
+				PhoneBook.cpp			\
+				Contact.cpp				\
+				utils.cpp
 
 
 OBJ_DIR 	=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
-HEADERS		=	utils.hpp
+HEADERS		=	utils.hpp PhoneBook.hpp Contact.hpp
 
 
 all:		$(NAME)
 	@printf "$(GRN)PHONEBOOK DONE\n$(RES)"
 	@printf "$(YEL)\n --- CPP MODULE00, EX01: PHONEBOOK --- \n\n$(RES)"
 
-
-##### $(LIBFT_A):	$(LIBFT_OBJ) $(LIBFT_DIR)/libft.h
-#  $(LIBFT_A):					$(LIBFT_DIR)/libft.h
- $(LIBFT_A):
-	@printf "$(GRN)MAKE LIBFT \n$(RES)"
-	@cd $(LIBFT_DIR); make ; cd -;
-	@printf "$(GRN)MAKE PHONEBOOK \n$(RES)"
 
 
 
@@ -61,7 +59,7 @@ $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
 
 
 #compile the executable
-$(NAME):	$(LIBFT_A) $(OBJ_FILES)
+$(NAME):	$(OBJ_FILES)
 	@c++ $(CFLAGS) $(OBJ_FILES) $(LIBFT_A) -o $(NAME)
 
 
@@ -72,11 +70,10 @@ clean:
 
 
 #fclean rule
-fclean: libftclean clean
+fclean: clean
 	@rm -f $(NAME)
 
-libftclean:
-	@cd $(LIBFT_DIR); make fclean; cd - ;
+
 
 re: fclean all
 

@@ -4,6 +4,24 @@
 #include <ctime>        // struct std::tm
 // #include <sys/time.h>
 
+/*
+	STATIC FUNCTION
+	
+	Static function is independent of any object of a class.
+	It can be called even if no object exists.
+	 inside a class is used to access the static variables.
+	It cannot access non-static variables.
+	It does not have access to this-> pointer
+
+
+	STATIC VARIABLE
+	A static member variable is shared by all objects of the class.
+	It is set to zero when the first object is created.
+	Cannot be initialized inside the class.
+	There is always only one copy of the static member, no matter how many
+	objects are created.
+	
+*/
 
 
 //	IS THIS ALLOWED TO BE INITIATED HERE OUTSIDE ANY FUNCTION ???
