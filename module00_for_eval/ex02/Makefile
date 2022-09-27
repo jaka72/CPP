@@ -1,8 +1,14 @@
-##
-## HOW TO MAKE THE OBJECT FOLDER, BEFORE MAKING OBJECT FILES
-##	BUT TO STILL PRINT OUT "nothing to be done for all" - WHICH DOES NOT SHOW UP
-##	IF I FIRST MAKE THE FOLDER
-##
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: jaka <jaka@student.codam.nl>                 +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/09/27 13:11:35 by jaka          #+#    #+#                  #
+#    Updated: 2022/09/27 13:11:38 by jaka          ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
 
 # colors
 RES		=	\033[0m

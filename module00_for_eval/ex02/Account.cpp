@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Account.cpp                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/27 13:12:09 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/27 13:13:06 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>      // std::get_time
@@ -79,19 +91,21 @@ int	Account::getTotalAmount( void )
 {
 	return (_totalAmount);
 }
+
 int	Account::getNbAccounts( void )
 {
 	return (_nbAccounts);
 }
+
 int	Account::getNbDeposits( void )
 {
 	return (_totalNbDeposits);
 }
+
 int	Account::getNbWithdrawals( void )
 {
 	return (_totalNbWithdrawals);
 }
-
 
 void	Account::displayAccountsInfos( void )	// DISPLAY STATISTICS IN ONE LINE
 {
@@ -101,7 +115,6 @@ void	Account::displayAccountsInfos( void )	// DISPLAY STATISTICS IN ONE LINE
 	std::cout << "deposits:" << getNbDeposits() << ";";
 	std::cout << "withdrawals:" << getNbWithdrawals() << "\n";
 }
-
 
 
 ////////////////////////////////////////////////////////////////////
@@ -115,7 +128,6 @@ void	Account::displayStatus( void ) const
 	std::cout << "deposits:" << this->_nbDeposits << ";";
 	std::cout << "withdrawals:" << this->_nbWithdrawals << "\n";
 }
-
 
 void	Account::makeDeposit( int deposit )
 {

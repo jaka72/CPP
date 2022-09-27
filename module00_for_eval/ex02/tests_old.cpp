@@ -10,6 +10,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <iostream>	// jaka
 #include "Account.hpp"
 
 
@@ -19,6 +20,8 @@ int		main( void ) {
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
+
+//	std::cout << "   START\n";	// jaka
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
 	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
 	accounts_t				accounts( amounts, amounts + amounts_size );
@@ -37,9 +40,13 @@ int		main( void ) {
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
 
+//	std::cout << "   INFO";	// jaka
 	Account::displayAccountsInfos();
+//	std::cout << "   INFO-ALL\n";	// jaka
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+
+//	std::cout << "   DEPOSITING\n";	// jaka
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;
 		  ++(it.first), ++(it.second) ) {
@@ -47,9 +54,12 @@ int		main( void ) {
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
 
+//	std::cout << "   INFO";	// jaka
 	Account::displayAccountsInfos();
+//	std::cout << "   INFO-ALL\n";	// jaka
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
+//	std::cout << "   WITHDRAWING\n";	// jaka
 	for ( acc_int_t it( acc_begin, wit_begin );
 		  it.first != acc_end && it.second != wit_end;
 		  ++(it.first), ++(it.second) ) {
@@ -57,7 +67,9 @@ int		main( void ) {
 		(*(it.first)).makeWithdrawal( *(it.second) );
 	}
 
+//	std::cout << "   INFO";	// jaka
 	Account::displayAccountsInfos();
+//	std::cout << "   INFO-ALL\n";	// jaka
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	return 0;
