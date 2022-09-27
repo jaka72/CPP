@@ -6,16 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:21:10 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/26 20:48:31 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/27 13:02:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include "utils.hpp"
 
-
-std::string Contact::get_name(std::string field)
+std::string Contact::get_field(std::string field)
 {
 	if (field == "First Name")
 		return (this->firstname);
@@ -31,7 +28,7 @@ std::string Contact::get_name(std::string field)
 }
 
 
-void Contact::choose_field(std::string str, std::string field)
+void Contact::store_to_correct_field(std::string str, std::string field)
 {
 	if (str == "First Name:")
 		this->firstname = field;
@@ -44,37 +41,23 @@ void Contact::choose_field(std::string str, std::string field)
 }
 
 
-
 int	Contact::store_name(std::string str)
 {
 	std::string field;
 	while (1)
 	{
-		int	repeat = 0;
-		std::cout << std::setw(18) << std::left << str;
-		std::getline(std::cin, field);
-		if (check_if_eof() != 0)
-			exit (1);
-		if (check_if_empty(field) == 1)
+		int	repeat = 0;	
+		if (get_and_check_input(str, field) != 0)
 			continue ;
 		int i = 0;
 		while (1)
 		{
-			if (!isalpha(field[i]) && !isspace(field[i]))
-			{
-				std::cout << "Only alphabet letters allowed!\n";
-				repeat = 1;
-				break ;
-			}
-			if (isspace(field[i]) && field[i] != ' ')
-				field[i] = ' ';
-			i++;
-			if (field[i] == '\0')
+			if (check_input_letters(str, field, i, repeat) != 0)
 				break ;
 		}
 		if (repeat == 1)
 			continue ;
-		choose_field(str, field);
+		store_to_correct_field(str, field);
 		return (0);
 	}
 }
@@ -86,25 +69,12 @@ int	Contact::store_number(std::string str)
 	while (1)
 	{
 		int	repeat = 0;
-		std::cout << std::setw(18) << std::left << str;
-		std::getline(std::cin, field);
-		if (check_if_eof() != 0)
-			exit (1);
-		if (check_if_empty(field) == 1)
+		if (get_and_check_input(str, field) != 0)
 			continue ;
 		int i = 0;
 		while (1)
 		{
-			if (!isdigit(field[i]) && !isspace(field[i]))
-			{
-				std::cout << "Only digits allowed!\n";
-				repeat = 1;
-				break ;
-			}
-			if (isspace(field[i]) && field[i] != ' ')
-				field[i] = ' ';
-			i++;
-			if (field[i] == '\0')
+			if (check_input_letters(str, field, i, repeat) != 0)
 				break ;
 		}
 		if (repeat == 1)

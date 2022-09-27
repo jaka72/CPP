@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/20 13:21:10 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/26 20:51:12 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/27 12:34:19 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,13 @@ class Contact
 		std::string	darkest_secret;
 
 	public:
-		// Contact();
-		// ~Contact();
 
-		// Member Functions
-		std::string get_name(std::string field);
 		int			store_name(std::string str);
 		int			store_number(std::string str);
-		void 		choose_field(std::string str, std::string field);
+		void 		store_to_correct_field(std::string str, std::string field);
+		std::string get_field(std::string field);
+
+//		void		test_fill_contact();
 };
 
 #endif

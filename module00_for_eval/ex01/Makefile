@@ -6,11 +6,9 @@
 #    By: jmurovec <jmurovec@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/26 14:31:44 by jmurovec      #+#    #+#                  #
-#    Updated: 2022/09/26 15:30:48 by jmurovec      ########   odam.nl          #
+#    Updated: 2022/09/27 13:03:45 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
-
 
 # colors
 RES		=	\033[0m
@@ -20,7 +18,6 @@ BLU		=	\033[34m
 RED		=	\033[31m
 # UP		=	\033[A
 # CUT		=	\033[K
-
 
 
 NAME		=	phonebook
@@ -45,8 +42,6 @@ HEADERS		=	utils.hpp PhoneBook.hpp Contact.hpp
 all:		$(NAME)
 	@printf "$(GRN)PHONEBOOK DONE\n$(RES)"
 	@printf "$(YEL)\n --- CPP MODULE00, EX01: PHONEBOOK --- \n\n$(RES)"
-
-
 
 
 #compile the objects
