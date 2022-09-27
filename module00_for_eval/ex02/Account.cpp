@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/27 13:12:09 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/27 13:13:06 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/27 15:18:32 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,23 @@ void set_field()
 void	Account::_displayTimestamp( void )
 {
 	// A)	Time since 1900
-	time_t time = std::time(NULL);
-	struct tm now = *std::localtime(&time); 
+	// time_t time = std::time(NULL);
+	// struct tm now = *std::localtime(&time); 
 
-	std::cout << "[" << 1900 + now.tm_year;
-	set_field();
-	std::cout << 1 + now.tm_mon;
-	set_field();
-	std::cout << now.tm_mday << "_";
-	set_field();
-	std::cout << now.tm_hour;
-	set_field();
-	std::cout << now.tm_min;
-	set_field();
-	std::cout << now.tm_sec << "] ";
+	// std::cout << "[" << 1900 + now.tm_year;
+	// set_field();
+	// std::cout << 1 + now.tm_mon;
+	// set_field();
+	// std::cout << now.tm_mday << "_";
+	// set_field();
+	// std::cout << now.tm_hour;
+	// set_field();
+	// std::cout << now.tm_min;
+	// set_field();
+	// std::cout << now.tm_sec << "] ";
 
 	// B)	To compare with the original
-	// std::cout << "[19920104_091532] ";
+	std::cout << "[19920104_091532] ";
 }
 
 // Default Constructor

@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Mon Sep 26 15:31:00 2022
+# Make data base, printed on Tue Sep 27 15:11:18 2022
 
 # Variables
 
@@ -39,7 +39,7 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.O9auRIJW2h/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.kiJn8397bm/Render
 # environment
 PATH = /Users/jmurovec/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
@@ -53,7 +53,7 @@ LDFLAGS = -L/Users/jmurovec/.brew/opt/readline/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.0RKbOou6ir/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.Wx9ESv5mxq/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -69,7 +69,7 @@ HOME = /Users/jmurovec
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/jmurovec/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
+VSCODE_CODE_CACHE_PATH = /Users/jmurovec/Library/Application Support/Code/CachedData/74b1f979648cc44d385a2286793c226e611f59e7
 # environment
 LOGNAME = jmurovec
 # environment
@@ -105,7 +105,7 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n0009kjh002cmc/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/jmurovec/Library/Application Support/Code/1.71.0-main.sock
+VSCODE_IPC_HOOK = /Users/jmurovec/Library/Application Support/Code/1.71.2-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -115,7 +115,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.1092
+XPC_SERVICE_NAME = com.microsoft.VSCode.3436
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -139,7 +139,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 42502
+VSCODE_PID = 71949
 # variable set hash-table stats:
 # Load=63/1024=6%, Rehash=0, Collisions=1/84=1%
 
@@ -223,6 +223,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Sep 26 15:31:00 2022
+# Finished Make data base on Tue Sep 27 15:11:18 2022
 
  

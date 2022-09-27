@@ -24,6 +24,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	You can override parent members, like hit_pts = 100;
 	Otherwise, hit_pts will have value 10, which comes from parent Claptrap 
 */
+
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	hit_pts = 100;

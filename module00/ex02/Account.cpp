@@ -21,6 +21,12 @@
 	There is always only one copy of the static member, no matter how many
 	objects are created.
 	
+	std::	AND OTHER 'namespaces'
+	A namespae is a collection of names (identifiers), such as cout, cin ...
+								(identifiers can be variables, funtctions ...)
+	std is define in a separate file as:
+		namespace std { ... }
+
 */
 
 
