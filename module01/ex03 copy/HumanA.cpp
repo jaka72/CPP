@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:06:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/28 13:50:25 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/28 12:40:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,5 @@ HumanA::~HumanA()
 
 void	HumanA::attack()
 {
-	std::cout << _name << " attacks with their " << _wp.getType() << " ... \n";
-
-	//const std::string& temp = _wp.getType();
-	//std::cout << "     ... temp: " << &temp << "\n";
+	std::cout << _name << " attacks with their " << _wp.getType() << " ... \n"; 
 }

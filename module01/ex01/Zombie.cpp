@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:33:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/25 19:06:45 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/28 12:01:14 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 Zombie::Zombie()
 {
     std::cout << "Default construtor\n";
-    //name = nm;
+    
+    name = "default name";
 }
 
 
-// try with parameterize d construcitr
+// try with parameterized construcitr
 Zombie::Zombie(std::string nm)
 {
     std::cout << "Parameterized\n";
@@ -31,6 +32,14 @@ void    Zombie::set_name(std::string name_public)
 {
     name = name_public;
 }
+
+
+// GETTER, CAN BE DELETED, NOT NECESSARY
+std::string    Zombie::get_name()
+{
+    return name;
+}
+
 
 void    Zombie::announce()
 {

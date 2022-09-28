@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:33:47 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/25 19:04:04 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/28 12:01:08 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ class Zombie
 
 		void    set_name(std::string name);
 		void    announce();
+
+		// GETTER, CAN BE DELETED, NOT NECESSARY
+		std::string get_name();
+		
 
 		// std::string    get_name()
 		// {

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.cpp                                         :+:    :+:            */
+/*   HumanA.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/21 18:32:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/28 11:46:53 by jaka          ########   odam.nl         */
+/*   Created: 2022/09/28 12:06:27 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/28 12:40:57 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_H
+#define HUMANA_H
 
-Zombie::Zombie (std::string name_public)
+#include <iostream>
+#include "Weapon.hpp"
+
+class HumanA
 {
-	name = name_public;
-	std::cout << "Constructor (" << name << ") \n";
-}
+	private:
+		std::string	 _name;
+		Weapon		&_wp;		// WHY A REFERENCE ???
 
+	public:
 
-void	Zombie::announce(void) // URGENTLY CLASS BEFORE FUNCTION NAME !!!
-{
-	std::cout << "   " << name << " says: BraiiiiiiinnnzzzZ...\n";
-}
+		HumanA(std::string name, Weapon &wp_orig);
 
+		~HumanA();
 
-Zombie::~Zombie()
-{
-	std::cout << name << " destroyed.\n";
-}
+		void	attack();
+};
+
+#endif

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Zombie.cpp                                         :+:    :+:            */
+/*   Weapon.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/21 18:32:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/28 11:46:53 by jaka          ########   odam.nl         */
+/*   Created: 2022/09/28 12:13:18 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/28 13:21:56 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_H
+#define WEAPON_H
 
-Zombie::Zombie (std::string name_public)
+#include <iostream>
+
+class Weapon
 {
-	name = name_public;
-	std::cout << "Constructor (" << name << ") \n";
-}
+    
+    private:
+        std::string type;
+
+    public:
+
+        // Constructor
+        Weapon(const std::string type);
+
+        // Destructor
+        ~Weapon();
 
 
-void	Zombie::announce(void) // URGENTLY CLASS BEFORE FUNCTION NAME !!!
-{
-	std::cout << "   " << name << " says: BraiiiiiiinnnzzzZ...\n";
-}
+        // Member functions
+        void setType(const std::string &type_orig);
 
 
-Zombie::~Zombie()
-{
-	std::cout << name << " destroyed.\n";
-}
+        const std::string& getType();
+};
+
+#endif

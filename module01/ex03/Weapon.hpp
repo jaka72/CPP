@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Weapon.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/09/28 12:13:18 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/28 14:57:10 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WEAPON_H
 #define WEAPON_H
 
@@ -5,21 +17,24 @@
 
 class Weapon
 {
-    
-    private:
-        std::string  type;
+	
+	private:
+		std::string  _type;
 
-    public:
-        // const std::string& getType() const;      // DOES IT NEED const AT END ???
-        const std::string& getType();
+	public:
 
-        void setType(const std::string &type_orig);
-    
-    Weapon(const std::string type);
+		// Constructor
+		Weapon(const std::string &type);
 
-    ~Weapon();
+		// Destructor
+		~Weapon();
+
+
+		// Member functions
+		void setType(const std::string &type_orig);
+
+
+		const std::string& getType();
 };
-
-
 
 #endif

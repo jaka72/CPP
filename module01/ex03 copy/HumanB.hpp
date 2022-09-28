@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   HumanA.hpp                                         :+:    :+:            */
+/*   HumanB.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/28 12:06:27 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/28 15:42:07 by jaka          ########   odam.nl         */
+/*   Created: 2022/09/28 12:06:34 by jaka          #+#    #+#                 */
+/*   Updated: 2022/09/28 12:06:35 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
-#define HUMANA_H
+#ifndef HUMANB_H
+#define HUMANB_H
 
 #include <iostream>
 #include "Weapon.hpp"
 
-class HumanA
+class HumanB
 {
 	private:
-		std::string	 _name;
-		Weapon		&_wp;		// CAN BE A REFERENCE BECAUSE IT GETS THE Weapon ARG
-//		Weapon		*_wp;		// CANNOT BE A POINTER
+		std::string name;
+		Weapon      *wp;	// MUST BE A POINTER, BECAUSE IF & REFERECE,
+							//  THEN IT MUST BE INITIALIZED HERE ON THE SPOT,
+							//	BUT AT THIS POINT THE WEAPON IS EMPTY,
+							// 	BECAUSE setWeapon() IS NOT CALLED YET
 
 	public:
+		HumanB(std::string name);
 
-		HumanA(std::string name, Weapon &wp_orig);
+		~HumanB();
 
-		~HumanA();
+		void    setWeapon(Weapon &wp_orig);
 
-		void	attack();
+		void    attack();
 };
 
 #endif
