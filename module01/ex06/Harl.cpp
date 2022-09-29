@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 19:02:16 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/28 20:36:52 by jaka          ########   odam.nl         */
+/*   Updated: 2022/09/29 12:56:37 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ Harl::~Harl()
 
 void Harl::init()
 {
-	data[0].level = "debug";
-	data[1].level = "info";
-	data[2].level = "warning";
-	data[3].level = "error";
-	data[0].level = "trial";
+	data[0].level = "DEBUG";
+	data[1].level = "INFO";
+	data[2].level = "WARNING";
+	data[3].level = "ERROR";
+	// data[0].level = "trial";
 
 	data[0].pointerToFunction = &Harl::debug; // how to write this
 	data[1].pointerToFunction = &Harl::info; // how to write this
@@ -57,25 +57,36 @@ void Harl::complain(std::string level)
 //	(this->*(data[0].pointerToTRIAL))(); // call the function
 }
 
+
+void	Harl::call_complaints(int i)
+{
+	while (i < 4)
+	{
+		(this->*(data[i].pointerToFunction))();
+		i++;
+	}
+}
+
+
 void Harl::debug()
 {
-	std::cout << "Debug:   I love having extra bacon ...\n";
+	std::cout << "[ DEBUG ]\n  I love having extra bacon ...\n\n";
 }
 
 void Harl::info()
 {
-	std::cout << "Info:    I cannot believe ... \n";
+	std::cout << "[ INFO ]\n  I cannot believe ... \n\n";
 }
 
 void Harl::warning()
 {
-	std::cout << "Warning: I think I deserve to ...\n";
+	std::cout << "[ WARNING ]\n  I think I deserve to ...\n\n";
 }
 
 
 void Harl::error()
 {
-	std::cout << "Error:   This is unacceptable ...\n";
+	std::cout << "[ ERROR ]\n  This is unacceptable ...\n\n";
 }
 
 // int Harl::trial()

@@ -6,15 +6,15 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/09/21 19:03:45 by jaka          ########   odam.nl          #
+#    Updated: 2022/09/29 12:09:15 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 # colors
 RES		=	\033[0m
 GRN		=	\033[32m
-YELLOW	=	\033[33m
-BLUE	=	\033[34m
+YEL		=	\033[33m
+BLU		=	\033[34m
 RED		=	\033[31m
 # UP		=	\033[A
 # CUT		=	\033[K
@@ -36,10 +36,12 @@ HEADERS		=	Harl.hpp
 
 
 all:		$(NAME)
+	@printf "$(BLU)  make $@ \n$(RES)"
+	@printf "$(GRN)\n --- CPP MODULE01, EX05:  Harl_2.0 --- \n\n$(RES)"
+
 
 #compile the objects
 $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
-#	@printf "$(GRN)  make object \n\n$(RES)"
 	@if [ ! -d "$(OBJ_DIR)" ]; then \
 		mkdir -p $(OBJ_DIR)/; \
 	fi;
@@ -49,7 +51,6 @@ $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
 #compile the executable
 $(NAME):	$(OBJ_FILES)
 	@c++ $(CFLAGS) $(OBJ_FILES) -o $(NAME)
-	@printf "$(GRN)\n --- CPP MODULE01, EX05:  Harl_2.0 --- \n\n$(RES)"
 
 
 #clean rule
