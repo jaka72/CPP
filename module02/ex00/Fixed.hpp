@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/01 11:17:35 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/01 11:17:36 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_H
 #define FIXED_H
 
@@ -8,9 +20,9 @@
 class Fixed
 {
 	private:
-		int	fpn_prive;
+		int	_fixedPointNumber;
 
-		static const int frac_bits {8};
+		static const int frac_bits = 8;
 
 	public:
 		// default constructor

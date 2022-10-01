@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.cpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/01 11:17:31 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/01 11:17:32 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 // DEFAULT CONSTRUCTOR
 		Fixed::Fixed()
 		{
 			std::cout << "Default constructor called\n"; 
-			fpn_prive = 0;
+			_fixedPointNumber = 0;
 		}
 
 
@@ -14,8 +26,8 @@
 		Fixed::Fixed(const Fixed &f1_default)
 		{
 			std::cout << "Copy constructor called\n"; 
-			fpn_prive = f1_default.fpn_prive;	// from the default
-			// fpn_prive = 44;						// Its own new value
+			_fixedPointNumber = f1_default._fixedPointNumber;	// from the default
+			_fixedPointNumber = 44;						// Its own new value
 		}
 
 
@@ -26,9 +38,9 @@
 			// Protection
 			if (this == &orig)
 				return (*this);
-			this->fpn_prive = orig.fpn_prive;
+			this->_fixedPointNumber = orig._fixedPointNumber;
 				// IS THIS THE SAME?
-				// 		this->fpn_prive = orig.getrawBits();
+				// 		this->_fixedPointNumber = orig.getrawBits();
 			return (*this);
 		}
 
@@ -44,8 +56,8 @@
 		void Fixed::setRawBits(int const raw)
 		{
 			std::cout << "setRawBits member function called\n"; 
-			fpn_prive = raw;
-			//Fixed::fpn_prive = raw;
+			_fixedPointNumber = raw;
+			//Fixed::_fixedPointNumber = raw;
 		}
 
 
@@ -53,5 +65,5 @@
 		int Fixed::getRawBits(void) const
 		{
 			std::cout << "getRawBits member function called\n"; 
-			return fpn_prive;
+			return _fixedPointNumber;
 		}
