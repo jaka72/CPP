@@ -46,8 +46,10 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called\n";
-	fpn_prive = std::round(f * (1 << frac_bits));	
-	// std::cout << fpn_prive << '\n';
+	fpn_prive = round(f * (1 << frac_bits));	
+	std::cout << "Converted from float " << f << " to fixed point: " << fpn_prive << '\n';
+	fpn_prive = round(f * 256);	
+	std::cout << "Converted from float " << f << " to fixed point: " << fpn_prive << '\n';
 }
 
 
@@ -78,7 +80,7 @@ Fixed &Fixed::operator=(const Fixed &orig)
 // DESTRUCTOR
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n"; 
+	std::cout << "Destructor called\n";
 }
 
 
@@ -122,8 +124,11 @@ float Fixed::toInt(void) const
 //	fpn value from the object.
 //	The return type is ostream.
 //	The function name operator<< must have the &	?????
-std::ostream &operator<<(std::ostream &out, Fixed const &f)
+std::ostream &operator<< (std::ostream &out, Fixed const &f)
 {
-	out << f.toFloat();
+	out << "    ... called << overload:\n";
+	 out << f.toFloat();
+	//out << f.toInt();
+	// out << (f.getRawBits() / 256);
 	return (out);
 }

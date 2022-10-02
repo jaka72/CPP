@@ -4,6 +4,10 @@
 
 /*	////// EXPLANATION: ////////////////////////////////////////
 
+	Bitwise operator << shift left
+		1 << 8	 == 	00000001 << 8 = 11111111
+									  =  256
+
 	THE OBJECT ALWAYS TAKES AN INT OR A FLOAT IN THE ARG.
 	IF A FLOAT, IT IS SAVED INTO THE PRIVE VARIABLE fpn, CONVERTED TO INTEGER:
 		CONVERSION: the float * 256		(256 == 1 << 8 (fract.bits))
@@ -17,6 +21,12 @@
 							0.222 * 256 = 56.832 == rounded => 57
 				This cannot be nicely converted back to float:
 							57 / 256 = 0.222656
+
+			If the initial float is to small, it will produce a zero:
+				0.5000 = 128,0 -->rounded to 128
+				0.0500 = 12,80 -->rounded to 13
+				0.0050 = 1,280 -->rounded to 1
+				0.0005 = 0,128 -->rounded to 0
 
 
 	WHEN THE OBJECT IS USED TOGETHER WITH std::cout << a
@@ -49,6 +59,26 @@ int	main()
 	std::cout << "d is " << std::setw(6) << d.toInt() << " as integer\n\n";
 
 //////////////////////////////////////////////////////////////////////////////
+
+	// TESTING
+	Fixed const x0( 5.0f );
+	std::cout << "x0 is " << std::setw(6) << x0.toInt() << " as integer\n";
+	std::cout << "x0 is " << std::setw(6) << x0.toFloat() << " as float\n\n";
+	Fixed const x1( 0.5f );
+	std::cout << "x1 is " << std::setw(6) << x1.toInt() << " as integer\n";
+	std::cout << "x1 is " << std::setw(6) << x1.toFloat() << " as float\n\n";
+	Fixed const x2( 0.05f );
+	std::cout << "x2 is " << std::setw(6) << x2.toInt() << " as integer\n";
+	std::cout << "x2 is " << std::setw(6) << x2.toFloat() << " as float\n\n";
+	Fixed const x3( 0.005f );
+	std::cout << "x3 is " << std::setw(6) << x3.toInt() << " as integer\n";
+	std::cout << "x3 is " << std::setw(6) << x3.toFloat() << " as float\n\n";
+	Fixed const x4( 0.0005f );
+	std::cout << "x4 is " << std::setw(6) << x4.toInt() << " as integer\n";
+	std::cout << "x4 is " << std::setw(6) << x4.toFloat() << " as float\n\n";
+
+
+
  	// Fixed a;
 	// std::cout << "a is " << a << std::endl;
 	// std::cout << "a is " << a.toInt() << " as integer" << std::endl;

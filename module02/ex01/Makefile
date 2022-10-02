@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/01 12:17:58 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/01 12:18:20 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ HEADERS		=	Fixed.hpp
 
 all:		$(NAME)
 	@printf "$(BLU)  make $@ \n$(RES)"
-	@printf "$(GRN)\n --- CPP MODULE02, EXCERCISE 00 --- \n\n$(RES)"
+	@printf "$(GRN)\n --- CPP MODULE02, EXCERCISE 01 --- \n\n$(RES)"
 
 
 #compile the objects

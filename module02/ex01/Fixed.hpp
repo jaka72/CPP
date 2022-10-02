@@ -2,6 +2,7 @@
 #define FIXED_H
 
 #include <iostream>
+#include<cmath>
 
 // fpn 			= fixed point number
 // frac_bits 	= fractional bits 
@@ -9,7 +10,7 @@ class Fixed
 {
 	private:
 		int					fpn_prive;
-		static const int	frac_bits {8};
+		static const int	frac_bits = 8;
 
 	public:
 		// default constructor

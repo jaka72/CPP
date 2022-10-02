@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 11:17:35 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/01 11:17:36 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/01 11:20:03 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 #include <iostream>
 
 // fpn 			= fixed point number
-// frac_bits 	= fractional bits 
+// fractionalBits 	= fractional bits 
 class Fixed
 {
 	private:
 		int	_fixedPointNumber;
 
-		static const int frac_bits = 8;
+		static const int fractionalBits = 8;
 
 	public:
 		// default constructor
