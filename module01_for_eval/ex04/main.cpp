@@ -6,13 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 19:09:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 15:14:52 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/03 15:23:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <stdlib.h>		// for exit()
+#include "utils.hpp"
 
 // WHAT IF FIND IS THE SAME AS TARGET STRING, DO YOU GET INFINITE LOOP?
 
@@ -33,7 +31,8 @@
 	//  4.294.967.295
 
 
-std::string loop_till_end_of_line(	std::string &line,
+
+std::string		loop_till_end_of_line(	std::string &line,
 									std::string stringToFind,
 									std::string replaceWith, size_t &pos,
 									std::ofstream &outfile)
@@ -43,7 +42,7 @@ std::string loop_till_end_of_line(	std::string &line,
 	while (true)
 	{
 		pos = line.find(stringToFind);
-//		std::cout << "   pos: " << pos << '\n';
+		std::cout << "   pos: " << pos << '\n';
 		if (pos != std::string::npos)
 		{
 			start = line.substr(0, pos);
@@ -61,36 +60,8 @@ std::string loop_till_end_of_line(	std::string &line,
 }
 
 
-int	check_arguments(int argc)
-{
-	if (argc != 4)
-	{
-		std::cout << "Wrong number of arguments.\n";
-		std::cout << "Usage: ./replace  <file_name>  <find>  <replace>\n";
-		return (1);
-	}
-	return (0);
-}
 
-
-void	open_files_and_check(char **argv, std::ifstream &infile, std::ofstream &outfile)
-{
-	infile.open(argv[1]);
-
-	std::string argv1(argv[1]);
-	argv1.append(".replace");
-	outfile.open(argv1.c_str());	// c_str() makes a string suitable to pass to function
-									//		converts it to const *char
-
-	if	((infile.is_open() == 0) || (outfile.is_open() == 0))
-	{
-		std::cout << "Error with opening a file\n";
-		exit (1);
-	}
-}
-
-
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (check_arguments(argc) != 0)
 		return (1);
@@ -102,7 +73,7 @@ int main(int argc, char **argv)
 	std::string stringToFind = argv[2];
 	std::string replaceWith = argv[3];
 	std::string line;
-	size_t position;
+	size_t position = 0;	// NOT SURE IF IT IS AUTOM. SET TO ZERO ??
 	
 	int i = 0;
 	while (std::getline(infile, line))
