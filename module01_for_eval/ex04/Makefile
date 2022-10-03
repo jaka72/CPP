@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/09/28 16:14:42 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/03 14:57:41 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ HEADERS		=
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(GRN)\n --- CPP MODULE01, EX04:  Sed is for losers --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE01, EX04:  Sed is for losers --- \n\n$(RES)"
 
 #compile the objects
 $(OBJ_DIR)/%.o:		%.cpp	$(HEADERS)
