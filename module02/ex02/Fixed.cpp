@@ -6,7 +6,7 @@
 
 
 // DEFAULT CONSTRUCTOR
-Fixed::Fixed()	:	m_fpn {0}
+Fixed::Fixed()	:	m_fpn (0)
 {
 	std::cout << "Default constructor called\n"; 
 	// m_fpn = 0;
@@ -48,7 +48,7 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called\n";
-	m_fpn = std::round(f * (1 << frac_bits));	
+	m_fpn = round(f * (1 << frac_bits));	
 	std::cout << "      current fpn: " << m_fpn << '\n';
 }
 
@@ -147,7 +147,7 @@ Fixed Fixed::operator-- ()
 
 Fixed Fixed::operator++ (int)		// POST-INCREMENT
 {
-	Fixed temp {*this};
+	Fixed temp (*this);
 	//std::cout << "this: " << this->m_fpn << ".  tmp: " << tmp.m_fpn << '\n';
 	++this->m_fpn;
 	//std::cout << "this: " << this->m_fpn << ".  tmp: " << tmp.m_fpn << '\n';

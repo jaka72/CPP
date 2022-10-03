@@ -11,7 +11,7 @@ class Fixed
 {
 	private:
 		int					m_fpn;
-		static const int	frac_bits {8};
+		static const int	frac_bits = 8;
 
 	public:
 		// Default constructor
