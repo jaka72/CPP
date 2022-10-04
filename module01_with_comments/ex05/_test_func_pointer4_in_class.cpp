@@ -8,12 +8,11 @@ class Test
 
 		void (Test::*fpt)();
 
-		void calling()
-		{
-			fpt = &Test::print;
-			(this->*(fpt))();
-		}
-
+		// void calling()
+		// {
+		// 	fpt = &Test::print;
+		// 	(this->*(fpt))();
+		// }
 };
 
 
@@ -22,11 +21,11 @@ int main()
 {
 	Test test;
 
-//	test.fpt = &Test::print;
+	test.fpt = &Test::print;
 
-//	test.fpt();
+	test.fpt();
 
-	test.calling();
+//	test.calling();
 
     return 0;
 }
