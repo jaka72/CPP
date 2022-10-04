@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 19:02:16 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 19:15:28 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:42:57 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,23 @@ void Harl::init()
 	data[3].pointerToFunction = &Harl::error;
 }
 
-
 void Harl::debug()
 {
-	std::cout << "[ DEBUG ]\n  I love having extra bacon for my 7XL-double-"
-				"cheese-triple-pickle-special-ketchup burger. I really do!\n\n";
+	std::cout << "[ DEBUG ]\n  I love having extra bacon for my 7XL-double-\n"
+				"  cheese-triple-pickle-special-ketchup burger. I really do!\n\n";
 }
 
 void Harl::info()
 {
-	std::cout << "[ INFO ]\n  I cannot believe adding extra bacon costs more money. "
-				"You didn’t put enough bacon in my burger! If you did, I wouldn’t "
-				"be asking for more!\n\n";
+	std::cout << "[ INFO ]\n  I cannot believe adding extra bacon costs more money.\n"
+				"  You didn’t put enough bacon in my burger! If you did, I wouldn’t\n"
+				"  be asking for more!\n\n";
 }
 
 void Harl::warning()
 {
-	std::cout << "[ WARNING ]\n  I think I deserve to have some extra bacon for free. "
-				"I’ve been coming for years whereas you started working here since last month.\n\n";
+	std::cout << "[ WARNING ]\n  I think I deserve to have some extra bacon for free.\n"
+				"  I’ve been coming for years whereas you started working here since last month.\n\n";
 }
 
 

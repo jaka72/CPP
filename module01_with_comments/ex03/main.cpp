@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:06:14 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 14:21:10 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 12:14:43 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 		
 
 	POINTER VS REFERENCE
-	Reference must be initialized at the moment of declaration /or/ constructiuon
+	Reference must be initialized at the moment of declaration /or/ construction
 
 	THE ANSWER:
-	Human A can have _wp as a reference, because it gets the Weapon via args,
-	so the private variable &_wp can immediately at construction be initialized
+	Human A must have _weapon as a reference, because it gets the Weapon via args,
+	so the private variable &_weapon must immediately at construction be initialized
 	(which is necessary for the reference).
-	So the private _weapon becomes the same adres as the arg &weapon.
+	So the private _weapon becomes the same address as the arg &weapon.
 	It has to be a reference, because it is not enough to just get the values.
 	Otherwise it prints nonsense, when printing the getType()
 		Also, the weapon has to be in the 'Initialisation List'
@@ -73,6 +73,5 @@ int main()
 		hammer.setType("little red hammer");
 		jim.attack();
 	}
-
 	return 0;
 }

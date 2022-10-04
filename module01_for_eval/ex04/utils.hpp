@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:18:49 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 15:23:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 13:09:54 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <fstream>
 # include <stdlib.h>	// for exit()
 
-int		check_arguments(int argc);
+int		check_arguments(int argc, char **argv);
 void	open_files_and_check(char **argv, std::ifstream &infile, std::ofstream &outfile);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 19:01:23 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 18:29:40 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:44:46 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,12 @@ class Harl
 		// Public member functions
 		void complain(std::string level);
 		
-
-		// TEST: HOW TO CALL IT FROM MAIN ???
-		void *a;
-		void TEST();
-
-
-
 		typedef struct s_data
 		{
-			std::string level;
-			void (Harl::*pointerToFunction)(void);	// function pointer
-		
-			void (Harl::*ptf)(void);	// function pointer
-		
+			std::string	level;
+			void		(Harl::*pointerToFunction)(void);
 		} t_data;
-		
 		t_data data[4];
-
-		t_data datatest[1];
-
 };
 
 #endif

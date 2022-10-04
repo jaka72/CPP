@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 19:01:23 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 19:12:10 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:46:35 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Harl
 		void info();
 		void warning();
 		void error();
-
 
 	public:
 

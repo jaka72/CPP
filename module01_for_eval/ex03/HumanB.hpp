@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:06:34 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 14:43:11 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 12:12:47 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ class HumanB
 		Weapon      *_weapon;
 
 	public:
+
+		// Parameterized constructor
 		HumanB(std::string name);
 
+		// Destructor
 		~HumanB();
 
+		// Member function
 		void    setWeapon(Weapon &weapon);	// COULD BE BOTH * OR &   ,BUT THE SUBJECT
 //		void    setWeapon(Weapon *weapon);	//		WANTS jim.setWeapon(hammer)  
 											//		NOT  (&hammer)

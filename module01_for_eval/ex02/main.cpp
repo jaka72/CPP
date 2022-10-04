@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 13:12:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 13:19:02 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:57:11 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 
 
 	
-	std::cout << "            str            " << str << "\n";           // STRING VALUE
+	std::cout << "            str            " << str << "\n"; 	// STRING VALUE
 	std::cout << "           &str            " << &str << "     (address of str)\n\n";		// THE ADRES
 	
 	std::cout << "      stringREF            " << stringREF << "\n";      // A REFERENCE CAN BE NORMALY PRINTED AS A STRING

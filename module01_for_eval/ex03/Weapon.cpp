@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:13:16 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 14:50:30 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 12:05:37 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 // Constructor
 Weapon::Weapon(const std::string &type)
 {
-	_type = type;			// WHICH VARIANT TO USE ??
-	// setType(tp);
+	_type = type;
+	// setType(type);
 }
 
 

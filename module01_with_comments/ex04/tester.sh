@@ -5,14 +5,16 @@
 #
 ################################################################
 
-INFILE = "infile"
-OUT_TEMP = "outfile"
-OUTFILE = $OUT_TEMP".replace_orig"
+INFILE="infile"
+# OUT_TEMP="outfile"
+# OUTFILE=$OUT_TEMP".replace_orig"
+OUT_MINE=$INFILE".replace"
+OUT_ORIG=$INFILE".replace_orig"
 
 
 compare_outcome()
 {
-	DIFF=$(diff $INFILE $OUTFILE)
+	DIFF=$(diff $OUT_MINE $OUT_ORIG)
 	if [ "$DIFF" == "" ] 
 	then
 		echo -e "[ OK ] " 
@@ -21,7 +23,7 @@ compare_outcome()
 	fi
 }
 
-c++ main.cpp -o main.exe ; ./main.exe infile "a" "###"
-c++ orig.cpp -o orig.exe ; ./orig.exe infile "a" "###"
+c++ main.cpp utils.cpp -o main.out ; ./main.out infile "..." "^^^"
+c++ orig.cpp 		   -o orig.out ; ./orig.out infile "..." "^^^"
 compare_outcome
 

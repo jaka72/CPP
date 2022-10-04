@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:06:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 14:51:05 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 12:16:26 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 HumanB::HumanB(std::string name) // : _name(name), _weapon(NULL)
 {
 	_name = name;
-	_weapon = NULL;			// *_wp IS A POINTER (private member)
+	_weapon = NULL;			// *_weapon IS A POINTER private member
 }
 
 
@@ -30,8 +30,7 @@ HumanB::~HumanB()
 void HumanB::setWeapon(Weapon& weapon)
 {
 	
-	_weapon = &weapon;  // MUST BE WITH & ADRES, BECAUSE private _wp IS A POINTER WITH *
-	
+	_weapon = &weapon;  // MUST BE WITH & ADDRESS, BECAUSE private _wp IS A POINTER WITH *
 	std::cout << "   SetWeapon() to " << _weapon->getType() << ".\n\n";
 }
 

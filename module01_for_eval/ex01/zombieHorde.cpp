@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:33:54 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 13:08:52 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:54:58 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Zombie *zombieHorde(int N, std::string name)
 {
 	Zombie	*horde;
-	horde = new Zombie[N];	// AUTOMATICALLY CALLS THE Default CONSTRUCTOR N TIMES
+	horde = new Zombie[N];
 
 	int i = 0;
 	while (i < N)

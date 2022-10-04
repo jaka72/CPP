@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:32:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 12:49:11 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:53:31 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@
 class Zombie
 {
 	private:
+	
 		std::string _name;
 
 	public:
+	
+		// Parameterized Constructor
 		Zombie(std::string name);
 
+		// Destructor
 		~Zombie();
 
+		// Member function
 		void	announce(void);
 };
 

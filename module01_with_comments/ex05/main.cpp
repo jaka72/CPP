@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 19:02:33 by jaka          #+#    #+#                 */
-/*   Updated: 2022/09/29 12:03:39 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:40:10 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@
 
 
 
-
-
 int main()
 {
 	Harl harl;
@@ -57,3 +55,18 @@ int main()
 	harl.complain("error");
 	harl.complain("trial");
 }
+
+
+/*
+	VAJA - POINTER TO FUNCTION
+		A) Declaration in the Public:
+			void (TestClass::*fpt)();
+			
+		B) Assign a custom function to the pointer function, in init()
+			fpt 		= &TestClass::print;
+			data[0].fpt = &TestClass::print; 
+
+		C) Call the pointer function from inside a public member function
+			(this->*(fpt))()
+			(this->*(data[0].fpt))()
+*/

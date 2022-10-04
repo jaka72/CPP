@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:33:47 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 13:09:52 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:54:37 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Zombie
 		// Setter
 		void	set_name(std::string name);
 
-		// Member functions
+		// Member function
 		void	announce();
 
 		// Destructor

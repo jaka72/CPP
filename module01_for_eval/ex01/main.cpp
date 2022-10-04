@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 18:33:08 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 13:11:50 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/04 11:54:16 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	main(void)
 {
-	int n = 3;
+	int N = 3;
 	
 	Zombie	*horde;
-	horde = zombieHorde(n, "Silvia");
+	horde = zombieHorde(N, "Silvia");
 
 	int i = 0;
-	while (i < n)
+	while (i < N)
 	{
 		horde[i].announce();
 		i++;
