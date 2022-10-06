@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/06 12:27:01 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/06 12:27:02 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_H
 # define FIXED_H
 
@@ -32,7 +44,7 @@ class Fixed
 
 		// Setter
 		void	setRawBits(int const raw);
-		
+
 		// Getter
 		int 	getRawBits(void) const;
 

@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.cpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/06 12:26:51 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/06 12:31:08 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 
-// DEFAULT CONSTRUCTOR
+// Default constructor
 // Also good: Fixed::Fixed()  :  _fpn = 0
 Fixed::Fixed()
 {
@@ -10,7 +22,25 @@ Fixed::Fixed()
 }
 
 
-// COPY CONSTRUCTOR
+// Parameterized constructors
+Fixed::Fixed(const int i)
+{
+	_fpn = i << _frac_bits; // same as i * 256
+	std::cout << "Int constructor called\n";
+	std::cout << "Converted from int " << i << " to fixed point: " << _fpn << '\n';
+	// 		OR
+	// _fpn = std::round(i * (1 << _frac_bits));
+}
+
+Fixed::Fixed(const float f)
+{
+	_fpn = round(f * (1 << _frac_bits));
+	std::cout << "Float constructor called\n";
+	std::cout << "Converted from float " << f << " to fixed point: " << _fpn << '\n';
+}
+
+
+// Copy constructor
 Fixed::Fixed(const Fixed &fixed)
 {
 	std::cout << "Copy constructor called\n"; 
@@ -18,33 +48,15 @@ Fixed::Fixed(const Fixed &fixed)
 }
 
 
-// A CONSTRUCTOR FOR ARG. INT
-Fixed::Fixed(const int i)
-{
-	std::cout << "Int constructor called\n";
-	_fpn = i << _frac_bits; // same as i * 256
-	// 		OR
-	// _fpn = std::round(i * (1 << _frac_bits));
-}
 
-// A CONSTRUCTOR FOR ARG. FLOAT
-Fixed::Fixed(const float f)
-{
-	std::cout << "Float constructor called\n";
-	_fpn = round(f * (1 << _frac_bits));
-	std::cout << "Converted from float " << f << " to fixed point: " << _fpn << '\n';
-}
-
-
-//	COPY ASSIGNMENT OVERLOAD FOR =OPERATOR
-/*	
+/*	COPY ASSIGNMENT OVERLOAD FOR =OPERATOR
 	This is called in cases, when an object is on both sides of = 
-			Fixed a;
-			a = Fixed(12.34)
-				or
-			Fixed a;
-			Fixed b(12.34);
-			a = b;
+		Fixed a;
+		a = Fixed(12.34)
+			or
+		Fixed a;
+		Fixed b(12.34);
+		a = b;
 	Also, if inside the copy constructor it is used the = 
 			like: *this = fixed
 */
@@ -100,7 +112,7 @@ float Fixed::toInt(void) const
 }
 
 
-// OVERLOAD FOR THE OPERATOR<<
+// OVERLOAD FOR OPERATOR<<
 std::ostream &operator<< (std::ostream &out, Fixed const &f)
 {
 	//out << "Called operator<< overload:\n";

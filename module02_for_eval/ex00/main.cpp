@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 11:17:22 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/05 18:35:35 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/06 12:06:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main()
 	std::cout << b.getRawBits() << '\n';
 	std::cout << c.getRawBits() << '\n';
 	
-	c.setRawBits(77);
+	c.setRawBits(123);
 	std::cout << c.getRawBits() << '\n';
 
 }
