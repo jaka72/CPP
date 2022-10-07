@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 13:26:55 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 14:37:11 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 18:26:46 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 	std::cout << "   Point p:    x=" << p.get_x() << ", y=" << p.get_y()<< "\n";
 	
 	float area = a.area(a, b, c);
-	std::cout << "Area(a, b, c)   = " << area << "\n";
+	std::cout << "   Area(a, b, c)   = " << area << "\n";
 
 	// ALSO POSSIBLE
 	// Fixed a1(44);
@@ -38,11 +38,11 @@ int	main()
 	// std::cout << "   Point x2(11, 33):    x=" << x2.get_x() << ", y=" << x2.get_y()<< "\n";
 	
 
-	std::cout << "\nCHECK POINT IN A TRIANGLE: \n\n";
+	std::cout << "\n\n --- CHECK POINT IN A TRIANGLE -------------------- \n\n";
 
 	if (p.bsp(a, b, c, p) == true)
-		std::cout << "It is inside\n";
+		std::cout << "\nIt is inside.\n\n";
 	else
-		std::cout << "It is NOT inside\n";
+		std::cout << "\nIt is NOT inside.\n\n";
 
 }

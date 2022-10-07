@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 10:33:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 13:25:18 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 18:22:46 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ class Fixed
 		Fixed operator- (const Fixed &fixed);
 
 		// COMPARISSON OPERATORS OVERLOAD
-		// bool operator< (Fixed fixed) const;
 		bool operator<  (const Fixed fixed) const;
 		bool operator>  (const Fixed &fixed) const;
 		bool operator<= (const Fixed &fixed) const;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.cpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/07 18:17:41 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/07 18:33:57 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 
@@ -23,31 +35,18 @@ Fixed::Fixed(const int i)
 {
 	std::cout << "Int constructor called\n";
 	_fpn = i << _frac_bits; // same as i * 256
-	// 		OR
-	// _fpn = std::round(i * (1 << _frac_bits));
 }
 
 // A CONSTRUCTOR FOR ARG. FLOAT
 Fixed::Fixed(const float f)
 {
 	std::cout << "Float constructor called\n";
-	_fpn = round(f * (1 << _frac_bits));
-	std::cout << "Converted from float " << f << " to fixed point: " << _fpn << '\n';
+	_fpn = roundf(f * (1 << _frac_bits));
+	//std::cout << "Converted from float " << f << " to fixed point: " << _fpn << '\n';
 }
 
 
 //	COPY ASSIGNMENT OVERLOAD FOR =OPERATOR
-/*	
-	This is called in cases, when an object is on both sides of = 
-			Fixed a;
-			a = Fixed(12.34)
-				or
-			Fixed a;
-			Fixed b(12.34);
-			a = b;
-	Also, if inside the copy constructor it is used the = 
-			like: *this = fixed
-*/
 Fixed &Fixed::operator=(const Fixed &orig)
 {
 	std::cout << "Copy assignment operator called\n";
@@ -93,9 +92,7 @@ float Fixed::toInt(void) const
 {
 	//std::cout << "Called toInt() \n";
 	int a;
-	a = _fpn >> this->_frac_bits;
-	// 	OR:
-	// a = _fpn / (1 << _frac_bits);
+	a = _fpn >> this->_frac_bits;	// 	OR: a = _fpn / (1 << _frac_bits);
 	return (a);
 }
 
@@ -103,7 +100,7 @@ float Fixed::toInt(void) const
 // OVERLOAD FOR THE OPERATOR<<
 std::ostream &operator<< (std::ostream &out, Fixed const &f)
 {
-	//out << "Called operator<< overload:\n";
+	// out << "Called operator<< overload:\n";
 	// out << std::fixed << std::setprecision(2) << f.toFloat();
 	out << f.toFloat();
 	return (out);

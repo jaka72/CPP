@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 13:38:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 14:27:49 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 18:28:39 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ Point::Point(const Point &orig) : _x(orig.get_x()), _y(orig.get_y())
 //								// MUST BE COPIED IN THE COPY CONSTRUCTOR	
 								// MUST USE A CUSTOM GETTER TO FETCH
 								// THE VALUE FROM ANOTHER CLASS (Fixed)
-
-//	std::cout << "COPY CONSTR: get_x(): " << this->get_x() << "\n\n";
-
-//	*this = orig;	// MAYBE NOT NEEDED
 }
 
 

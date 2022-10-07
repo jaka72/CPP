@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 13:37:10 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 13:38:19 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 18:31:39 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define FIXED_H
 
 #include <iostream>
-#include<cmath>
+#include <cmath>
 
 class Fixed
 {

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 19:47:06 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 13:24:07 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 18:32:06 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 // DEFAULT CONSTRUCTOR
 Fixed::Fixed()	:	_fpn(0)
 {	}
+
 
 // COPY CONSTRUCTOR
 Fixed::Fixed(const Fixed &fixed)
@@ -33,7 +34,7 @@ Fixed::Fixed(const int i)
 // A CONSTRUCTOR FOR ARG. FLOAT
 Fixed::Fixed(const float f)
 {
-	_fpn = round(f * (1 << _frac_bits));	
+	_fpn = roundf(f * (1 << _frac_bits));	
 }
 
 
@@ -85,9 +86,7 @@ float Fixed::toFloat(void) const
 float Fixed::toInt(void) const
 {
 	int a;
-	a = _fpn >> this->_frac_bits;
-	// 	OR:
-	// a = _fpn / (1 << _frac_bits);
+	a = _fpn >> this->_frac_bits;	// 	OR  a = _fpn / (1 << _frac_bits);
 	return (a);
 }
 
@@ -157,7 +156,7 @@ Fixed Fixed::operator* (const Fixed &fixed)
 
 //	Both float values became ints in the constructor (via shifting << 8)
 //	So now they must be cast back to float, to be correctly divided.
-//	The result must be again shiftet << 8 to int, because finaly it
+//	The result must be again shifted << 8 to int, because finaly it
 //	will be printed via toFloat() --> shifted back to float
 Fixed Fixed::operator/ (const Fixed &fixed)
 {

@@ -6,12 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 13:55:40 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 13:58:37 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 18:31:33 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <cmath>
 
 
 // DEFAULT CONSTRUCTOR
@@ -51,7 +50,7 @@ Fixed::Fixed(const int i)
 Fixed::Fixed(const float f)
 {
 	//std::cout << "Float constructor called\n";
-	_fpn = round(f * (1 << _frac_bits));	
+	_fpn = roundf(f * (1 << _frac_bits));	
 	//std::cout << "Converted from float " << f << " to fixed point: " << _fpn << "\n\n";
 }
 
@@ -63,7 +62,7 @@ Fixed::~Fixed()
 }
 
 
-// PUBLIC MEMBER FUNCTIONS
+// PUBLIC MEMBER FUNCTIONS //////////////////////////////////////////
 
 //	SETTER
 void Fixed::setRawBits(int const raw)
@@ -90,9 +89,7 @@ float Fixed::toFloat(void) const
 float Fixed::toInt(void) const
 {
 	int a;
-	a = _fpn >> this->_frac_bits;
-	// 	OR
-	// a = _fpn / (1 << _frac_bits);
+	a = _fpn >> this->_frac_bits;	// 	OR 	a = _fpn / (1 << _frac_bits);
 	return (a);
 }
 

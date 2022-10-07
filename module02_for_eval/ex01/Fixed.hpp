@@ -1,12 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/07 18:16:45 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/07 18:16:46 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_H
 # define FIXED_H
 
 # include <iostream>
 # include <cmath>
-// # include <iomanip> // for precision
+# include <iomanip> // for precision
 
-// fpn 			= fixed point number
-// _frac_bits 	= fractional bits 
 class Fixed
 {
 	private:

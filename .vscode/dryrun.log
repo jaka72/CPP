@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/jmurovec/Desktop/projects/cpp_newest'
+make: Leaving directory `/Users/jmurovec/Desktop/projects/cpp_newest'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
