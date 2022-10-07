@@ -5,9 +5,15 @@
 /*	////// EXPLANATION: ////////////////////////////////////////
 
 	Bitwise operator << shift left
-		1 << 8	 == 	0000.0001 << 8 = 1.0000.0000  =  256
-								( << 7 =   1000.0000  =  128 )
-								( << 6 =    100.0000  =   64 )  ... etc
+		1 << 8	 == 	0000 0001 << 8 = 1 0000 0000  =  256
+								( << 7 =   1000 0000  =  128 )
+								( << 6 =    100 0000  =   64 )
+								( << 5 =     10 0000  =   32 )
+								( << 4 =      1 0000  =   16 )
+								( << 2 =         100  =   4  )
+								( << 1 =          10  =   2  )
+								( << 0 =           1  =   1  )  ... etc
+
 
 	THE OBJECT ALWAYS TAKES AN INT OR A FLOAT IN THE ARG.
 	IF A FLOAT, IT IS SAVED INTO THE PRIVE VARIABLE fpn, CONVERTED TO INTEGER:
@@ -28,7 +34,6 @@
 				0.0500 = 12,80 -->rounded to 13
 				0.0050 = 1,280 -->rounded to 1
 				0.0005 = 0,128 -->rounded to 0
-				SMALLER THAN 0,003 IS ROUNDED TO ZERO, SO IT'S USELESS
 
 
 	WHEN THE OBJECT IS USED TOGETHER WITH std::cout << a
@@ -37,11 +42,6 @@
 		RETURNS THE FLOAT VALUE. THEN IT IS STREAMED INTO THE LEFT
 		PARAMETER ostream.
 		SO IT WILL PRINT OUT THE FLOAT VALUE FROM THE OBJECT
-
-
-		// SHALL THERE BE A PROTECTION FROM OVERFLOWING MAX INT ???
-		MAX int to be converted * 256 = 16.777.215    = 4.294.967.040
-						--> this is a bit under MAXINT (4.294.967.295)
 */
 
 int	main()

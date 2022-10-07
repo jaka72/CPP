@@ -3,128 +3,124 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 12:42:50 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/06 12:42:51 by jmurovec      ########   odam.nl         */
+/*   Created: 2022/10/07 10:34:11 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/07 13:32:56 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>   
 #include "Fixed.hpp"
 
 
 
 int	main()
 {
-//	TESTS FOR EX02 
+	std::cout << "--- Tests from the subject Ex02 -------------------------\n";
 
-	// Fixed const add_int (Fixed(5) + Fixed(2));
-	// Fixed const add_float (Fixed(5.3f) + Fixed(2.1f));
-	// std::cout << "add_int is " << add_int << '\n';
-	// std::cout << "add_float is " << add_float << '\n';
-	
-	// Fixed const sub_int (Fixed(2) - Fixed(5));
-	// Fixed const sub_float (Fixed(2.1f) - Fixed(5.6f));
-	// std::cout << "sub_int is " << sub_int << '\n';
-	// std::cout << "sub_float is " << sub_float << '\n';
-	
-	// Fixed const mul_int (Fixed(5.05f) * Fixed(2.1f));
-	// Fixed const mul_float (Fixed(5) * Fixed(2));
-	// std::cout << "mul_int is " << mul_int << '\n';
-	// std::cout << "mul_float is " << mul_float << '\n';
-
-	// INT / FLOAT
-	// Fixed const mul_int (Fixed(5) * Fixed(2.1f));
-	// Fixed const mul_float (Fixed(5) * Fixed(2));
-	// std::cout << "mul_int is " << mul_int << '\n';
-	// std::cout << "mul_float is " << mul_float << '\n';
-
-	// Fixed const div_int (Fixed(12) / Fixed(3));
-	// Fixed const div_float (Fixed(10.0f) / Fixed(4.0f));
-	// std::cout << "div_int is " << div_int << '\n';
-	// std::cout << "div_float is " << div_float << '\n';
-	
-	std::cout << "\n";
-
-
-	// COMPARISSON
-	// Fixed x{33};
-	// Fixed y{44};
-	// std::cout << "Is less: " << (y < x) << "  :isless\n";
-
-
-//////////////////////////////////////////////////////////////////////////////
-
-
-//Fixed b( a );	// ALSO OK: Fixed b = a
-// //	Fixed b { a };	// Is it ok?
-// 	Fixed c;
-// 	c = b;
-
-// 	std::cout << a.getRawBits() << '\n';
-// 	std::cout << b.getRawBits() << '\n';
-// 	std::cout << c.getRawBits() << '\n';
-	
-
-	std::cout << "\n";
-
-
-
-	// Fixed x{ 0 };
-	//std::cout << "Increments:  " << x++ << "  ==>end \n";
-	//std::cout << "Increments:  " << x << "  ==>end \n";
-
-	// Fixed a;
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-
-	// Fixed w{33};
-	// Fixed q{88};
-
-	// std::cout << "min:  " << Fixed::min(w, q) << " :min \n";
-
-
-	// FROM SUBJECT EX02
 	Fixed		a;
 	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
-	Fixed		c(22);
-
 
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
-
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
-
+	
 	std::cout << b << std::endl;
 	
-	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::max( a, b ) << "\n\n";
+
+
 
 // OTHER TESTS ///////////////////////////////
 
-	std::cout << Fixed::max( a, c ) << std::endl;
-	std::cout << Fixed::min( a, c ) << std::endl;
-
-// OTHER TESTS ///////////////////////////////
-	// a.setRawBits(33);
-	// c.setRawBits(77);
-	// std::cout << "Value fpn: " << a <<"\n";
-	// std::cout << "Value fpn: " << c <<"\n";
-
-
-	// Fixed x_const (Fixed::min(a, c));
-	// std::cout << "Value x_const: " << x_const <<"\n";
-	// x_const.setRawBits(33);
-
-	// Fixed aaa (Fixed::min(a,b));
+	Fixed x(4);
+	Fixed y(8);
+	
+	std::cout << "--- Arithmetic operators -------------------------------\n";
+	std::cout << "    add:       " << x << " + " << y << " = " << x + y << "\n";
+	std::cout << "    substract: " << x << " - " << y << " = " << x - y << "\n";
+	std::cout << "    multiply:  " << x << " * " << y << " = " << x * y << "\n";
+	std::cout << "    divide:    " << x << " / " << y << " = " << x / y << "\n\n";
 
 
+	std::cout << "--- Comparisson operators ------------------------------\n";
+	std::cout << "    " << x << " < " << y << "     = " << (x < y) << "\n";
+	std::cout << "    " << x << " > " << y << "     = " << (x > y) << "\n";
+	std::cout << "    " << x << " >= " << y << "    = " << (x >= y) << "\n";
+	std::cout << "    " << x << " <= " << y << "    = " << (x <= y) << "\n";
+	std::cout << "    " << x << " == " << y << "    = " << (x == y) << "\n";
+	std::cout << "    " << x << " != " << y << "    = " << (x != y) << "\n\n";
 
+
+	std::cout << "--- Increment operators ------------------------------\n";
+	std::cout << "            x = " << x << "\n";
+	std::cout << "    ++x     x = " << ++x << "\n";
+	std::cout << "            x = " << x << "\n";
+	std::cout << "    x++     x = " << x++ << "\n";
+	std::cout << "            x = " << x << "\n\n";
+
+	std::cout << "            x = " << x << "\n";
+	std::cout << "    --x     x = " << --x << "\n";
+	std::cout << "            x = " << x << "\n";
+	std::cout << "    x--     x = " << x-- << "\n";
+	std::cout << "            x = " << x << "\n\n";
+
+
+	std::cout << "--- Min and Max functions ----------------------------\n";
+	std::cout << Fixed::max( x, y ) << "\n";
+	std::cout << Fixed::min( x, y ) << "\n";
+
+	Fixed const c1(22);
+	Fixed const	c2(33);
+	std::cout << Fixed::min( c1, c2 ) << "\n";
+	std::cout << Fixed::max( c1, c2 ) << "\n\n";
+
+
+	std::cout << "     c1.min(c1, c2)" << c1.min(c1, c2) << "\n";
+	std::cout << "     c1.max(c1, c2)" << c1.max(c1, c2) << "\n\n";
+
+
+	// More different tests /////////////////////////////////////////
+	
+	// Fixed test;
+	// test = (Fixed(2) - Fixed(5));
+	// std::cout << "   result: " << test << '\n';
+	
+	// test = (Fixed(2.1f) - Fixed(5.6f));
+	// std::cout << "   result: " << test << '\n';
+	
+	// std::cout << "    multiply:  " << x << " * " << y << " = " << x * y << "\n";
+	// std::cout << "    divide:  " << x << " / " << y << " = " << x / y << "\n";
+
+
+
+	// TESTING - LOSING PRECISION ///////////////////////////////////////////
+	// std::cout << "LOSING PRECISION:\n";
+	// Fixed const x0( 5.0f );
+	// std::cout << "x0 as fpn: " << x0.getRawBits() << "\n";
+	// std::cout << "x0 is " << std::setw(6) << x0.toInt() << " as integer\n";
+	// std::cout << "x0 is " << std::setw(6) << x0.toFloat() << " as float\n\n";
+
+	// Fixed const x1( 0.5f );
+	// std::cout << "x1 as fpn: " << x1.getRawBits() << "\n";
+	// std::cout << "x1 is " << std::setw(6) << x1.toInt() << " as integer\n";
+	// std::cout << "x1 is " << std::setw(6) << x1.toFloat() << " as float\n\n";
+
+	// Fixed const x2( 0.05f );
+	// std::cout << "x2 as fpn: " << x2.getRawBits() << "\n";
+	// std::cout << "x2 is " << std::setw(6) << x2.toInt() << " as integer\n";
+	// std::cout << "x2 is " << std::setw(6) << x2.toFloat() << " as float\n\n";
+
+	// Fixed const x3( 0.005f );
+	// std::cout << "x3 as fpn: " << x3.getRawBits() << "\n";
+	// std::cout << "x3 is " << std::setw(6) << x3.toInt() << " as integer\n";
+	// std::cout << "x3 is " << std::setw(6) << x3.toFloat() << " as float\n\n";
+
+	// Fixed const x4( 0.0005f );
+	// std::cout << "x4 as fpn: " << x4.getRawBits() << "\n";
+	// std::cout << "x4 is " << std::setw(6) << x4.toInt() << " as integer\n";
+	// std::cout << "x4 is " << std::setw(6) << x4.toFloat() << " as float\n\n";
 
 }

@@ -1,42 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Fixed.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/07 13:37:10 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/07 13:38:19 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_H
 #define FIXED_H
 
 #include <iostream>
 #include<cmath>
 
-// fpn 			= fixed point number
-// frac_bits 	= fractional bits 
 class Fixed
 {
 	private:
-		int					fpn_prive;
-		static const int	frac_bits = 8;
+		int					_fpn;
+		static const int	_frac_bits = 8;
 
 	public:
 		// default constructor
-			Fixed();
+		Fixed();
 					
 		// copy constructor
-			Fixed(const Fixed& f1);
+		Fixed(const Fixed& f1);
 
 
 		// A CONSTRUCTOR THAT TAKES const int AS PARAMETER
-			Fixed(const int i);
+		Fixed(const int i);
 
 		// A CONSTRUCTOR THAT TAKES const float AS PARAMETER
-			Fixed(const float f);
+		Fixed(const float f);
 
 		// copy assignment overload for the =
-			Fixed &operator=(const Fixed &orig);
+		Fixed &operator=(const Fixed &orig);
 
 		// destructor
-			~Fixed();
+		~Fixed();
 
 		// Setter
-			void	setRawBits(int const raw);
+		void	setRawBits(int const raw);
 		
 		// Getter
-			int 	getRawBits(void) const;
+		int 	getRawBits(void) const;
 
 		// Member functions
 		float toFloat(void) const;
@@ -45,6 +55,5 @@ class Fixed
 
 // OVERLOAD FOR THE << OPERATOR, WHEN USED WITH std:ostream AND Fixed
 std::ostream &operator<<(std::ostream &out, const Fixed &f);
-
 
 #endif

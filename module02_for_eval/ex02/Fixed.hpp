@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Fixed.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 12:42:57 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/06 12:42:58 by jmurovec      ########   odam.nl         */
+/*   Created: 2022/10/07 10:33:59 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/07 13:25:18 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 # define FIXED_H
 
 # include <iostream>
+# include <iomanip>   
 # include <cmath>
 
 
-//	fpn			= fixed point number
-//	_frac_bits	= fractional bits
 class Fixed
 {
 	private:
@@ -36,39 +35,6 @@ class Fixed
 		Fixed(const int i);
 		Fixed(const float f);
 
-		// ARITHMETIC OPERATORS OVERLOAD
-		Fixed operator* (const Fixed &fixed);
-		Fixed operator/ (const Fixed &fixed);
-		Fixed operator+ (const Fixed &fixed);
-		Fixed operator- (const Fixed &fixed);
-
-		// COMPARISSON OPERATORS OVERLOAD
-		/*
-			TO HAVE 2 ARGS IS ONLY POSSIBLE WITH "friend"
-			friend bool operator== (const Fixed &f1, const Fixed &f2);
-			
-			IF HERE WITHOUT CONST, THEN THE const, THEN min() IS NOT WORKING 
-				error: passing ‘const Fixed’ as ‘this’ argument discards qualifiers
-			bool operator< (const Fixed fixed) const;
-		*/
-		bool operator< (const Fixed fixed) const;
-		// bool operator< (Fixed fixed) const;
-		bool operator> (const Fixed &fixed) const;
-		bool operator<= (const Fixed &fixed) const;
-		bool operator>= (const Fixed &fixed) const;
-		bool operator== (const Fixed &fixed) const;
-		bool operator!= (const Fixed &fixed) const;
-
-
-		// INCREMENT OPERATORS OVERLOAD
-		//	pre-increment
-		Fixed operator++ ();
-		Fixed operator-- ();
-		//	post-increment
-		Fixed operator++ (int);
-		Fixed operator-- (int);
-	
-	
 		// copy assignment overload for the =
 		Fixed &operator= (const Fixed &orig);
 
@@ -90,6 +56,28 @@ class Fixed
 		static const Fixed &min(const Fixed &f1, const Fixed &f2);
 		static const Fixed &max(const Fixed &f1, const Fixed &f2);
 
+		// ARITHMETIC OPERATORS OVERLOAD
+		Fixed operator* (const Fixed &fixed);
+		Fixed operator/ (const Fixed &fixed);
+		Fixed operator+ (const Fixed &fixed);
+		Fixed operator- (const Fixed &fixed);
+
+		// COMPARISSON OPERATORS OVERLOAD
+		// bool operator< (Fixed fixed) const;
+		bool operator<  (const Fixed fixed) const;
+		bool operator>  (const Fixed &fixed) const;
+		bool operator<= (const Fixed &fixed) const;
+		bool operator>= (const Fixed &fixed) const;
+		bool operator== (const Fixed &fixed) const;
+		bool operator!= (const Fixed &fixed) const;
+
+		// INCREMENT OPERATORS OVERLOAD
+		//	pre-increment
+		Fixed operator++ ();
+		Fixed operator-- ();
+		//	post-increment
+		Fixed operator++ (int);
+		Fixed operator-- (int);
 };
 
 // OVERLOAD FOR THE OPERATOR<<  ,WHEN USED WITH std:ostream AND Fixed

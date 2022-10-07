@@ -6,12 +6,51 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 11:17:22 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/05 18:34:19 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/07 10:28:55 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
+
+
+
+/*
+	Converter
+	www.rfwireless-world.com/calculators/floating-vs-fixed-point-converter.html
+
+	Computer science, Binary 3
+	www.youtube.com/watch?v=QFlbvSeBkwY
+*/
+
+/*
+	Speed is more important than accuracy, ie. in real time systems.
+	It is used in specific devices (in Digital Signal Processing), where
+	the processor is simpler and cheaper.
+	Arithmetic is thus simplified and much faster.
+	The notional (imaginary position) of the binary point in a 'register' was 
+	decided, fixed by the designers of a specific device. It can't be moved. Like:
+		8 bits before the point, and 4 bits after it.  01001000.1100
+
+	So, the binary point is fixed inside a fixed-size register.
+		ie:		6 bits     2 bits
+					011010.11
+
+			0	1	1	0	1	1	.	1	 1
+				16	+8		+2	+1		+0.5 +0.25	= 26.75
+			
+			Now move the point to the right 2x
+				0110 1111	=	107
+
+	Information that you can have, ie: 
+		decimal number 27.5, converted to fixed point binary,
+		stored in a 12 bit register
+		with 4 bits after the binary point
+
+	Number of places before and after the binary point, means range and precision.
+	The bigger range means larger values are possible, but smaller precision, and vice versa. 
+*/
+
 
 /* Questions:
 

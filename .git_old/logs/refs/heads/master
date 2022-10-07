@@ -1,0 +1,37 @@
+0000000000000000000000000000000000000000 9ea858f6f01cab6a648b0b93401f018d8ab925ce jaka72 <jaka72@gmail.com> 1662655416 +0200	clone: from https://github.com/jaka72/CPP.git
+9ea858f6f01cab6a648b0b93401f018d8ab925ce d2469cc3c3053c06cc522b1749f1d062fe6cffff jaka72 <jaka72@gmail.com> 1662668738 +0200	commit: New, Copy constructor
+d2469cc3c3053c06cc522b1749f1d062fe6cffff d91ec5f643d0683258e0f3920a3188df157e7ab2 jaka72 <jaka72@gmail.com> 1662838007 +0200	commit: Looking into Overloading. Figured out how to convert from float to int via << shifting and then back ...
+d91ec5f643d0683258e0f3920a3188df157e7ab2 5c2590558292c261170ee3fcd3411ce3187fcdb7 jaka72 <jaka72@gmail.com> 1662910075 +0200	commit: Almost done mod02/ex01. Looking into Overload operators + and * .The stored value is printed without conversion back to >> 8 decimal ???
+5c2590558292c261170ee3fcd3411ce3187fcdb7 e7cb2751f92bb4c9d2b1031bde941d54c13b5642 jaka72 <jaka72@gmail.com> 1663011991 +0200	commit: Added functions for comparisson and increment operators overload. There are some questions about post-increments, what is the correct logic there?
+e7cb2751f92bb4c9d2b1031bde941d54c13b5642 ee75569d25b969dd676fb5c110dc8f75b412b7d9 jaka72 <jaka72@gmail.com> 1663095066 +0200	commit: Testing different variants for 'const' position, before or after function name ... And how it behaves when a const function is called from another function with the const argument.
+ee75569d25b969dd676fb5c110dc8f75b412b7d9 96f60af1963893088c8e31d7bf492b945deaa268 jaka72 <jaka72@gmail.com> 1663143040 +0200	commit: Organizing comments in Fixed.cpp file.
+96f60af1963893088c8e31d7bf492b945deaa268 a4f3f0652a0d8206938f40d9bddaabab6ea38cff jaka72 <jaka72@gmail.com> 1663182661 +0200	commit: Looking into inheritance, 03/ex00
+a4f3f0652a0d8206938f40d9bddaabab6ea38cff 6a423ba85533ce0cd79881763f3cf3f787317313 jaka72 <jaka72@gmail.com> 1663328184 +0200	commit: Added colors in ex01 to print more readably
+6a423ba85533ce0cd79881763f3cf3f787317313 e4dbbe3b66c737293d6852a9e0e64cd0bc0ce144 jaka72 <jaka72@gmail.com> 1663612819 +0200	commit: Adding tests to m04/01 , in overload assign= operator: now copying ideas[0] to new address, deep copy vs shallow copy
+e4dbbe3b66c737293d6852a9e0e64cd0bc0ce144 1c9cb1556892090f46d95c676baf680aeeecfab0 jaka72 <jaka72@gmail.com> 1663665706 +0200	commit: Cleaned Makefile (I have 2 variants, one does not give message: Nothing to be done ...
+1c9cb1556892090f46d95c676baf680aeeecfab0 6f782847990f2043251a8f3730dae8aa2f03da26 jaka72 <jaka72@gmail.com> 1663691578 +0200	commit: Cleaned module00, added checking for empty fields etc ...
+6f782847990f2043251a8f3730dae8aa2f03da26 a2164ba6c2e26749a2ec3ef39264f7c62faaca13 jaka72 <jaka72@gmail.com> 1663768077 +0200	commit: Made module00 bonus ex02, it works, some things not sure if allowed: initializing private static vars outside main ???
+a2164ba6c2e26749a2ec3ef39264f7c62faaca13 5152d0277c2551713cdc4d1a5c9f9cd1565d91f2 jaka72 <jaka72@gmail.com> 1663785107 +0200	commit: Cleaning module01, adding makefiles
+5152d0277c2551713cdc4d1a5c9f9cd1565d91f2 778ccf71779a6dc2163e9b79eaf59738028c566e jaka72 <jaka72@gmail.com> 1663863142 +0200	pull: Fast-forward
+778ccf71779a6dc2163e9b79eaf59738028c566e 4b72cfe797b132e0395b76c30851f0b59b343352 jaka72 <jaka72@gmail.com> 1663955350 +0200	commit: Added ft_atoi to module00/01
+4b72cfe797b132e0395b76c30851f0b59b343352 5fc682207a89ca902b8c810692a5dee70a0f8f00 jaka72 <jaka72@gmail.com> 1664029330 +0200	commit: Cleaned Makefile in module00/01 with libft Makefile
+5fc682207a89ca902b8c810692a5dee70a0f8f00 f99857092c28d565abd7c2bcd28c9f9518a5011f jaka72 <jaka72@gmail.com> 1664117685 +0200	commit: mod00/02 now working, only needs removing comments
+f99857092c28d565abd7c2bcd28c9f9518a5011f 0956b5825132c4d85488091fa353ea57d2b27950 jaka72 <jaka72@gmail.com> 1664126272 +0200	commit: Cleaned mod01/01
+0956b5825132c4d85488091fa353ea57d2b27950 3fe005fa0a139391575ad7d68f91f9a413bf8ecc jaka72 <jaka72@gmail.com> 1664127481 +0200	commit: Cleaned mod01/02
+3fe005fa0a139391575ad7d68f91f9a413bf8ecc 1d56a54afd13ca51449a730c470ccc9674189b02 jaka72 <jaka72@gmail.com> 1664206344 +0200	pull: Fast-forward
+1d56a54afd13ca51449a730c470ccc9674189b02 2edc2a33540c997ca2938c5cbcf2eb6f30f56c0e jaka72 <jaka72@gmail.com> 1664218551 +0200	commit: Almost fixed Phonebook, maybe only to remove whitespaces if more of them in the input
+2edc2a33540c997ca2938c5cbcf2eb6f30f56c0e 8b2475bdd2cd6b20e950afe4a8dbfb47e5a601dc jaka72 <jaka72@gmail.com> 1664276770 +0200	commit: mod00/01 ready to eval
+8b2475bdd2cd6b20e950afe4a8dbfb47e5a601dc 4bf25ff042978e51b21280b79d68b5e80ddf953e jaka72 <jaka72@gmail.com> 1664277301 +0200	commit: Cleaned mod00/02
+4bf25ff042978e51b21280b79d68b5e80ddf953e f970422b0dd14cea05d04b484a3285afbca9d336 jaka72 <jaka72@gmail.com> 1664358082 +0200	pull: Fast-forward
+f970422b0dd14cea05d04b484a3285afbca9d336 cc0c2570e21fa3b477503baceef7985a5c646a7c jaka72 <jaka72@gmail.com> 1664372679 +0200	commit: Making sense about mod01/03, object Weapon as a member inside HumanA, as reference versus as pointer.
+cc0c2570e21fa3b477503baceef7985a5c646a7c 6799a24e11974a170267d08b162550bbcf8a94dc jaka72 <jaka72@gmail.com> 1664453017 +0200	commit: Added mod01/06 - switch, working
+6799a24e11974a170267d08b162550bbcf8a94dc 54a85b3690c59d0df12e1d80992a633ac2eff3eb jaka72 <jaka72@gmail.com> 1664725115 +0200	pull: Fast-forward
+54a85b3690c59d0df12e1d80992a633ac2eff3eb 4e55281715ed694a36bdcf67c563a5e55d780e7b jaka72 <jaka72@gmail.com> 1664793723 +0200	commit: Working mod02/03, The point in triangle
+4e55281715ed694a36bdcf67c563a5e55d780e7b 7da383b5355b15191dc708336acb6b1b7ea272cc jaka72 <jaka72@gmail.com> 1664801506 +0200	commit: Almost cleaned mod01/ex03
+7da383b5355b15191dc708336acb6b1b7ea272cc fac25cbb3b3b328e14979806f6c8ce3eb157d3af jaka72 <jaka72@gmail.com> 1664802968 +0200	commit: Almost cleaned mod 01/ex04 -> String replacer
+fac25cbb3b3b328e14979806f6c8ce3eb157d3af d15613aff04e74879dcdeb9dc011d83d747211bb jaka72 <jaka72@gmail.com> 1664803525 +0200	commit: Almost cleaned mod 01/ex04 -> String replacer
+d15613aff04e74879dcdeb9dc011d83d747211bb f667dbfc16d4e48f81d5e4d2008eaeb94ea3b5fd jaka72 <jaka72@gmail.com> 1664820691 +0200	commit: Cleaning mod01/ex05 and ex06
+f667dbfc16d4e48f81d5e4d2008eaeb94ea3b5fd 5ac8273699b5a17975ccbe2b8d511272f6650f55 jaka72 <jaka72@gmail.com> 1664913346 +0200	pull: Fast-forward
+5ac8273699b5a17975ccbe2b8d511272f6650f55 fdeb8ebf2bd82d5442a5500818daaf2fd0584e72 jaka72 <jaka72@gmail.com> 1665000482 +0200	commit: Cleaning mod02
+fdeb8ebf2bd82d5442a5500818daaf2fd0584e72 1705dceef9ea1298008afd9a60db8e859ba3205c jaka72 <jaka72@gmail.com> 1665145792 +0200	commit: Checked bonus for mod02/03, the triangle
+1705dceef9ea1298008afd9a60db8e859ba3205c 91afe32805344eb24c26a1d320f08939678d18a3 jaka72 <jaka72@gmail.com> 1665146282 +0200	commit: Checked mod02/03 the triangle
