@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ClapTrap.hpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/08 18:39:52 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/08 19:58:12 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_H
 #define CLAPTRAP_H
 
@@ -14,11 +26,11 @@ class ClapTrap
 {
 	// private:		//	IF THIS IS THE BASE CLASS FOR AN INHERITED CLASS
 	protected:		// 		THEN IT MUST BE protected, OR IT GIVES ERROR ????
-		std::string	m_name;
-		int			hit_pts;
-		int			energy_pts;
-		int			attack_damage;
-		bool		guard;
+		std::string	_name;
+		int			_hit_pts;
+		int			_energy_pts;
+		int			_attack_damage;
+		bool		_guard;
 
 	public:
 	// Constructors:
@@ -38,7 +50,7 @@ class ClapTrap
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 
-		void print_hit_pts();	// just for testing
+		void print__hit_pts();	// just for testing
 
 };
 

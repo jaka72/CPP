@@ -23,7 +23,7 @@ Fixed::Fixed()	:	m_fpn (0)
 */
 Fixed::Fixed(const Fixed &fixed)
 {
-	std::cout << "Copy constructor called\n"; 
+	//std::cout << "Copy constructor called\n"; 
 	// m_fpn = fixed.m_fpn;	// Copy the value from the default constructor
 	//	OR
 	*this = fixed; // This requires the Copy Assign. overload for =
@@ -33,10 +33,11 @@ Fixed::Fixed(const Fixed &fixed)
 // A CONSTRUCTOR FOR ARG. INT
 Fixed::Fixed(const int i)
 {
-	std::cout << "Int constructor called\n";
-	//std::cout << "      xxx" << m_fpn << "\n";
-	m_fpn = i << frac_bits; // same as i * 256
-	//std::cout << "      XXX" << m_fpn << "\n";
+	//std::cout << "Int constructor called\n";
+	// m_fpn = i << frac_bits; // same as i * 256
+	m_fpn = i * 256; // same as i * 256
+	// m_fpn = i * 1000; // same as i * 256
+
 	// OR
 	// m_fpn = std::round(i * (1 << frac_bits));
 	// std::cout << "   fpn=" << m_fpn << "\n";
@@ -47,9 +48,11 @@ Fixed::Fixed(const int i)
 // Bit shifting can not be used on floats, so it has to be multiplied
 Fixed::Fixed(const float f)
 {
-	std::cout << "Float constructor called\n";
-	m_fpn = round(f * (1 << frac_bits));	
-	std::cout << "      current fpn: " << m_fpn << '\n';
+	// std::cout << "Float constructor called\n";
+	// m_fpn = round(f * (1 << frac_bits));	
+	m_fpn = round(f * 256);	
+	// m_fpn = round(f * 1000);	
+	// std::cout << "      current fpn: " << m_fpn << '\n';
 }
 
 
@@ -189,7 +192,9 @@ Fixed Fixed::operator- (const Fixed &fixed)
 Fixed Fixed::operator* (const Fixed &fixed)
 {
 	Fixed temp;
-	temp.m_fpn = (m_fpn * fixed.m_fpn) >> frac_bits;
+	// temp.m_fpn = (m_fpn * fixed.m_fpn) >> frac_bits;
+	// temp.m_fpn = (m_fpn * fixed.m_fpn) / 1000;
+	temp.m_fpn = (m_fpn * fixed.m_fpn) / 256;
 	return temp;
 }
 
@@ -232,7 +237,7 @@ Fixed Fixed::operator/ (const Fixed &fixed)
 */
 Fixed &Fixed::operator= (const Fixed &orig)
 {
-	std::cout << "Copy assignment operator called\n";
+	//std::cout << "Copy assignment operator called\n";
 	if (this == &orig)	// Protection
 		return (*this);
 	this->m_fpn = orig.m_fpn;
@@ -253,14 +258,14 @@ Fixed::~Fixed()
 void Fixed::setRawBits(int const raw)
 {
 	m_fpn = raw << frac_bits;
-	std::cout << "setRawBits member function called: new value fpn: " << m_fpn <<"\n"; 
+	//std::cout << "setRawBits member function called: new value fpn: " << m_fpn <<"\n"; 
 	//Fixed::m_fpn = raw;
 }
 
 //	GETTER
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called: value: \n" << m_fpn <<"\n"; 
+	//std::cout << "getRawBits member function called: value: \n" << m_fpn <<"\n"; 
 	return m_fpn;
 }
 
@@ -270,7 +275,9 @@ float Fixed::toFloat(void) const
 {
 	float a;
 	//std::cout << " .... called toFloat: fpn=" << m_fpn << " ...\n";
-	a = m_fpn / (float)(1 << frac_bits); // MUST BE CASTED TO FLOAT !!!
+	// a = m_fpn / (float)(1 << frac_bits); // MUST BE CASTED TO FLOAT !!!
+	// a = m_fpn / (float)1000; // MUST BE CASTED TO FLOAT !!!
+	a = m_fpn / (float)256; // MUST BE CASTED TO FLOAT !!!
 	return (a);
 }
 		
@@ -290,7 +297,7 @@ float Fixed::toInt(void) const
 */
 Fixed &Fixed::min(Fixed &f1, Fixed &f2)
 {
-	std::cout << "Called MIN NO CONST\n";
+	//std::cout << "Called MIN NO CONST\n";
 	if (f1 < f2)
 		return (f1);
 	return (f2);
@@ -305,7 +312,7 @@ Fixed &Fixed::max(Fixed &f1, Fixed &f2)
 
 const Fixed &Fixed::min(const Fixed &f1, const Fixed &f2)
 {
-	std::cout << "Called MIN with CONST\n";
+	//std::cout << "Called MIN with CONST\n";
 	if (f1 < f2)
 		return (f1);
 	return (f2);

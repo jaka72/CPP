@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/08 18:39:41 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/08 19:01:33 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SCAVTRAP_H
 #define SCAVTRAP_H
 
@@ -6,13 +18,13 @@
 
 class ScavTrap: public ClapTrap
 {
-	private:						// IN THE BASE CLASS OF THIS CLASS, 
+	private:						// IN THE BASE CLASS (parent) OF THIS CLASS, 
 									//	IT MUST HAVE protected: NOT private;   !!!
-		// std::string	m_name;		// Derived class already inherits 
-		// int			hit_pts;	// these members from the base class
-		// int			energy_pts;
-		// int			attack_damage;
-		int	guard;
+		// std::string	_name;		// Derived class already inherits 
+		// int			_hit_pts;	// these members from the base class
+		// int			_energy_pts;
+		// int			_attack_damage;
+		int	_guard;
 		
 	public:
 		// Constructors
@@ -29,7 +41,7 @@ class ScavTrap: public ClapTrap
 		// Public member functions
 		//void takeDamage(unsigned int amount);
 		void guardGate();
-		void print_hit_pts();	// just for testing
+		void print__hit_pts();	// just for testing
 
 };
 
@@ -38,10 +50,10 @@ class ScavTrap: public ClapTrap
 
 // ScavTrap::ScavTrap(std::string name)
 // {
-// 	m_name = name;
-// 	hit_pts = 10;
-// 	energy_pts = 10;
-// 	attack_damage = 0;
+// 	_name = name;
+// 	_hit_pts = 10;
+// 	_energy_pts = 10;
+// 	_attack_damage = 0;
 // };
 
 

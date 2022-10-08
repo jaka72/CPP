@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/01 11:17:22 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/07 18:10:31 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/08 11:13:11 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 	The notional (imaginary position) of the binary point in a 'register' was 
 	decided, fixed by the designers of a specific device. It can't be moved. Like:
 		8 bits before the point, and 4 bits after it.  01001000.1100
+	Such processor always represents numbers with ei: 8 bits before, 4 bits after
 
 	So, the binary point is fixed inside a fixed-size register.
 		ie:		6 bits     2 bits
@@ -47,7 +48,12 @@
 		with 4 bits after the binary point
 
 	Number of places before and after the binary point, means range and precision.
-	The bigger range means larger values are possible, but smaller precision, and vice versa. 
+	The bigger range means larger values are possible, but smaller precision, and vice versa.
+
+
+	FPU vs ALU   (floating-point unit, Arithmetic logic unit (maybe also: Integer processing unti))
+	These units can be a part of a processor chip (CPU). 
+			3*4 is sent to IPU, but (1.5 * 3.2) is sent to FPU. 
 */
 
 

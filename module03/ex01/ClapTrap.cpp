@@ -1,35 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ClapTrap.cpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/08 18:39:49 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/08 19:23:09 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 // Where to initialize these values ???
 
 
 // Constructor Default
-ClapTrap::ClapTrap():	m_name("Default"), hit_pts(10), energy_pts(10), attack_damage(0)
+ClapTrap::ClapTrap()	// :	_name("Default"), _hit_pts(10), _energy_pts(10), _attack_damage(0)
 {
-	std::cout << GRE"Default constructor ClapTrap called (no name)\n" << RES; 
+	std::cout << GRE"Default constructor ClapTrap\n" << RES;
+	_name = "Default";		// MAYBE HERE BETTER TO INIT. AFTER FUNC NAME, LIKE IN DEFAULT CONSTR ???
+	_hit_pts = 10;			// OR SHALL I INITIALIZE ALREADY IN THE HEADER ???
+	_energy_pts = 10;
+	_attack_damage = 0;
 }
 
 
-ClapTrap::ClapTrap(std::string name): m_name("Default"), hit_pts(10), energy_pts(10), attack_damage(0)
+ClapTrap::ClapTrap(std::string name)	// : _name("Default"), _hit_pts(10), _energy_pts(10), _attack_damage(0)
 {
-	m_name = name;		// MAYBE HERE BETTER TO INIT. AFTER FUNC NAME, LIKE IN DEFAULT CONSTR ???
-	// hit_pts = 10;
-	// energy_pts = 10;
-	// attack_damage = 0;
-	std::cout << GRE"Constructor ClapTrap called to create " <<RES<< name << "\n"; 
+	_name = name;
+	_hit_pts = 10;
+	_energy_pts = 10;
+	_attack_damage = 0;
+	std::cout << GRE"Constructor ClapTrap (" <<RES<< name << ")\n"; 
 }
 
 // Constructor Copy
 ClapTrap::ClapTrap(const ClapTrap &claptrap)
 {
-	std::cout << GRE"Copy constructor ClapTrap called\n" << RES; 
+	std::cout << GRE"Copy constructor ClapTrap \n" << RES; 
 	*this = claptrap;
 }
 
 // Destructor
 ClapTrap::~ClapTrap()
 {
-	std::cout << GRE"Destructor ClapTrap called for " <<RES<< m_name << "\n"; 
+	std::cout << GRE"Destructor ClapTrap (" <<RES<< _name << ")\n"; 
 }
 
 //	HERE ALL MEMBERS ARE COPIED ONE-BY-ONE, SO THAT
@@ -38,10 +54,10 @@ ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 {
 	if (this == &orig)
 		return (*this);
-	this->m_name = orig.m_name;
-	this->hit_pts = orig.hit_pts;
-	this->energy_pts = orig.energy_pts;
-	this->attack_damage = orig.attack_damage;
+	this->_name = orig._name;
+	this->_hit_pts = orig._hit_pts;
+	this->_energy_pts = orig._energy_pts;
+	this->_attack_damage = orig._attack_damage;
 	return (*this);
 }
 
@@ -49,22 +65,23 @@ ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 void	ClapTrap::attack(const std::string &target)
 {	
 	std::cout << LRD;
-	if (energy_pts <= 0 || hit_pts <= 0)
+	if (_energy_pts <= 0 || _hit_pts <= 0)
 	{
-		std::cout << m_name << " can't attack, because has no energy" 
+		std::cout << _name << " can't attack, because has no energy" 
 			" points left.\n" << RES; 
 		return ;
 	}
-	// attack_damage++;
-	if (energy_pts > 0)
-	{	std::cout <<"\n"<< m_name << " attacks " << target <<
-			", causing him " << attack_damage << " points of damage!\n";
-		energy_pts--;
-		std::cout << "   (" << m_name << " now has "<<  energy_pts <<
-			" energy points left)\n" << RES;
+	// _attack_damage++;
+	if (_energy_pts > 0)
+	{	
+		std::cout << this->_name << " attacks " << target <<
+			", causing him " << _attack_damage << " hit points of damage.\n";
+		_energy_pts--;
+		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
+			" energy points left)\n\n";
 	}
 	//else
-	//	std::cout << m_name << " now has zero energy points and died.\n\n";
+	//	std::cout << _name << " now has zero energy points and died.\n\n";
 	// 
 }
 
@@ -73,16 +90,16 @@ void	ClapTrap::attack(const std::string &target)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << LMAG;
-	//attack_damage++; // 	DOES THIS BELONG HERE ??
-	std::cout <<"\n"<< m_name << " takes damage of "
+	//_attack_damage++; // 	DOES THIS BELONG HERE ??
+	std::cout << _name << " takes damage of "
 		<< amount << " points\n";
-	this->hit_pts -= amount;
-	if (this->hit_pts > 0)
-		std::cout << "   (Now he has " << this->hit_pts << " hit points left)\n";
+	this->_hit_pts -= amount;
+	if (this->_hit_pts > 0)
+		std::cout << "   (Now has " << _hit_pts << " hit points, " << _energy_pts << " energy points.)\n\n";
 	else
 	{
-		this->hit_pts = 0;
-		std::cout << "   (Now he has zero hit points and died)\n";
+		this->_hit_pts = 0;
+		std::cout << "   (Now has zero hit points and died.)\n\n";
 	}
 	std::cout << RES;
 }
@@ -91,16 +108,25 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << GRN;
-	if (energy_pts <= 0)
+	if (_energy_pts <= 0)
 	{
-		std::cout <<"\n"<< m_name << " can't be repaired, because he has no energy" 
-			" points left\n" << RES; 
+		std::cout <<"\n"<< _name << " can't be repaired, because he has 0 energy" 
+			" points.\n" << RES; 
 		return ;
 	}
-	hit_pts += amount;
-	energy_pts--;
-	std::cout <<"\n" << m_name << " repaires himself by amount " 
+
+	if (_hit_pts <= 0)
+	{
+		std::cout << _name << " can't be repaired, because he is dead (" 
+			<< _hit_pts << " hit points).\n" << RES; 
+		return ;
+	}
+
+
+	_hit_pts += amount;
+	_energy_pts--;
+	std::cout << _name << " repaires himself by amount " 
 		<< amount << "!\n";
-	std::cout << "   (Now he has " << hit_pts << " hit points)\n";
+	std::cout << "   (Now has " << _hit_pts << " hit points, " << _energy_pts << " energy points.)\n\n";
 	std::cout << RES;
 }
