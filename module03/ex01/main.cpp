@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:55 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/08 19:45:28 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/09 11:33:18 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,34 @@
 
 /*
 	INSTRUCTIONS:
-		Each player loses x hit points when attacked (hitpoints == health)
-					gains x hit points when repaired.
-					loses 1 energy point when attacks.
-					loses 1 energy point when repaired.
+	Each player loses x hit points when attacked (hitpoints == health)
+				gains x hit points when repaired.
+				loses 1 energy point when attacks.
+				loses 1 energy point when repaired.
 
 	It is not possible to get energy points back.
 	When one has 0 hit/energy points, it's game over.
-
-	After attack(), probably victim should call takeDamage()
-
 */
-
-
 
 
 int main()
 {
 	ClapTrap marko("Marko");
 
-
-	ClapTrap luka(marko);
-
-	luka.attack("Marko");
-
-	ClapTrap b;
-	b = luka;
-
-	b.attack("xxxx");
+	// ClapTrap luka(marko);
+	// luka.attack("Marko");
+	// ClapTrap b;
+	// b = luka;
+	// b.attack("xxxx");
 	
-	// ScavTrap boris("Boris");
+	ScavTrap boris("Boris");
 
-	// marko.attack("Boris");
-	// boris.takeDamage(0);
+	marko.attack("Boris");
+	boris.takeDamage(0);
 
-	// boris.attack("Marko");
-	// marko.takeDamage(20);
-	// marko.beRepaired(3);
+	boris.attack("Marko");
+	marko.takeDamage(20);
+	marko.beRepaired(3);
 
 
 	// ScavTrap silvio("Silvio");
