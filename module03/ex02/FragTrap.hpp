@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/08 19:36:57 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/09 12:21:06 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define FRAGTRAP_H
 
 #include <iostream>
-// #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
+// #include "ScavTrap.hpp"
 
 class FragTrap: public ClapTrap // , public ScavTrap
 {

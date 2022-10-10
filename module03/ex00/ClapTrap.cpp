@@ -6,14 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 13:46:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/08 19:23:44 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/09 11:10:43 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-// Where to initialize these values ???
-
 
 // Default constructor
 ClapTrap::ClapTrap() // :	_name("Default"), _hit_pts(10), _energy_pts(10), _attack_damage(0)
@@ -28,7 +25,7 @@ ClapTrap::ClapTrap() // :	_name("Default"), _hit_pts(10), _energy_pts(10), _atta
 // Parameterized constructor
 ClapTrap::ClapTrap(std::string name)
 {
-	_name = name;		// MAYBE HERE BETTER TO INIT. AFTER FUNC NAME, LIKE IN DEFAULT CONSTR ???
+	_name = name;
 	_hit_pts = 10;
 	_energy_pts = 10;
 	_attack_damage = 0;
@@ -42,14 +39,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 	*this = copy;
 }
 
-// Destructor
-ClapTrap::~ClapTrap()
-{
-	std::cout << "Destructor ClapTrap (" << _name << ")\n"; 
-}
 
-//	HERE ALL MEMBERS ARE COPIED ONE-BY-ONE, SO THAT
-// 	THE COPY CONSTRUCTOR CAN BE SIMPLIFIED WITH *this = orig
 ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 {
 	if (this == &orig)
@@ -62,6 +52,13 @@ ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 }
 
 
+// Destructor
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor ClapTrap (" << _name << ")\n"; 
+}
+
+
 // Public member functions
 void	ClapTrap::attack(const std::string &target)
 {
@@ -71,7 +68,6 @@ void	ClapTrap::attack(const std::string &target)
 				" points left.\n"; 
 		return ;
 	}
-	// _attack_damage++;
 	if (_energy_pts > 0)
 	{	
 		std::cout << this->_name << " attacks " << target <<
@@ -80,21 +76,18 @@ void	ClapTrap::attack(const std::string &target)
 		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
 			" energy points left)\n\n";
 	}
-	//else
-	//	std::cout << _name << " now has zero energy points and died.\n\n";
-	// 
 }
 
 
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	//_attack_damage++; // 	DOES THIS BELONG HERE ??
 	std::cout << this->_name << " takes damage and loses "
 		<< amount << " hit points.\n";
 	_hit_pts -= amount;
 	if (_hit_pts > 0)
-		std::cout << "   (Now has " << _hit_pts << " hit points, " << _energy_pts << " energy points.)\n\n";
+		std::cout << "   (Now has " << _hit_pts << " hit points, "
+				<< _energy_pts << " energy points.)\n\n";
 	else
 	{
 		_hit_pts = 0;

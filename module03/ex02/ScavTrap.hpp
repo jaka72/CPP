@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/08 19:37:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/09 12:07:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScavTrap: public ClapTrap
 		// int			hit_pts;	// these members from the base class
 		// int			energy_pts;
 		// int			attack_damage;
-		int	guard;
+		int	_guard;
 		
 	public:
 		// Constructors
@@ -45,19 +45,5 @@ class ScavTrap: public ClapTrap
 		void print_hit_pts();	// just for testing
 
 };
-
-// ScavTrap::ScavTrap()
-// { }
-
-// ScavTrap::ScavTrap(std::string name)
-// {
-// 	m_name = name;
-// 	hit_pts = 10;
-// 	energy_pts = 10;
-// 	attack_damage = 0;
-// };
-
-
-
 
 #endif

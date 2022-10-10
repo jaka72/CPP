@@ -136,11 +136,11 @@ int	main()
 	// std::cout << Fixed::min( a, c ) << std::endl;
 
 
-	std::cout << "a is " << std::setw(6) << a.toInt() << " as integer\n";
-	std::cout << "a is " << std::setw(6) << a.toFloat() << " as float\n";
-	std::cout << "a as _fpn (raw bits) " << a.getRawBits() << "\n\n";
-	std::cout << a++ << std::endl;
-	std::cout << "a after increment (raw bits) " << a.getRawBits() << "\n\n";
+//	std::cout << "a is " << std::setw(6) << a.toInt() << " as integer\n";
+//	std::cout << "a is " << std::setw(6) << a.toFloat() << " as float\n";
+//	std::cout << "a as _fpn (raw bits) " << a.getRawBits() << "\n\n";
+//	std::cout << a++ << std::endl;
+//	std::cout << "a after increment (raw bits) " << a.getRawBits() << "\n\n";
 
 
 
@@ -166,5 +166,9 @@ int	main()
 	// x_const.setRawBits(33);
 
 	// Fixed aaa (Fixed::min(a,b));
+
+//	Fixed x1(3);
+//	Fixed x2(7);
+
 
 }

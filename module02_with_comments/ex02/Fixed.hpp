@@ -5,13 +5,14 @@
 
 /*
 	fpn			= fixed point number
-	frac_bits	= fractional bits
+	_frac_bits	= fractional bits
 */
 class Fixed
 {
 	private:
-		int					m_fpn;
-		static const int	frac_bits = 8;
+		int					_fpn;
+		static const int	_frac_bits = 8;
+		int					_increm;
 
 	public:
 		// Default constructor

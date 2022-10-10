@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/02 17:47:42 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/09 10:40:58 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
 
 CPP_FILES	=	main.cpp Fixed.cpp
+# CPP_FILES	=	main.cpp Fixed_256.cpp
 
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
