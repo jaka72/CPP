@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/11 16:14:50 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/11 16:27:21 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ FragTrap::FragTrap(): ClapTrap()
 */
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	_hit_pts = 90;
+	_hit_pts = 100;
 	this->_energy_pts = 100;
 	this->_attack_damage = 30;
 	//this->guard = false;
@@ -67,13 +67,21 @@ FragTrap::~FragTrap()
 
 
 // Overloaded operators
-// FragTrap &FragTrap::operator= (const FragTrap &orig)
-// {
-// 	// ??? FragTrap has no own vars to be copied ???
-// 	// this->_guard = orig._guard;
-// 	*this = orig;
-// 	return (*this);
-// }
+FragTrap &FragTrap::operator= (const FragTrap &orig)
+{
+	// ??? FragTrap has no own vars to be copied ???
+	// this->_guard = orig._guard;
+
+	// WITHOUT THESE IT IS AN ERROR
+	this->_hit_pts = orig._hit_pts;;
+	this->_energy_pts = orig._energy_pts;
+	this->_attack_damage = orig._attack_damage;
+	this->_guard = orig._guard;
+	this->_name = orig._name;
+	
+//	*this = orig;
+	return (*this);
+}
 
 
 void FragTrap::highFivesGuys(void)

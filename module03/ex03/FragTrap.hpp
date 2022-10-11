@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/11 16:10:50 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/11 16:22:45 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class FragTrap: virtual public ClapTrap // , public ScavTrap
 		~FragTrap();
 
 		// Overloaded operators
-		//FragTrap &operator= (const FragTrap &orig);
+		FragTrap &operator= (const FragTrap &orig);
 
 		// Public member functions
 		void highFivesGuys(void);
