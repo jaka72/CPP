@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:38 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:02:03 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 15:26:16 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 	BUT HERE IN INHERITED CLASS THEY ARE INITIALIZED AS MEMBERS ???
 */
 // Default constructor
-ScavTrap::ScavTrap(): ClapTrap()		// some vars are from parent class
+ScavTrap::ScavTrap() : ClapTrap()		// some vars are from parent class
 {										// some are from this class (int _guard)
 	this->_hit_pts = 100;
 	this->_energy_pts = 50;
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap(): ClapTrap()		// some vars are from parent class
 */
 
 // Parameterized constructor
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	_hit_pts = 100;
 	this->_energy_pts = 50;

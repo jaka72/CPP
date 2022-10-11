@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 12:24:44 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 16:10:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "ClapTrap.hpp"
 //# include "ScavTrap.hpp"
 
-class FragTrap: public ClapTrap // , public ScavTrap
+class FragTrap: virtual public ClapTrap // , public ScavTrap
 {
 	private:						// IN THE BASE CLASS OF THIS CLASS, 
 									//	IT MUST HAVE protected: NOT private;   !!!
@@ -37,7 +37,7 @@ class FragTrap: public ClapTrap // , public ScavTrap
 		~FragTrap();
 
 		// Overloaded operators
-		FragTrap &operator= (const FragTrap &scavtrap);
+		//FragTrap &operator= (const FragTrap &orig);
 
 		// Public member functions
 		void highFivesGuys(void);

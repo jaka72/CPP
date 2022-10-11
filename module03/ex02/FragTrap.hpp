@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 12:21:06 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 15:16:03 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class FragTrap: public ClapTrap // , public ScavTrap
 		// int			hit_pts;	// these members from the base class
 		// int			energy_pts;
 		// int			attack_damage;
-		//int	guard;
+		// int	guard;
 		
 	public:
 		// Constructors

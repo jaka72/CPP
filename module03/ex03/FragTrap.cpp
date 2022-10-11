@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 12:39:06 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 16:14:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 FragTrap::FragTrap(): ClapTrap()
 {
 	//hit_pts = 100;		// CAN BE ALSO WITHOUT ->this
-	this->_hit_pts = 100;	// inherited from Scav
+	this->_hit_pts = 90;	// inherited from Scav
 	this->_energy_pts = 100;
 	this->_attack_damage = 30;
 	//this->guard = false;
@@ -38,7 +38,7 @@ FragTrap::FragTrap(): ClapTrap()
 */
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	_hit_pts = 100;
+	_hit_pts = 90;
 	this->_energy_pts = 100;
 	this->_attack_damage = 30;
 	//this->guard = false;
@@ -47,7 +47,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	//std::cout << "...Constructor FragTrap called for this->m_name " << this->m_name << "\n";
 	//std::cout << "...Constructor FragTrap called for m_name " << m_name << "\n";
 	//std::cout << "...Constructor FragTrap called for hit_points " << hit_pts << "\n";
-};
+}
 
 
 
@@ -67,13 +67,13 @@ FragTrap::~FragTrap()
 
 
 // Overloaded operators
-FragTrap &FragTrap::operator= (const FragTrap &orig)
-{
-	// ??? FragTrap has no own vars to be copied ???
-	// this->_guard = orig._guard;
-	*this = orig;
-	return (*this);
-}
+// FragTrap &FragTrap::operator= (const FragTrap &orig)
+// {
+// 	// ??? FragTrap has no own vars to be copied ???
+// 	// this->_guard = orig._guard;
+// 	*this = orig;
+// 	return (*this);
+// }
 
 
 void FragTrap::highFivesGuys(void)

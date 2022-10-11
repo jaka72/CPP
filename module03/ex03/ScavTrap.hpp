@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 10:48:15 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 15:40:46 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 	private:						// IN THE BASE CLASS OF THIS CLASS, 
 									//	IT MUST HAVE protected: NOT private;   !!!

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:49 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 10:47:16 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 15:28:22 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Where to initialize these values ???
 
 
-// Constructor Default
+// Default constructor
 ClapTrap::ClapTrap()	// :	_name("Default"), _hit_pts(10), _energy_pts(10), _attack_damage(0)
 {
 	std::cout << GRE"Default constructor ClapTrap\n" << RES;
@@ -26,7 +26,8 @@ ClapTrap::ClapTrap()	// :	_name("Default"), _hit_pts(10), _energy_pts(10), _atta
 }
 
 
-ClapTrap::ClapTrap(std::string name)	// : _name("Default"), _hit_pts(10), _energy_pts(10), _attack_damage(0)
+// Parameterized constructor
+ClapTrap::ClapTrap(std::string name)	// : _name(name), _hit_pts(10), _energy_pts(10), _attack_damage(0)
 {
 	_name = name;
 	_hit_pts = 10;
@@ -35,11 +36,12 @@ ClapTrap::ClapTrap(std::string name)	// : _name("Default"), _hit_pts(10), _energ
 	std::cout << GRE"Constructor ClapTrap (" <<RES<< name << ")\n"; 
 }
 
+
 // Constructor Copy
-ClapTrap::ClapTrap(const ClapTrap &claptrap)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	std::cout << GRE"Copy constructor ClapTrap \n" << RES; 
-	*this = claptrap;
+	*this = copy;
 }
 
 // Destructor
@@ -47,6 +49,7 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << GRE"Destructor ClapTrap (" <<RES<< _name << ")\n"; 
 }
+
 
 //	HERE ALL MEMBERS ARE COPIED ONE-BY-ONE, SO THAT
 // 	THE COPY CONSTRUCTOR CAN BE SIMPLIFIED WITH *this = orig
@@ -60,6 +63,7 @@ ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 	this->_attack_damage = orig._attack_damage;
 	return (*this);
 }
+
 
 // Public member functions
 void	ClapTrap::attack(const std::string &target)

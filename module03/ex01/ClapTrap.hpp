@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:17:10 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 15:17:13 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class ClapTrap
 		ClapTrap(const ClapTrap &copy);
 		
 	// Destructor	
-		virtual ~ClapTrap();	// WHY SHOULD HERE BE VIRTUAL ???
+		virtual ~ClapTrap();	// because this is the parent class of the ScavTrap
 		
 	// Overloaded operators
 		ClapTrap &operator= (const ClapTrap &claptrap);

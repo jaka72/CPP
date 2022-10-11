@@ -6,11 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:06:14 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/11 16:18:43 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 /*
 	INSTRUCTIONS:
@@ -35,28 +37,32 @@
 
 int main()
 {
-	ClapTrap marko("Marko");
-	ScavTrap boris("Boris");
+	// ClapTrap marko("Marko");
+	// ScavTrap boris("Boris");
 	
-	FragTrap donald("Donald");
-	//ClapTrap silvio("Silvio");
+	// FragTrap donald("Donald");
+	// //ClapTrap silvio("Silvio");
 
-	marko.attack("Boris");
-	boris.takeDamage(0);
+	// marko.attack("Boris");
+	// boris.takeDamage(0);
 
-	boris.attack("Marko");
-	marko.takeDamage(20);
+	// boris.attack("Marko");
+	// marko.takeDamage(20);
 
-	marko.beRepaired(3);
+	// marko.beRepaired(3);
 
-	boris.guardGate();
-	boris.guardGate();
+	// boris.guardGate();
+	// boris.guardGate();
 
-	donald.highFivesGuys();
+	// donald.highFivesGuys();
 
-	donald.attack("Joe");
-	donald.takeDamage(5);
-	donald.beRepaired(1);
+	// donald.attack("Joe");
+	// donald.takeDamage(5);
+	// donald.beRepaired(1);
+
+	DiamondTrap dm;
+
+	std::cout << dm._hit_pts << ",  " << dm._energy_pts << "/n";
 
 	return (0);
 }
