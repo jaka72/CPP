@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 13:46:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:10:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 14:27:23 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ ClapTrap::ClapTrap() // :	_name("Default"), _hit_pts(10), _energy_pts(10), _atta
 	_attack_damage = 0;
 }
 
+
 // Parameterized constructor
 ClapTrap::ClapTrap(std::string name)
 {
@@ -31,6 +32,7 @@ ClapTrap::ClapTrap(std::string name)
 	_attack_damage = 0;
 	std::cout << "Constructor ClapTrap (" << name << ")\n"; 
 }
+
 
 // Copy Constructor
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -42,8 +44,10 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 
 ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 {
+	std::cout << "Overload operator= ClapTrap (" << orig._name << ")\n";
 	if (this == &orig)
 		return (*this);
+
 	this->_name = orig._name;
 	this->_hit_pts = orig._hit_pts;
 	this->_energy_pts = orig._energy_pts;
@@ -64,13 +68,13 @@ void	ClapTrap::attack(const std::string &target)
 {
 	if (_energy_pts <= 0 || _hit_pts <= 0)
 	{
-		std::cout << _name << " can't attack, because has no energy" 
+		std::cout << "ClapTrap " << _name << " can't attack, because has no" 
 				" points left.\n"; 
 		return ;
 	}
 	if (_energy_pts > 0)
 	{	
-		std::cout << this->_name << " attacks " << target <<
+		std::cout << "ClapTrap " << _name << " attacks " << target <<
 			", causing him " << _attack_damage << " hit points of damage.\n";
 		_energy_pts--;
 		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
@@ -79,10 +83,9 @@ void	ClapTrap::attack(const std::string &target)
 }
 
 
-
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << this->_name << " takes damage and loses "
+	std::cout << _name << " takes damage of "
 		<< amount << " hit points.\n";
 	_hit_pts -= amount;
 	if (_hit_pts > 0)
@@ -95,6 +98,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	}
 }
 
+
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_energy_pts <= 0)
@@ -103,19 +107,15 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			" points.\n"; 
 		return ;
 	}
-
 	if (_hit_pts <= 0)
 	{
 		std::cout << _name << " can't be repaired, because he is dead." 
 			" points left\n"; 
 		return ;
 	}
-
-
 	_hit_pts += amount;
 	_energy_pts--;
-	std::cout << this->_name << " repaires himself by amount " 
+	std::cout << _name << " repaires himself by amount " 
 		<< amount << "!\n";
 	std::cout << "   (Now has " << _hit_pts << " hit points, " << _energy_pts << " energy points.)\n\n";
-
 }

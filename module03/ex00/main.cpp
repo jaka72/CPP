@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 13:45:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:14:07 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 13:16:53 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,18 @@
 
 int main()
 {
+	std::cout << "\n--- TEST: MAKE OBJECTS ------------------------------- \n\n";
+	
 	ClapTrap marko("Marko");
 	ClapTrap silvio("Silvio");
+
+	ClapTrap marko2(marko);	// copy constr + overload=
+	ClapTrap marko3;		// default constr.
+	marko3 = marko;			// overload=
+
+
+
+	std::cout << "\n\n--- TEST: ATTACK AND BE REPAIRED ---------------------- \n\n";
 
 	marko.attack("Silvio");
 	silvio.takeDamage(0);
@@ -35,18 +45,26 @@ int main()
 	marko.takeDamage(0);
 
 
-	//silvio.beRepaired(1);
-	//marko.beRepaired(1);
+	silvio.beRepaired(1);
+	marko.beRepaired(1);
 	
 	
-	std::cout << "\n--- TEST: LOOSE ALL POINTS ----------------------------- \n\n";
+	std::cout << "\n\n--- TEST: TAKE BIG DAMAGE AND DIE ---------------------- \n\n";
+	
+	silvio.takeDamage(100);
+	silvio.attack("Marko");
+
+
+	std::cout << "\n\n--- TEST: SPEND ALL ENERGY POINTS BY ATTACKING --------- \n\n";
 
 	int i = 0;
-	while (i < 10)
+	while (i < 101)
 	{
-		marko.attack("Silvio");
+		//marko.attack("Silvio");
 		i++;
 	}
 
+
+	std::cout << "\n\n--- DESTRUCTING ALL ----------------------------- \n\n";
 	return (0);
 }

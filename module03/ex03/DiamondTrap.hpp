@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/11 15:59:53 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/12 14:51:16 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-// class DiamondTrap: public FragTrap, public ScavTrap
+
 class DiamondTrap: public FragTrap, public ScavTrap
 {
 	private:
@@ -40,11 +40,12 @@ class DiamondTrap: public FragTrap, public ScavTrap
 		~DiamondTrap();
 
 		// Public member functions
-		void highFivesGuys(void);
-		//void takeDamage(unsigned int amount);
-		//void guardGate();
-		//void print_hit_pts();	// just for testing
+		void attack(const std::string &name);
+		void WhoAmI();
 
+		
+		// Getter
+		void print_values();
 };
 
 #endif

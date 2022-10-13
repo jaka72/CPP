@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 13:46:02 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/08 13:48:59 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/12 10:05:24 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 
 #include <iostream>
 
-
-/*
-	It is best practice to initialize the members immediately
-			ie:	int hitpoints{20}
-				ClapTrap = default;
-	But it is only allowed from c++11
-*/
 class ClapTrap
 {
 	private:

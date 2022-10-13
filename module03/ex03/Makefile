@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/11 16:09:28 by jmurovec      ########   odam.nl          #
+#    Updated: 2022/10/12 14:23:56 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RED		=	\033[31m
 NAME		=	a.out
 
 CC			=	c++
-CFLAGS		=	-std=c++98 -Wall -Wextra -Werror 
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror		-Wshadow -Wno-shadow
 
 CPP_FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 				

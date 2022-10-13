@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:33:09 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 13:53:15 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap : public ClapTrap
 {
 	private:
-		int	_guard;
+		int	_guard_status;
 		
 	public:
 		// Constructors
@@ -34,10 +34,8 @@ class ScavTrap: public ClapTrap
 		ScavTrap &operator= (const ScavTrap &scavtrap);
 
 		// Public member functions
-		//void takeDamage(unsigned int amount);
 		void guardGate();
-		// void print__hit_pts();	// just for testing
-
+		void attack(const std::string &target);
 };
 
 #endif

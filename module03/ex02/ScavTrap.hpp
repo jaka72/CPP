@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 12:07:51 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 13:56:15 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@
 
 class ScavTrap: public ClapTrap
 {
-	private:						// IN THE BASE CLASS OF THIS CLASS, 
-									//	IT MUST HAVE protected: NOT private;   !!!
-	// protected:	// ?????	
-		// std::string	m_name;		// Derived class already inherits 
-		// int			hit_pts;	// these members from the base class
-		// int			energy_pts;
-		// int			attack_damage;
-		int	_guard;
+	private:
+		int	_guard_status;
 		
 	public:
 		// Constructors
@@ -40,10 +34,8 @@ class ScavTrap: public ClapTrap
 		ScavTrap &operator= (const ScavTrap &scavtrap);
 
 		// Public member functions
-		//void takeDamage(unsigned int amount);
 		void guardGate();
-		void print_hit_pts();	// just for testing
-
+		void attack(const std::string &target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/11 15:17:13 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/13 13:54:04 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class ClapTrap
 		int			_hit_pts;
 		int			_energy_pts;
 		int			_attack_damage;
-		bool		_guard;
 
 	public:
 	// Constructors:
@@ -32,7 +31,7 @@ class ClapTrap
 		ClapTrap(const ClapTrap &copy);
 		
 	// Destructor	
-		virtual ~ClapTrap();	// because this is the parent class of the ScavTrap
+		~ClapTrap();
 		
 	// Overloaded operators
 		ClapTrap &operator= (const ClapTrap &claptrap);
@@ -41,9 +40,6 @@ class ClapTrap
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-
-		//void print__hit_pts();	// just for testing
-
 };
 
 #endif

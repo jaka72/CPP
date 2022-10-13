@@ -6,11 +6,12 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:49 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:16:09 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 14:27:34 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
 
 // Constructor Default
 ClapTrap::ClapTrap()
@@ -23,6 +24,7 @@ ClapTrap::ClapTrap()
 }
 
 
+// Parameterized constructor
 ClapTrap::ClapTrap(std::string name)
 {
 	_name = name;
@@ -32,17 +34,22 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << GRE"Constructor ClapTrap (" <<RES<< name << ")\n"; 
 }
 
-// Constructor Copy
-ClapTrap::ClapTrap(const ClapTrap &claptrap)
+
+// Copy constructor
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	std::cout << GRE"Copy constructor ClapTrap \n" << RES; 
-	*this = claptrap;
+	std::cout << GRE"Copy constructor ClapTrap (" <<RES<< copy._name << ")\n" << RES; 
+	*this = copy;
 }
 
+
+// Overloaded operators
 ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 {
+	std::cout << GRE"Overload operator= ClapTrap (" <<RES<< orig._name << ")\n";
 	if (this == &orig)
 		return (*this);
+		
 	this->_name = orig._name;
 	this->_hit_pts = orig._hit_pts;
 	this->_energy_pts = orig._energy_pts;
@@ -64,17 +71,17 @@ void	ClapTrap::attack(const std::string &target)
 	std::cout << LRD;
 	if (_energy_pts <= 0 || _hit_pts <= 0)
 	{
-		std::cout << _name << " can't attack, because has no energy" 
+		std::cout << "ClapTrap " << _name << " can't attack, because has no" 
 			" points left.\n" << RES; 
 		return ;
 	}
 	if (_energy_pts > 0)
 	{	
-		std::cout << this->_name << " attacks " << target <<
+		std::cout << "ClapTrap " << _name << " attacks " << target <<
 			", causing him " << _attack_damage << " hit points of damage.\n";
 		_energy_pts--;
 		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
-			" energy points left)\n\n";
+			" energy points left)\n\n" << RES;
 	}
 }
 
@@ -86,7 +93,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		<< amount << " points\n";
 	this->_hit_pts -= amount;
 	if (this->_hit_pts > 0)
-		std::cout << "   (Now has " << _hit_pts << " hit points, " << _energy_pts << " energy points.)\n\n";
+		std::cout << "   (Now has " << _hit_pts << " hit points, "
+				  << _energy_pts << " energy points.)\n\n";
 	else
 	{
 		this->_hit_pts = 0;
@@ -101,7 +109,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << GRN;
 	if (_energy_pts <= 0)
 	{
-		std::cout <<"\n"<< _name << " can't be repaired, because he has 0 energy" 
+		std::cout << _name << " can't be repaired, because he has 0 energy" 
 			" points.\n" << RES; 
 		return ;
 	}

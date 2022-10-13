@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:38 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:31:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 14:27:41 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ ScavTrap::ScavTrap() : ClapTrap()
 	this->_hit_pts = 100;
 	this->_energy_pts = 50;
 	this->_attack_damage = 20;
-	this->_guard = false;
-	std::cout << GRE"Default constructor ScavTrap\n" << RES; 
+	this->_guard_status = false;
+	std::cout << GRE"   Default constructor ScavTrap (" <<RES<< _name << ")\n" << RES; 
 }
 
 
@@ -29,16 +29,16 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	_hit_pts = 100;
 	this->_energy_pts = 50;
 	this->_attack_damage = 20;
-	this->_guard = false;
+	this->_guard_status = false;
 	_name = name;
-	std::cout << GRE"Constructor ScavTrap (" <<RES<< name << ")\n";
+	std::cout << GRE"   Constructor ScavTrap (" <<RES<< name << ")\n";
 };
 
 
 // Copy Constructor
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)	// TEST THIS!, WHY ClapTrap(copy), WHAT IS THIS copy ???
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-	std::cout << GRE"Copy Constructor ScavTrap \n" << RES;
+	std::cout << GRE"   Copy Constructor ScavTrap (" <<RES<< copy._name << ")\n" << RES;
 	*this = copy;
 }
 
@@ -46,10 +46,14 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)	// TEST THIS!, WHY Cla
 // Overloaded operators
 ScavTrap &ScavTrap::operator= (const ScavTrap &orig)
 {
+	std::cout << GRE"   Overload operator= ScavTrap (" <<RES<< orig._name << ")\n";
+	if (this == &orig)
+		return (*this);
+		
 	this->_hit_pts = orig._hit_pts;;
 	this->_energy_pts = orig._energy_pts;
 	this->_attack_damage = orig._attack_damage;
-	this->_guard = orig._guard;
+	this->_guard_status = orig._guard_status;
 	this->_name = orig._name;
 	return (*this);
 }
@@ -58,7 +62,7 @@ ScavTrap &ScavTrap::operator= (const ScavTrap &orig)
 // Destructor
 ScavTrap::~ScavTrap()
 {
-	std::cout << GRE"Destructor ScavTrap (" << RES << _name << ")\n"; 
+	std::cout << GRE"   Destructor ScavTrap (" << RES << _name << ")\n"; 
 }
 
 
@@ -66,15 +70,35 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate()
 {
 	std::cout << BLU;
-	if (_guard == false)
+	if (_guard_status == false)
 	{
-		_guard = true;
-		std::cout << "\nFunction guardgate(), ON: " << _name << " is in Gate keeper mode\n"; 
+		_guard_status = true;
+		std::cout << "\nGuardgate ON: " << _name << " is in Gate keeper mode\n"; 
 	}
 	else
 	{
-		_guard = false;
-		std::cout << "\nFunction guardgate(), OFF: " << _name << " is not in Gate keeper mode\n"; 
+		_guard_status = false;
+		std::cout << "\nGuardgate OFF: " << _name << " is not in Gate keeper mode\n"; 
 	}
 	std::cout << RES;
+}
+
+
+void	ScavTrap::attack(const std::string &target)
+{	
+	std::cout << LRD;
+	if (_energy_pts <= 0 || _hit_pts <= 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't attack, because has no" 
+			" points left.\n" << RES; 
+		return ;
+	}
+	if (_energy_pts > 0)
+	{
+		std::cout << "ScavTrap " << _name << " attacks " << target <<
+			", causing him " << _attack_damage << " hit points of damage.\n";
+		_energy_pts--;
+		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
+			" energy points left)\n\n";
+	}
 }

@@ -6,62 +6,41 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:38 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 11:02:03 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 14:28:07 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-/*
-	IN THE BASE CLASS THE MEMBERS ARE INITIALIZED AFTER FUNC()
-	BUT HERE IN INHERITED CLASS THEY ARE INITIALIZED AS MEMBERS ???
-*/
 // Default constructor
-ScavTrap::ScavTrap(): ClapTrap()		// some vars are from parent class
-{										// some are from this class (int _guard)
+ScavTrap::ScavTrap(): ClapTrap()
+{
 	this->_hit_pts = 100;
 	this->_energy_pts = 50;
 	this->_attack_damage = 20;
-	this->_guard = false;
+	this->_guard_status = false;
 	std::cout << GRE"  Default constructor ScavTrap\n" << RES; 
 }
-
-/*
-	WHY IS IT GOOD TO HAVE THE SAME name IN THE ClapTrap ARGUMENT ???
-	IT CREATES HIS PARENT, A Claptrap, BUT IT'S INVISIBLE.
-	THE INVISIBLE PARENT CAN HAVE THE SAME name. 
-	IT CAN ALSO HAVE ANOTHER STRING OR EMPTY - IN CREATES A ClapTrap OBJECT
-	WITH ANOTHER NAME OR DEFAULT.
-
-	You can override parent members, like _hit_pts = 100;
-	Otherwise, _hit_pts will have value 10, which comes from parent Claptrap 
-*/
 
 // Parameterized constructor
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-	_hit_pts = 100;
+	this->_name = name;
+	this->_hit_pts = 100;
 	this->_energy_pts = 50;
 	this->_attack_damage = 20;
-	this->_guard = false;
-	_name = name;
+	this->_guard_status = false;
 	std::cout << GRE"  Constructor ScavTrap (" <<RES<< name << ")\n";
-	//std::cout << "...Constructor ScavTrap called for this->_name " << this->_name << "\n";
-	//std::cout << "...Constructor ScavTrap called for _name " << _name << "\n";
-	//std::cout << "...Constructor ScavTrap called for hit_points " << _hit_pts << "\n";
 };
 
 
 // Copy Constructor
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)	// WHAT IS THIS LAST (copy) ???
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-	std::cout << GRE"  Copy Constructor ScavTrap \n" << RES;
-	*this = copy;	// IS THIS CORRECT?
-					// MAYBE MISSING COPYING OF THE PARENT?
-					// IT LOOKS LIKE PARENT'S VARIABLES ARE NOW ALREADY
-					//	A PART OF THE CHILD, SO NO NEED TO DO ANYTHING 
-					// WITH THE PARENT
+	std::cout << GRE"  Copy Constructor ScavTrap (" <<RES<< copy._name << ")\n" << RES;
+	*this = copy;
 }
+
 
 // Destructor
 ScavTrap::~ScavTrap()
@@ -73,30 +52,53 @@ ScavTrap::~ScavTrap()
 // Overloaded operators
 ScavTrap &ScavTrap::operator= (const ScavTrap &orig)
 {
-	// HERE PROBABLY NEEDS TO COPY ALL THE VARIABLES FROM orig
-	//		Which is only 1: int _guard
-	// 		But im not sure if also from the parent  ???
+	std::cout << GRE"Overload operator= ScavTrap (" <<RES<< orig._name << ")\n";
+	if (this == &orig)
+		return (*this);
+	
+	this->_name = orig._name;
 	this->_hit_pts = orig._hit_pts;;
 	this->_energy_pts = orig._energy_pts;
 	this->_attack_damage = orig._attack_damage;
-	this->_guard = orig._guard;
-	this->_name = orig._name;
+	this->_guard_status = orig._guard_status;
 	return (*this);
 }
+
 
 // Public member functions
 void ScavTrap::guardGate()
 {
 	std::cout << BLU;
-	if (_guard == false)
+	if (_guard_status == false)
 	{
-		_guard = true;
+		_guard_status = true;
 		std::cout << "\nFunction guardgate(), ON: " << _name << " is in Gate keeper mode\n"; 
 	}
 	else
 	{
-		_guard = false;
+		_guard_status = false;
 		std::cout << "\nFunction guardgate(), OFF: " << _name << " is not in Gate keeper mode\n"; 
 	}
 	std::cout << RES;
+}
+
+
+
+void	ScavTrap::attack(const std::string &target)
+{	
+	std::cout << LRD;
+	if (_energy_pts <= 0 || _hit_pts <= 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't attack, because has no" 
+			" points left.\n" << RES; 
+		return ;
+	}
+	if (_energy_pts > 0)
+	{	
+		std::cout << "ScavTrap " << _name << " attacks " << target <<
+			", causing him " << _attack_damage << " hit points of damage.\n";
+		_energy_pts--;
+		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
+			" energy points left)\n\n";
+	}
 }

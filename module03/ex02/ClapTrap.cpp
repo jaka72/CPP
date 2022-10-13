@@ -6,13 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:49 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/09 12:09:18 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/13 14:27:53 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-// Where to initialize these values ???
 
 
 // Constructor Default
@@ -26,6 +24,7 @@ ClapTrap::ClapTrap()
 }
 
 
+// Parameterized constructor
 ClapTrap::ClapTrap(std::string name)
 {
 	_name = name;
@@ -35,21 +34,20 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << GRE"Constructor ClapTrap (" <<RES<< name << ")\n"; 
 }
 
+
 // Constructor Copy
-ClapTrap::ClapTrap(const ClapTrap &claptrap)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	std::cout << GRE"Copy constructor ClapTrap \n" << RES; 
-	*this = claptrap;
+	std::cout << GRE"Copy constructor ClapTrap (" <<RES<< copy._name << ")\n" << RES; 
+
+	*this = copy;
 }
 
-// Destructor
-ClapTrap::~ClapTrap()
-{
-	std::cout << GRE"Destructor ClapTrap (" <<RES<< _name << ")\n"; 
-}
 
+// Overloaded operators
 ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 {
+	std::cout << GRE"Overload operator= ClapTrap (" <<RES<< orig._name << ")\n";
 	if (this == &orig)
 		return (*this);
 	this->_name = orig._name;
@@ -59,27 +57,34 @@ ClapTrap &ClapTrap::operator= (const ClapTrap &orig)
 	return (*this);
 }
 
+
+// Destructor
+ClapTrap::~ClapTrap()
+{
+	std::cout << GRE"Destructor ClapTrap (" <<RES<< _name << ")\n"; 
+}
+
+
 // Public member functions
 void	ClapTrap::attack(const std::string &target)
 {	
 	std::cout << LRD;
 	if (_energy_pts <= 0 || _hit_pts <= 0)
 	{
-		std::cout << _name << " can't attack, because has no energy" 
+		std::cout << "ClapTrap " << _name << " can't attack, because has no" 
 			" points left.\n" << RES; 
 		return ;
 	}
 	// _attack_damage++;
 	if (_energy_pts > 0)
 	{	
-		std::cout << this->_name << " attacks " << target <<
+		std::cout << "ClapTrap " << _name << " attacks " << target <<
 			", causing him " << _attack_damage << " hit points of damage.\n";
 		_energy_pts--;
 		std::cout << "   (" << _name << " now has "<<  _energy_pts <<
-			" energy points left)\n\n";
+			" energy points left)\n\n" << RES;
 	}
 }
-
 
 
 void	ClapTrap::takeDamage(unsigned int amount)

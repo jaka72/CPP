@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/11 16:18:43 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/12 15:05:44 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,46 +23,69 @@
 
 	It is not possible to get energy points back.
 	When one has 0 hit/energy points, it's game over.
-
-	After attack(), probably victim should call takeDamage()
-
-*/
-
-/*
-	QUESTIONS:
-	- What is the logic of order of constr. and destr.?? 
-	- Why exactly is destruction in reverse mode? 
 */
 
 
 int main()
 {
-	// ClapTrap marko("Marko");
-	// ScavTrap boris("Boris");
+	std::cout << "\n--- TEST: MAKE OBJECTS ------------------------------- \n\n";
 	
-	// FragTrap donald("Donald");
-	// //ClapTrap silvio("Silvio");
+	ClapTrap marko("Marko");
+	ClapTrap silvio("Silvio");
 
-	// marko.attack("Boris");
-	// boris.takeDamage(0);
+	ClapTrap marko2(marko);	// copy constr + overload=
+	ClapTrap marko3;		// default constr.
+	marko3 = marko;			// overload=
 
-	// boris.attack("Marko");
-	// marko.takeDamage(20);
 
-	// marko.beRepaired(3);
 
-	// boris.guardGate();
-	// boris.guardGate();
+	std::cout << "\n\n--- TEST: ATTACK AND BE REPAIRED ---------------------- \n\n";
 
-	// donald.highFivesGuys();
+	marko.attack("Silvio");
+	silvio.takeDamage(0);
 
-	// donald.attack("Joe");
-	// donald.takeDamage(5);
-	// donald.beRepaired(1);
+	silvio.attack("Marko");	
+	marko.takeDamage(0);
 
-	DiamondTrap dm;
 
-	std::cout << dm._hit_pts << ",  " << dm._energy_pts << "/n";
+	silvio.beRepaired(1);
+	marko.beRepaired(1);
+	
+	
+	std::cout << "\n\n--- TEST: TAKE BIG DAMAGE AND DIE ---------------------- \n\n";
+	
+	silvio.takeDamage(100);
+	silvio.attack("Marko");
 
+
+	std::cout << "\n\n--- TEST: SPEND ALL ENERGY POINTS BY ATTACKING --------- \n\n";
+
+	int i = 0;
+	while (i < 10)
+	{
+		//marko.attack("Silvio");
+		i++;
+	}
+
+
+	std::cout << "\n\n--- TEST: DIAMONDTRAP VALUES ------------------- \n\n";
+
+	DiamondTrap diamond("Diamond");
+	diamond.print_values();
+	
+	
+	std::cout << "\n\n--- TEST: DiamondTrap.attack() ------------------ \n\n";
+	
+	diamond.attack("mister X");
+
+
+
+	std::cout << "\n\n--- TEST: WhoAmI() ------------------------------ \n\n";
+
+	diamond.WhoAmI();
+
+
+
+	std::cout << "\n\n--- DESTRUCTING ALL ----------------------------- \n\n";
 	return (0);
 }
