@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/12 14:23:56 by jmurovec      ########   odam.nl          #
+#    Updated: 2022/10/14 12:44:55 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ HEADERS		=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(YEL)\n --- CPP MODULE03, EXCERCISE 02 --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE03, EXCERCISE 03 --- \n\n$(RES)"
 
 
 #compile the objects

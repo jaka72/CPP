@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 15:26:49 by tblaase           #+#    #+#             */
-/*   Updated: 2022/07/05 17:38:49 by tblaase          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   FragTrap.cpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: tblaase <tblaase@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/03/28 15:26:49 by tblaase       #+#    #+#                 */
+/*   Updated: 2022/10/14 12:42:31 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ FragTrap::FragTrap(): ClapTrap()
 	this->_energy_pts = 100;
 	// if (this->_attack_dmg == 0)
 		this->_attack_dmg = 30;
-	std::cout << "FragTrap Default Constructor for " << this->_name << " called" << std::endl;
+	std::cout << "   FragTrap Default Constructor for " << this->_name << " called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy)
 {
-	std::cout << "FragTrap Copy Constructor called" << std::endl;
+	std::cout << "   FragTrap Copy Constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
@@ -36,13 +36,13 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->_energy_pts = 100;
 	if (this->_attack_dmg == 0)
 		this->_attack_dmg = 30;
-	std::cout << "FragTrap Constructor for the name " << this->_name << " called" << std::endl;
+	std::cout << "   FragTrap Constructor for the name " << this->_name << " called" << std::endl;
 }
 
 // Deconstructors
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap Deconstructor for " << this->_name << " called" << std::endl;
+	std::cout << "   FragTrap Deconstructor for " << this->_name << " called" << std::endl;
 }
 
 // Overloaded Operators

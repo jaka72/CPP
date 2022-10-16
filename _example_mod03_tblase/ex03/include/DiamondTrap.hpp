@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/29 11:23:19 by tblaase       #+#    #+#                 */
-/*   Updated: 2022/10/13 14:43:24 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/14 13:05:11 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,9 @@ class DiamondTrap: public ScavTrap, public FragTrap
 	// Getter
 
 	// Setter
+
+
+	// jaka //////////////////
+	void print_values();
 
 };

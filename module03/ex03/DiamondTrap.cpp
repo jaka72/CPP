@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/11 15:23:51 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/13 14:49:18 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/14 13:07:30 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 // Default constructor
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_name")
 {
-	std::cout << GRE"     Default constructor DiamondTrap \n" << RES; 
 
     FragTrap frag;
     ScavTrap scav;
 
+	this->_name				= "default";
 	this->_hit_pts 			= frag.get_hit_points();
 	this->_attack_damage 	= frag.get_attack_damage();
     this->_energy_pts 		= scav.get_energy_points();
     //this->attack 			= ScavTrap::attack;		// not needed
+	std::cout << GRE"      Default constructor DiamondTrap (" <<RES<< _name << ")\n" << RES; 
 }
 
 
 // Parameterized constructor
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
 {
-	std::cout << GRE"     Parameterized constructor DiamondTrap \n" << RES; 
 	FragTrap frag;
     ScavTrap scav;
 	
@@ -39,13 +39,14 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
 	this->_hit_pts 			= frag.get_hit_points();
 	this->_attack_damage 	= frag.get_attack_damage();
     this->_energy_pts 		= scav.get_energy_points();
+	std::cout << GRE"      Parameterized constructor DiamondTrap (" <<RES<< _name << ") \n" << RES; 
 }
 
 
 // Copy constructor			// THIS WAS MAYBE MISSING IN THE VOG-PUSH, error on Linux ???
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(), FragTrap(), ScavTrap()
 {
-	std::cout << GRE"     Copy constructor DiamondTrap \n" << RES; 
+	std::cout << GRE"      Copy constructor DiamondTrap \n" << RES; 
 	*this = copy;
 }
 
@@ -53,7 +54,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(), FragTrap(), Scav
 // Overload operator=
 DiamondTrap &DiamondTrap::operator= (const DiamondTrap &orig)
 {
-	std::cout << GRE"     Overload operator= DiamondTrap (" <<RES<< orig._name << ")\n";
+	std::cout << GRE"      Overload operator= DiamondTrap (" <<RES<< orig._name << ")\n";
     if (this == &orig)
         return (*this);
 
@@ -68,7 +69,7 @@ DiamondTrap &DiamondTrap::operator= (const DiamondTrap &orig)
 // Destructor
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << GRE"     Destructor DiamonDTrap (" <<RES<< _name << ")\n"; 
+	std::cout << GRE"      Destructor DiamonDTrap (" <<RES<< _name << ")\n"; 
 }
 
 

@@ -6,14 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/12 14:51:16 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/14 13:30:21 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_H
 # define DIAMONDTRAP_H
 
-# include <iostream>
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
@@ -37,6 +36,7 @@ class DiamondTrap: public FragTrap, public ScavTrap
 		DiamondTrap &operator= (const DiamondTrap &orig);
 		
 		// Destructor
+		//virtual ~DiamondTrap();
 		~DiamondTrap();
 
 		// Public member functions

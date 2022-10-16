@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/25 12:19:54 by tblaase           #+#    #+#             */
-/*   Updated: 2022/03/29 16:49:30 by tblaase          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   ScavTrap.cpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: tblaase <tblaase@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/03/25 12:19:54 by tblaase       #+#    #+#                 */
+/*   Updated: 2022/10/14 12:42:49 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ ScavTrap::ScavTrap(): ClapTrap()
 	this->_energy_pts = 50;
 	this->_attack_dmg = 20;
 	this->_guarding_gate = false;
-	std::cout << "ScavTrap Default Constructor for " << this->_name << " called" << std::endl;
+	std::cout << "   ScavTrap Default Constructor for " << this->_name << " called" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
 {
 	this->_guarding_gate = copy._guarding_gate;
-	std::cout << "ScavTrap Copy Constructor called" << std::endl;
+	std::cout << "   ScavTrap Copy Constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
@@ -35,13 +35,13 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->_energy_pts = 50;
 	this->_attack_dmg = 20;
 	this->_guarding_gate = false;
-	std::cout << "ScavTrap Constructor for the name " << this->_name << " called" << std::endl;
+	std::cout << "   ScavTrap Constructor for the name " << this->_name << " called" << std::endl;
 }
 
 // Deconstructors
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Deconstructor for " << this->_name << " called" << std::endl;
+	std::cout << "   ScavTrap Deconstructor for " << this->_name << " called" << std::endl;
 }
 
 // Overloaded Operators

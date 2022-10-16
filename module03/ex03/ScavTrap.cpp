@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:38 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/13 14:55:31 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/14 13:28:16 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ ScavTrap::ScavTrap() : ClapTrap()
 	this->_energy_pts = 50;
 	this->_attack_damage = 20;
 	this->_guard = false;
-	std::cout << GRE"  Default constructor ScavTrap\n" << RES; 
+	std::cout << GRE"   Default constructor ScavTrap (" <<RES<< _name << ")\n" << RES; 
+
+	// temp
+	temp = 33;
 }
 
 
@@ -32,14 +35,14 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_attack_damage = 20;
 	this->_guard = false;
 	_name = name;
-	std::cout << GRE"  Constructor ScavTrap (" <<RES<< name << ")\n";
+	std::cout << GRE"   Constructor ScavTrap (" <<RES<< name << ")\n";
 };
 
 
 // Copy Constructor
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-	std::cout << GRE"  Copy ConstructorScavTrap \n" << copy._name << ")\n" << RES;
+	std::cout << GRE"   Copy ConstructorScavTrap \n" << copy._name << ")\n" << RES;
 
 	*this = copy;
 }
@@ -48,7 +51,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 // Overloaded operators
 ScavTrap &ScavTrap::operator= (const ScavTrap &orig)
 {
-	std::cout << GRE"  Overload operator= ScavTrap (" <<RES<< orig._name << ")\n";
+	std::cout << GRE"   Overload operator= ScavTrap (" <<RES<< orig._name << ")\n";
 	if (this == &orig)
 		return (*this);
 
@@ -64,7 +67,7 @@ ScavTrap &ScavTrap::operator= (const ScavTrap &orig)
 // Destructor
 ScavTrap::~ScavTrap()
 {
-	std::cout << GRE"  Destructor ScavTrap (" << RES << _name << ")\n"; 
+	std::cout << GRE"   Destructor ScavTrap (" << RES << _name << ")\n"; 
 }
 
 

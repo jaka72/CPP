@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/13 14:12:51 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/14 13:31:01 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ class FragTrap : virtual public ClapTrap
 	private:
 		
 	public:
+//		int temp;
 		// Constructors
 		FragTrap();
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &copy);
 		
 		// Destructor
-		~FragTrap();
+		virtual ~FragTrap();
 
 		// Overloaded operators
 		FragTrap &operator= (const FragTrap &orig);

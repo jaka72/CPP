@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/12 14:39:17 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/14 13:09:42 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class ClapTrap
 		ClapTrap(const ClapTrap &copy);
 		
 	// Destructor	
-		//virtual ~ClapTrap();	
-		~ClapTrap();
+		virtual ~ClapTrap();	
+		//~ClapTrap();
 		
 	// Overloaded operators
 		ClapTrap &operator= (const ClapTrap &claptrap);

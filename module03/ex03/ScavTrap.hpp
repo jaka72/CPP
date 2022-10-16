@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/13 14:52:44 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/14 13:27:44 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class ScavTrap: virtual public ClapTrap
 {
 	private:
 		int	_guard;
-		
+
 	public:
+		int temp;
 		// Constructors
 		ScavTrap();
 		
@@ -30,7 +31,7 @@ class ScavTrap: virtual public ClapTrap
 		ScavTrap(const ScavTrap &copy);
 		
 		// Destructor
-		~ScavTrap();
+		virtual ~ScavTrap();
 
 		// Overloaded operators
 		ScavTrap &operator= (const ScavTrap &scavtrap);

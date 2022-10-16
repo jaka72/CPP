@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:49 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/13 14:26:29 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/14 12:57:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 // Default constructor
 ClapTrap::ClapTrap()
 {
-	std::cout << GRE"Default constructor ClapTrap\n" << RES;
 	_name = "Default";
 	_hit_pts = 10;
 	_energy_pts = 10;
 	_attack_damage = 0;
+	std::cout << GRE"Constructor ClapTrap (" <<RES<< _name << ")\n" << RES;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/12 15:05:44 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/14 13:28:56 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,62 +30,79 @@ int main()
 {
 	std::cout << "\n--- TEST: MAKE OBJECTS ------------------------------- \n\n";
 	
-	ClapTrap marko("Marko");
-	ClapTrap silvio("Silvio");
+	//ClapTrap marko("Marko");
+	// ClapTrap silvio("Silvio");
 
-	ClapTrap marko2(marko);	// copy constr + overload=
-	ClapTrap marko3;		// default constr.
-	marko3 = marko;			// overload=
-
-
-
-	std::cout << "\n\n--- TEST: ATTACK AND BE REPAIRED ---------------------- \n\n";
-
-	marko.attack("Silvio");
-	silvio.takeDamage(0);
-
-	silvio.attack("Marko");	
-	marko.takeDamage(0);
+	//ClapTrap marko2(marko);	// copy constr + overload=
+	//ClapTrap marko3;		// default constr.
+	//marko3 = marko;			// overload=
 
 
-	silvio.beRepaired(1);
-	marko.beRepaired(1);
+
+	// std::cout << "\n\n--- TEST: ATTACK AND BE REPAIRED ---------------------- \n\n";
+
+	// marko.attack("Silvio");
+	// silvio.takeDamage(0);
+
+	// silvio.attack("Marko");	
+	// marko.takeDamage(0);
+
+
+	// silvio.beRepaired(1);
+	// marko.beRepaired(1);
 	
 	
-	std::cout << "\n\n--- TEST: TAKE BIG DAMAGE AND DIE ---------------------- \n\n";
+	// std::cout << "\n\n--- TEST: TAKE BIG DAMAGE AND DIE ---------------------- \n\n";
 	
-	silvio.takeDamage(100);
-	silvio.attack("Marko");
+	// silvio.takeDamage(100);
+	// silvio.attack("Marko");
 
 
-	std::cout << "\n\n--- TEST: SPEND ALL ENERGY POINTS BY ATTACKING --------- \n\n";
+	// std::cout << "\n\n--- TEST: SPEND ALL ENERGY POINTS BY ATTACKING --------- \n\n";
 
-	int i = 0;
-	while (i < 10)
-	{
-		//marko.attack("Silvio");
-		i++;
-	}
+	// int i = 0;
+	// while (i < 10)
+	// {
+	// 	//marko.attack("Silvio");
+	// 	i++;
+	// }
 
 
 	std::cout << "\n\n--- TEST: DIAMONDTRAP VALUES ------------------- \n\n";
 
-	DiamondTrap diamond("Diamond");
-	diamond.print_values();
+	//DiamondTrap d1;
+	// DiamondTrap diamond("Diamond");
+	// diamond.print_values();
 	
 	
-	std::cout << "\n\n--- TEST: DiamondTrap.attack() ------------------ \n\n";
+	// std::cout << "\n\n--- TEST: DiamondTrap.attack() ------------------ \n\n";
 	
-	diamond.attack("mister X");
+	// diamond.attack("mister X");
 
 
 
-	std::cout << "\n\n--- TEST: WhoAmI() ------------------------------ \n\n";
+	// std::cout << "\n\n--- TEST: WhoAmI() ------------------------------ \n\n";
 
-	diamond.WhoAmI();
+	// diamond.WhoAmI();
 
 
 
-	std::cout << "\n\n--- DESTRUCTING ALL ----------------------------- \n\n";
+	//std::cout << "\n\n--- DESTRUCTING ALL ----------------------------- \n\n";
+
+
+
+
+	// jaka ////////////////////////
+	//ClapTrap c1("ccc1");
+
+	//FragTrap fff("fff");
+	//ScavTrap sss("sss1");
+
+	DiamondTrap d1;
+
+	d1.print_values();
+
+	std::cout << "temp: " << d1.temp << "\n";
+
 	return (0);
 }

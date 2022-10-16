@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/13 14:28:37 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/15 13:08:11 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ FragTrap::FragTrap(): ClapTrap()
 	this->_hit_pts = 100;
 	this->_energy_pts = 100;
 	this->_attack_damage = 30;
-	std::cout << GRE"  Default constructor FragTrap\n" << RES; 
+	std::cout << GRE"   Default constructor FragTrap (" <<RES<< _name << ") \n" << RES; 
+
+
+	// temp
+	//temp = 44;
 }
 
 
@@ -28,27 +32,28 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_energy_pts = 100;
 	this->_attack_damage = 30;
 	_name = name;
-	std::cout << GRE"  Constructor FragTrap (" <<RES<< name << ")\n";
+	std::cout << GRE"   Constructor FragTrap (" <<RES<< name << ")\n";
 }
 
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
-	std::cout << GRE"  Copy Constructor FragTrap \n" << copy._name << ")\n" << RES;
+	std::cout << GRE"   Copy Constructor FragTrap \n" << copy._name << ")\n" << RES;
 	*this = copy;
 }
 
 
+
 FragTrap::~FragTrap()
 {
-	std::cout << GRE"  Destructor FragTrap (" << RES << _name << ")\n"; 
+	std::cout << GRE"   Destructor FragTrap (" << RES << _name << ")\n"; 
 }
 
 
 // Overloaded operators
 FragTrap &FragTrap::operator= (const FragTrap &orig)
 {
-	std::cout << GRE"  Overload operator= ClapTrap (" <<RES<< orig._name << ")\n";
+	std::cout << GRE"   Overload operator= ClapTrap (" <<RES<< orig._name << ")\n";
 	if (this == &orig)
 		return (*this);
 
