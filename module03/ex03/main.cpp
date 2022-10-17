@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:37:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/14 13:28:56 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/17 15:40:00 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main()
 	std::cout << "\n\n--- TEST: DIAMONDTRAP VALUES ------------------- \n\n";
 
 	//DiamondTrap d1;
-	// DiamondTrap diamond("Diamond");
+	DiamondTrap diamond("Diamond");
 	// diamond.print_values();
 	
 	
@@ -81,9 +81,9 @@ int main()
 
 
 
-	// std::cout << "\n\n--- TEST: WhoAmI() ------------------------------ \n\n";
+	std::cout << "\n\n--- TEST: WhoAmI() ------------------------------ \n\n";
 
-	// diamond.WhoAmI();
+	diamond.WhoAmI();
 
 
 

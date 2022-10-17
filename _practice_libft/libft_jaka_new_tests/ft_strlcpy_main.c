@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 11:29:19 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/14 11:29:20 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/17 10:06:49 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int main(void)
 		char destB[20]  = "abcd..efgh..ijkl";
 
 		printf("dest: %s, src: %s, size: %d\n", destA, src, size);
-	//	printf(HWHT"   orig: length: %lu, dest: %s\n"RES   ,       strlcpy(destA, src, size), destA);
-		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n"RES, ft_strlcpy(destB, src, size), destB);
+		printf(HWHT"   orig: return %lu,   dest: [%s] \n"RES,        strlcpy(destA, src, size), destA);
+		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n\n"RES, ft_strlcpy(destB, src, size), destB);
 	}
 
 	{
@@ -85,8 +85,8 @@ int main(void)
 		char destB[20]  = "abcd..efgh..ijkl";
 
 		printf("dest: %s, src: %s, size: %d\n", destA, src, size);
-	//	printf(HWHT"   orig: length: %lu, dest: %s\n"RES,          strlcpy(destA, src, size), destA);
-		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n"RES, ft_strlcpy(destB, src, size), destB);
+		printf(HWHT"   orig: return %lu,   dest: [%s] \n"RES,        strlcpy(destA, src, size), destA);
+		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n\n"RES, ft_strlcpy(destB, src, size), destB);
 	}
 
 	{
@@ -97,8 +97,8 @@ int main(void)
 		char destB[20]  = "abcd..efgh..ijkl";
 
 		printf("dest: %s, src: %s, size: %d\n", destA, src, size);
-	//	printf(HWHT"   orig: length: %lu, dest: %s\n"RES,          strlcpy(destA, src, size), destA);
-		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n"RES, ft_strlcpy(destB, src, size), destB);
+		printf(HWHT"   orig: return %lu,   dest: [%s] \n"RES,        strlcpy(destA, src, size), destA);
+		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n\n"RES, ft_strlcpy(destB, src, size), destB);
 	}
 
 	{
@@ -109,8 +109,8 @@ int main(void)
 		char destB[20]  = "abcd..efgh..ijkl";
 
 		printf("dest: %s, src: %s, size: %d\n", destA, src, size);
-	//	printf(HWHT"   orig: length: %lu, dest: %s\n"RES,          strlcpy(destA, src, size), destA);
-		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n"RES, ft_strlcpy(destB, src, size), destB);
+		printf(HWHT"   orig: return %lu,   dest: [%s] \n"RES,        strlcpy(destA, src, size), destA);
+		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n\n"RES, ft_strlcpy(destB, src, size), destB);
 	}
 
 	{
@@ -121,8 +121,8 @@ int main(void)
 		char destB[20]  = "abcd..efgh..ijkl";
 
 		printf("dest: %s, src: %s, size: %d\n", destA, src, size);
-	//	printf(HWHT"   orig: length: %lu, dest: %s\n"RES,          strlcpy(destA, src, size), destA);
-		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n"RES, ft_strlcpy(destB, src, size), destB);
+		printf(HWHT"   orig: return %lu,   dest: [%s] \n"RES,        strlcpy(destA, src, size), destA);
+		printf(HWHT"   mine: return %lu,   dest: [%s] \n\n\n"RES, ft_strlcpy(destB, src, size), destB);
 	}
 
 }

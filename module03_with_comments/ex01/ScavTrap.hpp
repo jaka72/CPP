@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 18:39:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/08 19:01:33 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/17 15:52:51 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap : public ClapTrap
 {
 	private:						// IN THE BASE CLASS (parent) OF THIS CLASS, 
 									//	IT MUST HAVE protected: NOT private;   !!!

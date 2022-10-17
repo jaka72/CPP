@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/08 19:36:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/15 13:08:11 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/17 12:35:44 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-
+// Default constructor
 FragTrap::FragTrap(): ClapTrap()
 {
 	this->_hit_pts = 100;
@@ -25,7 +25,7 @@ FragTrap::FragTrap(): ClapTrap()
 	//temp = 44;
 }
 
-
+// Parameterized constructor
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hit_pts = 100;
@@ -35,7 +35,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	std::cout << GRE"   Constructor FragTrap (" <<RES<< name << ")\n";
 }
 
-
+// Copy Constructor
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
 	std::cout << GRE"   Copy Constructor FragTrap \n" << copy._name << ")\n" << RES;
@@ -43,7 +43,7 @@ FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 }
 
 
-
+// Destructor
 FragTrap::~FragTrap()
 {
 	std::cout << GRE"   Destructor FragTrap (" << RES << _name << ")\n"; 

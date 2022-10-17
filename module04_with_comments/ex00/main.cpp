@@ -6,7 +6,7 @@
 /*
 	If derived object (Cat) has the same function (makeSound) as the base object (Animal),
 	then makeSound() must be declared Virtual in the base class. Otherwise it is called 
-	the funtcion from base, instead of from derived object.
+	the function from base, instead of from derived object.
 
 	(The function in the Base class must be virtual, in order to be able
 		to be overriden by the derived class. Otherwise it will print  the same

@@ -1,6 +1,10 @@
 #include<iostream>
 using namespace std;
 
+#include <stdio.h>
+
+#include "colors.h"
+
 /*
 	If there is a pointer *int in private members, apparently it does not need any p = new *int in the constr.
 	and also no free in the destructor ??? 
@@ -49,31 +53,38 @@ class Box
 		void set(int x, int y, int p);	
 
 };
- ///////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Box::Box()	:	_ptr(new int)
+Box::Box()	//:	_ptr(new int)
 {
 	cout<<"Default Constructor\n";
-	//_ptr = new int;				// apparently not needed (tested with 1 object, no coying of object.)
+	_ptr = new int;				// apparently not needed (tested with 1 object, no coying of object.)
 }
 
 
 
 void Box::set(int x, int y, int p)
 {
+	int temp;
+	temp = 444;
+
 	_x = x;
 	_y = y;
-	_ptr = &p;
-	cout<< "Set, address of p: " << &p <<"\n";
-	cout<<"x: "<< _x <<", &x: "<< &_x <<",     y: "<< _y <<", &y: "<< &_y <<",     p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+	//_ptr = p;
+	_ptr = &temp;
+	//cout<< "Set, address of p: " << &p <<"\n";
+	cout<<"set:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
 
 }
 
 
 void Box::show()
 {
-	cout<<"x: "<< _x <<", &x: "<< &_x<<",     ptr: "<< *_ptr<<", ptr: "<< _ptr <<"\n";
+	//cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
+	//cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
+	//printf("  printf: ptr: %d,   &ptr: %p\n" , *_ptr, _ptr);
 }
 
 
@@ -107,8 +118,8 @@ Box &Box::operator= (const Box &b)
 
 Box::~Box()
 {
-	cout<< "Destructor\n";
-	//delete _ptr;		// causing invalid pointer or double free
+	cout << "Destructor\n";
+	delete _ptr;		// causing invalid pointer or double free
 }
 
 
@@ -119,23 +130,27 @@ int main()
 {
 	int x = 11;
 	int y = 33;
-	int *p = &y;
+	//int *p = &y;
 
 	// cout<< "Main address of y: " << &y <<"\n";
-	cout<< "Main, address of p: " << p <<"\n";
-	//cout<< "Main, address of y: " << &y <<"\n";
+	//cout<< "Main, address of p: " << p <<"\n";
+	cout<< "Main, address of y: " << &y <<"\n\n";
 
 	Box d1;
 	d1.set(x, y, y);
-	//d1.show();
-	cout<<"\n";
 
+	//d1.show();
+
+	cout << "\n";
+
+	//d1.show();
 
 	// THE COPIED OBJECT ALWAYS HAS A DIFFERENT ADDRES, NO MATTER WHICH COPY METHOD
 	// cout<< "Main, addres of object d1: " << &d1 << "\n";
-	Box d2;
-	d2 = d1;
-	// cout<< "Main, addres of object d2: " << &d2 << "\n";
+	// Box d2;
+	// d2 = d1;
+	// // cout<< "Main, addres of object d2: " << &d2 << "\n";
+	// d2.show();
 
 
 	// Box d2 = d1;	// VIA COPY CONSTRUCTOR
@@ -162,4 +177,5 @@ int main()
 
 	
 	// //d4.delete_ptr();	// Does not help preventing the leak
+	system("leaks a.out");
 }

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 11:08:30 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/14 11:29:14 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/17 09:59:23 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ size_t ft_strlcat(char *dest, const char *src, size_t size)
 	size_t i;
 
 	destlen = ft_strlen(dest);
-	printf(" --- destlen: %ld,   last[%d]\n", destlen, dest[2]);
+	//printf(" --- destlen: %ld,   last[%d]\n", destlen, dest[2]);
 	if (size < ft_strlen(dest))
 		destlen = size;
 	i = 0;												// If size is smaller then dest, this will not happen
@@ -78,6 +78,7 @@ int main(void)
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 
@@ -100,6 +101,7 @@ int main(void)
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 
@@ -111,6 +113,7 @@ int main(void)
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 
@@ -122,6 +125,7 @@ int main(void)
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 
@@ -133,17 +137,19 @@ int main(void)
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 
 	{
 		printf(MAG"Test 05:   size > destination			(returns destLen + sourceLen)\n"RES);
-		int  size       = 55;
+		int  size       = 20;
 		char *str      = "ABCDE";
 		char destA[20] = "abcd..efgh";
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 
@@ -155,6 +161,7 @@ int main(void)
 		char destB[20] = "abcd..efgh";
 
 		printf("dest: \"%s\",   src: \"%s\",   size: %d \n", destA, str, size);
+		printf("     orig:   returns %lu,    [%s] \n"RES,          strlcat(destB, str, size), destB);
 		printf("     mine:   returns %lu,    [%s] \n\n\n"RES,   ft_strlcat(destB, str, size), destB);
 	}
 }	
