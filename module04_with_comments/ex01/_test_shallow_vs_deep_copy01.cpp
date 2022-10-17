@@ -57,34 +57,34 @@ class Box
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Box::Box()	//:	_ptr(new int)
+Box::Box()	// :	_ptr(new int)		// also OK
 {
 	cout<<"Default Constructor\n";
-	_ptr = new int;				// apparently not needed (tested with 1 object, no coying of object.)
+	int temp;
+	temp = 444;
+
+	 _ptr = new int;
+	*_ptr = 777;		// OK
+	*_ptr = temp;		// OK
+//	 _ptr = NULL;		// Error
+//	 _ptr = &temp;		// Error, segfault and is leaking
 }
 
 
 
 void Box::set(int x, int y, int p)
 {
-	int temp;
-	temp = 444;
+	 _x		= x;
+	 _y		= y;
+	*_ptr	= p;
 
-	_x = x;
-	_y = y;
-	//_ptr = p;
-	_ptr = &temp;
-	//cout<< "Set, address of p: " << &p <<"\n";
-	cout<<"set:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
-
+	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
 }
 
 
 void Box::show()
 {
-	//cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
-	//cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
-	//printf("  printf: ptr: %d,   &ptr: %p\n" , *_ptr, _ptr);
+	cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
 }
 
 
@@ -130,20 +130,22 @@ int main()
 {
 	int x = 11;
 	int y = 33;
-	//int *p = &y;
+	int p = 444;
 
 	// cout<< "Main address of y: " << &y <<"\n";
 	//cout<< "Main, address of p: " << p <<"\n";
 	cout<< "Main, address of y: " << &y <<"\n\n";
 
 	Box d1;
-	d1.set(x, y, y);
+	d1.set(x, y, p);
 
-	//d1.show();
+	d1.show();
 
-	cout << "\n";
+	p = 999;
+	d1.set(x, y, p);
+	//cout << "\n";
 
-	//d1.show();
+	d1.show();
 
 	// THE COPIED OBJECT ALWAYS HAS A DIFFERENT ADDRES, NO MATTER WHICH COPY METHOD
 	// cout<< "Main, addres of object d1: " << &d1 << "\n";
@@ -177,5 +179,5 @@ int main()
 
 	
 	// //d4.delete_ptr();	// Does not help preventing the leak
-	system("leaks a.out");
+	//system("leaks a.out");
 }
