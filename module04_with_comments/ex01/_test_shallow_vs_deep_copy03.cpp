@@ -2,10 +2,15 @@
 using namespace std;
 
 #include <stdio.h>
-
 #include "colors.h"
 
 /*
+	POINTER CAN BE NON DYNAMICALLY ALLOCATED WITH new, BUT SIMPLY AS    int *x;
+		  OR
+		DYNAMICALLY:    int *x = new int;			(in this case needs delete, and also cannot be changed ???)
+
+
+
 	If there is a pointer *int in private members, apparently it does not need any p = new *int in the constr.
 	and also no free in the destructor ??? 
 
@@ -50,7 +55,7 @@ class Box
 
 		void show();
 
-		void set(int x, int y, int p);	
+		void set(int x, int y, int *p);	
 
 };
 
@@ -63,8 +68,9 @@ Box::Box()	// :	_ptr(new int)		// also OK
 	int temp;
 	temp = 444;
 
-	 _ptr = new int;
-	*_ptr = 777;		// OK
+	// _ptr = new int;
+	_ptr = &temp;
+	//*_ptr = 777;		// OK
 	*_ptr = temp;		// OK
 //	 _ptr = NULL;		// Error
 //	 _ptr = &temp;		// Error, segfault and is leaking
@@ -72,14 +78,28 @@ Box::Box()	// :	_ptr(new int)		// also OK
 
 
 
-void Box::set(int x, int y, int p)
+void Box::set(int x, int y, int *p)
 {
 	 _x		= x;
 	 _y		= y;
-	*_ptr	= p;
 
+	// delete _ptr;
+	// _ptr	= new int;
+	_ptr	= p;
 	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+
+	_ptr	= &_x;
+	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+
+	// IF THIS int a IS ONLY EXISTING IN THIS SCOPE, WILL THE POINTER KEEP ITS ADRESS EVEN LATER, WHEN OUT OF SCOPE ???
+	int a 	= 123;
+	_ptr	= &a;
+	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+	//delete _ptr; 
+
 }
+
+
 
 
 void Box::show()
@@ -119,10 +139,8 @@ Box &Box::operator= (const Box &b)
 Box::~Box()
 {
 	cout << "Destructor\n";
-	delete _ptr;		// causing invalid pointer or double free
+	//delete _ptr;		// causing invalid pointer or double free
 }
-
-
 
 
 
@@ -130,7 +148,8 @@ int main()
 {
 	int x = 11;
 	int y = 33;
-	int p = 444;
+	int *p;
+	p = &y;
 
 	// cout<< "Main address of y: " << &y <<"\n";
 	//cout<< "Main, address of p: " << p <<"\n";
@@ -144,28 +163,28 @@ int main()
 	}
 	std::cout << "- - - - - - - - - - - - - - \n";
 
-	{	// as pointer
-	//	Box *d1 = new Box;		// also good
-		Box *d1 = new Box();
-		d1->set(x, y, p);
-		d1->show();
-		delete d1;
-	}
-	std::cout << "- - - - - - - - - - - - - - \n";
+	// {	// as pointer
+	// //	Box *d1 = new Box;		// also good
+	// 	Box *d1 = new Box();
+	// 	d1->set(x, y, p);
+	// 	d1->show();
+	// 	delete d1;
+	// }
+	// std::cout << "- - - - - - - - - - - - - - \n";
 
 
-	{	// as pointer
-	//	Box *d1 = new Box;		// also good
-		Box *d1 = new Box();
-		d1->set(x, y, p);
-		d1->show();
+	// {	// as pointer
+	// //	Box *d1 = new Box;		// also good
+	// 	Box *d1 = new Box();
+	// 	d1->set(x, y, p);
+	// 	d1->show();
 
-		p = 999;
-		d1->set(x, y, p);
-		d1->show();
-		delete d1;
-	}
-	std::cout << "- - - - - - - - - - - - - - \n";
+	// 	*p = 999;
+	// 	d1->set(x, y, p);
+	// 	d1->show();
+	// 	delete d1;
+	// }
+	// std::cout << "- - - - - - - - - - - - - - \n";
 
 	
 

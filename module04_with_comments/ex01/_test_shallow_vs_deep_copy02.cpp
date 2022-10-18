@@ -2,14 +2,26 @@
 using namespace std;
 
 #include <stdio.h>
-
 #include "colors.h"
 
+// QUESTION: 
+//		Why is the value of _ptr different that set in the constructor? But address is still the same ???
+//	
+
 /*
+	POINTER CAN BE NON DYNAMICALLY ALLOCATED WITH new, BUT SIMPLY AS    int *x;
+		  OR
+		DYNAMICALLY:    int *x = new int;			(in this case needs delete, and also cannot be changed ???)
+
+
+
 	If there is a pointer *int in private members, apparently it does not need any p = new *int in the constr.
 	and also no free in the destructor ??? 
 
 
+	Helping site to see assembly code
+	https://godbolt.org/   ALSO TRY COMPILING WITH FLAGS: -02   -Ofast  
+		(it will give you garbage values, if you go out of scope and try to print _ptr)
 
 
 	A PROBLEM WITH LATER INITIALISATION, like: Box d1;
@@ -50,42 +62,63 @@ class Box
 
 		void show();
 
-		void set(int x, int y, int p);	
+		void set(int x, int y, int *p);	
 
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-
-Box::Box()	// :	_ptr(new int)		// also OK
+// POINTER CERATED NON DYNAMICALLY, JUST int *x;
+Box::Box()
 {
-	cout<<"Default Constructor\n";
+	cout << "Default Constructor\n";
+	_x = 11;
+	_y = 22;
+
 	int temp;
 	temp = 444;
 
-	 _ptr = new int;
-	*_ptr = 777;		// OK
+	// _ptr = new int;
+	_ptr = &temp;
 	*_ptr = temp;		// OK
-//	 _ptr = NULL;		// Error
-//	 _ptr = &temp;		// Error, segfault and is leaking
+	cout << "   temp value " << temp <<  ",  temp address " << &temp << "\n";
+	cout << "   ptr  value " << *_ptr << ",  ptr  address " << _ptr << "\n";
 }
 
 
 
-void Box::set(int x, int y, int p)
+void Box::set(int x, int y, int *p)
 {
 	 _x		= x;
 	 _y		= y;
-	*_ptr	= p;
 
-	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",      p: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+	// delete _ptr;
+	// _ptr	= new int;
+	_ptr	= p;
+	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",    *ptr: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+
+	cout << "Changing _ptr to _x\n";
+	_ptr	= &_x;
+	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",    *ptr: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+	show();
+	// IF THIS int a IS ONLY EXISTING IN THIS SCOPE, WILL THE POINTER KEEP ITS ADDRESS EVEN LATER, WHEN OUT OF SCOPE ???
+	cout << "Changing _ptr to local temp\n";
+	int temp 	= 321;
+	_ptr		= &temp;
+	//cout << "temp value " << temp << "temp address " << &temp << "\n";
+	cout << "\nset:  x: "<< _x <<", &x: "<< &_x <<",    y: "<< _y <<", &y: "<< &_y <<",    *ptr: "<< *_ptr <<", ptr: "<< _ptr <<"\n";
+	show();
+	//delete _ptr; 
+
 }
+
 
 
 void Box::show()
 {
-	cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
+	cout<< BLU"show: x: "<< _x <<", &x: "<< &_x<<",    y: "<< _y <<", &y: "<< &_y <<",    *ptr: "<< *_ptr <<", ptr: "<< _ptr <<RES"\n";
 }
+
 
 
 //copy constructor -> it is responsible for deep copy.
@@ -119,10 +152,8 @@ Box &Box::operator= (const Box &b)
 Box::~Box()
 {
 	cout << "Destructor\n";
-	delete _ptr;		// causing invalid pointer or double free
+	//delete _ptr;		// causing invalid pointer or double free
 }
-
-
 
 
 
@@ -130,42 +161,49 @@ int main()
 {
 	int x = 11;
 	int y = 33;
-	int p = 444;
+	// int *p;
+	// p = &y;
 
 	// cout<< "Main address of y: " << &y <<"\n";
 	//cout<< "Main, address of p: " << p <<"\n";
 	cout<< "Main, address of y: " << &y <<"\n\n";
 
 	{	// as non pointer
-	//	Box d1();	// error
 		Box d1;
+
+		cout << "\nWhy is the value of _ptr different that set in the constructor? But address is still the same?\n";
+		d1.show();	// VALUE OF _ptr IS DIFFERENT THAN SET IN THE CONSTRUCTOR ???
+
+		int *p;
+		p = &y;
+
 		d1.set(x, y, p);
 		d1.show();
 	}
 	std::cout << "- - - - - - - - - - - - - - \n";
 
-	{	// as pointer
-	//	Box *d1 = new Box;		// also good
-		Box *d1 = new Box();
-		d1->set(x, y, p);
-		d1->show();
-		delete d1;
-	}
-	std::cout << "- - - - - - - - - - - - - - \n";
+	// {	// as pointer
+	// //	Box *d1 = new Box;		// also good
+	// 	Box *d1 = new Box();
+	// 	d1->set(x, y, p);
+	// 	d1->show();
+	// 	delete d1;
+	// }
+	// std::cout << "- - - - - - - - - - - - - - \n";
 
 
-	{	// as pointer
-	//	Box *d1 = new Box;		// also good
-		Box *d1 = new Box();
-		d1->set(x, y, p);
-		d1->show();
+	// {	// as pointer
+	// //	Box *d1 = new Box;		// also good
+	// 	Box *d1 = new Box();
+	// 	d1->set(x, y, p);
+	// 	d1->show();
 
-		p = 999;
-		d1->set(x, y, p);
-		d1->show();
-		delete d1;
-	}
-	std::cout << "- - - - - - - - - - - - - - \n";
+	// 	*p = 999;
+	// 	d1->set(x, y, p);
+	// 	d1->show();
+	// 	delete d1;
+	// }
+	// std::cout << "- - - - - - - - - - - - - - \n";
 
 	
 
