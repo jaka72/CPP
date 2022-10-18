@@ -130,91 +130,118 @@ int main(void)
 	printf(HYEL"\n------------------------------------------------------------");
 	printf("\n--- FT_MEMCMP ---------------------------------------------\n\n"RES);
 
-	// char *str1a = "aaa";
-	// char *str1b = "aaa";
-	char str1a[] = "aaa";
-	char str1b[] = "aaa";
-	int n = 30;
-	printf(MAG"Test 01:  %s : %s\n"RES, str1a, str1b);
-  	printf("   orig: %d\n",       memcmp(str1a, str1b, n));
-    //printf("  clone: %d\n", clone_memcmp(str1a, str1b, n));
-    printf("   mine: %d\n\n", ft_memcmp(str1a, str1b, n));
+	{
+		// char *str1 = "aaa";
+		// char *str2 = "aaa";
+		char str1[] = "";
+		char str2[] = "";
+		int n = 1;
+		printf(MAG"Test 01:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
+
+	{
+		char str1[] = "aaa";
+		char str2[] = "aaa";
+		int n = 3;
+		printf(MAG"Test 02:  [%s : %s]     n%d\n"RES, str1, str2, n);
+
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
+
+	{
+		char str1[] = "aaa";
+		char str2[] = "aaX";
+		int n = 3;
+		printf(MAG"Test 03:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
 
+	{
+		char str1[] = "aaa";
+		char str2[] = "aaX";
+		int n = 4;
+		printf(MAG"Test 04:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-// 	char *str2a = "aad";
-// 	char *str2b = "aaa";
-// 	n = 5;
-// 	printf(MAG"Test 02:  %s : %s\n"RES, str2a, str2b);
-//   	printf("   orig: %d\n",       memcmp(str2a, str2b, n));
-//     //printf("  clone: %d\n", clone_memcmp(str2a, str2b, n));
-//     printf("   mine: %d\n\n", ft_memcmp(str2a, str2b, n));
+	{
+		char str1[] = "a";
+		char str2[] = "b";
+		int n = 0;
+		printf(MAG"Test 05:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-// 	char *str3a = "aad";
-// 	char *str3b = "aaa";
-// 	n = 5;
-// 	printf(MAG"Test 03:  %s : %s\n"RES, str3a, str3b);
-//   	printf("   orig: %d\n",       memcmp(str3a, str3b, n));
-//     //printf("  clone: %d\n", clone_memcmp(str3a, str3b, n));
-//     printf("   mine: %d\n\n", ft_memcmp(str3a, str3b, n));
+	{
+		char str1[] = "a";
+		char str2[] = "b";
+		int n = 1;
+		printf(MAG"Test 06:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-// 	char *str4a = "test";
-// 	char *str4b = "testss";
-// 	n = 7;
-// 	printf(MAG"Test 04:  %s : %s\n"RES, str4a, str4b);
-//   	printf("   orig: %d\n",       memcmp(str4a, str4b, n));
-//     //printf("  clone: %d\n", clone_memcmp(str4a, str4b, n));
-//     printf("   mine: %d\n\n", ft_memcmp(str4a, str4b, n));
+	{
+		char str1[] = "test";
+		char str2[] = "testX";
+		int n = 5;
+		printf(MAG"Test 07:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-// 	char *str5a = "testss";
-// 	char *str5b = "test";
-// 	n = 7;
-// 	printf(MAG"Test 05:  %s : %s\n"RES, str5a, str5b);
-//   	printf("   orig: %d\n",       memcmp(str5a, str5b, n));
-//     //printf("  clone: %d\n", clone_memcmp(str5a, str5b, n));
-//     printf("   mine: %d\n\n", ft_memcmp(str5a, str5b, n));
+	{
+		char str1[] = "testX";
+		char str2[] = "test";
+		int n = 6;
+		printf(MAG"Test 08:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-// 	char *str6a = "test\200";
-// 	char *str6b = "test\0";
-// 	n = 6;
-// 	printf(MAG"Test 06:  %s\\200 : %s\\0\n"RES, str6a, str6b);
-//   	printf("   orig: %d\n",       memcmp(str6a, str6b, n));
-//     //printf("  clone: %d\n", clone_memcmp(str6a, str6b, n));
-//     printf("   mine: %d\n\n", ft_memcmp(str6a, str6b, n));
+	{
+		char str1[] = "test\175";
+		char str2[] = "test\0";
+		int n = 6;
+		printf(MAG"Test 09:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-
-// 	char *str7a = "abc\200def";
-// 	char *str7b = "abc\0def";
-// 	n = 1;
-// 	printf(MAG"OCTAL NOTATION  [%s]  [%s] \n"RES,  str7a,  str7b);
-// 	printf(MAG"OCTAL NOTATION  [%s]  [%s] \n"RES,  "abc\112klm",  "abc\130klm");
-// 	printf("   orig: %d\n",       memcmp(str7a, str7b, n));
-// 	printf("  clone: %d\n", clone_memcmp(str7a, str7b, n));
-// 	printf("   mine: %d\n\n", ft_memcmp(str7a, str7b, n));
-
-
-
-// 	printf(MAG"Octal with 2 backslashes: '\\200'   '\\0'  \n"RES);
-// 	printf(MAG"Octal with 2 backslashes:  \\200     \\0   \n\n"RES);
-
-// 	printf(MAG"One backslash, single quotes:  '\130'    '\100'  \n"RES);
-// 	printf(MAG"One backslash, no quotes:       \130      \100   \n\n"RES);  // THESE ARE ASCII
-
-
-// //										OCTAL	 OCTAL
-// //										  J        @										
-// 	printf(MAG"Octal '\\112' and '\\100':  '\112'    '\100'  \n"RES);
-// 	printf(MAG"Octal  \\112  and  \\100:    \112      \100   \n\n"RES);
-
-// //										 9      €    ‰
-// 	printf(MAG"What is this notation?   \071  \200  \211         \n\n"RES);
+	{
+		char str1[] = "test\175def";
+		char str2[] = "test\0def";
+		int n = 15;
+		printf(MAG"Test 10:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
 
-// //	printf(MAG"What is this notation?  '\97'   '\0'   \n"RES);
-// //	printf(MAG"What is this notation?   \97     \0    \n\n"RES);
+	{
+		char str1[] = "test\\175";
+		char str2[] = "test\\0";
+		int n = 15;
+		printf(MAG"Test 11:  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
-
-
+	{
+		char str1[] = "abcde";
+		char str2[] = "abcde";
+		int n = 15;
+		printf(MAG"Test 12, Check beyond n,  [%s : %s]     n%d\n"RES, str1, str2, n);
+		printf("   orig: %d\n",      memcmp(str1, str2, n));
+		printf("   mine: %d\n\n", ft_memcmp(str1, str2, n));
+	}
 
   	return (0);
 }
