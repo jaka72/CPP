@@ -33,14 +33,19 @@ class WrongAnimal
 		WrongAnimal &operator= (const WrongAnimal &wranimal);
 
 		// Public member functions
-		virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
+		//virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
+		          void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
 												//		Animal *a = new Animal(); 
 		
 		// Getter
-		virtual void getType();
+		// virtual void getType() const;
+				   void getType() const;
 
-		void printTest(void);
+		// Setter
+		virtual void setType(std::string type);
 
+
+		//void printTest(void);
 };
 
 #endif

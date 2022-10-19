@@ -6,30 +6,33 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:27:30 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/16 21:21:11 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 14:56:52 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+// Constructor
 Dog::Dog() : Animal()
 {
 	_type = "Dog";
-	std::cout << GRE"   Default constructor Dog, type " << RES << _type << "\n";
+	std::cout << GRE"   Default constructor Dog, type: " << RES << _type << "\n";
 
 }
 
-// Dog::Dog(std::string &type)
-// {
-// 	std::cout << GRE"Constructor called for type" << type << "\n" << RES;
-// 	// _type = type;
-// }
+
+// Parameterized constr.
+Dog::Dog(std::string type) : Animal() // here HERE NEEDS : Animal ???
+{
+	std::cout << GRE"Param. constructor, Dog, type: " << RES << type << "\n" << RES;
+	this->_type = type;
+}
 
 
 // Copy constructor
 Dog::Dog(const Dog &dog) : Animal()
 {
-	std::cout << GRE"   Copy constructor Dog, type " << RES << _type << "\n";
+	std::cout << GRE"   Copy constructor Dog, type: " << RES << _type << "\n";
 	*this = dog;
 }
 
@@ -53,9 +56,16 @@ Dog &Dog::operator= (const Dog &dog)
 } 
 
 // Getter
-void Dog::getType()
+std::string Dog::getType() const
 {
-	std::cout << "   Dog getType(): type " << _type << "\n";
+	std::cout << BLU"   Cat getType: " << _type << "\n" << RES;
+	return this->_type;
+}
+
+// Setter
+void Dog::setType(std::string type)
+{
+	this->_type = type;
 }
 
 
@@ -63,9 +73,7 @@ void Dog::getType()
 // Public member functions
 void Dog::makeSound(void) const
 {
-	std::cout << BLU << "   Dog " << _type << " says: 'Wooof!'\n" << RES;
+	std::cout << BLU << "   Dog (type " << _type << ") makeSound: 'Wooof!'\n" << RES;
 }
 
 
-
-// SOME TESTS ////////////////////////////////////////////////////

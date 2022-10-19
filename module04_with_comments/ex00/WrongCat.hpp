@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:35:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/15 15:25:24 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 14:34:14 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ class WrongCat : public WrongAnimal
 		void makeSound(void) const;
 
 		// Getter
-		void getType();
+		void getType() const;
+
+		// Setter
+		void setType(std::string type);
 };
 
 #endif

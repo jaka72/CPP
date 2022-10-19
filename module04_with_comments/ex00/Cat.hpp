@@ -14,6 +14,10 @@ class Cat : public Animal
 		// Constructors
 		Cat();
 
+		// Param. constr.
+		Cat(std::string type);
+
+
 		// Copy constructor
 		//Cat(std::string &type); // not sure to leave the &
 		Cat(const Cat &cat);
@@ -29,16 +33,20 @@ class Cat : public Animal
 		void makeSound(void) const;
 
 		// Getter
-		void getType();
+		std::string getType() const;
+
+		// Setter
+		void setType(std::string type);
+
 
 
 		// SOME TESTS //////////////////////////////////
 
 		// void printTest(void);
-		void printTest(void) const;
+		//void printTest(void) const;
 
 		// void printTest_no_const(void);
-		void printTest_no_const(void) const;
+		//void printTest_no_const(void) const;
 
 
 };

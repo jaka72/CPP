@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/15 15:37:50 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 14:40:19 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ class Animal
 		// Copy constructor
 		Animal(const Animal &animal);
 
+		// Parameterized constr.
+		Animal(std::string type);
+
+
 		// Destructor
 		//  ~Animal();
 		virtual ~Animal();	// MUST BE virtual destr, because Class Animal is polimorfic.
@@ -44,22 +48,22 @@ class Animal
 		Animal &operator= (const Animal &animal);
 
 		// Public member functions
-		virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
-												//		Animal *a = new Animal();  ???
-
+		//       void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
+		 virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
+													//		Animal *a = new Animal();  ???
 
 		// Getter
-		virtual void getType();
-
+		virtual std::string getType() const;
+		
+		// Setter
+		virtual void setType(std::string type);
 
 		// SOME TESTS ////////////////////////
-		virtual void printTest() const;
-		virtual void printTest_no_const() const;
+		//virtual void printTest() const;
+		//virtual void printTest_no_const() const;
 
 		// Test to see if it's visible in Cat=Cat
-		void justInAnimal() const;
-
-
+		//void justInAnimal() const;
 };
 
 #endif

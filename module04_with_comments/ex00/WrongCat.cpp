@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:35:36 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/15 15:33:12 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 15:01:16 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,16 @@ WrongCat::WrongCat() : WrongAnimal()
 // Copy constructor
 WrongCat::WrongCat(const WrongCat &wrcat) : WrongAnimal()
 {
-	std::cout << GRE"   Copy Constructor WrongCat, type " << _type << "\n" << RES;
+	std::cout << GRE"   Copy Constructor WrongCat, type " << RES << _type << "\n" << RES;
 	*this = wrcat;
 }
 
 // Destructor
 WrongCat::~WrongCat()
 {
-	std::cout << GRE"   Destructor  WrongCat, type " << _type << "\n" << RES;
+//	std::cout << GRE"   Destructor  WrongCat, type " << RES << _type << "\n" << RES;
+	std::cout << GRE"Destructor WrongCat, type " << RES << _type << "\n" << RES;
+
 
 }
 
@@ -58,8 +60,15 @@ void WrongCat::makeSound(void) const
 }
 
 
-// Getter
-void WrongCat::getType()
+// Setter
+void WrongCat::setType(std::string type)
 {
-	std::cout << "   From WrongCat: type " << _type << "\n";
+	this->_type = type;
+}
+
+
+// Getter
+void WrongCat::getType() const
+{
+	std::cout << BLU"   From WrongCat: type " << _type << RES<< "\n";
 }

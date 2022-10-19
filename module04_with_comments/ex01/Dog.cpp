@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Dog.cpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/19 14:48:36 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/19 14:57:30 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 Dog::Dog() : Animal()
@@ -15,11 +27,12 @@ Dog::Dog() : Animal()
 }
 
 
-// Dog::Dog(std::string &type)
-// {
-// 	std::cout << GRE"Constructor for type" << type << "\n" << RES;
-// 	// _type = type;
-// }
+// Parameterized constr.
+Dog::Dog(std::string type) : Animal()
+{
+	std::cout << GRE"Param. constructor, Dog, type: " << RES << type << "\n" << RES;
+	this->_type = type;
+}
 
 
 // Copy constructor
@@ -27,7 +40,7 @@ Dog::Dog(const Dog &dog) : Animal()	// !! without dog in Animal(dog)
 {
 	_type = "Dog";
 
-	std::cout << GRE"Copy Constructor:             type" << _type << "\n" << RES;
+	std::cout << GRE"Copy Constructor:             type" << RES << _type << "\n" << RES;
 	*this = dog;
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   WrongAnimal.cpp                                    :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/19 14:58:31 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/19 14:59:48 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongAnimal.hpp"
 // #include "Dog.hpp"
 // #include "Cat.hpp"
@@ -10,22 +22,25 @@ WrongAnimal::WrongAnimal()
 	std::cout << GRE"Default Constructor: WrongAnimal, type " << RES << _type << "\n";
 }
 
+
 WrongAnimal::WrongAnimal(std::string &type)
 {
-	std::cout << GRE"String Constructor, WrongAnimal, type" << type << "\n" << RES;
+	std::cout << GRE"String Constructor, WrongAnimal, type" << RES << type << "\n" << RES;
 	// _type = type;
 }
 
 // Copy constructor
 WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 {
-	std::cout << GRE"Copy Constructor, WrongAnimal, type" << _type << "\n" << RES;
+	std::cout << GRE"Copy Constructor, WrongAnimal, type" << RES << _type << "\n" << RES;
 	*this = animal;
 }
+
+
 // Destructor
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << GRE"Destructor, WrongAnimal\n" << RES;
+	std::cout << GRE"Destructor WrongAnimal, type " << RES << _type << "\n" << RES;
 
 }
 

@@ -6,29 +6,32 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:23 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/15 15:35:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 14:56:45 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+// Constructor
 Cat::Cat() : Animal()
 {
 	_type = "Cat";
-	std::cout << GRE"   Default Constructor Cat, type " << RES << _type << "\n";
+	std::cout << GRE"   Default Constructor Cat, type: " << RES << _type << "\n";
 }
 
-// Cat::Cat(std::string &type)
-// {
-// 	std::cout << GRE"Constructor called for type" << type << "\n" << RES;
-// 	// _type = type;
-// }
+
+// Parameterized constr.
+Cat::Cat(std::string type)  : Animal()  // ??? // IT NEES :Animal HERE?
+{										// maybe not, if you don't want tochange any values	
+	std::cout << GRE"Param. constructor, Cat, type: " << RES << type << "\n" << RES;
+	this->_type = type;
+}
 
 
 // Copy constructor
 Cat::Cat(const Cat &cat) : Animal()
 {
-	std::cout << GRE"   Copy Constructor Cat, type " << _type << "\n" << RES;
+	std::cout << GRE"   Copy Constructor Cat, type: " << RES << _type << "\n" << RES;
 	*this = cat;
 }
 
@@ -36,7 +39,7 @@ Cat::Cat(const Cat &cat) : Animal()
 // Destructor
 Cat::~Cat()
 {
-	std::cout << GRE"   Destructor called Cat, type " << _type << "\n" << RES;
+	std::cout << GRE"   Destructor Cat, type "<< RES<< _type << "\n" << RES;
 
 }
 
@@ -56,31 +59,20 @@ Cat &Cat::operator= (const Cat &cat)
 void Cat::makeSound(void) const
 // void Cat::makeSound(void)
 {
-	std::cout << BLU << "   Cat " << _type << " says: 'Miauw!'\n" << RES;
+	std::cout << BLU"   Cat (type " << _type << ") makeSound: 'Miauw!'\n" << RES;
 }
 
 
 // Getter
-void Cat::getType()
+std::string Cat::getType() const
 {
-	std::cout << "   Cat getType: type " << _type << "\n";
+	std::cout << BLU"   Cat getType: " << _type << "\n" << RES;
+	return this->_type;
 }
 
-
-
-
-
-
-
-// SOME TESTS ////////////////////////////////////////////////////
-void Cat::printTest(void) const
-// void Cat::printTest(void)
+// Setter
+void Cat::setType(std::string type)
 {
-	std::cout << "   Test, printed from Cat : " << test << "\n";
+	this->_type = type;
 }
 
-void Cat::printTest_no_const(void) const
-// void Cat::printTest_no_const(void)
-{
-	std::cout << "   Test 2 NO CONST, printed from Cat : " << test << "\n";
-}

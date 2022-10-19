@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   WrongCat.cpp                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/19 14:58:51 by jmurovec      #+#    #+#                 */
+/*   Updated: 2022/10/19 14:58:52 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal()
@@ -15,7 +27,7 @@ WrongCat::WrongCat() : WrongAnimal()
 // Copy constructor
 WrongCat::WrongCat(const WrongCat &wrcat) : WrongAnimal(wrcat)
 {
-	std::cout << GRE"Copy Constructor:         type" << _type << "\n" << RES;
+	std::cout << GRE"Copy Constructor:         type" << RES << _type << "\n" << RES;
 	*this = wrcat;
 }
 // Destructor

@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Animal.hpp                                         :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/15 13:24:32 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/19 14:40:36 by jmurovec      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
 #include <iostream>
 #include <string>
-#include <cstdio>
-#include <cstdlib>
 
 // #include "Cat.hpp"
 // #include "Dog.hpp"
@@ -14,36 +24,46 @@ class Animal
 {
 	protected:
 		std::string	_type;
-		//int test;
+		int test;
 
 	public:
 	
 		// Constructors
 		Animal();
+
 		//Animal(std::string &type); // not sure to leave the &
+
+		// Copy constructor
 		Animal(const Animal &animal);
 
+		// Parameterized constr.
+		Animal(std::string type);
+
+
 		// Destructor
-		virtual ~Animal();
-		// ~Animal();
+		//  ~Animal();
+		virtual ~Animal();	// MUST BE virtual destr, because Class Animal is polimorfic.
 
 		// Overload operators
 		Animal &operator= (const Animal &animal);
 
 		// Public member functions
-		virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
-										//		Animal *a = new Animal(); 
-		//void printTest(void);
+		//       void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
+		 virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
+													//		Animal *a = new Animal();  ???
 
-		/////// NOT SURE IF IT MUST BE HERE, BECAUSE IN THE EXAMPLE ITS NOT
-		// // Setter
-		// void setIdea(int n, std::string idea);
+		// Getter
+		virtual std::string getType() const;
+		
+		// Setter
+		virtual void setType(std::string type);
 
-		// // Getter
-		// void getIdea(int n);
+		// SOME TESTS ////////////////////////
+		//virtual void printTest() const;
+		//virtual void printTest_no_const() const;
 
-
-
+		// Test to see if it's visible in Cat=Cat
+		//void justInAnimal() const;
 };
 
 #endif

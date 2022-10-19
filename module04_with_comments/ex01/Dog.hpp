@@ -18,7 +18,11 @@ class Dog: public Animal
 	
 		// Constructors
 		Dog();
-		//Cat(std::string &type); // not sure to leave the &
+
+		// Param. constr.
+		Dog(std::string type);
+
+		// Copy constructor
 		Dog(const Dog &dog);
 
 		// Destructor
@@ -30,11 +34,17 @@ class Dog: public Animal
 		// Public member functions
 		void makeSound(void) const;
 
+
 		// Setter
 		void setIdea(int n, std::string idea) const;
 
-		// Getter
+		void setType(std::string type);
+
+
+		// Getters
 		void getIdea(int n) const;
+
+		std::string getType() const;
 
 };
 

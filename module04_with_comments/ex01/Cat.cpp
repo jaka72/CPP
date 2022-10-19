@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/16 21:19:38 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 14:57:15 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Cat.hpp"
 
 
-// ??? IT IS NOT CALLED HAVE ANY EFFECT
+// Constructor
 Cat::Cat() : Animal()
 {
 	this->_type = "Cat";  
@@ -32,14 +32,28 @@ Cat::Cat() : Animal()
 	}
 }
 
+// Parameterized constr.
+Cat::Cat(std::string type)
+{
+	std::cout << GRE"Param. constructor, Cat, type: " << RES << type << "\n" << RES;
+	this->_type = type;
+
+	this->_brain = new Brain();
+
+	if (this->_brain == NULL)
+	{
+		perror("Memory allocation for Cat Brain failed\n");
+		std::cerr << "Exiting the process now." << std::endl;
+		exit (1);
+	}
+}
 
 
 // Copy constructor
-// Cat::Cat(const Cat &cat) : Animal(cat)
 Cat::Cat(const Cat &cat) : Animal()
 {
-	this->_type = "Cat";  
-	std::cout << GRE"   Copy Constructor:            type " << _type << "\n" << RES;
+	//this->_type = "Cat";  
+	std::cout << GRE"   Copy Constructor:            type " << RES << _type << "\n" << RES;
 	*this = cat;
 }
 
@@ -52,6 +66,7 @@ Cat &Cat::operator= (const Cat &cat)
 	std::cout << GRE"   Overload the Assign= operator for Cat\n" << RES;
 	if (this == &cat)
 		return (*this);
+		
 	this->_type = cat._type;
 
 	_brain = new Brain();	// OR this->brain =
@@ -72,7 +87,6 @@ Cat &Cat::operator= (const Cat &cat)
 	
 	return (*this);
 } 
-
 
 
 // Destructor
@@ -105,6 +119,13 @@ void Cat::setType(std::string type)
 	this->_type = type;
 }
 
+
+// Getter
+std::string Cat::getType() const
+{
+	std::cout << BLU"   Cat getType: " << _type << "\n" << RES;
+	return this->_type;
+}
 
 
 // Getter

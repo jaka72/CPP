@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:30:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/15 15:30:09 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 15:01:43 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,22 @@
 // Constructor
 WrongAnimal::WrongAnimal()
 {
-	_type = "wronganimal";
-	test = 33;
-	std::cout << GRE"Default onstructor WrongAnimal, type " << RES << _type << "\n";
+	_type = "WrongAnimal";
+	std::cout << GRE"Default constructor WrongAnimal, type " << RES << _type << "\n";
 }
 
 
 // Parameterized constructor
 WrongAnimal::WrongAnimal(std::string &type)
 {
-	std::cout << GRE"String Constructor WrongAnimal, type" << type << "\n" << RES;
-	// _type = type;
+	std::cout << GRE"Param. constructor, WrongAnimal, type: " << RES << type << "\n" << RES;
 }
 
 
 // Copy constructor
 WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 {
-	std::cout << GRE"Copy Constructor WrongAnimal, type" << _type << "\n" << RES;
+	std::cout << GRE"Copy Constructor WrongAnimal, type" << RES << _type << "\n" << RES;
 	*this = animal;
 }
 
@@ -43,18 +41,20 @@ WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 // Destructor
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << GRE"Destructor WrongAnimal, type" << _type << "\n" << RES;
+	// std::cout << GRE"Destructor WrongAnimal, type" << _type << "\n" << RES;
+	std::cout << GRE"Destructor WrongAnimal, type " << RES << _type << "\n" << RES;
+
 
 }
 
 
 // Overload operators
-WrongAnimal &WrongAnimal::operator= (const WrongAnimal &wranimal)
+WrongAnimal &WrongAnimal::operator= (const WrongAnimal &src)
 {
 	std::cout << GRE"Overload assignment operator WrongAnimal\n" << RES;
-	if (this == &wranimal)
+	if (this == &src)
 		return (*this);
-	this->_type = wranimal._type;
+	this->_type = src._type;
 	return (*this);
 } 
 
@@ -69,22 +69,21 @@ WrongAnimal &WrongAnimal::operator= (const WrongAnimal &wranimal)
 // IT IS VIRTUAL SPECIFIER IN THE CLASS
 void WrongAnimal::makeSound(void) const
 {
-	std::cout << BLU"WrongAnimal makeSound():  no sound\n" << RES;
+	std::cout << BLU << "WrongAnimal (type " << _type << ") makeSound: 'wrong sound'\n" << RES;
 }
 
 
 // Getter
-void WrongAnimal::getType()
+void WrongAnimal::getType() const
 {
-	std::cout << "From WrongAnimal: type " << _type << "\n";
+	// std::cout << "From WrongAnimal: type " << _type << "\n";
+	std::cout << BLU"Animal getType: " << _type << RES"\n";
+
 }
 
 
-
-
-// ///////////////////////////////////////////////////////
-void WrongAnimal::printTest(void)
+// Setter
+void WrongAnimal::setType(std::string type)
 {
-	std::cout << "Test from Animal : " << test << "\n";
+	this->_type = type;
 }
-
