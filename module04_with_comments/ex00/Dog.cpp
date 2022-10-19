@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:27:30 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 14:56:52 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 19:29:01 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog::Dog() : Animal()
 
 
 // Parameterized constr.
-Dog::Dog(std::string type) : Animal() // here HERE NEEDS : Animal ???
+Dog::Dog(std::string type) : Animal()
 {
 	std::cout << GRE"Param. constructor, Dog, type: " << RES << type << "\n" << RES;
 	this->_type = type;
@@ -69,11 +69,8 @@ void Dog::setType(std::string type)
 }
 
 
-
 // Public member functions
 void Dog::makeSound(void) const
 {
 	std::cout << BLU << "   Dog (type " << _type << ") makeSound: 'Wooof!'\n" << RES;
 }
-
-

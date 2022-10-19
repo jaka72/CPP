@@ -6,24 +6,25 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:35:36 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 15:01:16 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 19:41:13 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
+// Default constructor
 WrongCat::WrongCat() : WrongAnimal()
 {
 	_type = "wrongcat";
 	std::cout << GRE"   Default constructor WrongCat, type " << RES << _type << "\n";
-
 }
 
-// Cat::Cat(std::string &type)
-// {
-// 	std::cout << GRE"Constructor called for type" << type << "\n" << RES;
-// 	// _type = type;
-// }
+// Parameterized constr.
+WrongCat::WrongCat(std::string type)  : WrongAnimal()
+{
+	std::cout << GRE"Param. constructor, Cat, type: " << RES << type << "\n" << RES;
+	this->_type = type;
+}
 
 // Copy constructor
 WrongCat::WrongCat(const WrongCat &wrcat) : WrongAnimal()
@@ -35,10 +36,7 @@ WrongCat::WrongCat(const WrongCat &wrcat) : WrongAnimal()
 // Destructor
 WrongCat::~WrongCat()
 {
-//	std::cout << GRE"   Destructor  WrongCat, type " << RES << _type << "\n" << RES;
 	std::cout << GRE"Destructor WrongCat, type " << RES << _type << "\n" << RES;
-
-
 }
 
 // Overload operators
@@ -50,7 +48,6 @@ WrongCat &WrongCat::operator= (const WrongCat &wrcat)
 	this->_type = wrcat._type;
 	return (*this);
 } 
-
 
 
 // Public member functions
@@ -68,7 +65,8 @@ void WrongCat::setType(std::string type)
 
 
 // Getter
-void WrongCat::getType() const
+std::string WrongCat::getType() const
 {
 	std::cout << BLU"   From WrongCat: type " << _type << RES<< "\n";
+	return this->_type;
 }

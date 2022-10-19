@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 14:48:36 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/19 14:57:30 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 20:32:17 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() : Animal()
 {
 	_type = "Dog";
-	std::cout << GRE"Default Constructor: Dog,    type " << RES << this->_type << "\n";
+	std::cout << GRE"   Default Constructor: Dog,    type " << RES << this->_type << "\n";
 
 	this->_brain = new Brain();	// OR this->brain =
 	if (this->_brain == NULL)
@@ -30,7 +30,7 @@ Dog::Dog() : Animal()
 // Parameterized constr.
 Dog::Dog(std::string type) : Animal()
 {
-	std::cout << GRE"Param. constructor, Dog, type: " << RES << type << "\n" << RES;
+	std::cout << GRE"   Param. constructor, Dog, type: " << RES << type << "\n" << RES;
 	this->_type = type;
 }
 
@@ -40,7 +40,7 @@ Dog::Dog(const Dog &dog) : Animal()	// !! without dog in Animal(dog)
 {
 	_type = "Dog";
 
-	std::cout << GRE"Copy Constructor:             type" << RES << _type << "\n" << RES;
+	std::cout << GRE"   Copy Constructor:             type" << RES << _type << "\n" << RES;
 	*this = dog;
 }
 
@@ -50,7 +50,7 @@ Dog::Dog(const Dog &dog) : Animal()	// !! without dog in Animal(dog)
 // Overload operators
 Dog &Dog::operator= (const Dog &dog)
 {
-	std::cout << GRE"Overload the Assign= operator for Dog\n" << RES;
+	std::cout << GRE"   Overload the Assign= operator for Dog\n" << RES;
 	if (this == &dog)
 		return (*this);
 	this->_type = dog._type;
@@ -79,8 +79,8 @@ Dog &Dog::operator= (const Dog &dog)
 // Destructor
 Dog::~Dog()
 {
-	std::cout << GRE"Destructor, Dog\n" << RES;
 	delete (this->_brain);	// OR this->brain;
+	std::cout << GRE"   Destructor, Dog\n" << RES;
 }
 
 
@@ -91,7 +91,7 @@ void Dog::makeSound(void) const
 }
 
 
-// Setter
+// Setters
  // THIS WAS ERROR,
 // passing ‘const Cat’ as ‘this’ argument discards qualifiers [-fpermissive]
 // THIS PROBLEM HAPPEND BEFORE, SOMETHING TO DO WITH const ???! !!!!
@@ -102,9 +102,23 @@ void Dog::setIdea(int n, std::string idea) const
 }
 
 
-// Getter
+void Dog::setType(std::string type)
+{
+	this->_type = type;
+}
+
+
+// Getters
 void Dog::getIdea(int n) const
 {
-	std::cout << "   Dog's idea " << n << ": '" << _brain->getIdea(n) << "'    ";
-	std::cout << "Location: " << _brain->getIdeaAdres(n) << "'\n";
+	std::cout << "   Dog's idea " << n << ": '" << _brain->getIdea(n);
+	std::cout << "'    Address: " << _brain->getIdeaAdres(n) << "'\n";
 }
+
+
+std::string Dog::getType() const
+{
+	std::cout << BLU"   Cat getType: " << _type << "\n" << RES;
+	return this->_type;
+}
+

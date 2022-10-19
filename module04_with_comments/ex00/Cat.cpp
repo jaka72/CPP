@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:23 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 14:56:45 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 19:27:39 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Cat::Cat() : Animal()
 
 
 // Parameterized constr.
-Cat::Cat(std::string type)  : Animal()  // ??? // IT NEES :Animal HERE?
-{										// maybe not, if you don't want tochange any values	
+Cat::Cat(std::string type)  : Animal()  // ??? DOES IT NEED :Animal HERE?
+{										// maybe not, if you don't want to change any values	
 	std::cout << GRE"Param. constructor, Cat, type: " << RES << type << "\n" << RES;
 	this->_type = type;
 }
@@ -54,10 +54,8 @@ Cat &Cat::operator= (const Cat &cat)
 } 
 
 
-
 // Public member functions
 void Cat::makeSound(void) const
-// void Cat::makeSound(void)
 {
 	std::cout << BLU"   Cat (type " << _type << ") makeSound: 'Miauw!'\n" << RES;
 }
@@ -75,4 +73,3 @@ void Cat::setType(std::string type)
 {
 	this->_type = type;
 }
-

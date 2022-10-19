@@ -41,34 +41,7 @@
 
 int main()
 {
-	// const Animal a;
-	// Animal a();						// No call to constr or destr. ???
-	// Cat e;
-	// e.makeSound();
-	// Dog d;
-	//a.printTest();
-	//c.printTest();
 
-////////////////////////
-//	const Animal *anm = new Animal();	 // This variant, destruct. is never called ???
-// 	const Animal *cat = new Dog();	 // This variant, destruct. is never called ???
-// 	const Animal *dog = new Cat();	 // This variant, destruct. is never called ???
-
-// 	anm->makeSound();
-// 	cat->makeSound();
-// 	dog->makeSound();
-
-// 	const WrongAnimal *wranm = new WrongAnimal();	 // This variant, destruct. is never called ???
-// 	const WrongAnimal *wrcat = new WrongCat();	 // This variant, destruct. is never called ???
-// 	wranm->makeSound();
-// 	wrcat->makeSound();
-
-// /////////////////////////////////
-// 	delete anm;
-// 	delete cat;
-// 	delete dog;
-// 	delete wranm;
-// 	delete wrcat;
 
 
 // NEW TESTING //////////////////////////////////////////////////
@@ -91,6 +64,25 @@ int main()
 	// 	anm2.getType();
 	// }
 	//	std::cout << "- - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+
+	{
+		std::cout << "- - - Subject ex00 Example - - - - - - - - -\n";
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+		
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		
+		j->makeSound();
+		i->makeSound();
+		meta->makeSound();
+		
+		delete meta;
+		delete i;
+		delete j;
+	}
+		std::cout << "- - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 	{	
 		std::cout << "- - - Create Animals (as const pointer) - - -\n";
 		const Animal *anm1 = new Animal();
@@ -152,18 +144,6 @@ int main()
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 	
-	// // 	std::cout << "\n";
-	// // {
-	// // 	Cat *cat1 = new Cat();	// If made from Cat ???
-	// // 	cat1->makeSound();
-	// // 	cat1->getType();
-	// // 	// cat1->printTest();
-	// // 	// cat1->printTest_no_const();
-	// // 	// cat1->justInAnimal();
-	// // 	delete cat1;
-	// // 	std::cout << "\n";
-	// // }
-
 	{
 		std::cout << "- - - Create WrongAnimal - - - - - - - - - -\n";
 		const WrongAnimal *wrAnm = new WrongAnimal();

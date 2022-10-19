@@ -19,7 +19,6 @@ class Cat : public Animal
 
 
 		// Copy constructor
-		//Cat(std::string &type); // not sure to leave the &
 		Cat(const Cat &cat);
 
 		// Destructor
@@ -29,7 +28,6 @@ class Cat : public Animal
 		Cat &operator= (const Cat &cat);
 
 		// Public member functions
-		// void makeSound(void);
 		void makeSound(void) const;
 
 		// Getter
@@ -37,18 +35,6 @@ class Cat : public Animal
 
 		// Setter
 		void setType(std::string type);
-
-
-
-		// SOME TESTS //////////////////////////////////
-
-		// void printTest(void);
-		//void printTest(void) const;
-
-		// void printTest_no_const(void);
-		//void printTest_no_const(void) const;
-
-
 };
 
 #endif

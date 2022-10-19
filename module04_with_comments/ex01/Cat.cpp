@@ -6,15 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 14:57:15 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 20:32:08 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <cstdio>
-// #include <cstdlib>
-// #include <error.h>
 #include "Cat.hpp"
-
 
 // Constructor
 Cat::Cat() : Animal()
@@ -27,7 +23,7 @@ Cat::Cat() : Animal()
 	if (this->_brain == NULL)
 	{
 		perror("Memory allocation for Cat Brain failed\n");
-		std::cerr << "Exiting the process now." << std::endl;
+		std::cerr << "Exit" << "\n";
 		exit (1);
 	}
 }
@@ -35,7 +31,7 @@ Cat::Cat() : Animal()
 // Parameterized constr.
 Cat::Cat(std::string type)
 {
-	std::cout << GRE"Param. constructor, Cat, type: " << RES << type << "\n" << RES;
+	std::cout << GRE"   Param. constructor, Cat, type: " << RES << type << "\n" << RES;
 	this->_type = type;
 
 	this->_brain = new Brain();
@@ -43,7 +39,7 @@ Cat::Cat(std::string type)
 	if (this->_brain == NULL)
 	{
 		perror("Memory allocation for Cat Brain failed\n");
-		std::cerr << "Exiting the process now." << std::endl;
+		std::cerr << "Exit" << "\n";
 		exit (1);
 	}
 }
@@ -92,8 +88,8 @@ Cat &Cat::operator= (const Cat &cat)
 // Destructor
 Cat::~Cat()
 {
+	delete (this->_brain);
 	std::cout << GRE"   Destructor: Cat\n" << RES;
-	delete (this->_brain);	// OR this->brain;
 }
 
 
@@ -104,10 +100,6 @@ void Cat::makeSound(void) const
 }
 
 // Setter
- // THIS WAS ERROR,
-// passing ‘const Cat’ as ‘this’ argument discards qualifiers [-fpermissive]
-// THIS PROBLEM HAPPEND BEFORE, SOMETHING TO DO WITH const ???! !!!!
-// SOMETING NOT BEING ABLE TO PROCESS, IT THERE IS NO const ...
 void Cat::setIdea(int n, std::string idea)
 {
 	this->_brain->setIdea(n, idea);
@@ -131,6 +123,6 @@ std::string Cat::getType() const
 // Getter
 void Cat::getIdea(int n) const
 {
-	std::cout << "   Cat " << _type << " idea " << n << ": '" << _brain->getIdea(n) << "'    ";
-	std::cout << "Location: " << _brain->getIdeaAdres(n) << "'\n";
+	std::cout << "   Cat " << _type << " idea " << n << ": '" << _brain->getIdea(n);
+	std::cout << "'    Address: " << _brain->getIdeaAdres(n) << "'\n";
 }

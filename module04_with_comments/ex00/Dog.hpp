@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Dog.hpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/19 19:29:09 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/19 19:29:14 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DOG_H
 #define DOG_H
 
 #include <iostream>
 #include "Animal.hpp"
-// #include "Dog.hpp"
-// #include "Cat.hpp"
 
 class Dog: public Animal
 {
@@ -15,7 +25,6 @@ class Dog: public Animal
 	
 		// Constructors
 		Dog();
-
 
 		// Param. constr.
 		Dog(std::string type);

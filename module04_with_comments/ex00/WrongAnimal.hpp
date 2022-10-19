@@ -12,7 +12,6 @@ class WrongAnimal
 {
 	protected:
 		std::string	_type;
-		int test;
 
 	public:
 	
@@ -33,19 +32,13 @@ class WrongAnimal
 		WrongAnimal &operator= (const WrongAnimal &wranimal);
 
 		// Public member functions
-		//virtual void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
-		          void makeSound(void) const;		// IT MUST HAVE const, WHEN DECLARED AS
-												//		Animal *a = new Animal(); 
+		void makeSound(void) const;
 		
 		// Getter
-		// virtual void getType() const;
-				   void getType() const;
+		std::string getType() const;
 
 		// Setter
 		virtual void setType(std::string type);
-
-
-		//void printTest(void);
 };
 
 #endif

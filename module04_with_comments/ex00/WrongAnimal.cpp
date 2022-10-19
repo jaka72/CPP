@@ -6,16 +6,14 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:30:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 15:01:43 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 20:04:29 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
-// #include "Dog.hpp"
-// #include "Cat.hpp"
 
 
-// Constructor
+// Default onstructor
 WrongAnimal::WrongAnimal()
 {
 	_type = "WrongAnimal";
@@ -41,7 +39,6 @@ WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 // Destructor
 WrongAnimal::~WrongAnimal()
 {
-	// std::cout << GRE"Destructor WrongAnimal, type" << _type << "\n" << RES;
 	std::cout << GRE"Destructor WrongAnimal, type " << RES << _type << "\n" << RES;
 
 
@@ -60,13 +57,6 @@ WrongAnimal &WrongAnimal::operator= (const WrongAnimal &src)
 
 
 // Public member functions
-	/*
-	If an object is declared as: Animal *cat = new Animal()
-	Then his each member method must be const inside this class.
-	So compiler can guarantee that calling cat.method() will not change 
-	the cat.
-	*/
-// IT IS VIRTUAL SPECIFIER IN THE CLASS
 void WrongAnimal::makeSound(void) const
 {
 	std::cout << BLU << "WrongAnimal (type " << _type << ") makeSound: 'wrong sound'\n" << RES;
@@ -74,11 +64,11 @@ void WrongAnimal::makeSound(void) const
 
 
 // Getter
-void WrongAnimal::getType() const
+std::string WrongAnimal::getType() const
 {
 	// std::cout << "From WrongAnimal: type " << _type << "\n";
-	std::cout << BLU"Animal getType: " << _type << RES"\n";
-
+	std::cout << BLU"WrongAnimal getType: " << _type << RES"\n";
+	return this->_type;
 }
 
 

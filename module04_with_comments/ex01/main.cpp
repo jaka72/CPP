@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 20:53:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/16 21:22:16 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/19 20:29:20 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@
 */
 
 
+
+
+
+/// !!!!!!!!!!! PROBLEM, MY DECONSTRUCTORS ARE CALLED FIRST DOG, THEN BRAIN !!! SHOULD BE FIRST BRAIN !!!
+
 int main()
 {
 	{
@@ -121,16 +126,18 @@ int main()
 /////////////////////////////////////////////////////////////
 
 	{
-		// Making array of animals in a loop
-		std::cout << GRN"\n2) ............. TEST: MAKE ARRAY OF OBJECTS 'Animal' IN A LOOP ..................\n"<<RES<<"\n";
+		// Making animals of animals in a loop
+		std::cout << GRN"\n2) ............. TEST: MAKE animals OF OBJECTS 'Animal' IN A LOOP ..................\n"<<RES<<"\n";
 
-		int	nr_animals = 4;
-		// !!! const Animal *array = new Animal[nr_animals]; // NO NO NO
-		const Animal *array[nr_animals];
+		int	nr_animals = 5;
+		if (nr_animals % 2 != 0)
+			nr_animals++;
+		// !!! const Animal *animals = new Animal[nr_animals]; // NO NO NO
+		const Animal *animals[nr_animals];
 		int half = nr_animals / 2;
-		std::cout << "half: " << half << "\n";
+		//std::cout << "half: " << half << "\n";
 
-		//array[0] = new Cat();
+		//animals[0] = new Cat();
 
 
 		int i = 0;
@@ -139,28 +146,28 @@ int main()
 			if (i < half)
 			{
 				std::cout << BLU"Making Cat " << i+1 << RES << "\n";
-				array[i] = new Cat();
+				animals[i] = new Cat();
 				// check memory
 			}
 			else
 			{
 				std::cout << MAG"Making Dog " << i+1 << RES << "\n";
-				array[i] = new Dog();
+				animals[i] = new Dog();
 				// check memory
 			}
 			i++;
 		}
 
-		array[0]->makeSound();
+		animals[0]->makeSound();
 
 
 	///////////////////////////////////////////////////////////
-	//		Freeing / deleting elements of the array
+	//		Freeing / deleting elements of the animals
 		i = 0;
 		while (i < nr_animals)
 		{
-			std::cout << GRN"Deleting array element " << i << RES << "\n";
-			delete array[i];
+			std::cout << GRN"Deleting animal " << i << RES << "\n";
+			delete animals[i];
 			i++;
 		}
 	}
@@ -222,7 +229,8 @@ int main()
 		white->getIdea(1);
 		black->getIdea(1);
 
-
+		delete white;
+		delete black;
 
 		
 		// std::cout << GRN"\n3b) Destruct Cat *catty  ...............................\n"<<RES;

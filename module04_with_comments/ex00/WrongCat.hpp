@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:35:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 14:34:14 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/10/19 19:40:41 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,23 @@ class WrongCat : public WrongAnimal
 		// Constructors
 		WrongCat();
 
-		//Cat(std::string &type); // not sure to leave the &
+		// Parameterized constr.
+		WrongCat(std::string type);
 
 		// Copy constructor
-		WrongCat(const WrongCat &wrcat);
+		WrongCat(const WrongCat &src);
 
 		// Destructor
 		~WrongCat();
 
 		// Overload operators
-		WrongCat &operator= (const WrongCat &wrcat);
+		WrongCat &operator= (const WrongCat &src);
 
 		// Public member functions
 		void makeSound(void) const;
 
 		// Getter
-		void getType() const;
+		std::string getType() const;
 
 		// Setter
 		void setType(std::string type);
