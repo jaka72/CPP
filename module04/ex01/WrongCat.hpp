@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 20:05:19 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 20:06:24 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:02:33 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class WrongCat : public WrongAnimal
 		WrongCat();
 		
 		// Parameterized constr.
-		WrongCat(std::string type);
+		WrongCat(std::string &type);
 		
 		// Copy constructor
 		WrongCat(const WrongCat &src);

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 09:53:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 10:03:41 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:27:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 
 #include <iostream>
 #include <string>
-
-// #include "WrongCat.hpp"
-// #include "Brain.hpp"
 #include "colors.h"
 
 class WrongAnimal
 {
 	protected:
 		std::string	_type;
-		int test;
 
 	public:
 	
@@ -32,7 +28,7 @@ class WrongAnimal
 		WrongAnimal();
 
 		// Param. constr.
-		WrongAnimal(std::string &type); // not sure to leave the &
+		WrongAnimal(std::string &type);
 
 		// Copy constructor
 		WrongAnimal(const WrongAnimal &src);

@@ -6,19 +6,14 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 20:53:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 16:01:17 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:24:56 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sstream>	// to convert i to a
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-// #include "Brain.hpp"
-#include "colors.h"
 
 /*
 	COPY VARIANTS:
@@ -263,5 +258,6 @@ int main()
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
 
+	//system ("leaks a.out");
 	return (0);
 }

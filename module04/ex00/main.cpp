@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 10:19:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 10:43:23 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 12:50:04 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,6 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-/*
-	If derived object (Cat) has the same function (makeSound) as the base object (Animal),
-	then makeSound() must be declared Virtual in the base class. Otherwise it is called 
-	the function from base, instead of from derived object.
-
-	(The function in the Base class must be virtual, in order to be able
-		to be overriden by the derived class. Otherwise it will print  the same
-		message from the function in the Base class)
-
-
-	QUESTIONS:
-
-		Is there any difference, when initialize derived object:
-				Animal	*cat = new Cat();
-			VS	Cat		*cat = new Cat();
-
-
-
-		??? If you have a virtual function in base class, then the destructor
-		also has to be virtual - AND - you need to 'delete' objects in the main.
-		In this case the derived class does not have to have the same
-		function as virtual, and also not the destructors as virtual.
-		(Without 'delete' the destructor is not called!)
-
-		
-	
-*/
 
 int main()
 {
@@ -148,5 +121,6 @@ int main()
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
+	//system ("leaks a.out");
 	return (0);
 }

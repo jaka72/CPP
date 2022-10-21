@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:29 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 15:37:25 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:19:13 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,7 @@ Animal &Animal::operator= (const Animal &src)
 	return (*this);
 } 
 
-// Public member functions
-/*
-If an object is declared as: Animal *cat = new Animal()
-Then his each member method must be const inside this class.
-So compiler can guarantee that calling cat.method() will not change 
-the cat.
-*/
-// IT IS VIRTUAL SPECIFIER IN THE CLASS
-// void Animal::makeSound(void) 
+
 void Animal::makeSound(void) const
 {
 	std::cout << BLU"Animal (type " << _type << ") makeSound: 'no sound!'\n" << RES;
@@ -99,24 +91,3 @@ void Animal::getIdea(int n) const
 	(void)n;
 }
 
-
-
-
-
-
-
-// SOME TESTES ///////////////////////////////////////////////
-// void Animal::printTest(void) const
-// {
-// 	std::cout << "Test, printed from Animal : " << test << "\n";
-// }
-
-// void Animal::printTest_no_const(void) const
-// {
-// 	std::cout << "Test 2 NO CONST, printed from Animal : " << test << "\n";
-// }
-
-// void Animal::justInAnimal(void) const
-// {
-// 	std::cout << "This function is just in base class Animal\n";	
-// }

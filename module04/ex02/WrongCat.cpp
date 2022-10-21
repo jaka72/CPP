@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 14:58:51 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/19 20:12:14 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:27:22 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ WrongCat::WrongCat() : WrongAnimal()
 	std::cout << GRE"Default Constructor:              type " << RES << _type << "\n";
 }
 
-// Cat::Cat(std::string &type)
-// {
-// 	std::cout << GRE"Constructor for type" << type << "\n" << RES;
-// 	// _type = type;
-// }
+// Parameterized constr.
+WrongCat::WrongCat(std::string &type)
+{
+	std::cout << GRE"Constructor for type " << type << "\n" << RES;
+	_type = type;
+}
 
 // Copy constructor
 WrongCat::WrongCat(const WrongCat &wrcat) : WrongAnimal(wrcat)
 {
-	std::cout << GRE"Copy Constructor:         type" << RES << _type << "\n" << RES;
+	std::cout << GRE"Copy Constructor:         type " << RES << _type << "\n" << RES;
 	*this = wrcat;
 }
 // Destructor
@@ -48,7 +49,6 @@ WrongCat &WrongCat::operator= (const WrongCat &wrcat)
 } 
 
 
-
 // Public member functions
 void WrongCat::makeSound(void) const
 {
@@ -67,4 +67,3 @@ std::string WrongCat::getType() const
 	std::cout << BLU"   From WrongCat: type " << _type << RES<< "\n";
 	return this->_type;
 }
-

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 10:24:46 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 12:48:19 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,14 @@ class Animal
 		// Copy constructor
 		Animal(const Animal &animal);
 
-
 		// Destructor
-		virtual ~Animal();	// MUST BE virtual destr, because Class Animal is polimorfic
+		virtual ~Animal();
 
 		// Overload operators
 		Animal &operator= (const Animal &animal);
 
 		// Public member functions
-		 virtual void makeSound(void) const;
+		virtual void makeSound(void) const;
 
 		// Getter
 		virtual std::string getType() const;

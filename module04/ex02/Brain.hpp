@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 19:44:38 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 10:48:48 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:32:12 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,13 @@
 #include "colors.h"
 #include "Animal.hpp"
 
-/*
 
-	Class Brain does not have to inherit class : Animal, because Brain will
-	be used differently than Cat() : Animal()
-	An object Brain will be created in the Cat's constructor:
-			this->_brain = new Brain() 
-		So, Cat will have acces to the object Brain's and to
-		the private array Ideas inside Brain
-*/
 
-class Brain //: public Animal
+class Brain
 {
 	private:
 	
-		static const int	_nr_ideas = 100;	// not sure if it is allowed to add other vars
+		static const int	_nr_ideas = 100;
 		std::string			_ideas[_nr_ideas];
 
 	public:

@@ -6,18 +6,19 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 14:48:36 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/20 15:57:29 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:31:24 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+// Default constructor
 Dog::Dog() : Animal()
 {
 	_type = "Dog";
 	std::cout << GRE"   Default Constructor: Dog, type " << RES << this->_type << "\n";
 
-	this->_brain = new Brain();	// OR this->brain =
+	this->_brain = new Brain();
 	if (this->_brain == NULL)
 	{
 		perror("Memory allocation for Cat Brain failed\n");
@@ -36,14 +37,13 @@ Dog::Dog(std::string type) : Animal()
 
 
 // Copy constructor
-Dog::Dog(const Dog &dog) : Animal()	// !! without dog in Animal(dog)
+Dog::Dog(const Dog &dog) : Animal()
 {
 	_type = "Dog";
 
 	std::cout << GRE"   Copy Constructor:             type " << RES << _type << "\n" << RES;
 	*this = dog;
 }
-
 
 
 
@@ -55,8 +55,7 @@ Dog &Dog::operator= (const Dog &dog)
 		return (*this);
 	this->_type = dog._type;
 
-	_brain = new Brain();	// OR this->brain =
-							// iS DECLARED AS POINTER *_brain
+	_brain = new Brain();
 	
 	if (_brain == NULL)
 	{
@@ -65,11 +64,7 @@ Dog &Dog::operator= (const Dog &dog)
 		exit (1);
 	}
 
-	//  HERE THE _ideas ARE COPIED 1by1 INTO NEW ALLOCATED POINTER _brain
-	// this->_brain = cat._brain;	// HERE IT WAS A PROBLEM !!!
-	*this->_brain = *dog._brain;	// WITHOUT THE * YOU CANNOT USE delete newcatty
-									//  IF newcatty IS MADE VIA COPY CONSTR !!!
-									//  like:  Cat *newcatty = new Cat(*catty) 
+	*this->_brain = *dog._brain;
 
 	return (*this);
 } 
@@ -79,7 +74,7 @@ Dog &Dog::operator= (const Dog &dog)
 // Destructor
 Dog::~Dog()
 {
-	delete (this->_brain);	// OR this->brain;
+	delete (this->_brain);
 	std::cout << GRE"   Destructor, Dog\n" << RES;
 }
 
@@ -92,10 +87,6 @@ void Dog::makeSound(void) const
 
 
 // Setters
- // THIS WAS ERROR,
-// passing ‘const Cat’ as ‘this’ argument discards qualifiers [-fpermissive]
-// THIS PROBLEM HAPPEND BEFORE, SOMETHING TO DO WITH const ???! !!!!
-// SOMETING NOT BEING ABLE TO PROCESS, IT THERE IS NO const ...
 void Dog::setIdea(int n, std::string idea) 
 {
 	this->_brain->setIdea(n, idea);
@@ -121,4 +112,3 @@ std::string Dog::getType() const
 	std::cout << BLU"   Cat getType: " << _type << "\n" << RES;
 	return this->_type;
 }
-

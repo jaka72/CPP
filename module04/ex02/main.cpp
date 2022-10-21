@@ -6,18 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 20:53:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 19:34:34 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:30:15 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sstream>	// for itoa (std::stringstream out;)
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include "colors.h"
-
 
 void	check_allocation(const Animal *anm)
 {
@@ -27,7 +22,6 @@ void	check_allocation(const Animal *anm)
 		exit (1);
 	}
 }
-
 
 
 int main()
@@ -206,5 +200,6 @@ int main()
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
+	//system ("leaks a.out");
 	return (0);
 }

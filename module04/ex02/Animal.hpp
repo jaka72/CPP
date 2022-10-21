@@ -6,20 +6,19 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 19:05:24 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:35:01 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
+#include <sstream>	// for itoa (std::stringstream out;)
 #include <iostream>
 #include <string>
 #include <stdio.h>		// for perror
 #include <stdlib.h>		// fo exit
-
-// #include "Cat.hpp"	// ??? THIS HEADER CANNOT BE HERE, BUT IN MAIN.C ??? (error, cannot convert Cat* to const Animal*) 
-// #include "Dog.hpp"
+#include "Animal.hpp"
 #include "colors.h"
 
 class Animal
@@ -32,24 +31,23 @@ class Animal
 		// Constructors
 		Animal();
 
-		//Animal(std::string &type); // not sure to leave the &
+		// Parameterized constr.
+		Animal(std::string &type);
 
 		// Copy constructor
 		Animal(const Animal &animal);
 
-		// Parameterized constr.
-		Animal(std::string type);
 
 
 		// Destructor
-		//  ~Animal();
-		virtual ~Animal();	// MUST BE virtual destr, because Class Animal is polimorfic.
+		virtual ~Animal();
 
 		// Overload operators
 		Animal &operator= (const Animal &animal);
 
 		// Public member functions
-		virtual void makeSound(void) const = 0;		// Pure Virtual Function
+		// virtual void makeSound(void) const;
+		   virtual void makeSound(void) const  = 0;		// Pure Virtual Function
 
 		// Getter
 		virtual std::string getType() const;
@@ -59,17 +57,10 @@ class Animal
 
 
 		// To work with Brain ////////////////////////////////////////////////////////////
-		// In case: Animal *cat1 = new Cat()		Whithout this not possible to call cat1->setIdea()
+		// In case: Animal *cat1 = new Cat()		Without this not possible to call cat1->setIdea()
 		virtual void getIdea(int n) const;
 		virtual void setIdea(int n, std::string idea);
 
-
-		// SOME TESTS ////////////////////////
-		//virtual void printTest() const;
-		//virtual void printTest_no_const() const;
-
-		// Test to see if it's visible in Cat=Cat
-		//void justInAnimal() const;
 };
 
 #endif

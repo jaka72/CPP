@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/20 09:54:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 11:24:57 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:25:08 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Cat : public Animal
 		// Setter
 		void setIdea(int n, std::string idea);
 		void setType(std::string type);
+
 };
 
 #endif

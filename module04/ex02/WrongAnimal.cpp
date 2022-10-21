@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 14:58:31 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/19 20:04:54 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:28:07 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 WrongAnimal::WrongAnimal()
 {
 	_type = "default";
-	test = 33;
 	std::cout << GRE"Default Constructor: WrongAnimal, type " << RES << _type << "\n";
 }
 

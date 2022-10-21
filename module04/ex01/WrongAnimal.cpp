@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/19 14:58:31 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/10/19 20:04:54 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:01:35 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,6 @@ WrongAnimal &WrongAnimal::operator= (const WrongAnimal &wranimal)
 } 
 
 // Public member functions
-/*
-If an object is declared as: Animal *cat = new Animal()
-Then his each member method must be const inside this class.
-So compiler can guarantee that calling cat.method() will not change 
-the cat.
-*/
-// IT IS VIRTUAL SPECIFIER IN THE CLASS
 void WrongAnimal::makeSound(void) const
 {
 	std::cout << BLU"Called makeSound() for class Animal (no sound)\n" << RES;
@@ -69,7 +62,6 @@ void WrongAnimal::makeSound(void) const
 // Getter
 std::string WrongAnimal::getType() const
 {
-	// std::cout << "From WrongAnimal: type " << _type << "\n";
 	std::cout << BLU"WrongAnimal getType: " << _type << RES"\n";
 	return this->_type;
 }

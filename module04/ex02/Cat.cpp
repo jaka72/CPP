@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 12:56:29 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:31:51 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ Cat::Cat(std::string type)
 // Copy constructor
 Cat::Cat(const Cat &cat) : Animal()
 {
-	//this->_type = "Cat";  
 	std::cout << GRE"   Copy Constructor:            type " << RES << _type << "\n" << RES;
 	*this = cat;
 }
@@ -58,15 +57,13 @@ Cat::Cat(const Cat &cat) : Animal()
 // Overload operators
 Cat &Cat::operator= (const Cat &cat)
 {
-	// std::cout << YEL"a)\n" << RES;
 	std::cout << GRE"   Overload the Assign= operator for Cat\n" << RES;
 	if (this == &cat)
 		return (*this);
 		
 	this->_type = cat._type;
 
-	_brain = new Brain();	// OR this->brain =
-							// iS DECLARED AS POINTER *_brain
+	_brain = new Brain();
 	
 	if (_brain == NULL)
 	{
@@ -75,11 +72,7 @@ Cat &Cat::operator= (const Cat &cat)
 		exit (1);
 	}
 
-	//  HERE THE _ideas ARE COPIED 1by1 INTO NEW ALLOCATED POINTER _brain
-	// this->_brain = cat._brain;	// HERE IT WAS A PROBLEM !!!
-	*this->_brain = *cat._brain;	// WITHOUT THE * YOU CANNOT USE delete newcatty
-									//  IF newcatty IS MADE VIA COPY CONSTR !!!
-									//  like:  Cat *newcatty = new Cat(*catty) 
+	*this->_brain = *cat._brain;
 	
 	return (*this);
 } 

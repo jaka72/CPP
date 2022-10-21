@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:30:00 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 10:28:18 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 12:49:16 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void WrongAnimal::makeSound(void) const
 // Getter
 std::string WrongAnimal::getType() const
 {
-	// std::cout << "From WrongAnimal: type " << _type << "\n";
 	std::cout << BLU"WrongAnimal getType: " << _type << RES"\n";
 	return this->_type;
 }

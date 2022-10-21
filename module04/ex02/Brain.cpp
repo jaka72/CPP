@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 20:40:18 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/19 20:19:55 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/21 13:32:28 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ Brain &Brain::operator= (const Brain &brain)
 		return (*this);
 
 	int i = 0;
-	while (i < _nr_ideas)		// HOW TO COPY STRINGS ???
+	while (i < _nr_ideas)
 	{
+		//std::cout << GRE"         Copying idea " << i << "\n" << RES;
 		(this->_ideas[i]) = (brain._ideas[i]);
 		i++;
 	}
@@ -72,7 +73,6 @@ const std::string Brain::getIdea(int n) const
 // Public member functions
 const std::string *Brain::getIdeaAdres(int n) const
 {
-	//std::cout << "GetIdeaAdres, nr_ideas: " << nr_ideas << "\n";	 
 	if (n < _nr_ideas)
 	{
 		const std::string &adres = this->_ideas[n];
