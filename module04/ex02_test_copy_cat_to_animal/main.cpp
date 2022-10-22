@@ -6,18 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 20:53:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/20 19:34:34 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/22 21:10:40 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sstream>	// for itoa (std::stringstream out;)
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include "colors.h"
-
 
 void	check_allocation(const Animal *anm)
 {
@@ -29,7 +24,6 @@ void	check_allocation(const Animal *anm)
 }
 
 
-
 int main()
 {
 	{	
@@ -39,6 +33,68 @@ int main()
 		// const Animal* j = new Animal();		// not possible
 	}
 	 	std::cout << "\n- - - - - - - - - - - -  - - - - - - - - - - - - - - - -\n\n\n";
+	
+	
+		
+	{
+		std::cout << "- - - Beyond Subject - - - - - - - - - - - -  - -  - - - - -\n";
+		std::cout << "- - - Shallow copy the whole object - - - - - - - - -- - - -\n";
+		// const Animal* cat1 = new Cat();
+		// Animal* cat1 = new Cat();
+		
+		// Animal *cat2(cat1);	// cat2 IS JUST A POINTER, HAS NO SEPARATE MEMORY. IDEAS WILL BE THE SAME AS cat1
+		
+		// cat1->getIdea(0);
+		// cat2->getIdea(0);
+		// cat2->makeSound();
+		// cat1->setIdea(0, "cat1 idea 0");
+		// cat1->getIdea(0);
+		// cat2->getIdea(0);
+		
+		//delete cat1;
+	}
+
+	{
+		std::cout << "- - - Beyond Subject - - - - - - - - - - - -  - - - - -\n";
+		std::cout << "- - - Constructor Cat with Animal as argument - - - - -\n";
+		
+		
+		/*  THE DIFFERENCE
+		
+		Animal* cat1 = new  Cat();   /VS/	-Runs a polimorf function from Animal, not from unless it is virtual in Animal
+		Animal* cat1 = new  Animal();		-Runs always a polimorf function from Animal (virtual or not)
+		
+		*/
+		
+		Animal* cat1 = new  Cat();
+		Animal* cat2 = new  Cat(*cat1);  // Cat has a special constructor, which takes Animal as arg
+		
+		
+		cat1->setType("Cat1");
+		
+		cat1->test00();
+		
+		
+		
+		// cat1->getIdea(0);
+		// cat2->getIdea(0);
+		// cat1->setIdea(0, "cat1 idea 0");
+		// cat1->getIdea(0);
+		// cat2->getIdea(0);
+
+
+
+		delete cat1;
+		//delete cat2;
+	}
+	
+
+
+
+
+
+	/*
+	 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 	{	
 		std::cout << "- - - Create derived object from abstract class - - - - -\n";
 		const Animal* cat1 = new Cat();
@@ -48,6 +104,9 @@ int main()
 		delete dog1;
 	}
 	 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+
+
+		
 	
 	/////////////////////////////////////////////////////////////
 	
@@ -205,6 +264,7 @@ int main()
 		delete cat1;
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
+	*/
+	//system ("leaks a.out");
 	return (0);
 }
