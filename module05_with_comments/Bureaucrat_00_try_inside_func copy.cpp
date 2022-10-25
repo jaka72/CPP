@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Bureaucrat.cpp                                     :+:    :+:            */
+/*   Bureaucrat_00_try_inside_func copy.cpp             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/23 18:51:27 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/25 21:46:16 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Bureaucrat_00.hpp"
 
 
 // Constructor
@@ -33,8 +33,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	// HOW TO STOP/RETURN THE CONSTR IF THE ARG GRADE IS TOO HIGH??
 	
 	_grade = grade;
-	this->GradeTooHighException();
+	//this->GradeTooHighException();
+	//this->GradeTooLowException();
+	std::cout << "Param. constr, name: " << _name << ", grade " << _grade << "\n";
 	this->GradeTooLowException();
+	this->GradeTooHighException();
 }
 
 
@@ -58,38 +61,53 @@ Bureaucrat &Bureaucrat::operator= (const Bureaucrat &src)
 	return *this;
 }
 
-
+std::ostream& operator<< (std::ostream& outstream, Bureaucrat &bur)
+{
+	outstream << "Name: " << bur.getName() << ", grade: " << bur.getGrade() <<"\n";
+	return (outstream);
+}
 
 // Exceptions
 void Bureaucrat::GradeTooHighException()
 {
 	try
 	{
-		if (this->_grade <= 1)
-			throw "      Exception: Grade is too high, must be > 1\n";
+		if (this->_grade <= 0)
+		{
+			throw "      Thrown exception, grade is too high (< 1)\n";
+			this->_grade++;
+		}
+		else if (this->_grade <= 150)
+		{
+			std::cout << "      From Exc Too High: Grade is now " << this->_grade << "\n";
+		}
 	}
-	
-	catch(const char* str)
+	catch (const char *msg)
 	{
-		std::cerr << str;
+		std::cerr << msg;
+		//exit (2);
 	}
 }
 
 
 
 void Bureaucrat::GradeTooLowException()
-{
+{	
 	try
 	{
-		if (this->_grade <= 1 || this->_grade >= 150)
-			throw "      Exception: Grade is too low, must be < 150\n";
-		_grade++;
-		std::cout << "      Grade is now " << this->_grade << "\n";
+		if (this->_grade > 150)
+		{
+			throw "      Thrown exception, grade is too low (> 150 )\n";
+		}
+		else if (this->_grade >= 1)
+		{
+			std::cout << "      From Exc Too Low:  Grade is now " << this->_grade << "\n";
+		}
 	}
-	
-	catch(const char* str)
+	catch (const char *msg)
 	{
-		std::cerr << str;
+		std::cerr << msg;
+		//exit (1);
 	}
 }
 
@@ -100,12 +118,8 @@ void Bureaucrat::GradeTooLowException()
 void	Bureaucrat::incr_grade()
 {
 	std::cout << "   Incrementing grade " << this->_grade << "\n";
+	_grade--;
 	this->GradeTooHighException();
-	if (this->_grade <= 150)
-	{
-		_grade--;
-		std::cout << "      Grade is now " << this->_grade << "\n";
-	}
 }
 
 
@@ -113,13 +127,9 @@ void	Bureaucrat::incr_grade()
 void	Bureaucrat::decr_grade()
 {
 	std::cout << "   Decrementing grade " << this->_grade << "\n";
+	_grade++;
 	this->GradeTooLowException();
-	if (this->_grade >= 150)
-	{
-		_grade++;
-		std::cout << "      Grade is now " << this->_grade << "\n";
-	}
-	}
+}
 
 
 // Getter
@@ -148,19 +158,26 @@ void	Bureaucrat::setGrade(int grade)
  
 int	main()
 {
-	Bureaucrat b0("Joco", 160);
+	Bureaucrat b0("Joco", 0);
+	std::cout << b0;
+
+
+	b0.incr_grade();
+	std::cout << b0;
+
+
+	b0.setGrade(1);
+	std::cout << b0;
+
+	b0.incr_grade();
+	std::cout << b0;
+
+	b0.decr_grade();
+	std::cout << b0;
 	
-	std::cout << "getName: " << b0.getName() << "\n";
-	std::cout << "getGrade: " << b0.getGrade() << "\n";
+	b0.decr_grade();
+	std::cout << b0;
 
-
-	
-
-
-	// b0.setGrade(1);
-	// b0.incr_grade();
-	// b0.decr_grade();
-	
 	// b0.setGrade(150);
 	// b0.decr_grade();
 	// b0.incr_grade();
