@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/25 22:02:51 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/25 22:18:12 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 // If I make a separate class for GradeTooHighException, it is error c98
 // Apparently this class must be declared inside class Bureaucrat ???
+// Bureaucrat (DELETED ACCIDENTALY)
 
 
-
-//Bureaucrat 
-
+/*
+	Inside the param. constr. there is try+catch blocks. If grade is invalid, the try throws a 
+	creation of the class GradeTooHighException(). The throw is caught by catch the 
+	just created class, which calls function what() from this created class.
+	wait() gives the according message.
+	
+*/
 
 
 // FUNCTION wait() IN CLASS INSIDE CLASS,  DERIVED FROM std::exception
@@ -28,10 +33,10 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 }
 
 
-//class GradeTooLowException : public std::exception
-// {
-	
-// }
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("      Thrown exception, Grade Too Low\n");
+}
 
 
 
@@ -65,7 +70,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	try
 	{
 		if (_grade < 1)
-			throw GradeTooHighException();	
+			throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	try
+	{
+		if (_grade > 150)
+			throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
 	}
 	catch(const std::exception& e)
 	{
@@ -102,8 +117,8 @@ std::ostream& operator<< (std::ostream& outstream, Bureaucrat &bur)
 }
 
 // Exceptions
-void Bureaucrat::GradeTooHighException_old()
-{
+//void Bureaucrat::GradeTooHighException_old()
+//{
 // 	try
 // 	{
 // 		if (this->_grade <= 0)
@@ -121,12 +136,12 @@ void Bureaucrat::GradeTooHighException_old()
 // 		std::cerr << msg;
 // 		//exit (2);
 // 	}
-}
+//}
 
 
 
-void Bureaucrat::GradeTooLowException_old()
-{	
+//void Bureaucrat::GradeTooLowException_old()
+//{	
 // 	try
 // 	{
 // 		if (this->_grade > 150)
@@ -143,16 +158,21 @@ void Bureaucrat::GradeTooLowException_old()
 // 		std::cerr << msg;
 // 		//exit (1);
 // 	}
-}
+//}
 
 
 //////////////////////////////////////////////////////////
 // CLASS INSIDE CLASS
-class GradeTooHightException : public std::exception
-{
-	const char* wait() const throw();	
-};
+// class GradeTooHightException : public std::exception
+// {
+// 	const char* wait() const throw();	
+// };
 
+// // CLASS INSIDE CLASS
+// class GradeTooHightException : public std::exception
+// {
+// 	const char* wait() const throw();	
+// };
 
 
 
@@ -162,7 +182,21 @@ void	Bureaucrat::incr_grade()
 	std::cout << "   Incrementing grade " << this->_grade << "\n";
 	_grade--;
 	//this->GradeTooHighException();
+
+	try
+	{
+		if (_grade < 1)
+			throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
+
+
+
 
 
 
@@ -171,7 +205,23 @@ void	Bureaucrat::decr_grade()
 	std::cout << "   Decrementing grade " << this->_grade << "\n";
 	_grade++;
 	//this->GradeTooLowException();
+
+	try
+	{
+		if (_grade > 150)
+			throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
+
+
+
+
+
+
 
 
 // Getter

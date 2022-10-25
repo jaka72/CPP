@@ -52,11 +52,18 @@ class Bureaucrat
 
 
 		// Exceptions
-		void GradeTooHighException_old();
-		void GradeTooLowException_old();
+		//void GradeTooHighException_old();
+		//void GradeTooLowException_old();
 
 		// CLASS INSIDE CLASS
 		class GradeTooHighException : public std::exception
+		{
+            // public:
+    			const char* what() const throw();
+		};
+
+        // CLASS INSIDE CLASS
+		class GradeTooLowException : public std::exception
 		{
             // public:
     			const char* what() const throw();
