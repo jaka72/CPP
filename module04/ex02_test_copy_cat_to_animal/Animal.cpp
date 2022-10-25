@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/15 13:24:29 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/22 20:58:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/23 11:47:46 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void Animal::setIdea(int n, std::string idea)
 	// just virtual, because Animal does not have Brain
 	(void)n;
 	(void)idea;
+	std::cout << LRD"Animal can't set idea, has no brain\n" << RES;
+
 }
 
 // Getters
@@ -89,6 +91,8 @@ void Animal::getIdea(int n) const
 {
 	// just virtual, because Animal does not have Brain
 	(void)n;
+	std::cout << LRD"Animal can't get idea, has no brain\n" << RES;
+
 }
 
 

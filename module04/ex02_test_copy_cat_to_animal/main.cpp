@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 20:53:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/22 21:10:40 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/23 11:48:34 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,49 +32,84 @@ int main()
 		// Animal *anm2 = new Animal();			// not possible
 		// const Animal* j = new Animal();		// not possible
 	}
-	 	std::cout << "\n- - - - - - - - - - - -  - - - - - - - - - - - - - - - -\n\n\n";
+	 	std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 	
-	
-		
+
 	{
 		std::cout << "- - - Beyond Subject - - - - - - - - - - - -  - -  - - - - -\n";
-		std::cout << "- - - Shallow copy the whole object - - - - - - - - -- - - -\n";
-		// const Animal* cat1 = new Cat();
-		// Animal* cat1 = new Cat();
+		std::cout << "- - - Shallow copy (just the address) - - - - - - - - - - - - -\n";
+
+		// const Animal* cat1 = new Cat();		// Error, const apparently can't copy its address
+		Animal* cat1 = new Cat();
 		
-		// Animal *cat2(cat1);	// cat2 IS JUST A POINTER, HAS NO SEPARATE MEMORY. IDEAS WILL BE THE SAME AS cat1
+		// A)
+		std::cout << "A) ......\n";
+		Animal* cat2(cat1);	// cat2 IS JUST A POINTER, HAS NO SEPARATE MEMORY. IDEAS WILL BE THE SAME AS cat1
+							// No constructor called
 		
 		// cat1->getIdea(0);
 		// cat2->getIdea(0);
 		// cat2->makeSound();
 		// cat1->setIdea(0, "cat1 idea 0");
 		// cat1->getIdea(0);
-		// cat2->getIdea(0);
+		cat2->getIdea(0);
 		
-		//delete cat1;
-	}
+		std::cout << "B) ......\n";
+		
+		// B)
+		// Cat    cat4(*cat1);	// OK, calls constr Cat(Animal &cpy).    Cat4 is non-pointer Animal, has brain
+		   Animal cat3(*cat1);	// OK, calls constr Animal(Animal &cpy). Cat3 is non-pointer Animal, no brain
 
-	{
-		std::cout << "- - - Beyond Subject - - - - - - - - - - - -  - - - - -\n";
-		std::cout << "- - - Constructor Cat with Animal as argument - - - - -\n";
+		cat3.getIdea(0);	// Does nothing, because it is Animal
+		cat3.setIdea(0, "cat3 idea 0");
+		cat3.getIdea(0);
+
+
+		// C)
+		std::cout << "C) ......\n";
+		// Animal cat3(*cat1);	// OK, calls constr Animal(Animal &cpy). Cat3 is non-pointer Animal, no brain
+		   Cat    cat4(*cat1);	// OK, calls constr Cat(Animal &cpy).    Cat4 is non-pointer Animal, has brain
 		
-		
-		/*  THE DIFFERENCE
-		
-		Animal* cat1 = new  Cat();   /VS/	-Runs a polimorf function from Animal, not from unless it is virtual in Animal
-		Animal* cat1 = new  Animal();		-Runs always a polimorf function from Animal (virtual or not)
-		
+		cat4.getIdea(0);	// Prints, because cat4 is Cat
+		cat4.setIdea(0, "cat3 idea 0");
+		cat4.getIdea(0);
+
+		/*	D)
+			Entity          Value
+			Cat* cat3 = new Animal();	Not possible!
+			Error: Value of type Animal* cannot be used to initialize an entity of type Cat*
 		*/
 		
-		Animal* cat1 = new  Cat();
-		Animal* cat2 = new  Cat(*cat1);  // Cat has a special constructor, which takes Animal as arg
+		std::cout << "E) ......\n";
+		Animal cat11;
+		Cat cat5(cat11);	// Copy value from non-pointer
+		//Cat cat6(*cat1);	// Copy value from pointer
+
+		// cat11.setIdea(0, "cat11 idea 0");	// No, Animal has no brain
+		cat5.setIdea(0, "cat5 idea 0");
+		//cat6.setIdea(0, "cat6 idea 0");
+		cat11.getIdea(0);	// No, Animal has no brain
+		cat5.getIdea(0);	// Prints, because cat4 is Cat
+		// cat6.getIdea(0);	// Prints, because cat4 is Cat
 		
+	
+		delete cat1;
+	}
+	 	std::cout << "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+
+	{
+		// std::cout << "- - - Beyond Subject - - - - - - - - - - - -  - - - - -\n";
+		// std::cout << "- - - Constructor Cat via Animal (parent as argument) - - - - -\n";
+		// /* THE DIFFERENCE
+		// 	Animal* cat1 = new  Cat();   /VS/	-Runs a polimorf function from Animal, not from Cat, unless it is virtual in Animal
+		// 	Animal* cat1 = new  Animal();		-Runs always a polimorf function from Animal (virtual or not)
+		// */
 		
-		cat1->setType("Cat1");
-		
-		cat1->test00();
-		
-		
+		// Animal* cat1 = new  Cat();
+		// Animal* cat2 = new  Cat(*cat1);  // Cat has now a custom constructor, which takes Animal as arg
+				
+		// cat1->setType("Cat1");
+		// cat1->test00();
 		
 		// cat1->getIdea(0);
 		// cat2->getIdea(0);
@@ -82,9 +117,7 @@ int main()
 		// cat1->getIdea(0);
 		// cat2->getIdea(0);
 
-
-
-		delete cat1;
+		//delete cat1;
 		//delete cat2;
 	}
 	

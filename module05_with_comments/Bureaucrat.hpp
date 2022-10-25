@@ -1,52 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.hpp                                            :+:    :+:            */
+/*   Bureaucrat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/20 10:22:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/23 18:18:26 by jaka          ########   odam.nl         */
+/*   Created: 2022/10/20 09:54:42 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/23 13:07:45 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-#define CAT_H
+#ifndef BUREAUCRAT_H
+#define BUREAUCRAT_H
 
 #include <iostream>
-#include "Animal.hpp"
 
-class Cat : public Animal
+class Bureaucrat
 {
 	private:
-		std::string _type;
+		int					_grade;
+		const std::string	_name;
+
 
 	public:
 
-		// Constructors
-		Cat();
-
+		// Constructor
+		Bureaucrat();
+		
 		// Param. constr.
-		Cat(std::string type);
-
+		Bureaucrat(std::string name, int grade);
 
 		// Copy constructor
-		Cat(const Cat &cat);
+		Bureaucrat(const Bureaucrat &src);
 
 		// Destructor
-		virtual ~Cat();
+		~Bureaucrat();
 
 		// Overload operators
-		Cat &operator= (const Cat &cat);
+		Bureaucrat &operator= (const Bureaucrat &src);
 
 		// Public member functions
-		void makeSound(void) const;
+		void	incr_grade();
+		void	decr_grade();
 
 		// Getter
-		std::string getType() const;
+		int			getGrade() const;
+		std::string getName() const;		// maybe return const ???
 
 		// Setter
-		void setType(std::string type);
+		void	setGrade(int grade);
+
+
+
+
+		// Exceptions
+		void GradeTooHighException();
+		void GradeTooLowException();
+
 };
 
 #endif
