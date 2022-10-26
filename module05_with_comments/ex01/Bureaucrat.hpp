@@ -1,6 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
+/*   Bureaucrat.hpp                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/26 16:59:49 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
 /*   Bureaucrat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
@@ -13,14 +25,22 @@
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
 
+#include "colors.h"
 #include <iostream>
+#include <exception>
+// #include <string>	// ???
+// #include "Form.hpp"
+
+
+class Form; // Is this needed?
+
 
 class Bureaucrat
 {
 	private:
+
 		int					_grade;
 		const std::string	_name;
-
 
 	public:
 
@@ -39,22 +59,25 @@ class Bureaucrat
 		// Overload operators
 		Bureaucrat &operator= (const Bureaucrat &src);
 
+
 		// Public member functions
 		void	incr_grade();
 		void	decr_grade();
 
+
+		void    signForm(Form &form);
+
+
 		// Getter
 		int			getGrade() const;
 		std::string getName() const;		// maybe return const ???
+
 
 		// Setter
 		void	setGrade(int grade);
 
 
 		// Exceptions
-		//void GradeTooHighException_old();
-		//void GradeTooLowException_old();
-
 		// CLASS INSIDE CLASS
 		class GradeTooHighException : public std::exception
 		{
@@ -68,7 +91,8 @@ class Bureaucrat
             // public:
     			const char* what() const throw();
 		};
-
 };
+
+std::ostream &operator<< (std::ostream& outstream, Bureaucrat& bur);
 
 #endif
