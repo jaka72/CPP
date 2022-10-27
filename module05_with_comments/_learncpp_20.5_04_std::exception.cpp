@@ -9,10 +9,8 @@ class ArrayException : public std::exception
         std::string m_error{}; // handle our own string
 
     public:
-        ArrayException(std::string error)
-            : m_error{error}
-        {
-        }
+        ArrayException(std::string error)  :  m_error{error}
+        {   }
 
         // std::exception::what() returns a const char*, so we must as well
         const char* what() const noexcept override { return m_error.c_str(); }
@@ -35,7 +33,6 @@ class IntArray
 
             return m_data[index];
         }
-
 };
 
 int main()

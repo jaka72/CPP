@@ -20,6 +20,8 @@ class class_Exception
         { return _error; }
 };
 
+
+
 class IntArray
 {
     private:
@@ -48,6 +50,7 @@ int main()
 {
 	IntArray array;
 
+
     // TEST 1
 	try
 	{
@@ -57,7 +60,8 @@ int main()
 	{
 		std::cerr << "An array exception occurred (" << exception.getError() << ")\n"; // print msg from class
 	}
-    
+
+
     // TEST 2
     try
 	{
@@ -67,5 +71,4 @@ int main()
 	{
 		std::cerr << "An array exception occurred (" << exception.getError() << ")\n"; // print msg from class
 	}
-
 }

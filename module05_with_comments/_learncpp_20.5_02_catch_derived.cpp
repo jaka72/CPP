@@ -2,14 +2,14 @@
 
 class Base
 {
-public:
-    Base() {}
+    public:
+        Base() {}
 };
 
 class Derived: public Base
 {
-public:
-    Derived() {}
+    public:
+        Derived() {}
 };
 
 int main()

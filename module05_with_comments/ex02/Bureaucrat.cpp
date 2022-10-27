@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 21:25:37 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/27 21:35:14 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 
 
 	Operator<< overload must be outside the class in the header !!!!!
+	
+
+	The throw() specifier after function what() declares that Wat will never throw an exception.
+
+	
 	
 */
 
@@ -157,7 +162,6 @@ void	Bureaucrat::incr_grade()
 }
 
 
-
 void	Bureaucrat::decr_grade()
 {
 	std::cout << BLU"   Decrementing grade " << this->_grade << "\n" RES;
@@ -178,8 +182,10 @@ void	Bureaucrat::decr_grade()
 
 void   Bureaucrat::signForm(Form &form)
 {
+	// form.beSigned(*this);
     std::cout << GRE"   SIGN FORM:\n" RES;
 
+	
 	if (_grade <= form.getReqGradeSign() && form.getIsSigned() == false)
 	{
         form.setIsSigned(true);
@@ -189,14 +195,13 @@ void   Bureaucrat::signForm(Form &form)
 		std::cout << LRD"   Bureaucrat " << _name << " can't sign the form " << form.getName()
 					<< ", because his sign grade is too low (" << _grade <<")\n" RES;
 	else if (form.getIsSigned() == true)
-		std::cout << "This form is already signed.\n";
+		std::cout << GRN"   This form is already signed.\n" RES;
 }
 
 
 
 
-
-// Getters /////////////////////////////////////////////////////////////////
+// Getters /////////////////////////////////////////////////////////
 
 int			Bureaucrat::getGrade() const
 {
@@ -210,8 +215,7 @@ std::string Bureaucrat::getName() const		// maybe return const ???
 
 
 
-// Setters //////////////////////////////////////////////////////////////////
-
+// Setter
 void	Bureaucrat::setGrade(int grade)
 {
 	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
@@ -230,7 +234,6 @@ void	Bureaucrat::setGrade(int grade)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
 }
 
 

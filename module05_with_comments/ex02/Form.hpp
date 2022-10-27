@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:35:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 21:29:23 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/27 21:32:04 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 
 class Form
 {
-    private:
+    protected:
         const std::string   _name;
         bool                _isSigned;
         const int           _reqGradeSign;
         const int           _reqGradeExec;
+        std::string         _target;
 
     public:
 		// Constructor
@@ -31,13 +32,12 @@ class Form
         Form(std::string name, int gradeSign, int gradeExec);
         
 		// Destructor
-        ~Form() throw();
+        virtual ~Form() throw();
 
 		// Copy constructor
-        Form(const Form& src);
 		
         // Overload operators
-        Form& operator= (const Form& src);
+
 
 		// Exceptions
 
@@ -61,23 +61,28 @@ class Form
 
                 GradeTooLowException() throw();
                 GradeTooLowException(const char* msg) throw();                
-                ~GradeTooLowException() throw();
+                virtual ~GradeTooLowException() throw();
 
                 const char* what(const char* msg) const throw();
                 // const char* what() const throw();
         };
 
         // Getters
-        std::string getName() const;
-        bool        getIsSigned() const;
-        int         getReqGradeSign() const;
-        int         getReqGradeExec() const;
-
+        virtual std::string getName() const  =  0;
+        virtual bool        getIsSigned() const;
+        virtual int         getReqGradeSign() const;
+        virtual int         getReqGradeExec() const;
+        
+        
         // Setters
-        void    setIsSigned(bool b);
+        virtual void    setIsSigned(bool b);
+
         
         // Public member functions
-        void    beSigned(Bureaucrat& bur);
+        virtual void    beSigned(Bureaucrat& bur);
+
+
+        //void
 
 };
 
