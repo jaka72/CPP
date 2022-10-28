@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/28 08:11:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/28 17:20:39 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,11 +99,12 @@ void    ShrubberyCreationForm::print_shrubbery()
     myFile.open(str);
     
     myFile << "\n\n\n\n\n";
-    myFile << "       o       o       o\n";
-    myFile << "     WWWWW   WWWWW   WWWWW\n";
-    myFile << "      WWW     WWW     WWW\n";
-    myFile << "       W       W       W\n";
-    myFile << "       |       |       |\n";
+    myFile << "      \\ | /\n";
+    myFile << "     \\--o--/       o       o\n";
+    myFile << "    \\wWWWWWw/     WWWWW   WWWWW\n";
+    myFile << "    --wWWWw--       WWW     WWW\n";
+    myFile << "     / wWw \\        W       W\n";
+    myFile << "       /|\\         |       |\n";
     myFile.close();
 }
 

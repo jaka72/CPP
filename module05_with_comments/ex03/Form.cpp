@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:55:58 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/28 08:01:17 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/28 17:12:15 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,11 @@ void    Form::beSigned(Bureaucrat& bur)
 }
 
 
+void    Form::execute(const Bureaucrat&)
+{   }
+
+
+
 
 // Getters ///////////////////////////////////////////////////
 
@@ -130,6 +135,12 @@ void    Form::setIsSigned(bool b)
 {
     this->_isSigned = b;
 }
+
+void    Form::setTarget(std::string formTarget)
+{
+    this->_target = formTarget;
+}
+
 
 
 // EXCEPTIONS ///////////////////////////////////////////////////////////

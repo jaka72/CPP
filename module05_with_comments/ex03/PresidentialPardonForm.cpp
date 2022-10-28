@@ -28,17 +28,17 @@ PresidentialPardonForm::PresidentialPardonForm()
 {
 	std::cout << GRE"   Default constr PardonForm:  " << _name << "\n" RES;
     //_isSigned = false;
-    _target = "file_default";   // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
+    _target = "defaultTargetPardon";   // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
 }
 
 
 // Param. constr.
-PresidentialPardonForm::PresidentialPardonForm(std::string targetFile)
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
                        : Form("BaseForm", 25, 5), _name("PardonForm")
 {
 	std::cout << GRE"   Param. constr PardonForm:  " << _name << ",  sign " << _reqGradeSign << ",  exec " << _reqGradeExec << "\n" RES;
     //_isSigned = false;
-    _target = targetFile;       // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
+    _target = target;       // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
     
     // NO TRY/CATCH CHECKING NEEDED HERE,
     // BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST

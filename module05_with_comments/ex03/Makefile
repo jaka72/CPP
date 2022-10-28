@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/28 16:25:07 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/28 16:24:45 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,19 +26,30 @@ NAME		=	a.out
 CC			=	c++
 CFLAGS		=	-std=c++98 -Wall -Wextra -Werror		-Wshadow -Wno-shadow     -O2   -Ofast
 
-CPP_FILES	=	main.cpp Bureaucrat.cpp Form.cpp
-				
+CPP_FILES	=	main.cpp					\
+				Bureaucrat.cpp				\
+				Form.cpp					\
+				Intern.cpp					\
+				ShrubberyCreationForm.cpp	\
+				RobotomyRequestForm.cpp		\
+				PresidentialPardonForm.cpp
+
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-HEADERS		=	Bureaucrat.hpp Form.hpp
+HEADERS		=	Bureaucrat.hpp 				\
+				Form.hpp					\
+				Intern.hpp					\
+				ShrubberyCreationForm.hpp	\
+				RobotomyRequestForm.hpp		\
+				PresidentialPardonForm.hpp
 
 
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(YEL)\n --- CPP MODULE05, EXCERCISE 01 --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE05, EXCERCISE 03 --- \n\n$(RES)"
 
 
 #compile the objects

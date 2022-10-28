@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/27 21:11:09 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/28 16:24:53 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ HEADERS		=	Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(YEL)\n --- CPP MODULE05, EXCERCISE 00 --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE05, EXCERCISE 02 --- \n\n$(RES)"
 
 
 #compile the objects
