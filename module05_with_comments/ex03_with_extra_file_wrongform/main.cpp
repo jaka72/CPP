@@ -6,16 +6,17 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:09:50 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/29 12:34:11 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "Intern.hpp"	// THIS WAS ERROR, WHEN ABOVE SHRUBERRY.HPP !!!
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "WrongForm.hpp"	// dummy - not sure if good solution ???
 
 
 
@@ -192,38 +193,41 @@ int main()
 	}
 
 	// EX03 ////////////////////////////////////////
-		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
 	{
-		std::cout << "EX03 = INTERN AND WRONG FORM  - - - - - - - - - -\n\n";
-
 		Bureaucrat bur1("Steve", 3);
 		Intern intern1;
 		
 		// Form* shrub1("targetFile");  // THE TARGET NEEDS TO WORK BELLOW AS THE SECOND ARG
 		Form* shrub1;
 		Form* robo1;
-		// Form* pardon1;
+		Form* pardon1;
 
-		shrub1  = intern1.makeForm("shrubbery request", "PaperA");
+		shrub1  = intern1.makeForm("shrubbery request", "PaperA");// TARGET NOT VISIBLE IN OUTPUT ???
 		robo1   = intern1.makeForm("robotomy request", "RobotA");
-		// pardon1 = intern1.makeForm("pardon request", "Jakob");
+		pardon1 = intern1.makeForm("pardon request", "Jakob");
 		
 		shrub1->beSigned(bur1);
 		robo1->beSigned(bur1);
-		// pardon1->beSigned(bur1);	
+		pardon1->beSigned(bur1);	
 
 		shrub1->execute(bur1);
 		robo1->execute(bur1);
-		// pardon1->execute(bur1);
+		pardon1->execute(bur1);
 
 
 		Form* wrong1;
+
 		wrong1 = intern1.makeForm("wrong request", "Jakob");
+		std::cout << "Main a )\n";
+
+		// if (wrong1 == NULL)
+		// 	std::cout << "B)\n";
+		
+
 		wrong1->beSigned(bur1);
 		wrong1->execute(bur1);
 
-		bur1.signForm(*wrong1);
 	
 	}
 

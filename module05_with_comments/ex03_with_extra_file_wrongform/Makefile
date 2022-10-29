@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/29 19:30:35 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/29 12:48:05 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,8 @@ CPP_FILES	=	main.cpp					\
 				Intern.cpp					\
 				ShrubberyCreationForm.cpp	\
 				RobotomyRequestForm.cpp		\
-				PresidentialPardonForm.cpp
-#				WrongForm.cpp
+				PresidentialPardonForm.cpp	\
+				WrongForm.cpp
 
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
@@ -44,8 +44,8 @@ HEADERS		=	Bureaucrat.hpp 				\
 				Intern.hpp					\
 				ShrubberyCreationForm.hpp	\
 				RobotomyRequestForm.hpp		\
-				PresidentialPardonForm.hpp
-#				WrongForm.hpp
+				PresidentialPardonForm.hpp	\
+				WrongForm.hpp
 
 
 

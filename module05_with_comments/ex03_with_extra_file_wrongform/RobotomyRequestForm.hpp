@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
+/*   RobotomyRequestForm.hpp                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/26 21:25:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:27:55 by jaka          ########   odam.nl         */
+/*   Created: 2022/10/27 16:19:41 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/27 21:37:05 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-
-
-
-#ifndef SHRUBBERY_CREATION_FORM_H
-#define SHRUBBERY_CREATION_FORM_H
+#ifndef ROBOTOMY_REQUEST_FORM_H
+#define ROBOTOMY_REQUEST_FORM_H
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public virtual Form // should be virtual here ???
-// class ShrubberyCreationForm    : public         Form // should be virtual here ???
+class RobotomyRequestForm : public virtual Form // should be virtual here ???
+// class RobotomyRequestForm    : public         Form // should be virtual here ???
 {
     private:
-    // protected:
         //std::string         _target;
         const std::string   _name;  // according to subject, it must be in the base class,
                                     // but then both parent & child must have same name
@@ -34,17 +30,13 @@ class ShrubberyCreationForm : public virtual Form // should be virtual here ???
 
     public:
 		// Constructor
-        ShrubberyCreationForm();
+        RobotomyRequestForm();
         
 		// Param. constr.  - NOT USED
-        ShrubberyCreationForm(std::string targetFile);
-
-        // ADDED TO HELP SAVE FORMNAME TO WRONGFORM
-        ShrubberyCreationForm(std::string formName, int x, int y);
-
+        RobotomyRequestForm(std::string targetFile);
         
 		// Destructor
-        ~ShrubberyCreationForm() throw();
+        ~RobotomyRequestForm() throw();
 
 		// Copy constructor
 		
@@ -58,32 +50,10 @@ class ShrubberyCreationForm : public virtual Form // should be virtual here ???
     // SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
 
         // class GradeTooHighException : public std::exception
-        // {
-        //     public:
-        //         const char* _msg;
-
-        //         // constructors
-        //         GradeTooHighException() throw();
-        //         GradeTooHighException(const char* msg) throw();                
-        //         ~GradeTooHighException() throw();
-                
-        //         const char* what(const char* msg) const throw();
-        //         // const char* what() const throw();
-        // };
-        
+        // { }
+         
         // class GradeTooLowException  : public std::exception
-        // {
-        //     public:
-        //         const char* _msg;
-
-        //         // constructors
-        //         GradeTooLowException() throw();
-        //         GradeTooLowException(const char* msg) throw();                
-        //         ~GradeTooLowException() throw();
-
-        //         const char* what(const char* msg) const throw();
-        //         // const char* what() const throw();
-        // };
+        // { }
 
         // Getters
         std::string getName() const; // THIS FUNC MUST BE PRESENT, BECAUSE IN BASE-FORM IS SET TO = 0
@@ -93,7 +63,8 @@ class ShrubberyCreationForm : public virtual Form // should be virtual here ???
         
         // Public member functions
         void    execute(const Bureaucrat& bur);
-        void    print_shrubbery();
+        void    makeDrillNoise();
+
 
         //void    beSigned(Bureaucrat& bur);
 

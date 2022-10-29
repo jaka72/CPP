@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:24:13 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:08:27 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/29 12:33:13 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-//#include "WrongForm.hpp"
+#include "WrongForm.hpp"
 #include "Intern.hpp"
 
-#define NR_FORMS 4
+
 
 // FUNCTION wait() IN CLASS INSIDE CLASS,  DERIVED FROM std::exception
 // const char* Intern::GradeTooHighException::what() const throw()
@@ -38,11 +38,6 @@
 Intern::Intern()
 {
 	std::cout << GRE"Default constr. Intern\n" RES;
-
-	_form[0] = new ShrubberyCreationForm();
-	_form[1] = new RobotomyRequestForm();
-	_form[2] = new PresidentialPardonForm();
-	_form[3] = new WrongForm("Not recognized");
 }
 
 
@@ -114,13 +109,9 @@ Intern::~Intern()
 {
 	std::cout << GRE"Destructor Intern\n" RES;
 	
-	int i = 0;
-	while (i < NR_FORMS)
-	{	
-		std::cout << GRE"   delete " << i << ": " << _form[i]->getName() << "\n" RES;
+	int i = 3;
+	while (i < 3)
 		delete _form[i];
-		i++;
-	}
 }
 
 
@@ -154,30 +145,30 @@ Form*  Intern::makeForm(std::string formName, std::string formTarget)
 	// Form	*f1;
 	//int		level = get_level(formName);
 
-	// _form[0] = new ShrubberyCreationForm();
-	// _form[1] = new RobotomyRequestForm();
-	// _form[2] = new PresidentialPardonForm();
-	// _form[3] = new WrongForm(formName);
+	_form[0] = new ShrubberyCreationForm();
+	_form[1] = new RobotomyRequestForm();
+	_form[2] = new PresidentialPardonForm();
+	_form[3] = new WrongForm(formName);
 	
 	int i = 0;
-	while (i < NR_FORMS)
+	while (i < 3)
 	{
 		if (formName == _form[i]->getName())
 		{
-			// std::cout << "formname: " << _form[i]->getName() << "\n"; 
-			// std::cout << "formtarget: " << _form[i]->getTarget() << "\n"; 
+			std::cout << "formname: " << _form[i]->getName() << "\n"; 
+			std::cout << "formtarget: " << _form[i]->getTarget() << "\n"; 
 			_form[i]->setTarget(formTarget);
 			
-			std::cout << CYN"   The Intern has made the Form: " << formName << ", with target: " << formTarget << "\n" RES;
+			std::cout << CYN"   The Intern has made the Form: " << formName << "\n" RES;
 			return (_form[i]);
 		}
 		i++;
 	}
 	
-	 std::cout << "A) " << i << "\n";
+	std::cout << "A) " << i << "\n";
 	
-	std::cout << LRD"   The Intern has made a Wrong Form: " << formName << ", with target: " << formTarget << "\n" RES;
-	return (_form[--i]); // !!! SHOULD GIVE WRONGFORM, INSTEAD OF NOW SHRUBERRY
+
+	return (_form[i]);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:23:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:28:12 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/29 12:21:45 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,40 +58,11 @@ class Intern
 
 
 		// DUMMY WRONG FORM
-		class WrongForm : public virtual ShrubberyCreationForm  //, public std::exception
-		{
-			private:
-				std::string	_name;
-				
-			public:
-				WrongForm()
-				{
-					std::cout << "      Default constr Wrongform\n";
-				}
-				WrongForm(std::string formName) : ShrubberyCreationForm("xxxwww", 0, 0) // ShrubberyCreationForm(formName, "no target")
-				{	
-					std::cout << "       Param constr WrongForm, " << getName() << "\n";
-						//_name = formName;
-				};
-				~WrongForm()
-				{	};
-				void beSigned(Bureaucrat& bur) //override
-				{
-					std::cout << "   BE SIGNED: " << LRD"Form [" << getName() << "] not recognized, cannot sign.\n" RES;
-				}
-				void execute(const Bureaucrat& bur) //override
-				{
-					std::cout << "   EXECUTE: " << LRD"Form [" << getName() << "] not recognized, cannot execute.\n" RES;
-				}
-
-			
-			
-			// std::string getName()
-			// {
-			// 	return this->_name;
-			// }
-				const char *what() const throw();
-		};
+		// class WrongForm : public ShrubberyCreationForm  //, public std::exception
+		// {
+		// 	public:
+		// 		const char *what() const throw();
+		// };
 
 
 

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:24:06 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/29 11:39:36 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,11 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string targetFile)
 	std::cout << GRE"   Param. constr ShrubberyForm:  " << _name << ",  sign " << _reqGradeSign << ",  exec " << _reqGradeExec << "\n" RES;
     //_isSigned = false;
     _target = targetFile;
+    
+
     // NO TRY/CATCH CHECKING NEEDED HERE,
     // BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST
 }
-
-
-
-// Param. constr. II  // ADDED TO HELP SAVE NAME TO WRONGFORM
-// THIS IS PROBBLY UNNECESSARY
-// THE 0 0 ARGS DOES NOT DO ANYTHING, CAN REMOVE 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string formName, int x, int y)
-                       : Form("Base_form_wrong", 0, 0), _name(formName)
-{
-	std::cout << GRE"   Param. II constr ShrubberyForm:  " << _name << ",  sign " << _reqGradeSign << ",  exec " << _reqGradeExec << "\n" RES;
-    //_isSigned = false;
-    //_target = targetFile;
-    // NO TRY/CATCH CHECKING NEEDED HERE,
-    // BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST
-}
-
 
 
 

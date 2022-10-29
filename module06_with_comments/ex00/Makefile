@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/10/29 19:30:35 by jaka          ########   odam.nl          #
+#    Updated: 2022/10/28 17:59:12 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,34 +24,21 @@ RED		=	\033[31m
 NAME		=	a.out
 
 CC			=	c++
-CFLAGS		=	#-std=c++98   -Wall -Wextra -Werror		-Wshadow -Wno-shadow     -O2   -Ofast
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror		-Wshadow -Wno-shadow     -O2   -Ofast
 
-CPP_FILES	=	main.cpp					\
-				Bureaucrat.cpp				\
-				Form.cpp					\
-				Intern.cpp					\
-				ShrubberyCreationForm.cpp	\
-				RobotomyRequestForm.cpp		\
-				PresidentialPardonForm.cpp
-#				WrongForm.cpp
-
+CPP_FILES	=	main.cpp
+				
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-HEADERS		=	Bureaucrat.hpp 				\
-				Form.hpp					\
-				Intern.hpp					\
-				ShrubberyCreationForm.hpp	\
-				RobotomyRequestForm.hpp		\
-				PresidentialPardonForm.hpp
-#				WrongForm.hpp
+HEADERS		=	
 
 
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(YEL)\n --- CPP MODULE05, EXCERCISE 03 --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE06, EXCERCISE 00 --- \n\n$(RES)"
 
 
 #compile the objects

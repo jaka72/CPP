@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:24:13 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:08:27 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/29 09:51:09 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-//#include "WrongForm.hpp"
 #include "Intern.hpp"
 
-#define NR_FORMS 4
+
 
 // FUNCTION wait() IN CLASS INSIDE CLASS,  DERIVED FROM std::exception
 // const char* Intern::GradeTooHighException::what() const throw()
@@ -38,11 +37,6 @@
 Intern::Intern()
 {
 	std::cout << GRE"Default constr. Intern\n" RES;
-
-	_form[0] = new ShrubberyCreationForm();
-	_form[1] = new RobotomyRequestForm();
-	_form[2] = new PresidentialPardonForm();
-	_form[3] = new WrongForm("Not recognized");
 }
 
 
@@ -74,8 +68,6 @@ Intern::Intern(const Intern &src)
 	std::cout << GRE"Copy constr. Intern\n" RES;
 	*this = src;
 }
-
-
 
 
 
@@ -113,14 +105,6 @@ Intern& Intern::operator= (const Intern &src)
 Intern::~Intern()
 {
 	std::cout << GRE"Destructor Intern\n" RES;
-	
-	int i = 0;
-	while (i < NR_FORMS)
-	{	
-		std::cout << GRE"   delete " << i << ": " << _form[i]->getName() << "\n" RES;
-		delete _form[i];
-		i++;
-	}
 }
 
 
@@ -128,57 +112,63 @@ Intern::~Intern()
 
 // Public member functions
 
-// int get_level(std::string formName)
-// {
-// 	std::string arr[3] =
-// 	{
-// 		"shrubbery request",
-// 		"robotomy request",
-// 		"pardon request"
-// 	};
+int get_level(std::string formName)
+{
+	std::string arr[3] =
+	{
+		"shrubbery request",
+		"robotomy request",
+		"pardon request"
+	};
 
-// 	int i = 0;
-// 	while (i < 3)
-// 	{
-// 		if (formName == arr[i])
-// 			return i;
-// 		i++;
-// 	}
-// 	return (i);
-// }
+	int i = 0;
+	while (i < 3)
+	{
+		if (formName == arr[i])
+			return i;
+		i++;
+	}
+	return (i);
+}
 
 
 
 Form*  Intern::makeForm(std::string formName, std::string formTarget)
 {
 	// Form	*f1;
-	//int		level = get_level(formName);
+	int		level = get_level(formName);
 
-	// _form[0] = new ShrubberyCreationForm();
-	// _form[1] = new RobotomyRequestForm();
-	// _form[2] = new PresidentialPardonForm();
-	// _form[3] = new WrongForm(formName);
+
+
+
+
 	
-	int i = 0;
-	while (i < NR_FORMS)
+	
+	// level = 0;
+	switch (level)
 	{
-		if (formName == _form[i]->getName())
-		{
-			// std::cout << "formname: " << _form[i]->getName() << "\n"; 
-			// std::cout << "formtarget: " << _form[i]->getTarget() << "\n"; 
-			_form[i]->setTarget(formTarget);
-			
-			std::cout << CYN"   The Intern has made the Form: " << formName << ", with target: " << formTarget << "\n" RES;
-			return (_form[i]);
-		}
-		i++;
+		case 0:
+			_form = new ShrubberyCreationForm(formTarget);
+			break ;
+		case 1:
+			_form = new RobotomyRequestForm(formTarget);
+			break ;
+		case 2:
+			_form = new PresidentialPardonForm(formTarget);
+			break ;
+		default:
+			std::cout << LRD"This formName is invalid, try again.\n" RES;
+			//_form = new WrongForm();
+			//return (_form); // still segfault calling beSigned
+			exit (1);
+
+		_form->setTarget(formTarget);
 	}
-	
-	 std::cout << "A) " << i << "\n";
-	
-	std::cout << LRD"   The Intern has made a Wrong Form: " << formName << ", with target: " << formTarget << "\n" RES;
-	return (_form[--i]); // !!! SHOULD GIVE WRONGFORM, INSTEAD OF NOW SHRUBERRY
+	std::cout << CYN"   The Intern has made the Form: " << formName << "\n" RES;
+	return (_form);
 }
+
+
 
 
 

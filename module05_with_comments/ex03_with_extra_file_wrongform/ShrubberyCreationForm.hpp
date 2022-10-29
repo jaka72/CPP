@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:27:55 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/27 21:37:10 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class ShrubberyCreationForm : public virtual Form // should be virtual here ???
 // class ShrubberyCreationForm    : public         Form // should be virtual here ???
 {
     private:
-    // protected:
         //std::string         _target;
         const std::string   _name;  // according to subject, it must be in the base class,
                                     // but then both parent & child must have same name
@@ -38,10 +37,6 @@ class ShrubberyCreationForm : public virtual Form // should be virtual here ???
         
 		// Param. constr.  - NOT USED
         ShrubberyCreationForm(std::string targetFile);
-
-        // ADDED TO HELP SAVE FORMNAME TO WRONGFORM
-        ShrubberyCreationForm(std::string formName, int x, int y);
-
         
 		// Destructor
         ~ShrubberyCreationForm() throw();
