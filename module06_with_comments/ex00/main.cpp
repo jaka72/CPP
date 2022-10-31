@@ -6,16 +6,29 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/30 22:18:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/31 22:30:27 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <cstring>   // strlen
+#include <cstdlib>
+#include<bits/stdc++.h> // overflow
 
 
-int main(/*int argc, char **argv*/)
+void printStats(int isDigit, int isNotDigit, int isPoint, int isF, int sign, int isNeg)
+{
+    std::cout << "      digits:     " << isDigit << "\n";
+    std::cout << "      non-digits: " << isNotDigit << "\n";
+    std::cout << "      points:     " << isPoint << "\n";
+    std::cout << "      fs:         " << isF << "\n";
+    std::cout << "      sign:       " << sign << "\n";
+    std::cout << "      isNeg:      " << isNeg << "\n";
+}
+
+
+int main(int, char **argv)
 {
     // if (argc != 2)
     // {
@@ -79,55 +92,107 @@ int main(/*int argc, char **argv*/)
     // std::string str = "a";
 
     // check length
-    char    c;
-    int     i;
-    float   f;
-    double  d;
-    // std::string str = "123.";
-    std::string str = "   123  ";
-    int len = strlen(str.c_str());
+    // char    c;
+    // int     i = -       1 ;
+    // std::cout << "Check sign: "  << i << " \n";
+    // float   f;
+    // double  d;
+    // std::string str = "  x   " ;
+    // // std::string str = " -   3  ";
+    // // std::string str = "   4147483950  ";    // check all overflow variants !!! 
+    //int len = strlen(str.c_str());
     
     // single char, but not a digit
-    if (len == 1)
-    {
-        // eliminate non-printables
-        if (isprint(str[0]) == 0)
-            std::cout << "Single char: it is non-displayable\n";
-        else if (isdigit(str[0]) != 0)
-        {
-            //char c = str[0];
-            i = (int)(str[0] - 48);
-            f = (float)i;
-            d = (double)f;
-            std::cout << "Single char: it is a digit\n";
-            std::cout << "   char:   non-displayable\n";
-            std::cout << "   int:    " << i << "\n";
-            std::cout << "   float:  " << std::fixed << std::setprecision(2) << f << "f \n";
-            std::cout << "   double: " << std::fixed << std::setprecision(2) << d << "\n";
-        }
-        else
-        {
-            std::cout << "Single char: displayable\n";
-            c = (char)(str[0]);
-            i = (int)c;
-            f = (float)i;
-            d = (double)f;
-            std::cout << "   char:   " << c << "\n";
-            std::cout << "   int:    " << i << "\n";
-            std::cout << "   float:  " << std::fixed << std::setprecision(2) << f << "f \n";
-            std::cout << "   double: " << std::fixed << std::setprecision(2) << d << "\n";
+//     if (len == 1)
+//     {
+//         // eliminate non-printables
+//         if (isprint(str[0]) == 0)
+//             std::cout << "Single char: it is non-displayable\n";
+//         else if (isdigit(str[0]) != 0)
+//         {
+//             //char c = str[0];
+//             i = (int)(str[0] - 48);
+//             f = (float)i;
+//             d = (double)f;
+//             std::cout << "Single char: it is a digit\n";
+//             std::cout << "   char:   non-displayable\n";
+//             std::cout << "   int:    " << i << "\n";
+//             std::cout << "   float:  " << std::fixed << std::setprecision(2) << f << "f \n";
+//             std::cout << "   double: " << std::fixed << std::setprecision(2) << d << "\n";
+//         }
+//         else
+//         {
+//             std::cout << "Single char: displayable\n";
+//             c = (char)(str[0]);
+//             i = (int)c;
+//             f = (float)i;
+//             d = (double)f;
+//             std::cout << "   char:   " << c << "\n";
+//             std::cout << "   int:    " << i << "\n";
+//             std::cout << "   float:  " << std::fixed << std::setprecision(2) << f << "f \n";
+//             std::cout << "   double: " << std::fixed << std::setprecision(2) << d << "\n";
         
         
-//            float b = static_cast<float>(i);
-        }
-    }
-    else if (len > 1)
-    {
-        std::cout << "Multiple chars -------------\n";
-        int i = 0, isDigit = 0, isNotDigit = 0, isPoint = 0, isF = 0;
-        char checkIf_F = 'a';
+// //            float b = static_cast<float>(i);
+//         }
+//     }
+//     else if (len > 1)
+//     {
+
+
+    char    c    = 'a';
+    int     intg = -       1 ;
+    //std::cout << "Check sign: "  << i << " \n";
+    float   f;
+    double  d;
+    // std::string str = "  x   " ;
+    // std::string str = " -   3  ";
+    // std::string str = "   4147483950  ";    // check all overflow variants !!! 
+
+        std::string str = argv[1];
+    
+        int             i = 0, isDigit = 0, isNotDigit = 0, isPoint = 0, isF = 0;
+        int             sign = 0;
+        int             isNeg = 0;
+        char            checkIf_F = 'a';
+        
+
+        isNeg = isNeg + 1 - 1;  // temp to silence warning
+
+        std::cout << "A) i" << i << ",  " << (int)str[i] << "\n";
+
+ISSPACE WEIRDLY IS NOT SKIPPING SPACES HERE ????
+
+
         while (isspace(str[i])) // skip spaces on start
+        {
+            std::cout << "check first chars " << (int)str[i] << "\n";
             i++;
+        }
+        
+        std::cout << "B) i" << i << ",  " << (int)str[i] << "\n";
+
+        if (str[i] == '+' || str[i] == '-')
+        {
+            // isNotDigit++;
+            sign = 1;
+            if (str[i] == '-')
+                isNeg = 1;
+            std::cout << "  YES IS SIGN " << str[i] << "\n";
+            i++;
+            std::cout << "check char " << (int)str[i] << "\n";
+            while (isspace(str[i])) // skip spaces after sign
+            {
+                std::cout << "First after sign and spaces " << str[i] << "\n";
+                i++;
+            }
+        }
+
+        std::cout << " First after sign and spaces " << str[i] << "\n";
+
+            
+        int start = i;
+            
         while (str[i])
         {
             if (isdigit(str[i]) == 0 && str[i] != '.' && str[i] != 'f' && str[i] != ' ')
@@ -159,7 +224,7 @@ int main(/*int argc, char **argv*/)
             i++;
         }
         
-        while (str[i])
+        while (str[i]) // check the rest of space after 1st group of chars
         {
             if (isprint(str[i]) && str[i] != ' ')
             {
@@ -171,27 +236,80 @@ int main(/*int argc, char **argv*/)
         }
 
 
+        //std::cout << "Check is F: " << checkIf_F << "\n"; 
+
         std::cout << "   all together: " << isNotDigit + isPoint + isF + isDigit << "\n";
+
+
+        if (sign == 1 && (isNotDigit + isPoint + isF + isDigit == 0))
+        {
+            printStats(isDigit, isNotDigit, isPoint, isF, sign, isNeg);
+            std::cout << "SINGLE CHAR THE SIGN FOUND\n";
+            c = (char)str[0];
+            std::cout << "Must be CHAR, str [" << str << "],  c [" << c << "]\n"; 
+            std::cout << "Result: " << c << "\n";
+            return (11);
+        }
+        
+        
         if ( (isNotDigit + isPoint + isF + isDigit) == 1)
         {
-            std::cout << "Must be char: " << str << "\n"; 
-            std::cout << "Must be char: " << checkIf_F << "\n"; 
+            std::cout << "SINGLE CHAR \n";
+            printStats(isDigit, isNotDigit, isPoint, isF, sign, isNeg);
+
+            if (isNotDigit == 1)
+            {
+                // std::cout << "Must be char: " << checkIf_F << "\n"; 
+                // std::cout << "Must be char: " << str[start] << "\n";
+                c = (char)str[0];
+                std::cout << "Must be CHAR, str [" << str << "],  c [" << c << "]\n"; 
+                std::cout << "Result: " << c << "\n";
+                return (11);
+            }
+            if (isDigit == 1)
+            {
+                i = (int)str[0] - 48;
+                std::cout << "Must be SINGLE INT, str [" << str << "],  c [" << i << "]\n"; 
+                std::cout << "Result: " << i << "\n";
+                return (11);
+            }
         }
 
-        std::cout << "Check if F: " << checkIf_F << "\n"; 
 
         // check if all good
-        if (isPoint == 0 && isNotDigit == 0 && isF == 0)
+        else if (isPoint == 0 && isNotDigit == 0 && isF == 0)
         {
+            // std::cout << "Must be integer: " << &str[start] << "\n";
             std::cout << "Must be integer: " << str << "\n";
+            printStats(isDigit, isNotDigit, isPoint, isF, sign, isNeg);
+
+
+            intg = atoi(&str[start]);
+            if (isNeg == 1)
+                intg *= -1;
+            std::cout << "        integer: " << intg << " intmax: " << INT_MAX << "\n";
+            // if (intg < INT_MIN - intg) //  NOT SURE OF ALL GOOD ???
+            //     std::cout << "        MIN integer oveflow, INTMIN - i = " << INT_MIN - intg << " \n";
+            // if (intg > INT_MAX + intg) //  NOT SURE OF ALL GOOD ???
+            //     std::cout << "        MAX integer oveflow: \n";
+        return (22);
         }
+
+        
         else if (isPoint == 1 && isNotDigit == 0 && isF == 0 && isDigit >= 1)
         {
+            // std::cout << "Must be double: " << &str[start] << "\n";
             std::cout << "Must be double: " << str << "\n";
+            d = atof(&str[start]); // ??????
+            std::cout << "        double: " << d << "\n";
         }
         else if (isPoint == 1 && isNotDigit == 0 && isF == 1 && checkIf_F == 'f')
         {
+            //std::cout << "Must be float: " << &str[start] << "\n";
             std::cout << "Must be float: " << str << "\n";
+            f = atof(&str[start]);
+            std::cout << "        float: " << f << "\n";
+            
         }
         else   
         {
@@ -200,13 +318,10 @@ int main(/*int argc, char **argv*/)
 
 
         
-        std::cout << "------------- digits:     " << isDigit << "\n";
-        std::cout << "------------- non-digits: " << isNotDigit << "\n";
-        std::cout << "              points:     " << isPoint << "\n";
-        std::cout << "              fs:         " << isF << "\n";
+       
         
 
-    }
+    //}
     
 
     return 0;
