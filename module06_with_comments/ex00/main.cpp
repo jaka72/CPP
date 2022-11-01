@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/01 18:24:21 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/01 20:18:41 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
 
 #include "conversion.hpp"
+
+// floats, last displayable: 99999999999999999999999999999999999999
 
 int main(int argc, char **argv)
 {

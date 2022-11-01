@@ -1,18 +1,19 @@
 Main start
-[2;37mParam. constructor (Conversion) inputStr: [   234]
-[0mMust be integer:    234
-      digits:     3
+[2;37mParam. constructor (Conversion) inputStr: [7]
+[0mSINGLE CHAR 
+      digits:     1
       non-digits: 0
       points:     0
       fs:         0
       sign:       0
       isNeg:      0
- first i=0,  limit 2147483647
-check overflow
-      lenStr 3
-      lenLim 10
-Result: 234
-        integer: 234 limit: 2147483647
+Must be SINGLE INT, str [7],  c [1]
+Must be SINGLE INT, str [7],  c [7]
+Result: 7
+char:   
+int:    7
+float:  7
+double: 7
  float -1e+26
  int -2147483648
 [2;37mDestructor (Conversion) 

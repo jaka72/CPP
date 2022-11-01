@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/01 18:11:00 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/01 21:27:15 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 #include <limits>       // overflow CPP
 #include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
 #include "colors.h"
+
+#define NAN_OR_INF	0
+#define CHAR		1
+#define INT			2
+#define FLOAT		3
+#define DOUBLE		4
+
+
 
 class Conversion
 {
@@ -56,8 +64,12 @@ class Conversion
 
 
 		// Public member functions
-		int	processInputStr();
-		int	storeCorrectType();
+		int		processInputStr();
+		int		storeCorrectType();
+		int		convert(int);
+		void	print_all();
+
+
 
 
 		// Getter

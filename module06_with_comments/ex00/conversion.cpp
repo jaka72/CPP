@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/01 18:12:50 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/01 21:29:13 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ Conversion::Conversion(std::string str) : _inputStr(str)
 	_checkIf_F = 'a';
 
 	processInputStr();
-	storeCorrectType();
+	convert(storeCorrectType());
+	print_all();
 
 	// try
 	// { ;	}
@@ -79,6 +80,50 @@ Conversion::~Conversion()
 //////////////////////////////////////////////////////////
 
 // Public member functions
+
+
+int	Conversion::convert(int type)
+{
+	if (type == CHAR)
+	{
+		_intg	= (int)_c;
+		_f		= (float)_c;
+		_d		= (double)_c;
+	}
+	else if (type == INT)
+	{
+		_c = (int)_intg;
+		_f = (float)_intg;
+		_d = (double)_intg;
+	}
+	else if (type == FLOAT)
+	{
+		_c 		= (char)_f;
+		_intg 	= (int)_f;
+		_d 		= (double)_f;
+	}
+	else if (type == DOUBLE)
+	{
+		_c 		= (char)_d;
+		_intg 	= (int)_d;
+		_f 		= (double)_d;
+	}
+	return (0);
+}
+
+
+
+
+void	Conversion::print_all()
+{
+	std::cout << "char:   " << _c 		<< "\n";
+	std::cout << "int:    " << _intg	<< "\n";
+	std::cout << "float:  " << _f 		<< "\n";
+	std::cout << "double: " << _d 		<< "\n";
+}
+
+
+
 int	Conversion::processInputStr()
 {
 	while (isspace(_inputStr[_i])) // skip spaces on start
@@ -147,7 +192,7 @@ int	Conversion::processInputStr()
 	{
 		if (isprint(_inputStr[_i]) && _inputStr[_i] != ' ')
 		{
-			std::cout << _inputStr[_i] << " !!! Error, invalid input, found chars after space!\n";
+			std::cout << _inputStr[_i] << " !!! Error, invalid input: found more chars after space!\n";
 			return 1;
 			// break ;
 		}
@@ -199,14 +244,14 @@ int check_overflow(std::string str, int limit)
             
         if (atoi(firstSubStr.c_str()) > abs(limit / 10))
         {
-            std::cout << "      same lenght, FirstSubstr, OVERFLOW [" << str << "]\n";
+            std::cout << "      Error: same lenght, FirstSubstr, OVERFLOW [" << str << "]\n";
             return (1);
         }
         else if (atoi(firstSubStr.c_str()) == abs(limit / 10))
         {
             if (atoi(lastSubStr.c_str()) > abs(limit % 10))
             {    
-                std::cout << "      same lenght, LastSubstr, OVERFLOW [" << str << "]\n";
+                std::cout << "      Error: same lenght, LastSubstr, OVERFLOW [" << str << "]\n";
                 return (1);
             }
         }
@@ -226,6 +271,8 @@ void printStats(int isDigit, int isNotDigit, int isPoint, int isF, int sign, int
 }
 
 
+
+
 int	Conversion::storeCorrectType()
 {
 	//std::cout << "   all together: " << isNotDigit + isPoint + isF + isDigit << "\n";
@@ -236,7 +283,7 @@ int	Conversion::storeCorrectType()
 		std::cout << "SINGLE CHAR THE SIGN FOUND\n";
 		std::cout << "Must be CHAR, str [" << _inputStr << "],  c [" << _c << "]\n"; 
 		std::cout << "Result: " << _c << "\n";
-		return (11);
+		return (CHAR);
 	}
 	
 	
@@ -249,16 +296,19 @@ int	Conversion::storeCorrectType()
 		{
 			std::cout << "Must be CHAR, str [" << _inputStr << "],  c [" << _c << "]\n"; 
 			std::cout << "Result: " << _c << "\n";
-			return (11);
+			return (CHAR);
 		}
+		// HERE PROBABLY NEEDS TO BE _intg INSTEAD OF _i  ???????????????????
 		if (_isDigit == 1)
 		{
 			std::cout << "Must be SINGLE INT, str [" << _inputStr << "],  c [" << _i << "]\n";
-			_i = (int)(_inputStr[_start] - 48);
-			std::cout << "Result: " << _i << "\n";
-			return (11);
+			std::cout << "Must be SINGLE INT, str [" << _inputStr << "],  c [" << _inputStr[_start] << "]\n";
+			_intg = (int)(_inputStr[_start] - 48);
+			std::cout << "Result: " << _intg << "\n";
+			return (INT);
 		}
 	}
+	// HERE PROBABLY NEEDS TO BE _intg INSTEAD OF _i  ???????????????????
 	if (_sign == 1 && (_isNotDigit + _isPoint + _isF + _isDigit) == 1)
 	{
 		if (_isDigit == 1)
@@ -269,11 +319,12 @@ int	Conversion::storeCorrectType()
 				_i *= -1;
 		
 			std::cout << "Result: " << _i << "\n";
-			return (11);
+			// return (11);
+			return (INT);
 		}
 		else
 		{
-			std::cout << "INVALID INPUT: _sign and alpha" << _i << "\n";
+			std::cout << "Error: INVALID INPUT: _sign and alpha" << _i << "\n";
 		}
 			
 	}
@@ -305,7 +356,7 @@ int	Conversion::storeCorrectType()
 		std::cout << "Result: " << _intg << "\n";
 		std::cout << "        integer: " << _intg << " limit: " << limit << "\n";
 	
-	return (22);
+		return (INT);
 	}
 
 	else if (_isPoint == 1 && _isNotDigit == 0 && _isF == 0 && _isDigit >= 1)
@@ -316,7 +367,7 @@ int	Conversion::storeCorrectType()
 		if (_isNeg == 1)
 			_d *= -1;
 		std::cout << "Result: " << _d << "\n";
-		return (33);
+		return (DOUBLE);
 	}
 	else if (_isPoint == 1 && _isNotDigit == 0 && _isF == 1 && _checkIf_F == 'f')
 	{
@@ -325,11 +376,11 @@ int	Conversion::storeCorrectType()
 		if (_isNeg == 1)
 			_f *= -1;
 		std::cout << "Result: " << _f << "\n";
-		return (44);
+		return (FLOAT);
 	}
-	else   
+	else
 	{
-		std::cout << "Error: last char is not f and not digit!\n";
+		std::cout << "Error: Invalid input, last char is not f and not digit!\n";
 		return (1);
 	}    
 

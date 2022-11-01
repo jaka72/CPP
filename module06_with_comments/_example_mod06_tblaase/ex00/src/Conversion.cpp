@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/07 16:37:12 by tblaase       #+#    #+#                 */
-/*   Updated: 2022/11/01 15:20:27 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/01 20:52:17 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ Conversion::Conversion(const std::string input): _input(input)
 {
 	std::cout << "Conversion Constructor for " << this->getInput() << std::endl;
 	this->_double = atof(this->getInput().c_str());
-	std::cout << "    saved to _double: " << _double << std::endl;
+	std::cout << "    Whatever there is, it's first saved to _double: " << _double << std::endl;
+	std::cout << "            (int is now still garbage): " << _int << std::endl;
 	this->convertInput();
 	std::cout << "    after convertInput" << std::endl;
 	this->printOutput();
@@ -132,6 +133,7 @@ int	Conversion::checkInput()
 
 void Conversion::fromChar(void)
 {
+	std::cout << "    called FromChar()\n";
 	this->_char = static_cast<unsigned char>(this->getInput()[0]);
 	this->_int = static_cast<int>(this->getChar());
 	this->_float = static_cast<float>(this->getChar());
@@ -139,31 +141,56 @@ void Conversion::fromChar(void)
 }
 void Conversion::fromInt(void)
 {
-	this->_int = static_cast<int>(this->getDouble());
+	std::cout << "    called FromInt(), storing to _int, via casting from double\n";
+	std::cout << "       When was this saved to double " << getDouble() << " \n";
+
+	// this->_int = static_cast<int>(this->getDouble());
+	std::cout << "       int before " << _int << "(garbage) \n";
+	this->_int = static_cast<int>(this->_double);	// seems it does the same
+	std::cout << "       int after  " << _int << " (intMIN)\n";
+	
+	std::cout << "       char before " << (int)_char << " " << _char << " (garbage) \n";
 	this->_char = static_cast<unsigned char>(this->getInt());
+	std::cout << "       char after  " << (int)_char << " (...) \n";
+	
+	
+	
+	std::cout << "       float before " << _float << " (garbage) \n";
 	this->_float = static_cast<float>(this->getDouble());
+	std::cout << "       float after  " << _float << " (floatMIN) \n";
 }
 void Conversion::fromFloat(void)
 {
+	std::cout << "    called FromFloat()\n";
 	this->_float = static_cast<float>(this->getDouble());
 	this->_char = static_cast<char>(this->getFloat());
 	this->_int = static_cast<int>(this->getFloat());
 }
 void Conversion::fromDouble(void)
 {
+	std::cout << "    called FromDouble()\n";
 	this->_char = static_cast<char>(this->getDouble());
 	this->_int = static_cast<int>(this->getDouble());
 	this->_float = static_cast<float>(this->getDouble());
 }
 
+
+
+
 void	Conversion::convertInput(void)
 {
 	std::cout << "Convert Input \n";
 
-	void (Conversion::*functionPTRS[])(void) = {&Conversion::fromChar, &Conversion::fromInt, &Conversion::fromFloat, &Conversion::fromDouble};
+	void (Conversion::*functionPTRS[])(void) =	// array of  pointers to functions
+	{
+		&Conversion::fromChar, 
+		&Conversion::fromInt, 
+		&Conversion::fromFloat, 
+		&Conversion::fromDouble
+	};
 	int types[] = {CHAR, INT, FLOAT, DOUBLE};
 
-	this->_type = checkInput();
+	this->_type = checkInput();		// it returns the origina type from input, ie: INT
 	std::cout << "   after checkInput, found type: " << _type << " \n";
 
 	if (this->getType() == NAN_INF)
@@ -171,15 +198,19 @@ void	Conversion::convertInput(void)
 	int i;
 	for (i = 0; i < 4; i++)
 	{
-		if (this->getType() == types[i])
-		{
+		if (this->getType() == types[i])	// find and call correct function according to type
+		{									// each function converts and saves into all other types
 			(this->*functionPTRS[i])();
 			break ;
 		}
 	}
+	std::cout << "   called function i " << i << " \n";
 	if (i == 4)
 		throw Conversion::ErrorException();
 }
+
+
+
 
 void	Conversion::printOutput(void)const
 {
@@ -205,14 +236,22 @@ void	Conversion::printOutput(void)const
 	// display float
 	if (this->getType() != NAN_INF)
 	{
-		std::cout << "float: " << this->getFloat();
+		std::cout << "Display float\n";
+		std::cout << "   float: " << this->getFloat();
 		if (this->getFloat() - this->getInt() == 0)
+		{	
+			std::cout << "       a)\n";
 			std::cout << ".0f" << std::endl;
+		}
 		else
+		{
+			std::cout << "       b)\n";
 			std::cout << "f" << std::endl;
+		}
 	}
 	else
 	{
+			std::cout << "       c)\n";
 		if (this->getInput() == "nan" || this->getInput() == "nanf")
 			std::cout << "float: nanf" << std::endl;
 		else if (this->getInput()[0] == '+')
