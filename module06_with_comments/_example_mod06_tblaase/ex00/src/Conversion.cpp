@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/07 16:37:12 by tblaase       #+#    #+#                 */
-/*   Updated: 2022/11/01 20:52:17 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/02 09:30:31 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,18 +240,18 @@ void	Conversion::printOutput(void)const
 		std::cout << "   float: " << this->getFloat();
 		if (this->getFloat() - this->getInt() == 0)
 		{	
-			std::cout << "       a)\n";
+			//std::cout << "       a)\n";
 			std::cout << ".0f" << std::endl;
 		}
 		else
 		{
-			std::cout << "       b)\n";
+			//std::cout << "       b)\n";
 			std::cout << "f" << std::endl;
 		}
 	}
 	else
 	{
-			std::cout << "       c)\n";
+			//std::cout << "       c)\n";
 		if (this->getInput() == "nan" || this->getInput() == "nanf")
 			std::cout << "float: nanf" << std::endl;
 		else if (this->getInput()[0] == '+')

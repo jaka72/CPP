@@ -1,20 +1,36 @@
 Main start
-[2;37mParam. constructor (Conversion) inputStr: [7]
-[0mSINGLE CHAR 
-      digits:     1
+[2;37mParam. constructor (Conversion) inputStr: [ 999999999999999999999999999999999999999999999999999999999999999999]
+[0mPIS [ 999999999999999999999999999999999999999999999999999999999999999999]
+SCT before trim [ 999999999999999999999999999999999999999999999999999999999999999999]
+SCT after trim  [999999999999999999999999999999999999999999999999999999999999999999]
+      digits:     66
       non-digits: 0
       points:     0
       fs:         0
       sign:       0
       isNeg:      0
-Must be SINGLE INT, str [7],  c [1]
-Must be SINGLE INT, str [7],  c [7]
-Result: 7
-char:   
-int:    7
-float:  7
-double: 7
+      isSpace:    0
+Must be integer: 999999999999999999999999999999999999999999999999999999999999999999
+      digits:     66
+      non-digits: 0
+      points:     0
+      fs:         0
+      sign:       0
+      isNeg:      0
+      isSpace:    0
+      ---  _start   	       [0]
+      ---  _inputStr	       [999999999999999999999999999999999999999999999999999999999999999999]
+      ---  _inputStr[_start] [9]
+      --- &_inputStr[_start] [999999999999999999999999999999999999999999999999999999999999999999]
+   INT OVERFLOW 
+Print all()      _c [x] 
  float -1e+26
  int -2147483648
+float .0f [0]
+float .1f [0.1]
+float 0.f [0]
+float 1.f [1]
+int 999... overflow [16, 9.22337e+18 ]
+MAX INT [2147483647]
 [2;37mDestructor (Conversion) 
 [0m

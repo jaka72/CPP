@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/01 21:27:15 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/02 20:08:40 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #include <limits>       // overflow CPP
 #include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
 #include "colors.h"
+
+#define INVALID_INPUT -1
 
 #define NAN_OR_INF	0
 #define CHAR		1
@@ -38,8 +40,10 @@ class Conversion
 		int			_intg;
 		float		_f;
 		double		_d;
+		int			_type;
 
-		int			_i, _start, _isDigit, _isNotDigit, _isPoint, _isF;
+		int			_i, _start, _isDigit, _isNotDigit, _isPoint, _isSpace, _isF;
+		int			_int_overflow, _float_overflow, _double_overflow;
 		int			_sign;
 		int			_isNeg;
 		char		_checkIf_F;
@@ -66,8 +70,10 @@ class Conversion
 		// Public member functions
 		int		processInputStr();
 		int		storeCorrectType();
-		int		convert(int);
+		int		convert();
 		void	print_all();
+		void	print_char();
+
 
 
 
