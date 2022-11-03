@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 14:18:19 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/03 15:55:04 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,11 +235,12 @@ void	Conversion::print_nan_or_inf()
 		
 	if (_inputStr == "+inf" || _inputStr == "-inf")
 	{
-		std::cout << "char:     impossible\n";
-		std::cout << "int:      impossible\n";
-		std::cout << "float:    ";
+		std::cout << "char: not-possible\n";
+		std::cout << "int: not-possible\n";
+					  //int:    not-possible
+		std::cout << "float:  ";
 		std::cout << _inputStr << "f\n";
-		std::cout << "double:   ";
+		std::cout << "double: ";
 		std::cout << _inputStr << "\n";
 	}
 }

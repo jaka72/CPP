@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 13:03:45 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/03 15:39:55 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int main(int argc, char **argv)
     Conversion con1(argv[1]);
 
     double f = -99999999999999999999999999.123f;
-    std::cout << " float " << f << "\n";
-    std::cout << " int " << (int)f << "\n";
+    std::cout << " m_float " << f << "\n";
+    std::cout << " m_int " << (int)f << "\n";
     
     //float i1 = nan;   error, unknown word, also -inf, +inff ...
     //float i2 = 1.   ;   // valid
