@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/02 18:29:52 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/03 12:43:00 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/03 11:40:29 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,32 +36,32 @@ loopOutFile()
 			#  echo [$line]
 			#  echo "        char:  '$2'"
 			 if [ "$line" == "char:  '$2'" ] ; then      # CHARS
-				 echo -en $GRN "YES" $RES
+				 echo -en $GRN YES $RES
 			 else    
 				#  echo -e $line
-				 echo -en $RED "NO " $RES
+				 echo -en $RED NO $RES
 			fi
 		fi
 		if [[ $line == int:* ]] ; then
 			#  echo -n [$line]
 			if [ "$line" == "int:    $3" ] ; then      # INTS
-				echo -en $GRN "YES" $RES
+				echo -en $GRN YES $RES
 			else    
-				echo -en $RED "NO " $RES
+				echo -en $RED NO $RES
 			fi
 		fi
 		if [[ $line == float:* ]] ; then
 			if [ "$line" == "float:  $4" ] ; then      # FLOATS
-				echo -en $GRN "YES" $RES
+				echo -en $GRN YES $RES
 			else    
-				echo -en $RED "NO " $RES
+				echo -en $RED NO $RES
 			fi
 		fi
 		if [[ $line == double:* ]] ; then
 			if [ "$line" == "double: $5" ] ; then      # DOUBLES
-				echo -en $GRN "YES" $RES
+				echo -en $GRN YES $RES
 			else    
-				echo -en $RED "NO " $RES
+				echo -en $RED NO $RES
 			fi
 		fi
 	done < outTemp
@@ -271,23 +271,21 @@ echo ; i=0
 
 echo "- - - TEST INT - OVEFLOWS - - - - - - - - - - - -"
 
-
-#														!!! should be without 0.
-testChars "214748364"	"not-possible"	"214748364"		"2.14748e+08f"	"2.14748e+08"
+testChars "214748364"	"not-possible"	"214748364"		"2.14748e+08.0f"	"2.14748e+08.0"
 
 #										XXX: int says imposs.,  should be normal int
-#												float and double, should be without 0f
-testChars "2147483646"	"not-possible"	"2147483646"	"2.14748e+09f"	"2.14748e+09"
-testChars "2147483647"	"not-possible"	"2147483647"	"2.14748e+09f"	"2.14748e+09"
+testChars "2147483646"	"not-possible"	"2147483646"	"2.14748e+09.0f"	"2.14748e+09.0"
+testChars "2147483647"	"not-possible"	"2147483647"	"2.14748e+09.0f"	"2.14748e+09.0"
 
 
-testChars "2147483648"	"not-possible"	"not-possible"	"2.14748e+09f"	"2.14748e+09"
+testChars "2147483648"	"not-possible"	"2147483648"	"2147483648.0f"	"2147483648.0"
+testChars "2147483648"	"not-possible"	"2147483648"	"2147483648.0f"	"2147483648.0"
 
 
-testChars "999999999999999999999999999999999999999"	"not-possible"	"not-possible" "inff"	"1e+39" #  Float wrong: inf.0f, should be inff 
+testChars "999999999999999999999999999999999999999"	"not-possible"	"not-possible" "inff"	"1e+39.0" #  Float wrong: inf.0f, should be inff 
 
 
-testChars "999999999999999999999999999999999999999.9"	"not-possible"	"not-possible" "inff"	"1e+39" #  double wrong, missing '.0'
+testChars "999999999999999999999999999999999999999.9"	"not-possible"	"not-possible" "inff"	"1e+39.0" #  double wrong, missing '.0'
 echo ; i=0
 
 
@@ -295,21 +293,18 @@ echo ; i=0
 
 
 echo "- - - TEST FLOAT - OVEFLOWS - - - - - - - - - -"
-testChars "99999999999999999999999999999999999999.9f"	"not-possible"	"not-possible" "1e+38f"	"1e+38"	# OK
-testChars "999999999999999999999999999999999999999.9f"	"not-possible"	"not-possible" "inff"	"1e+39"	#double wrong: inf, should be 1e+39
+testChars "999999999999999999999999999999999999999.9f"	"not-possible"	"not-possible" "inff"	"1e+39.0"	#double wrong: inf, should be 1e+39.0
 echo ; i=0
 
 
 
 
 echo "- - - TEST DOUBLES - OVEFLOWS - - - - - - - - - -"
-testChars "999.0"		"not-possible"	"999" "999.0f"	"999.0" 	# OK
-testChars "999.9"		"not-possible"	"999" "999.9f"	"999.9"		# OK
-testChars "999999.9"	"not-possible"	"999999" "1e+06f"	"1e+06"	# OK	WHY HERE NO .0   ???
+testChars "999.9"	"not-possible"	"999" "999.9f"	"999.9"	# OK
 
-testChars "999999999999999999999999999999999999999.9"	"not-possible"	"not-possible" "inff"	"1e+39"	#double wrong:  1e+39.0   ,missing .0
+testChars "999999999999999999999999999999999999999.9"	"not-possible"	"not-possible" "inff"	"1e+39.0"	#double wrong:  1e+39.0   ,missing .0
 
-testChars "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999990000000000000000000000000000000999990999.9"	"not-possible"	"not-possible" "inff"	"1e+308" # missing .0
+testChars "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999990000000000000000000000000000000999990999.9"	"not-possible"	"not-possible" "inff"	"1e+308.0" # missing .0
 
 testChars "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999900000000000000000000000000000009999909999.9"	"not-possible"	"not-possible" "inff"	"inf"
 echo ; i=0

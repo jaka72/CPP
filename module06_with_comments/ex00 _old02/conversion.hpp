@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 13:59:58 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/03 08:47:42 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #ifndef CONVERSION_H
 #define CONVERSION_H
 
-#include <math.h>	// for isinf()
 #include <iostream>
 #include <iomanip>
 #include <cstring>   // strlen
@@ -44,7 +43,7 @@ class Conversion
 		int			_type;
 
 		int			_i, _start, _isDigit, _isNotDigit, _isPoint, _isSpace, _isF;
-		int			_int_overflow; // _float_overflow, _double_overflow;
+		int			_int_overflow, _float_overflow, _double_overflow;
 		int			_sign;
 		int			_isNeg;
 		char		_checkIf_F;
@@ -75,8 +74,6 @@ class Conversion
 		void	print_all();
 		void	print_char();
 		void	print_int();
-		void	print_nan_or_inf();
-		
 
 
 

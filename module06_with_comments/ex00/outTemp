@@ -1,36 +1,27 @@
 Main start
-[2;37mParam. constructor (Conversion) inputStr: [ 999999999999999999999999999999999999999999999999999999999999999999]
-[0mPIS [ 999999999999999999999999999999999999999999999999999999999999999999]
-SCT before trim [ 999999999999999999999999999999999999999999999999999999999999999999]
-SCT after trim  [999999999999999999999999999999999999999999999999999999999999999999]
-      digits:     66
-      non-digits: 0
+[2;37mParam. constructor (Conversion) inputStr: [    -    inff    ]
+[0mPIS [    -    inff    ]
+SCT before trim [    -    inff    ]
+SCT after trim  [-    inff]
+ first i=0,  limit 2147483647
+check overflow
+      lenStr 4
+      lenLim 10
+      digits:     0
+      non-digits: 2
       points:     0
-      fs:         0
-      sign:       0
-      isNeg:      0
+      fs:         2
+      sign:       1
+      isNeg:      1
       isSpace:    0
-Must be integer: 999999999999999999999999999999999999999999999999999999999999999999
-      digits:     66
-      non-digits: 0
-      points:     0
-      fs:         0
-      sign:       0
-      isNeg:      0
-      isSpace:    0
-      ---  _start   	       [0]
-      ---  _inputStr	       [999999999999999999999999999999999999999999999999999999999999999999]
-      ---  _inputStr[_start] [9]
-      --- &_inputStr[_start] [999999999999999999999999999999999999999999999999999999999999999999]
-   INT OVERFLOW 
-Print all()      _c [x] 
+Found alphabet  [-    inff]
+        after trim [-    inff]  len: 9 
+Error: Invalid input, last char is not f and not digit!
+CONVERT() 
+Print all()      _c [n] 
  float -1e+26
  int -2147483648
-float .0f [0]
-float .1f [0.1]
-float 0.f [0]
-float 1.f [1]
-int 999... overflow [16, 9.22337e+18 ]
-MAX INT [2147483647]
+99999.9, 1e+07, 1e+08, inf
+2.14748e+09
 [2;37mDestructor (Conversion) 
 [0m

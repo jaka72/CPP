@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/07 16:37:12 by tblaase       #+#    #+#                 */
-/*   Updated: 2022/11/02 09:30:31 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/03 08:29:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void Conversion::fromFloat(void)
 }
 void Conversion::fromDouble(void)
 {
-	std::cout << "    called FromDouble()\n";
+	std::cout << "    called FromDouble(), saved: " << getDouble() <<"\n";
 	this->_char = static_cast<char>(this->getDouble());
 	this->_int = static_cast<int>(this->getDouble());
 	this->_float = static_cast<float>(this->getDouble());
@@ -191,7 +191,7 @@ void	Conversion::convertInput(void)
 	int types[] = {CHAR, INT, FLOAT, DOUBLE};
 
 	this->_type = checkInput();		// it returns the origina type from input, ie: INT
-	std::cout << "   after checkInput, found type: " << _type << " \n";
+	std::cout << "   after checkInput, found type: " << _type << " (6=double)\n";
 
 	if (this->getType() == NAN_INF)
 		return ;
