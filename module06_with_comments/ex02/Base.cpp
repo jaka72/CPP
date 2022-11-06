@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Data.cpp                                           :+:    :+:            */
+/*   Base.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 22:16:17 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/05 13:49:08 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Data.hpp"
+// #include "A.hpp"
+#include "Base.hpp"
 
 // Constructor
-Data::Data() 
-{
-	std::cout << GRE"Default constr (Data) " << "\n" RES;
-}
+// Base::Base() 
+// {
+// 	std::cout << GRE"Default constr (Base) " << "\n" RES;
+// 	// _id = 0;
+// 	// _name = "Default_name";
+// }
 
 
 // Param. constr.
-// Data::Data(std::string str)
+// Base::Base(int, std::string)
 // {
-// 	std::cout << GRE"Param. constructor (Data) inputStr: [" << "]\n" RES;
-
+// 	// std::cout << GRE"Param. constructor (Base), id: [" << _id << "], "
+// 	// 									"name: [" << _name << "],  \n" RES;
+// 	// _id = id;
+// 	// _name = name;
 // }
 
 
 
 // Copy constructor
-// Data::Data(const Data &src)
+// Base::Base(const Base &src)
 // {
 // 	std::cout << GRE"Copy constructor:   " << "\n" RES;
 // 	*this = src;
@@ -38,22 +43,35 @@ Data::Data()
 
 
 // Overload operators
-// Data& Data::operator= (const Data &src)
+// Base& Base::operator= (const Base &src)
 // {
-// 	std::cout << GRE"Overload operator=  (Data)" << "\n" RES;
-
+// 	std::cout << GRE"Overload operator=  (Base)" << "\n" RES;
+// 	_dummy = src._dummy;
+// 	// _name = src._name;
 // 	return *this;
 // }
 
+
 // Destructor
-Data::~Data()
+Base::~Base()
 {
-	std::cout << GRE"Destructor (Data) " << "\n" RES;
+	std::cout << GRE"Destructor (Base) " << "\n" RES;
 }
 
 
 //////////////////////////////////////////////////////////
 
 // Public member functions
+// int Base::getId()
+// {
+// 	std::cout << "ID: " << _id << "\n";
+// 	return (_id);
+// }
 
+
+// std::string Base::getName()
+// {
+// 	std::cout << "Name: " << _name << "\n";
+// 	return (_name);
+// }
 

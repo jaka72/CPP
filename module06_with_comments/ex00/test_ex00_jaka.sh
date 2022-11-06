@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/02 18:29:52 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/03 15:54:33 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/06 21:14:38 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,48 +24,55 @@ make
 i=0
 outTemp="outTemp"
 
+PRINT_YES=1
+
+
+print_yes()
+{
+	if [ $PRINT_YES == 1 ] ; then
+		echo -en $GRN "YES" $RES
+	fi
+}
+
+
 
 loopOutFile()
 {
 	str="   in bash [$1]" # !!! NEEDS TO PRESERVE SPACES !!!
-	# echo $str
-	# echo "Result: $1"
 
 	while  read -r line ; do
 		if [[ $line == char:* ]] ; then
-			#  echo [$line]
-			#  echo "        char:  '$2'"
 			 if [ "$line" == "char:  '$2'" ] ; then      # CHARS
-				 echo -en $GRN "YES" $RES
-			 else    
-				#  echo -e $line
+				print_yes
+			else    
 				 echo -en $RED "NO " $RES
 			fi
 		fi
 		if [[ $line == int:* ]] ; then
-			#  echo -n [$line]
 			if [ "$line" == "int:    $3" ] ; then      # INTS
-				echo -en $GRN "YES" $RES
+				print_yes
 			else    
 				echo -en $RED "NO " $RES
 			fi
 		fi
 		if [[ $line == float:* ]] ; then
 			if [ "$line" == "float:  $4" ] ; then      # FLOATS
-				echo -en $GRN "YES" $RES
+				print_yes
 			else    
 				echo -en $RED "NO " $RES
 			fi
 		fi
 		if [[ $line == double:* ]] ; then
 			if [ "$line" == "double: $5" ] ; then      # DOUBLES
-				echo -en $GRN "YES" $RES
+				print_yes
 			else    
 				echo -en $RED "NO " $RES
 			fi
 		fi
 	done < outTemp
-	echo "   [$1]"
+	if [ $PRINT_YES == 1 ] ; then
+		echo "   [$1]"
+	fi
 
 }
 
@@ -73,70 +80,71 @@ testChars()
 {
 	./a.out "$1" > outTemp
 	#./a.out "   -   789" > outTemp
-	ret=$(echo $?)
-	# echo ret $ret
-	# if [ $ret == 11 ] ; then
+	#ret=$(echo $?)
+	if [ $PRINT_YES == 1 ] ; then
 		echo -e -n test "$i   " 
-		loopOutFile "$1" $2 $3 $4 $5
+	fi
+	loopOutFile "$1" $2 $3 $4 $5
 	((i=i+1))
 }
 
 
-loopOutFile_NanInf()
-{
-	str="   in bash [$1]" # !!! NEEDS TO PRESERVE SPACES !!!
-	# echo $str
-	# echo "Result: $1"
+# loopOutFile_NanInf()
+# {
+# 	str="   in bash [$1]" # !!! NEEDS TO PRESERVE SPACES !!!
+# 	# echo $str
+# 	# echo "Result: $1"
 
-	while  read -r line ; do
-		if [[ $line == char:* ]] ; then
-			 echo -n [$line] "$2"
-			#  echo "        char:  '$2'"
-			 if [ "$line" == "char:   $2" ] ; then      # CHARS
-				 echo -en $GRN "YES" $RES
-			 else    
-				#  echo -e $line
-				 echo -en $RED "NO " $RES
-			fi
-		fi
-		if [[ $line == int:* ]] ; then
-			  echo -n [$line] "$3"
-			if [ "$line" == "int:    $3" ] ; then      # INTS
-				echo -en $GRN "YES" $RES
-			else    
-				echo -en $RED "NO " $RES
-			fi
-		fi
-		if [[ $line == float:* ]] ; then
-			if [ "$line" == "float:  $4" ] ; then      # FLOATS
-				echo -en $GRN "YES" $RES
-			else    
-				echo -en $RED "NO " $RES
-			fi
-		fi
-		if [[ $line == double:* ]] ; then
-			if [ "$line" == "double: $5" ] ; then      # DOUBLES
-				echo -en $GRN "YES" $RES
-			else    
-				echo -en $RED "NO " $RES
-			fi
-		fi
-	done < outTemp
-	echo "   [$1]"
+# 	while  read -r line ; do
+# 		if [[ $line == char:* ]] ; then
+# 			 echo -n [$line] "$2"
+# 			#  echo "        char:  '$2'"
+# 			 if [ "$line" == "char:   $2" ] ; then      # CHARS
+# 				 echo -en $GRN "YES" $RES
+# 			 else    
+# 				#  echo -e $line
+# 				 echo -en $RED "NO " $RES
+# 			fi
+# 		fi
+# 		if [[ $line == int:* ]] ; then
+# 			  echo -n [$line] "$3"
+# 			if [ "$line" == "int:    $3" ] ; then      # INTS
+# 				echo -en $GRN "YES" $RES
+# 			else    
+# 				echo -en $RED "NO " $RES
+# 			fi
+# 		fi
+# 		if [[ $line == float:* ]] ; then
+# 			if [ "$line" == "float:  $4" ] ; then      # FLOATS
+# 				echo -en $GRN "YES" $RES
+# 			else    
+# 				echo -en $RED "NO " $RES
+# 			fi
+# 		fi
+# 		if [[ $line == double:* ]] ; then
+# 			if [ "$line" == "double: $5" ] ; then      # DOUBLES
+# 				echo -en $GRN "YES" $RES
+# 			else    
+# 				echo -en $RED "NO " $RES
+# 			fi
+# 		fi
+# 	done < outTemp
+# 	//if [[ TURN_OFF_YES == 0 ]] ; then
+# 		echo "   [$1]"
+# 	//fi
+# }
 
-}
-
-test_NanInf()
-{
-	./a.out "$1" > outTemp
-	#./a.out "   -   789" > outTemp
-	ret=$(echo $?)
-	# echo ret $ret
-	# if [ $ret == 11 ] ; then
-		echo -e -n test "$i   " 
-		loopOutFile_NanInf "$1" "$2" "$3" $4 $5
-	((i=i+1))
-}
+# test_NanInf()
+# {
+# 	./a.out "$1" > outTemp
+# 	#./a.out "   -   789" > outTemp
+# 	ret=$(echo $?)
+# 	# echo ret $ret
+# 	# if [ $ret == 11 ] ; then
+# 		echo -e -n test "$i   " 
+# 		loopOutFile_NanInf "$1" "$2" "$3" $4 $5
+# 	((i=i+1))
+# }
 
 # TEST CHARS #######################
 #         input        char     int     float       double
@@ -373,13 +381,17 @@ echo ; i=0
 
 
 echo "- - - NAN and INF - - - - - - - - - - - - - - - - - -"
-test_NanInf "nan"	"char:   not-possible"	"int:    not-possible" "float:  nanf"	"double: nan"
-test_NanInf "nan"	"char:   not-possible"	"int:    not-possible" "float:  nanf"	"nan"
-test_NanInf "+inf"	"char:   not-possible"	"int:    not-possible" "float:  +inff"	"+inf"
-test_NanInf "-inf"	"char:   not-possible"	"int:    not-possible" "float:  -inff"	"-inf"
-test_NanInf "+inff"	"char:   not-possible"	"int:    not-possible" "float:  +inff"	"+inf"
-test_NanInf "-inff"	"char: not-possible"	"int: not-possible" "float:  -inff"	"-inf"
-											 #int:    not-possible
+# test_NanInf "nan"	"char:   not-possible"	"int:    not-possible" "float:  nanf"	"double: nan"
+# test_NanInf "nan"	"char:   not-possible"	"int:    not-possible" "float:  nanf"	"nan"
+# test_NanInf "+inf"	"char:   not-possible"	"int:    not-possible" "float:  +inff"	"+inf"
+# test_NanInf "-inf"	"char:   not-possible"	"int:    not-possible" "float:  -inff"	"-inf"
+# test_NanInf "+inff"	"char:   not-possible"	"int:    not-possible" "float:  +inff"	"+inf"
+# test_NanInf "-inff"	"char: not-possible"	"int: not-possible" "float:  -inff"	"-inf"
+# 											 #int:    not-possible
 
 
 echo
+
+
+
+

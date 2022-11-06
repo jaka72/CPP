@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 13:59:58 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/06 21:08:08 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <cstring>   // strlen
 #include <cstdlib>
 #include <limits>       // overflow CPP
-#include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
+#include <bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
 #include "colors.h"
 
 #define INVALID_INPUT -1
@@ -75,16 +75,11 @@ class Conversion
 		void	print_all();
 		void	print_char();
 		void	print_int();
+		void	printFloatAndDouble();
 		void	print_nan_or_inf();
 		
 
-
-
-
-
 		// Getter
-
-
 
 		// Setter
 
@@ -94,7 +89,7 @@ class Conversion
 
 };
 
-// THIS IS OUTSIDE OF THE CLASS !!!
+// THE OVERLOAD<< MUST BE OUTSIDE OF THE CLASS. MAYBE NEEDS TO BE UNCOMMENTED, AS PART OF THE SUBJECT
 // std::ostream& operator<< (std::ostream& outstream, Conversion &conv)
 // {
 // 	outstream << "Conversion " <<  bur.getInputStr() <<"\n";

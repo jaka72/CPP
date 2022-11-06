@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 15:55:04 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/06 21:24:13 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,21 @@ Conversion::Conversion()
 // Param. constr.
 Conversion::Conversion(std::string str) : _inputStr(str)
 {
-	std::cout << GRE"Param. constructor (Conversion) inputStr: [" << _inputStr << "]\n" RES;
+	std::cout << GRE "Param. constructor (Conversion)" RES << "\n";
+	// std::cout << GRE "inputStr: [" << _inputStr << "]\n" RES;
 	_i          = 0;
 	_c			= 'x';
     _intg		= 0 ;
 
-	_isDigit = 0;
-	_isNotDigit = 0;
-	_isPoint = 0;
-	_isSpace = 0;
-	_isF = 0;
-	_sign = 0;
-	_isNeg = 0;
-	_checkIf_F = 'a';
-
-	_int_overflow = 0;
-	// _float_overflow = 0;
-	// _double_overflow = 0;
+	_isDigit		= 0;
+	_isNotDigit		= 0;
+	_isPoint		= 0;
+	_isSpace		= 0;
+	_isF			= 0;
+	_sign			= 0;
+	_isNeg			= 0;
+	_checkIf_F		= 'a';
+	_int_overflow	= 0;
 
 	processInputStr();
 	storeCorrectType();
@@ -84,15 +82,13 @@ Conversion::~Conversion()
 
 
 //////////////////////////////////////////////////////////
-
 // Public member functions
 
-
-
-int checkNrDigits(int limit)
+// CHECK INT OVERFLOW ///////////////////////////////////////////
+int countDigits(int limit)
 {
     int i = 0;
-    std::cout << " first i=" << i << ",  limit " << limit << "\n";
+    //std::cout << " first i=" << i << ",  limit " << limit << "\n";
     while (limit != 0)
     {
         limit = limit / 10;
@@ -107,15 +103,15 @@ int check_overflow(std::string str, int limit)
 {
     // count nr digits
     int lenStr = strlen(str.c_str());
-    int lenLim = checkNrDigits(limit);
+    int lenLim = countDigits(limit);
 
-    std::cout << "check overflow\n";
-    std::cout << "      lenStr " << lenStr << "\n";
-    std::cout << "      lenLim " << lenLim << "\n";
+    // std::cout << "check overflow\n";
+    // std::cout << "      lenStr " << lenStr << "\n";
+    // std::cout << "      lenLim " << lenLim << "\n";
 
     if (lenStr > lenLim)
     {
-        std::cout << "      OVERFLOW INT [" << str << "]\n";
+        //std::cout << "      OVERFLOW INT [" << str << "]\n";
         return (1);
     }
     else if (lenStr == lenLim)
@@ -123,34 +119,33 @@ int check_overflow(std::string str, int limit)
         // Compare all digits except the last one, then compare the last one separately
         std::string firstSubStr = str.substr(0, lenStr - 1);
         std::string  lastSubStr = str.substr(lenStr - 1, lenStr);
-        std::cout << "      same lenght, firstSubstr [" << firstSubStr << "]\n";
-        std::cout << "      same lenght, lastSubstr  [" <<  lastSubStr << "]\n";
+        //std::cout << "      same lenght, firstSubstr [" << firstSubStr << "]\n";
+        //std::cout << "      same lenght, lastSubstr  [" <<  lastSubStr << "]\n";
             
         if (atoi(firstSubStr.c_str()) > abs(limit / 10))
         {
-            std::cout << "      same lenght, FirstSubstr, OVERFLOW [" << str << "]\n";
+            //std::cout << "      same lenght, FirstSubstr, OVERFLOW [" << str << "]\n";
             return (1);
         }
         else if (atoi(firstSubStr.c_str()) == abs(limit / 10))
         {
             if (atoi(lastSubStr.c_str()) > abs(limit % 10))
             {    
-                std::cout << "      same lenght, LastSubstr, OVERFLOW [" << str << "]\n";
+                //std::cout << "      same lenght, LastSubstr, OVERFLOW [" << str << "]\n";
                 return (1);
             }
         }
     }
     return (0);
 }
-
-
+//////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 int	Conversion::convert()
 {
-	std::cout << "CONVERT() \n";
+	//std::cout << "CONVERT() \n";
 	if (_type == CHAR)
 	{
 		_intg	= (int)_c;
@@ -159,20 +154,15 @@ int	Conversion::convert()
 	}
 	else if (_type == INT)
 	{
-		std::cout << "   type INT: " << _intg << "\n";
 		_c = (int)_intg;
-		//_f = (float)_intg;	// IN CASE OF OVERFLOW IT MUST HAVE VALUE FROM
-		//_d = (double)_intg;	// ORIGINAL INPUT
 	}
 	else if (_type == FLOAT)
 	{
 		_c 		= (char)_f;
 		_intg 	= (int)_f;
-		std::cout << "!!! Check of Float is inf: " << _f << "\n";
 		if (isinf(_f))		// SOMETHING NOT GOOD, SHOULD BE inf == true ???
 		{
-			std::cout << "     Yes is inf\n";
-			_d 		= (double)_f;
+			_d 	= (double)_f;
 		}
 		else
 		{ ; } // Do nothing, _d must stay _d
@@ -188,7 +178,6 @@ int	Conversion::convert()
 	return (0);
 }
 
-
 void	Conversion::print_char()
 {
 	if ((_intg >= 0 && _intg <= 31) || (_intg >= 127 && _intg <= 255))
@@ -199,77 +188,44 @@ void	Conversion::print_char()
 		std::cout << "char:  '" << _c 		<< "'\n";
 }
 
-
-
+// HERE IS A PROBLEM, BECAUSE THE FLOAT IS BY NOW IN SCIENTIFIC NOTATION, WHICH IS ROUNDED DOWN
+// SO _f IS SMALLER THAN max(), INSTEAD OF SAME OR BIGGER.
+// (AT MORE THAN 6 DIGITS, THE FLOAT CHANGES INTO SCIENTIFIC NOTATION)
+// I NEED TO CHECK FOR INT OVERFLOW ALREADY AT START, BEFORE SAVING IT INTO FLOAT
 void	Conversion::print_int()
 {
-	// HERE IS A PROBLEM, BECAUSE THE FLOAT IS BY NOW IN SCIENTIFIC NOTATION, WHICH IS ROUNDED DOWN
-	// SO _f IS SMALLER THAN max(), INSTEAD OF SAME OR BIGGER.
-	// (AT MORE THAN 6 DIGITS, THE FLOAT CHANGES INTO SCIENTIFIC NOTATION)
-	// I NEED TO CHECK FOR INT OVERFLOW ALREADY AT START, BEFORE SAVING IT INTO FLOAT 
-	//std::cout << "      _f: " << _f << " < " << std::numeric_limits<int>::min() << "\n";
-	
-	
-	//if (_f <= std::numeric_limits<int>::min() || _f >= std::numeric_limits<int>::max())
 	if (_int_overflow == 1)
 	{
-		//std::cout << "A)\n";
 		std::cout << "int:    not-possible\n";
 	}
 	else
 	{
-		//std::cout << "B)  int: " << _f << ",  limit: " << std::numeric_limits<int>::min() << "\n";
-		std::cout << "int:    " << _intg	<<  "\n";
+		std::cout << "int:    " << _intg <<  "\n";
 	}
 }
 
 
 void	Conversion::print_nan_or_inf()
 {
-	std::cout << "PRINT NAN OR INF, sign: " << _sign << "\n"; 
-
 	if (_inputStr == "-inff")
 		_inputStr = "-inf";
 	else if (_inputStr == "+inff")
 		_inputStr = "+inf";
-		
 	if (_inputStr == "+inf" || _inputStr == "-inf")
 	{
 		std::cout << "char: not-possible\n";
 		std::cout << "int: not-possible\n";
-					  //int:    not-possible
-		std::cout << "float:  ";
-		std::cout << _inputStr << "f\n";
-		std::cout << "double: ";
-		std::cout << _inputStr << "\n";
+		std::cout << "float:  " << _inputStr << "f\n";
+		std::cout << "double: " << _inputStr << "\n";
 	}
 }
 
-
-void	Conversion::print_all()
+void	Conversion::printFloatAndDouble()
 {
-	std::cout << "Print all()      _c [" << _c << "] \n";
-
-	// print char
-	if (_type == CHAR && isprint(_c))
+	if (_type == INT || _type == FLOAT)
 	{
-		std::cout << "char:  '" << _c 		<< "'\n";
-		std::cout << "int:    " << _intg	<<  "\n";
-		std::cout << "float:  " << _f 		<<  ".0f\n";
-		std::cout << "double: " << _d 		<<  ".0\n";
-	}
-	if (_type == INT)
-	{
-		print_char();
-		print_int();
-		// std::cout << "int:    " << _intg	<<  "\n";		
-
-
-		// std::cout << "float:  " << _f 		<<  ".0f\n";
-		// std::cout << "double: " << _d 		<<  ".0\n";
-		if (_f - (int)_f == 0 && _f < 10000)
+		if (_f - (int)_f == 0 && _f < 10000)	//std::cout << "FLOAT, no decimals\n";
 		{
-			std::cout << "FLOAT, no decimals\n";
 			std::cout << "float:  " << _f 		<<  ".0f\n";
 			std::cout << "double: " << _d 		<<  ".0\n";
 		}
@@ -279,35 +235,10 @@ void	Conversion::print_all()
 			std::cout << "double: " << _d 		<<  "\n";
 		}
 	}
-	if (_type == FLOAT)
+	else if (_type == DOUBLE)
 	{
-		print_char();
-		print_int();
-		// std::cout << "int:    " << _intg	<<  "\n";
-		
-		// if (_f - (int)_f == 0)
-		if (_f - (int)_f == 0 && _f < 10000)
+		if (_d - (int)_d == 0)	//std::cout << "FLOAT, no decimals\n";
 		{
-			std::cout << "FLOAT, no decimals\n";
-			std::cout << "float:  " << _f 		<<  ".0f\n";
-			std::cout << "double: " << _d 		<<  ".0\n";
-		}
-		else		// THIS ALSO WORKS FOR OVERFLOW ???
-		{
-			std::cout << "float:  " << _f 		<<  "f\n";
-			std::cout << "double: " << _d 		<<  "\n";
-		}
-	}
-	if (_type == DOUBLE)
-	{
-		print_char();
-		print_int();
-		// std::cout << "int:    " << _intg	<<  "\n";
-
-
-		if (_d - (int)_d == 0) 
-		{
-			std::cout << "FLOAT, no decimals\n";
 			std::cout << "float:  " << _f 		<<  ".0f\n";
 			std::cout << "double: " << _d 		<<  ".0\n";
 		}
@@ -317,15 +248,29 @@ void	Conversion::print_all()
 			std::cout << "double: " << _d 		<<  "\n";
 		}
 	}
+}
 
-
+void	Conversion::print_all()
+{
+	if (_type == CHAR && isprint(_c))
+	{
+		std::cout << "char:  '" << _c 		<< "'\n";
+		std::cout << "int:    " << _intg	<<  "\n";
+		std::cout << "float:  " << _f 		<<  ".0f\n";
+		std::cout << "double: " << _d 		<<  ".0\n";
+	}
+	if (_type == INT || _type == FLOAT || _type == DOUBLE)
+	{
+		print_char();
+		print_int();
+		printFloatAndDouble();
+	}
 	if (_type == NAN_OR_INF)
 		print_nan_or_inf();
 
-
+	// ??????????????
 	if (_type == INVALID_INPUT)	// this is not ok here, it should probably go to 
 	{							// the convert section, and there check overflow for each type
-
 		if (_int_overflow == 1)
 		{
 			std::cout << "char:  'not-possible'\n";
@@ -334,8 +279,7 @@ void	Conversion::print_all()
 	}
 }
 
-//IT NEEDS TO DETECT A SINGLE SPACE AND SINGLE DOT !!!
-
+// IT NEEDS TO DETECT A SINGLE SPACE AND SINGLE DOT !!!
 std::string trimWhiteSpaces(std::string str)
 {
     const char* whiteSpaces = " \n\r\t\f\v";
@@ -345,36 +289,17 @@ std::string trimWhiteSpaces(std::string str)
     return str;
 }
 
-
-
 int	Conversion::processInputStr()
 {
-	std::cout << "PIS [" << _inputStr << "]\n";
-	
-	//////////////////////////////////
-	// not needed
-	// check overflow float
-	// double 	tempD = atof(_inputStr.c_str());
-	// std::cout << "... tempD [" << tempD << "]\n";
-	
-	// float 	tempF = static_cast<float>(tempD);
-	// std::cout << "... tempF [" << tempF << "]\n";
-
-	// int 	tempI = static_cast<float>(tempD);
-	// std::cout << "... tempI [" << tempI << "]\n";
-////////////////////////////////////////////////////
-	
-
-	// Check immediately for ' '
+	// Check immediately for ' ' single space
 	if (strlen(_inputStr.c_str()) == 1 && _inputStr[0] == ' ')
 	{
 		_c = _inputStr[0];
 		_isNotDigit++;
-		std::cout << "         SINGLE SPACE:  _c [" << _c << "] \n";
+		//std::cout << "         SINGLE SPACE:  _c [" << _c << "] \n";
 		_type = CHAR;
 		return (CHAR);
 	}
-
 	// Check for multiple spaces
 	if (strlen(_inputStr.c_str()) > 1)
 	{
@@ -387,16 +312,16 @@ int	Conversion::processInputStr()
 		}
 		if (i == strlen(_inputStr.c_str()))
 		{
-			std::cout << "         ONLY SPACES IN THE STR [" << _inputStr << "] \n";
+			//std::cout << "         ONLY SPACES IN THE STR [" << _inputStr << "] \n";
 			_type = INVALID_INPUT;
 			return (INVALID_INPUT);
 		}
 	}
 
 	// Trim spaces at start and end
-	std::cout << "SCT before trim [" << _inputStr << "]\n";
+	//std::cout << "SCT before trim [" << _inputStr << "]\n";
 	_inputStr = trimWhiteSpaces(_inputStr);
-	std::cout << "SCT after trim  [" << _inputStr << "]\n";
+	//std::cout << "SCT after trim  [" << _inputStr << "]\n";
 
 	while (isspace(_inputStr[_i])) // skip spaces on start
 	{
@@ -518,25 +443,25 @@ int	Conversion::storeCorrectType()
 	if (_sign == 1 && (_isNotDigit + _isPoint + _isF + _isDigit == 0))
 	{
 		//printStats(_isDigit, _isNotDigit, _isPoint, _isF, _sign, _isNeg, _isSpace);
-		std::cout << "SINGLE CHAR THE SIGN FOUND\n";
+		//std::cout << "SINGLE CHAR THE SIGN FOUND\n";
 		//std::cout << "Must be CHAR, str [" << _inputStr << "],  c [" << _c << "]\n"; 
-		std::cout << "Result: " << _c << "\n";
+		//std::cout << "Result: " << _c << "\n";
 		_type = CHAR;
 		return (CHAR);
 	}
 	
 	
-	printStats(_isDigit, _isNotDigit, _isPoint, _isF, _sign, _isNeg, _isSpace);
+	//printStats(_isDigit, _isNotDigit, _isPoint, _isF, _sign, _isNeg, _isSpace);
 	if (_sign == 0 && (_isNotDigit + _isPoint + _isF + _isDigit + _isSpace) == 1)
 	{
-		std::cout << "SINGLE CHAR \n";
+		//std::cout << "SINGLE CHAR \n";
 		//printStats(_isDigit, _isNotDigit, _isPoint, _isF, _sign, _isNeg, _isSpace);
 
 		// if (_isSpace == 1)
 		// 	_c = ' ';
 		if (_isNotDigit == 1 || _isPoint == 1 || _isSpace == 1)
 		{
-			std::cout << "Must be CHAR, str [" << _inputStr << "],  c [" << (int)_c << _c << "]\n"; 
+			//std::cout << "Must be CHAR, str [" << _inputStr << "],  c [" << (int)_c << _c << "]\n"; 
 			std::cout << "Result: " << _c << "\n";
 			_type = CHAR;
 			return (CHAR);
@@ -544,10 +469,10 @@ int	Conversion::storeCorrectType()
 		// HERE PROBABLY NEEDS TO BE _intg INSTEAD OF _i  ???????????????????
 		if (_isDigit == 1)
 		{
-			std::cout << "Must be SINGLE INT, str [" << _inputStr << "],  c [" << _i << "]\n";
-			std::cout << "Must be SINGLE INT, str [" << _inputStr << "],  c [" << _inputStr[_start] << "]\n";
+			//std::cout << "Must be SINGLE INT, str [" << _inputStr << "],  c [" << _i << "]\n";
+			//std::cout << "Must be SINGLE INT, str [" << _inputStr << "],  c [" << _inputStr[_start] << "]\n";
 			_intg = (int)(_inputStr[_start] - 48);
-			std::cout << "Result: " << _intg << "\n";
+			//std::cout << "Result: " << _intg << "\n";
 
 
 
@@ -564,10 +489,10 @@ int	Conversion::storeCorrectType()
 	{
 		if (_isDigit == 1)
 		{
-			std::cout << "Must be SINGLE INT WITH SIGN, str [" << _inputStr << "],  c [" << _inputStr[_start] << "]\n";
+			//std::cout << "Must be SINGLE INT WITH SIGN, str [" << _inputStr << "],  c [" << _inputStr[_start] << "]\n";
 			_intg = (int)(_inputStr[_start] - 48);
 		
-			std::cout << "Result: " << _i << "\n";
+			//std::cout << "Result: " << _i << "\n";
 			if (_isNeg == 1)
 				_intg *= -1;
 			// return (11);
@@ -589,7 +514,7 @@ int	Conversion::storeCorrectType()
 	// check if all good
 	else if (_isPoint == 0 && _isNotDigit == 0 && _isF == 0)
 	{
-		std::cout << "Must be integer: " << _inputStr << "\n";
+		//std::cout << "Must be integer: " << _inputStr << "\n";
 		//printStats(_isDigit, _isNotDigit, _isPoint, _isF, _sign, _isNeg, _isSpace);
 
 		// choose the correct limit
@@ -619,7 +544,7 @@ int	Conversion::storeCorrectType()
 		long double temp = atof(&_inputStr[_start]);
 		if (temp > INT_MAX || temp < INT_MIN)
 		{
-			std::cout << "   INT OVERFLOW \n";
+			//std::cout << "   INT OVERFLOW \n";
 			_int_overflow = 1;;
 //			return (INVALID_INPUT);		
 		}
@@ -634,7 +559,7 @@ int	Conversion::storeCorrectType()
 
 
 
-		std::cout << "String [start] before atoi: " << &_inputStr[_start] << "\n";
+		//std::cout << "String [start] before atoi: " << &_inputStr[_start] << "\n";
 		_intg = atoi(&_inputStr[_start]);
 		_f    = atof(&_inputStr[_start]);	// IN CASE OF OVERFLOW IT MUST 
 		_d    = atof(&_inputStr[_start]);	// RETAIN THE ORIG VALUE FOR THE FLOAT
@@ -648,8 +573,8 @@ int	Conversion::storeCorrectType()
 			_d *= -1;
 		}
 
-		std::cout << "Result: " << _intg << "\n";
-		std::cout << "        integer: " << _intg << " limit = not in use\n";
+		//std::cout << "Result: " << _intg << "\n";
+		//std::cout << "        integer: " << _intg << " limit = not in use\n";
 		_type = INT;
 		return (INT);
 	}
@@ -657,17 +582,17 @@ int	Conversion::storeCorrectType()
 	else if (_isPoint == 1 && _isNotDigit == 0 && _isF == 0 && _isDigit >= 1)
 	{
 		//printStats(_isDigit, _isNotDigit, _isPoint, _isF, _sign, _isNeg, _isSpace);
-		std::cout << "Must be double: " << _inputStr << "\n";
+		//std::cout << "Must be double: " << _inputStr << "\n";
 		_d = atof(&_inputStr[_start]); // ??????
 		if (_isNeg == 1)
 			_d *= -1;
-		std::cout << "Result: " << _d << "\n";
+		//std::cout << "Result: " << _d << "\n";
 		_type = DOUBLE;
 		return (DOUBLE);
 	}
 	else if (_isPoint == 1 && _isNotDigit == 0 && _isF == 1 && _checkIf_F == 'f')
 	{
-		std::cout << "Must be float: " << _inputStr << "\n";
+		//std::cout << "Must be float: " << _inputStr << "\n";
 		_f = atof(&_inputStr[_start]);
 		_d = atof(&_inputStr[_start]);
 		if (_isNeg == 1)
@@ -675,24 +600,24 @@ int	Conversion::storeCorrectType()
 			_f *= -1;
 			_d *= -1;
 		}
-		std::cout << "Result: " << _f << "\n";
+		//std::cout << "Result: " << _f << "\n";
 		_type = FLOAT;
 		return (FLOAT);
 	}
 	else
 	{
-		std::cout << "Found alphabet  [" << _inputStr << "]\n";
+		//std::cout << "Found alphabet  [" << _inputStr << "]\n";
 		// std::cout << "Found alphabet  [" << _inputStr[_start] << "]\n";
 		// std::cout << "Found alphabet  [" << &_inputStr[_start] << "]\n";
 		//_inputStr = &_inputStr[_start];
 	
 		_inputStr = trimWhiteSpaces(_inputStr); // maybe not needed anymore
-		std::cout << "        after trim [" << _inputStr << "]  len: " <<  strlen(_inputStr.c_str()) <<  " \n";
+		//std::cout << "        after trim [" << _inputStr << "]  len: " <<  strlen(_inputStr.c_str()) <<  " \n";
 
 
 		if (strlen(_inputStr.c_str()) == 1 /*&& isprint(_inputStr[0]) */)
 		{
-			std::cout << "         FOUND CHAR\n";
+			//std::cout << "         FOUND CHAR\n";
 			_c = _inputStr[0];
 			std::cout << "                _c [" << _c << "] \n";
 			_type = CHAR;
@@ -700,14 +625,14 @@ int	Conversion::storeCorrectType()
 		}
 		if (_inputStr == "nan" || _inputStr == "nanf")
 		{
-			std::cout << "Found string 'nan' [" << _inputStr << "]\n";
+			//std::cout << "Found string 'nan' [" << _inputStr << "]\n";
 			_type = NAN_OR_INF;
 			return (NAN_OR_INF);
 		}
 		else if (_sign == 1 && (_inputStr == "+inf" || _inputStr == "+inff"
 							||	_inputStr == "-inf" || _inputStr == "-inff"))
 		{
-			std::cout << "Found string '+inf' [" << _inputStr << "]\n";
+			//std::cout << "Found string '+inf' [" << _inputStr << "]\n";
 			_type = NAN_OR_INF;
 			return (NAN_OR_INF);
 		}

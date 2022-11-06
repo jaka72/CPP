@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 15:39:55 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/06 20:58:20 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 
 #include "conversion.hpp"
 
+/* QUESTIONS
+
+    - Shall I use getters and setters always for all private vars??
+
+*/
+
+
 /*
     TYPE CASTNG (TYPE CONVERSION)
 
@@ -29,12 +36,16 @@
 
         b2) With <> 
             - Static_cast           static_cast < new_data_type > (expression); 
-                                    x = static_cast < int > (y);  
-            - dynamic_cast          (at runtime, only for class pointers)
+                                    x = static_cast < int > (y); 
+
+            - dynamic_cast          To handle polimorphism. Only used when casting from base to derived class
+                                    (at runtime, only for class pointers)
             
             - const_cast
             
             - reinterpret_cast
+
+            - regular cast
 
 
 */
@@ -44,7 +55,7 @@
 
 int main(int argc, char **argv)
 {
-    std::cout << "Main start\n";
+    // std::cout << "Main start\n";
     if (argc != 2)
     {
         std::cout << "Only 1 argument allowed.\n";
@@ -54,9 +65,9 @@ int main(int argc, char **argv)
 
     Conversion con1(argv[1]);
 
-    double f = -99999999999999999999999999.123f;
-    std::cout << " m_float " << f << "\n";
-    std::cout << " m_int " << (int)f << "\n";
+    // double f = -99999999999999999999999999.123f;
+    // std::cout << " m_float " << f << "\n";
+    // std::cout << " m_int " << (int)f << "\n";
     
     //float i1 = nan;   error, unknown word, also -inf, +inff ...
     //float i2 = 1.   ;   // valid
@@ -79,14 +90,14 @@ int main(int argc, char **argv)
 
     //float f1 = 9223372036854775807.0;
     //float f2 = 9223372036854775807999999999999999999999999999999999.0;
-    float f3 = 99999.9;
-    float f4 = 9999999.9;
-    float f5 = 99999999.9;
-    float f6 = 9999999999999999999999999999999999999999999.9;
-    std::cout << f3 << ", " << f4 << ", " << f5 << ", " << f6  << "\n";
+    // float f3 = 99999.9;
+    // float f4 = 9999999.9;
+    // float f5 = 99999999.9;
+    // float f6 = 9999999999999999999999999999999999999999999.9;
+    // std::cout << f3 << ", " << f4 << ", " << f5 << ", " << f6  << "\n";
 
-    float f7 = 2147483646.0f;
-    std::cout << f7 << "\n";
+    // float f7 = 2147483646.0f;
+    // std::cout << f7 << "\n";
 
     
     return 0;

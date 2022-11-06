@@ -45,9 +45,12 @@ int main()
     try
     {
         // OBJECT IS NOW ACTING AS AN ARRAY, WHEN USED WITH []
-
+        // THIS a1[xz] ALWAYS TRIGGERS THE []OVERLOAD
+        // CODE, CHECKS FOR BAD INDEX
+        
         // std::cout << "data[0]: " << a1.data[index] << '\n';
-           std::cout << "data[index]: " << a1[index] << '\n';
+           std::cout << "data[index]: " << a1[index] << '\n';   
+                                                                
     }
 
     catch (int i)

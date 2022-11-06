@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Data.hpp                                     :+:    :+:            */
+/*   conversion.hpp                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
@@ -11,45 +11,77 @@
 /* ************************************************************************** */
 
 
-#ifndef DATA_H
-#define DATA_H
+#ifndef CONVERSION_H
+#define CONVERSION_H
 
-#include <stdint.h>		// for type uintptr_t
-// #include <cstdint>		// for type uintptr_t
+#include <math.h>	// for isinf()
 #include <iostream>
-
+#include <iomanip>
+#include <cstring>   // strlen
+#include <cstdlib>
+#include <limits>       // overflow CPP
+#include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
 #include "colors.h"
 
+#define INVALID_INPUT -1
+
+#define NAN_OR_INF	0
+#define CHAR		1
+#define INT			2
+#define FLOAT		3
+#define DOUBLE		4
 
 
-class Data
+
+class Conversion
 {
 	private:
-		int a;
-		float b;
+        std::string _inputStr;
+		char    	_c;
+		int			_intg;
+		float		_f;
+		double		_d;
+		int			_type;
+
+		int			_i, _start, _isDigit, _isNotDigit, _isPoint, _isSpace, _isF;
+		int			_int_overflow; // _float_overflow, _double_overflow;
+		int			_sign;
+		int			_isNeg;
+		char		_checkIf_F;
 		
 
 	public:
 
 		// Constructor
-		Data();
+		Conversion();
 		
 		// Param. constr.
-		//Data(std::string str);
+		Conversion(std::string str);
 
 		// Copy constructor
-		//Data(const Data &src);
+		Conversion(const Conversion &src);
 
 		// Destructor
-		~Data();
+		~Conversion();
 
 		// Overload operators
-		Data &operator= (const Data &src);
+		Conversion &operator= (const Conversion &src);
 
 
 		// Public member functions
-
+		int		processInputStr();
+		int		storeCorrectType();
+		int		convert();
+		void	print_all();
+		void	print_char();
+		void	print_int();
+		void	print_nan_or_inf();
 		
+
+
+
+
+
 		// Getter
 
 
@@ -63,9 +95,9 @@ class Data
 };
 
 // THIS IS OUTSIDE OF THE CLASS !!!
-// std::ostream& operator<< (std::ostream& outstream, Data &conv)
+// std::ostream& operator<< (std::ostream& outstream, Conversion &conv)
 // {
-// 	outstream << "Data " <<  bur.getInputStr() <<"\n";
+// 	outstream << "Conversion " <<  bur.getInputStr() <<"\n";
 // 	return (outstream);
 // }
 
