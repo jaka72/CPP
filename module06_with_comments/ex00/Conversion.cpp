@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/07 14:55:34 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/07 15:10:06 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,12 @@ Conversion::Conversion(std::string str) : _inputStr(str)
 	// { std::cerr << e.what() << '\n'; }
 }
 
-
-
 // Copy constructor
 Conversion::Conversion(const Conversion &src)
 {
 	std::cout << GRE"Copy constructor:   " << "\n" RES;
 	*this = src;
 }
-
-
 
 // Overload operators
 Conversion& Conversion::operator= (const Conversion &src)
@@ -85,10 +81,6 @@ Conversion::~Conversion()
 //////////////////////////////////////////////////////////
 // Public member functions
 
-// CHECK INT OVERFLOW ///////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////
-
-
 int	Conversion::convert()
 {
 	if (_type == CHAR)
@@ -98,19 +90,13 @@ int	Conversion::convert()
 		_d		= (double)_c;
 	}
 	else if (_type == INT)
-	{
 		_c = (int)_intg;
-	}
 	else if (_type == FLOAT)
 	{
 		_c 		= (char)_f;
 		_intg 	= (int)_f;
 		if (isinf(_f))		// SOMETHING NOT GOOD, SHOULD BE inf == true ???
-		{
 			_d 	= (double)_f;
-		}
-		else
-		{ ; } // Do nothing, _d must stay _d
 	}
 	else if (_type == DOUBLE)
 	{
@@ -122,7 +108,6 @@ int	Conversion::convert()
 		return (0);
 	return (0);
 }
-
 
 
 void	Conversion::print_all()
@@ -177,8 +162,6 @@ int	Conversion::processInputString()
 	}
 	return 0;
 }
-
-/////////////////////////////////////////////////////
 
 
 int	Conversion::storeCorrectType()

@@ -6,10 +6,9 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/07 14:57:12 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/07 15:13:31 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CONVERSION_H
 #define CONVERSION_H
@@ -24,7 +23,6 @@
 #include "colors.h"
 
 #define INVALID_INPUT -1
-
 #define NAN_OR_INF	0
 #define CHAR		1
 #define INT			2
@@ -32,10 +30,10 @@
 #define DOUBLE		4
 
 
-
 class Conversion
 {
 	private:
+	
         std::string _inputStr;
 		char    	_c;
 		int			_intg;
@@ -43,12 +41,13 @@ class Conversion
 		double		_d;
 		int			_type;
 
-		int			_i, _start, _isDigit, _isNotDigit, _isPoint, _isSpace, _isF;
-		int			_int_overflow; // _float_overflow, _double_overflow;
+		int			_i, _start;
+		int			_isDigit, _isNotDigit;
+		int			_isPoint, _isSpace, _isF;
+		int			_int_overflow;
 		int			_sign;
 		int			_isNeg;
 		char		_checkIf_F;
-		
 
 	public:
 
@@ -86,15 +85,11 @@ class Conversion
 		void	printFloatAndDouble();
 		void	print_nan_or_inf();
 		
-
 		// Getter
 
 		// Setter
 
-
 		// Exceptions
-
-
 };
 
 // THE OVERLOAD<< MUST BE OUTSIDE OF THE CLASS. MAYBE NEEDS TO BE UNCOMMENTED, AS PART OF THE SUBJECT
@@ -110,23 +105,11 @@ class Conversion
 int		checkSpaces(int _type, std::string &_inputStr, char &_c, int &_isNotDigit);
 void	checkDotOrSign(std::string &_inputStr, int &_i, int &_sign, char &_c, int &_isNeg);
 void	checkString(std::string &_inputStr, int &_i, int &_isDigit, int &_isNotDigit,
-						 int &_isPoint, int &_isF, char &_checkIf_F, char &_c);
+							int &_isPoint, int &_isF, char &_checkIf_F, char &_c);
 
 
 // For Check Int Overflow
-int checkIntOverflow(std::string str, int limit);
-int countDigits(int limit);
-
+int		checkIntOverflow(std::string str, int limit);
+int		countDigits(int limit);
 
 #endif
-
-/////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
