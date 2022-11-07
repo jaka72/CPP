@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/02 18:29:52 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/06 21:14:38 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/07 14:14:39 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,33 +41,33 @@ loopOutFile()
 	str="   in bash [$1]" # !!! NEEDS TO PRESERVE SPACES !!!
 
 	while  read -r line ; do
-		if [[ $line == char:* ]] ; then
-			 if [ "$line" == "char:  '$2'" ] ; then      # CHARS
+		# if [[ $line == char:* ]] ; then
+		 	if [ "$line" == "char:  '$2'" ] ; then      # CHARS
+		 		print_yes
+		# 	else    
+		# 		 echo -en $RED "NO " $RES
+		# 	fi
+		# fi
+		# if [[ $line == int:* ]] ; then
+		 	elif [ "$line" == "int:    $3" ] ; then      # INTS
+		 		print_yes
+		# 	else    
+		# 		echo -en $RED "NO " $RES
+		# 	fi
+		# fi
+		# if [[ $line == float:* ]] ; then
+			elif [ "$line" == "float:  $4" ] ; then      # FLOATS
 				print_yes
-			else    
-				 echo -en $RED "NO " $RES
-			fi
-		fi
-		if [[ $line == int:* ]] ; then
-			if [ "$line" == "int:    $3" ] ; then      # INTS
+		# 	else    
+		# 		echo -en $RED "NO " $RES
+		# 	fi
+		# fi
+		# if [[ $line == double:* ]] ; then
+			elif [ "$line" == "double: $5" ] ; then      # DOUBLES
 				print_yes
-			else    
-				echo -en $RED "NO " $RES
-			fi
-		fi
-		if [[ $line == float:* ]] ; then
-			if [ "$line" == "float:  $4" ] ; then      # FLOATS
-				print_yes
-			else    
-				echo -en $RED "NO " $RES
-			fi
-		fi
-		if [[ $line == double:* ]] ; then
-			if [ "$line" == "double: $5" ] ; then      # DOUBLES
-				print_yes
-			else    
-				echo -en $RED "NO " $RES
-			fi
+		 	else    
+		 		echo -en $RED "Error " $RES
+		# 	fi
 		fi
 	done < outTemp
 	if [ $PRINT_YES == 1 ] ; then
@@ -194,16 +194,16 @@ testChars "   +   4  "  "non-printable"   "4"    "4.0f"    "4.0"
 echo ; i=0
 
 
-# echo "--- SHOULD BE ERROR --- "
-# testChars "+a "             "error"
-# testChars "-a "             "error"
-# testChars "   +   a  "      "error"
-# testChars "   -   b  "      "error"
-# testChars "   ++  3  "      "error"
-# testChars "   --  4    "    "error"
-# testChars "   ++  123  "    "error"
-# testChars "   --  456  "    "error"
-# testChars "--12.34"         "error"
+echo "--- SHOULD BE ERROR --- "
+testChars "+a "             "error"
+testChars "-a "             "error"
+testChars "   +   a  "      "error"
+testChars "   -   b  "      "error"
+testChars "   ++  3  "      "error"
+testChars "   --  4    "    "error"
+testChars "   ++  123  "    "error"
+testChars "   --  456  "    "error"
+testChars "--12.34"         "error"
 echo ; i=0
 
 

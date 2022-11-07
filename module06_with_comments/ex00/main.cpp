@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/06 20:58:20 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/07 14:49:44 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <limits>       // overflow CPP
 #include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
 
-#include "conversion.hpp"
+#include "Conversion.hpp"
 
 /* QUESTIONS
 

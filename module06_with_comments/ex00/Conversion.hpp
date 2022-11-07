@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   conversion.hpp                                     :+:    :+:            */
+/*   Conversion.hpp                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/06 21:08:08 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/07 14:57:12 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,17 @@ class Conversion
 
 
 		// Public member functions
-		int		processInputStr();
+		int		processInputString();
 		int		storeCorrectType();
+		
+		int		isSingleChar();
+		int		isInt();
+		int		isDouble();
+		int		isFloat();
+		int		isNan_Inf_Invalid();
+
 		int		convert();
+	
 		void	print_all();
 		void	print_char();
 		void	print_int();
@@ -95,6 +103,20 @@ class Conversion
 // 	outstream << "Conversion " <<  bur.getInputStr() <<"\n";
 // 	return (outstream);
 // }
+
+
+
+// For Process Input String
+int		checkSpaces(int _type, std::string &_inputStr, char &_c, int &_isNotDigit);
+void	checkDotOrSign(std::string &_inputStr, int &_i, int &_sign, char &_c, int &_isNeg);
+void	checkString(std::string &_inputStr, int &_i, int &_isDigit, int &_isNotDigit,
+						 int &_isPoint, int &_isF, char &_checkIf_F, char &_c);
+
+
+// For Check Int Overflow
+int checkIntOverflow(std::string str, int limit);
+int countDigits(int limit);
+
 
 #endif
 
