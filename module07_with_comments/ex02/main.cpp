@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/10 18:30:51 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/10 19:14:43 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,21 @@ class Array
 		Array(const Array &src)
 		{
 			std::cout << GRE"Copy constructor called\n" RES;
+			std::cout << GRN"       what is arr at this point:    " << _arr << "\n" RES;
+			std::cout << GRN"       what is arr[0] at this point: " << _arr[0] << "\n" RES;
+			std::cout << GRN"       what is src[0] at this point: " << src._arr[0] << "\n" RES;
+
+			// here not needed checking if its the same???  -->  if (this == &src) ...
+			// 		Apparently not, because this check is already in =overload, so it
+			//		happens there.
+			
+								// set _arr to NULL, because now it is garbage 
 			this->_arr = NULL;	// !!! THIS IS CRUCIAL, TO PREVENT LEAKS OR DOUBLE FREE
 			*this = src;		//			WHEN A = B    or   B(A)		!!!
+				// here above the =overload already happened, so the duplicate already has different addresses
+			
+			std::cout << BLU"       what is arr[0] at this point: " << &_arr[0] << "\n" RES;
+			std::cout << BLU"       what is src[0] at this point: " << &src._arr[0] << "\n" RES;
 		}
 
 		// 3) B    Assignment operator= overload
