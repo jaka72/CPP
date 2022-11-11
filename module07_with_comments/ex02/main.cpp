@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/10 19:14:43 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/11 12:31:15 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,39 +61,67 @@ class Array
 		Array(const Array &src)
 		{
 			std::cout << GRE"Copy constructor called\n" RES;
-			std::cout << GRN"       what is arr at this point:    " << _arr << "\n" RES;
-			std::cout << GRN"       what is arr[0] at this point: " << _arr[0] << "\n" RES;
-			std::cout << GRN"       what is src[0] at this point: " << src._arr[0] << "\n" RES;
+			std::cout << GRE"   (THE COPY HAS NO new ALLOCATED MEMORY YET, SO YOU CANT DELETE IT HERE, JUST SET TO NULL)\n" RES;
+			std::cout << GRN"       what is src._arr at this point: " << src._arr << "\n" RES;
+			std::cout << GRN"       what is arr at this point:      " << this->_arr << "\n" RES;
+			std::cout << BLU"       what is src[0] at this point:   " << src._arr[0] << "\n" RES;
+			std::cout << BLU"       what is arr[0] at this point:   " << this->_arr[0] << " (random value)\n" RES;
 
 			// here not needed checking if its the same???  -->  if (this == &src) ...
 			// 		Apparently not, because this check is already in =overload, so it
 			//		happens there.
-			
-								// set _arr to NULL, because now it is garbage 
+						
+			// THE COPY HAS NO new ALLOCATED MEMORY YET, SO YOU CANT DELETE IT HERE, JUST SET TO NULL
+			// if (this->_arr != NULL)		// !!! THIS PREVENTS LEAKS WHEN A = B
+			// {							// BUT NOW B(A) GIVES DOUBLE FREE
+			// 	std::cout << LRD"       _arr IS NOT NULL, NOW delete []_arr\n" RES;
+			// 	delete []_arr;
+			// }		
+					
+
+			// setting _arr to NULL, because now it is garbage 	
+			std::cout << GRE"     Setting this->_arr to NULL\n" RES;
 			this->_arr = NULL;	// !!! THIS IS CRUCIAL, TO PREVENT LEAKS OR DOUBLE FREE
+
 			*this = src;		//			WHEN A = B    or   B(A)		!!!
-				// here above the =overload already happened, so the duplicate already has different addresses
+			// here above the =overload already happened, so the duplicate already has different addresses
 			
-			std::cout << BLU"       what is arr[0] at this point: " << &_arr[0] << "\n" RES;
-			std::cout << BLU"       what is src[0] at this point: " << &src._arr[0] << "\n" RES;
+			// NOW THE _arr HAS SAME COPIED VALUES, BUT AT DIFFERENT ADDRESSES: 
+			std::cout << BLU"       what is src[0] at this point: " <<   src._arr << "\n" RES;
+			std::cout << BLU"       what is arr[0] at this point: " << this->_arr << "\n" RES;
+			std::cout << GRN"       what is src[0] at this point: " <<   src._arr[0] << "\n" RES;
+			std::cout << GRN"       what is arr[0] at this point: " << this->_arr[0] << "\n" RES;
 		}
+
+
 
 		// 3) B    Assignment operator= overload
 		Array &operator= (const Array &src)
 		{
+			std::cout << GRE"Assignment operator= overload\n" RES;
+			std::cout << GRN"       what is src at this point:    " << src._arr << "\n" RES;
+			std::cout << GRN"       what is arr at this point:    " << _arr << "\n" RES;
 			if (this == &src)
 				return (*this);
 
+			std::cout << GRN"       Is this->_arr == NULL? " << this->_arr << "\n" RES;
+			if (this->_arr == NULL)	
+				std::cout << GRE"       _arr IS NULL!\n" RES;
 			if (this->_arr != NULL)		// !!! THIS PREVENTS LEAKS WHEN A = B
-				delete []_arr;			// BUT NOW B(A) GIVES DOUBLE FREE
+			{							// BUT NOW B(A) GIVES DOUBLE FREE
+				std::cout << LRD"       _arr IS NOT NULL, NOW delete []_arr\n" RES;
+				delete []_arr;
+			}		
+			std::cout << GRN"       Is this->_arr == NULL? " << this->_arr << "\n" RES;
 				
-			std::cout << GRE"Assignment operator= overload\n" RES;
+			
 			this->_size = src._size;
 
 			// copy whole array
 			unsigned int i = 0;
 			_arr = new T[_size]; 	// THIS IS CAUSING LEAK IN CASE A = B . ,WHERE THEN DOES THE MEMORY FOR THE NEW ARRAY COME FROM ???
 									//   BUT WITHOUT THIS IS CAUSING DOUBLE FREE IN B(A)     ???
+			std::cout << GRN"       Is this->_arr == NULL? After new: " << this->_arr << "\n" RES;
 
 			if (_arr == NULL)
 			{
@@ -106,11 +134,11 @@ class Array
 			// NOT SURE, THIS WE DID SO IN THE ANIMAL-BRAIN, BUT BRAIN WAS A CLASS OBJECT THERE
 			// *this->_arr = *src._arr; // ????? THIS DOES NOT MAKE ANY DIFFERENCE, STILL 1 LEAK!
 
-			
+			std::cerr << GRE"   Copying array:\n" RES;
 			while (i < _size)
 			{
 				this->_arr[i] = src._arr[i];
-				std::cout << GRE"     while arr[i] = " << _arr[i] << "\n" RES;
+				std::cout << GRE"       while arr[i] = " << _arr[i] << "\n" RES;
 				i++; 
 			}
 			return (*this);
@@ -201,7 +229,8 @@ int main()
 		Array <int> B;
 
 		std::cout << BLU"Duplicate object A to B using operator= overload\n" RES;
-		B = A;
+		B = A;		// B._arr ALREADY HAS ADDRESS, BEFORE CALLING B=A, 
+					// THEREFORE IT NEEDS TO BE SET TO NULL IN =overload
 		
 		std::cout << "    A.size:  " << A._size << ",  B.size:   " << B._size << "\n";
 		std::cout << "   &A.size: " << &A._size << ",  &B.size: " << &B._size << "\n\n";	// error, freed pointer not allocated ????
@@ -225,7 +254,9 @@ int main()
 		std::cout << MAG"Check if deep copy:   B(A);\n" RES;
 		std::cout << BLU"Duplicate object A to B using brackets:   Array <int> C(A) \n" RES;
 		Array <int> A(3);
-		Array <int> B(A);
+		Array <int> B(A); // FOR A, NO CONSTRUCTOR IS CALLED, SO IT NEVER GETS THE new
+						  // THEREFORE YOU CANT DELETE THE _arr, JUST MUST SET TO NULL	
+						  // B._arr IS SET TO NULL IN COPY CONSTR., SO IT COMES AS NULL INTO =overload
 		
 		std::cout << "   A.size:  " << A._size << ",  B.size:   " << B._size << "\n";
 		std::cout << "   &A.size: " << &A._size << ",  &B.size: " << &B._size << "\n\n";	// error, freed pointer not allocated ????
@@ -242,7 +273,6 @@ int main()
 		std::cout << "    A.arr[0]:  " << A._arr[0] << ",    B.arr[0]:   " << B._arr[0] << "\n";
 		std::cout << "   &A.arr[0]:  " << &A._arr[0] << ",  &B.arr[0]:   " << &B._arr[0] << "\n\n";
 
-		
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 	// {
@@ -268,40 +298,84 @@ int main()
 
 
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
+	// {
+	// 	std::cout << MAG"Check Array with <string> arguments\n" RES;
+
+	// 	Array <std::string> A(3);
+	// 	A._arr[0] = "wine";
+	// 	A._arr[1] = "beer";
+	// 	A._arr[2] = "cola";
+
+	// 	std::cout << "   Test subscript: \n";
+	// 	std::cout << A[1] << "\n";
+	// }
+	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
+		
+	// {
+	// 	std::cout << MAG"Testing   int* a = new int();\n" RES;
+	// 	std::cout << MAG"Testing   int* b = new int[10];\n" RES;
+	// 	int* a = new int();
+	// 	int* b = new int[10]; // MAKING ARRAY b WITH 10 INTS
+	// 	std::cout << "    *a: " << *a << "\n";
+	// 	std::cout << "    *b: " << *b << "\n";
+		
+	// 	b[0] = 11;
+
+	// 	std::cout << "     b[0]: " << b[0] << "\n";
+	// 	std::cout << "     b[1]: " << b[1] << "\n";
+	// 	std::cout << "     b[2]: " << b[2] << "\n";
+		
+	// 	std::cout << "    &b[0]: " << &b[0] << "\n";
+	// 	std::cout << "    &b[1]: " << &b[1] << "\n";
+	// 	std::cout << "    &b[2]: " << &b[2] << "\n";
+	// 	delete a;
+	// }
+
 	{
-		std::cout << MAG"Check Array with <string> arguments\n" RES;
+	 	std::cout << "TEST_temp:  Is _arr always NULL when Array <int> A() \n";
+			Array <int> A;
+			Array <int> B;
+			Array <int> C;
+									// _arr THEY ALL HAVE ADDRESSES
+			std::cout << BLU "      " << A._arr << "\n" RES;
+			std::cout << BLU "      " << B._arr << "\n" RES;
+			std::cout << BLU "      " << C._arr << "\n\n" RES;
 
-		Array <std::string> A(3);
-		A._arr[0] = "wine";
-		A._arr[1] = "beer";
-		A._arr[2] = "cola";
+			std::cout << "* * * * * * * * * * \n\n";
 
-		std::cout << "   Test subscript: \n";
-		std::cout << A[1] << "\n";
+			Array <int> D(3);
+			Array <int> F(D); // NO new _arr IS ALLOCATED FOR F, BUT
+							  //  THE COPY CONSTR IS CALLED IMMEDIATELY
+							  //  SO IT MUST SET _arr TO NULL, BECAUSE IT
+							  //   WILL BE CHECKED AND DELETED IN =overload
+							  //   IF THE TARGET HAS PREVIOUSLY MEMORY ALLOCATED
 	}
-		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
-		
+	 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
+
 	{
-		std::cout << MAG"Testing   int* a = new int();\n" RES;
-		std::cout << MAG"Testing   int* b = new int[10];\n" RES;
-		int* a = new int();
-		int* b = new int[10]; // MAKING ARRAY b WITH 10 INTS
-		std::cout << "    *a: " << *a << "\n";
-		std::cout << "    *b: " << *b << "\n";
+		std::cout << "Test tblaase, comparing if copying goes well \n";
 		
-		b[0] = 11;
+		CONTINUE HERE
+		/*
+			Create 2 int arrays with same nr of members - a simple int array 'mirror'
+														- the object Array 'numbers'
+				Put same random numbers in each array (simple is mirror of int).
 
-		std::cout << "     b[0]: " << b[0] << "\n";
-		std::cout << "     b[1]: " << b[1] << "\n";
-		std::cout << "     b[2]: " << b[2] << "\n";
-		
-		std::cout << "    &b[0]: " << &b[0] << "\n";
-		std::cout << "    &b[1]: " << &b[1] << "\n";
-		std::cout << "    &b[2]: " << &b[2] << "\n";
-		delete a;
+			Create a third arrray 'temp': the Array object, with default constr (empty _arr)
+				Try to print members - it should error, because the size is 0 == empty
+
+			Copy 'numbers' to 'temp' via =
+
+			Copy 'temp' to a fourth Array 'test'  via  Copy constr
+			
+			Now the temp and test should have the same vaues as the initial 'numbers' 
+		*/
+	
+		Array <int> temp;
+		for (int i = 0; i < 5 + 1; i++)
+                std::cout << "tmp[" << i << "]:\t" << temp[i] << std::endl;
 	}
 
-
-	system("leaks a.out");
+	// system("leaks a.out");
 	return 0;
 }
