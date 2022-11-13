@@ -6,100 +6,51 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/09 20:52:46 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/13 11:55:21 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 
-
-// THE FUNCTION swap() IS ALREADY INCLUDED SOMEWHERE IN std::
-// OR IN iostream ????, WORKS WITH ALL TYPES
-// BUT IF YOU OVERRIDE IT WITH A TEMPLATE swap()
-// IT WILL NOT USE THE TEMPLATE, WHEN YOU GIVE IT STRINGS
-
-
-// class ClassA
-// {
-//     private:
-    
-//     public:
-//         int x;
-//         std::string s;
-//         bool operator== (const ClassA &src) const
-//         {
-//                 std::cout << "From comparisson operator ==\n";
-//                 if (this->x == src.x && this->s == src.s)
-//                     return (true);
-//                 return (false);
-//         } 
-// };
-
-
-// template <typename T>
-// void    swap(T &a, T &b)
-// {
-//     std::cout << "My swap:";
-    
-//     T temp = a;
-//     a = b;
-//     b = temp;
-// }
-
-// template <typename T>
-// T   min(T &a, T &b)
-// {
-//     if (a <= b)
-//         return (a);
-//     return (b);
-// }
-
-// template <typename T>
-// T   max(T &a, T &b)
-// {
-//     if (a >= b)
-//         return (a);
-//     return (b);
-// }
-
-template <typename Z>
-void    print_me(Z n)
+#include "Iter.hpp"
+ 
+template <typename T>
+void    print_arr(T &c)
 {
-    std::cout << n << "\n";
+    std::cout << c << " ";
 }
 
 
-
-template <typename T, typename U, typename V, typename Z>
-
-// void    iter(T *arr, U len, V fun(int))
-void    iter(T *arr, U len, V (*fun)(Z n))
+template <typename T>
+void change(T &c)
 {
-    int i = 0;
-    
-    while (i < len)
-    {
-        fun(arr[i]);
-        i++;
-    }    
+     c = c - 32;
+	//c = std::toupper(static_cast<unsigned char>(c));
 }
-
 
 
 int main()
 {
+    char arrA[] = {'a', 'b', 'c', 'd', 'e'};
+    int arrB[] = {11, 22, 33, 44, 55};
+    
+    size_t lenA = sizeof(arrA) / sizeof(arrA[0]);
+    size_t lenB = sizeof(arrB) / sizeof(arrB[0]);
+    
+    //std::cout << "lenA " << lenA << ",   lenB " << lenB << "\n";
     
     {
-        int arrA[5] = {'a', 'b', 'c', 'd', 'e'};
-        int arrB[5] = {11, 22, 33, 44, 55};
         
         // void (*fptr)(int) = &print_me;
-
-        // iter(arr, 5, fptr);
-        iter(arrA, 5, print_me);
-        iter(arrB, 5, print_me);
+        // ::iter(arr, 5, fptr);
+        
+        ::iter(arrA, lenA, print_arr);
+        ::iter(arrA, lenA, change);
+        ::iter(arrA, lenA, print_arr);
+        
+        ::iter(arrB, lenB, print_arr);
+        ::iter(arrB, lenB, change);
+        ::iter(arrB, lenB, print_arr);   
     }
-
     
     return 0;
 }

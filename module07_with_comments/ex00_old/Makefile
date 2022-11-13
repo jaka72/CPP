@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/12 11:07:09 by jmurovec      ########   odam.nl          #
+#    Updated: 2022/11/09 19:47:05 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,13 @@ OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-HEADERS		=	Array.hpp
+HEADERS		=	
 
 
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(YEL)\n --- CPP MODULE07, EXCERCISE 02 --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE07, EXCERCISE 00 --- \n\n$(RES)"
 
 
 #compile the objects

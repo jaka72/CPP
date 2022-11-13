@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/09 19:47:05 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/12 19:44:48 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-HEADERS		=	
+HEADERS		=	whatever.hpp
 
 
 
