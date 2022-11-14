@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/26 09:50:57 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/14 10:54:52 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,6 @@ void	Bureaucrat::incr_grade()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 }
 
 
