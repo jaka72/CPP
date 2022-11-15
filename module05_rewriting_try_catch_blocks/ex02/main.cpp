@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 21:52:34 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/15 21:11:07 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,68 +127,99 @@ int main()
 
 
 
+
+CHECK IF TBLAASE HAS THE SAME STRUCTURE, REGARDING VIRTUAL ... WHICH DEFINITIONS IN WHICH FILE , ETC ..
+
+
+
+
+
 	// EX02 ////////////////////////////////////////
 	{
 		std::cout << "TEST Shrubbery Creation Form - - - - - - - - - - - - -\n\n";
 
-		Bureaucrat bur1("Erman", -1);
-		ShrubberyCreationForm shrub1("target_file");
+		try
+		{
+			Bureaucrat bur1("Erman", 140);
+			ShrubberyCreationForm shrub1("target_file");
+			std::cout << shrub1;
+			std::cout << GRE"   Check signed status: " << shrub1.getIsSigned() << "\n" RES;
+			shrub1.execute(bur1);
 
-		std::cout << shrub1.getIsSigned() << "\n";
-		shrub1.execute(bur1);
+			// Form fm1;
+			// bur1.signForm(shrub1);
+			shrub1.beSigned(bur1);
+			// std::cout << shrub1.getName() << "\n";
+			std::cout << GRE"   Check signed status: " << shrub1.getIsSigned() << "\n" RES;
 
-		// Form fm1;
-		// bur1.signForm(shrub1);
-		shrub1.beSigned(bur1);
-		// std::cout << shrub1.getName() << "\n";
-		std::cout << shrub1.getIsSigned() << "\n";
+			shrub1.execute(bur1);
 
-		shrub1.execute(bur1);
+			bur1.setGrade(5);
+			shrub1.beSigned(bur1);
+			shrub1.execute(bur1);
+		}
+		catch (Form::GradeTooLowException &e) // can use specific Exception and add more detailed message
+		{
+			std::cerr << e.what() << '\n';
+			//std::cout << form1;
+		}
+		catch (Form::GradeTooHighException &e) // can use specific Exception and add more detailed message
+		{
+			std::cerr << e.what() << '\n';
+			//std::cout << form1;
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch(const std::exception& e)  // ANY OTHER EXCEPTION
+		{
+			//std::cout << form1;
+			std::cerr << e.what() << '\n';
+		}
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
-		bur1.setGrade(5);
-		shrub1.beSigned(bur1);
-		shrub1.execute(bur1);
+	// {
+	// 	std::cout << "TEST Robotomy Request Form - - - - - - - - - - - - - -\n\n";
 
-	}
-			std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+	// 	Bureaucrat bur1("George", 6);
+	// 	RobotomyRequestForm robo1("target_Robo");
 
-	{
-		std::cout << "TEST Robotomy Request Form - - - - - - - - - - - - - -\n\n";
+	// 	robo1.beSigned(bur1);
+	// 	bur1.signForm(robo1);
+	// 	//std::cout << robo1.getIsSigned() << "\n";
+	// 	robo1.execute(bur1);
 
-		Bureaucrat bur1("George", 6);
-		RobotomyRequestForm robo1("target_Robo");
+	// 	// Form fm1;
+	// 	// bur1.signForm(robo1);
+	// 	// std::cout << robo1.getName() << "\n";
+	// 	//std::cout << robo1.getIsSigned() << "\n";
 
-		robo1.beSigned(bur1);
-		bur1.signForm(robo1);
-		//std::cout << robo1.getIsSigned() << "\n";
-		robo1.execute(bur1);
-
-		// Form fm1;
-		// bur1.signForm(robo1);
-		// std::cout << robo1.getName() << "\n";
-		//std::cout << robo1.getIsSigned() << "\n";
-
-		//robo1.execute(bur1);
-	}
-		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+	// 	//robo1.execute(bur1);
+	// }
+	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 	
-	{
-		std::cout << "TEST Presidential Pardon Form - - - - - - - - - -\n\n";
+	// {
+	// 	std::cout << "TEST Presidential Pardon Form - - - - - - - - - -\n\n";
 
-		Bureaucrat bur1("Severin", 111);
-		PresidentialPardonForm pardon1("Kennedy");
+	// 	Bureaucrat bur1("Severin", 111);
+	// 	PresidentialPardonForm pardon1("Kennedy");
 
-		bur1.signForm(pardon1);
-		pardon1.execute(bur1);
+	// 	bur1.signForm(pardon1);
+	// 	pardon1.execute(bur1);
 
-		bur1.setGrade(22);
-		bur1.signForm(pardon1);
-		pardon1.execute(bur1);
+	// 	bur1.setGrade(22);
+	// 	bur1.signForm(pardon1);
+	// 	pardon1.execute(bur1);
 
-		bur1.setGrade(3);
-		bur1.signForm(pardon1);
-		pardon1.execute(bur1);
-	}
+	// 	bur1.setGrade(3);
+	// 	bur1.signForm(pardon1);
+	// 	pardon1.execute(bur1);
+	// }
 
 
 	return 0;

@@ -64,29 +64,30 @@ void    PresidentialPardonForm::execute(const Bureaucrat& bur)
 {
     std::cout << "   EXECUTE:";
     
-    try
-    {
+    //try
+    //{
         if (this->_isSigned == false)
         {
-            std::cout << LRD" This form is not yet signed, cannot execute.\n" RES;
+            std::cout << LRD"      This form is not yet signed, cannot execute.\n" RES;
             return ;
         }
         if (bur.getGrade() > this->getReqGradeExec())
-            throw GradeTooLowException(" Can't execute, this bureaucrat has too low grade.");
+            throw GradeTooLowException("      Can't execute, this bureaucrat has too low grade.");
         else
         {
-            std::cout << GRN" Bur. " << bur.getName() << " executed " << this->_name << "\n" RES;
+            std::cout << GRN"      Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
             this->pardonize();
         }
-    }
-    catch (GradeTooLowException& e)
-    {
-        std::cerr << LRD " Catch (pardon), " << e.what(e._msg) << "\n" RES;
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << LRD " Catch (pardon), other exception: " RES << e.what() << '\n';
-    }   
+    // }
+    // catch (GradeTooLowException& e)
+    // {
+    //     std::cerr << LRD " Catch (pardon) ...\n" RES;
+    // }
+    // catch (const std::exception& e)
+    // {
+    //     // std::cerr << LRD " Catch (pardon), other exception: " RES << e.what() << '\n';
+    //     std::cerr << LRD " Catch (pardon), other exception ... \n";
+    // }   
 }
 
 

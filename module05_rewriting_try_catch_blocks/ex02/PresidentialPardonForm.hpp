@@ -22,7 +22,7 @@ class PresidentialPardonForm : public virtual Form // should be virtual here ???
 {
     private:
         //std::string         _target;
-        const std::string   _name;  // according to subject, it must be in the base class,
+        const std::string   _name;  //  ??? according to subject, it must be in the base class,
                                     // but then both parent & child must have same name
         // bool                _isSigned;
         // const int           _reqGradeSign;
@@ -62,7 +62,7 @@ class PresidentialPardonForm : public virtual Form // should be virtual here ???
         //int         getReqGradeExec() const;
         
         // Public member functions
-        void    execute(const Bureaucrat& bur);
+        void    execute(const Bureaucrat& bur); // MAYBE NOT NEEDED HERE, IT IS ALREADY IN BASE FROM, AS VIRTUAL ???
         void    pardonize();
 
 

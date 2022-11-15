@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:20:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/28 08:14:14 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/15 20:56:51 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@
 // Constructor
 // RobotomyRequestForm::RobotomyRequestForm() : _name("Default_form"), _reqGradeSign(1), _reqGradeExec(1)
 RobotomyRequestForm::RobotomyRequestForm()
-                       : Form("Form_base", 72, 45), _name("RobotomyForm")
+					   : Form("Form_base", 72, 45), _name("RobotomyForm")
 {
 	std::cout << GRE"   Default constr RobotomyForm:  " << _name << "\n" RES;
-    //_isSigned = false;
-    _target = "file_default";   // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
+	//_isSigned = false;
+	_target = "file_default";   // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
 }
 
 
 // Param. constr.
 RobotomyRequestForm::RobotomyRequestForm(std::string targetFile)
-                       : Form("Base_form", 72, 45), _name("Robotomy_form")
+					   : Form("Base_form", 72, 45), _name("Robotomy_form")
 {
 	std::cout << GRE"   Param. constr RobotomyForm:  " << _name << ",  sign " << _reqGradeSign << ",  exec " << _reqGradeExec << "\n" RES;
-    //_isSigned = false;
-    _target = targetFile;       // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
-    
-    // NO TRY/CATCH CHECKING NEEDED HERE,
-    // BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST
+	//_isSigned = false;
+	_target = targetFile;       // NOT SURE IF CUSTOM VARS ARE ALLOWED HERE? MAYBE BETTER IN THE BASE CLASS
+	
+	// NO TRY/CATCH CHECKING NEEDED HERE,
+	// BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST
 }
 
 
@@ -49,7 +49,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string targetFile)
 // Destructor
 RobotomyRequestForm::~RobotomyRequestForm() throw()
 {
-    // WILL READ FROM BASE: Form
+	// WILL READ FROM BASE: Form
 	std::cout << GRE"   Destructor RobotomyForm:  " << _name << "\n" RES;
 }
 
@@ -62,31 +62,32 @@ RobotomyRequestForm::~RobotomyRequestForm() throw()
 // Public member functions
 void    RobotomyRequestForm::execute(const Bureaucrat& bur)
 {
-    std::cout << "   EXECUTE:";
-    
-    try
-    {
-        if (this->_isSigned == false)
-        {
-            std::cout << LRD" This form is not yet signed, cannot execute.\n" RES;
-            return ;
-        }
-        if (bur.getGrade() > this->getReqGradeExec())
-            throw GradeTooLowException(" can't execute, this bureaucrat's grade too low.");
-        else
-        {
-            std::cout << GRN" Bur. " << bur.getName() << " executed " << this->_name << "\n" RES;
-            this->makeDrillNoise();
-        }
-    }
-    catch (GradeTooLowException& e)
-    {
-        std::cerr << LRD " Catch (robotomy)," << e.what(e._msg) << "\n" RES;
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << LRD " Catch (robotomy), other exception: " RES << e.what() << '\n';
-    }   
+	std::cout << "   EXECUTE:";
+	
+	//try
+	//{
+		if (this->_isSigned == false)
+		{
+			std::cout << LRD"      This form is not yet signed, cannot execute.\n" RES;
+			return ;
+		}
+		if (bur.getGrade() > this->getReqGradeExec())
+			throw GradeTooLowException("      Can't execute, this bureaucrat's grade too low.");
+		else
+		{
+			std::cout << GRN"      Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
+			this->makeDrillNoise();
+		}
+	// }
+	// catch (GradeTooLowException& e)
+	// {
+	// 	std::cerr << LRD " Catch (robotomy) ... \n" RES;
+	// }
+	// catch (const std::exception& e)
+	// {
+	// 	// std::cerr << LRD " Catch (robotomy), other exception: " RES << e.what() << '\n';
+	// 	std::cerr << LRD " Catch (robotomy), other exception ... \n";
+	// }   
 }
 
 
@@ -103,7 +104,7 @@ void    RobotomyRequestForm::execute(const Bureaucrat& bur)
 // THIS ONE IS = 0 IN THE FORM HEADER FILE
 std::string RobotomyRequestForm::getName() const
 {
-    return (this->_name);
+	return (this->_name);
 }
 
 
@@ -115,15 +116,15 @@ std::string RobotomyRequestForm::getName() const
 // Member Functions;
 void    RobotomyRequestForm::makeDrillNoise()
 {
-    std::cout << MAG"   MAKE DRILL NOISE ... ";
+	std::cout << MAG"   MAKE DRILL NOISE ... ";
 
-    srand(time(0));
-    int r = rand() % 2;
-    
-    if (r == 0)
-        std::cout << "  Robotomy of " << _target << ": SUCCESS.\n" RES;
-    else
-        std::cout << "  Robotomy of " << _target << ": FAILED.\n" RES;
+	srand(time(0));
+	int r = rand() % 2;
+	
+	if (r == 0)
+		std::cout << "  Robotomy of " << _target << ": SUCCESS.\n" RES;
+	else
+		std::cout << "  Robotomy of " << _target << ": FAILED.\n" RES;
 }
 
 

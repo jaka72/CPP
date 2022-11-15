@@ -6,75 +6,18 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/14 13:47:02 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/15 17:54:35 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 
-/*
-
-	If I make a separate class for GradeTooHighException, it is error c98
-	Apparently this class must be declared inside class Bureaucrat ???
-	Bureaucrat (DELETED ACCIDENTALY)
-
-	
-	Inside the param. constr. there is try+catch blocks. If grade is invalid, the try throws a 
-	creation of the class GradeTooHighException(). The throw is caught by catch the 
-	just created class, which calls function what() from this created class.
-	wait() gives the according message.
-
-
-	Operator<< overload must be outside the class in the header !!!!!
-	
-	Changed: Now a bur. with invalid grade cannot exist and cannot be created.
-	Before I could create it, but it would later complain, ie: when copying a bureaucrat.
-*/
-
-
-/*	QUESTIONS
-	- What if it's initiated with too low grade, do we stop or is he allowed to increase
-		grade? (and vice versa?)
-		I allow to call increase, but then it doesnt increase, just throws message too low 
-
-	- If I try to copy a bureaucrat which has grade too low, is it allowed to copy?
-
-
-
-
-	THIS SYNTAX IS NOT CLEAR:  what() and throw()    both in the function name ???
-		const char* Bureaucrat::GradeTooHighException::what() const throw()
-		{
-			return (LRD"   Thrown exception, Grade Too High\n" RES);
-		}
-
-
-
-*/
-
-
-
-
-// FUNCTION wait() IN CLASS INSIDE CLASS,  DERIVED FROM std::exception
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return (LRD"   Thrown exception, Grade Too High\n" RES);
-}
-
-
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return (LRD"   Thrown exception, Grade Too Low\n" RES);
-}
-
-
-
 // Constructor
 Bureaucrat::Bureaucrat() : _name("Default")
 {
 	_grade = 150;
-	std::cout << GRE"Default constr:   name " << _name << ",  grade " << _grade << "\n" RES;
+	std::cout << GRE"Default constr. Bureacurat:   name " << _name << ",  grade " << _grade << "\n" RES;
 }
 
 
@@ -82,25 +25,16 @@ Bureaucrat::Bureaucrat() : _name("Default")
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	_grade = grade;
-	std::cout << GRE"Param. constructor: name " << _name << ", grade " << _grade << "\n" RES;
+	std::cout << GRE"Param. constr. Bureaucrat: name " << _name << ", grade " << _grade << "\n" RES;
 
 	//try
 	//{
 		if (_grade < 1)
-		{
-			_grade = 150;	// ADDED: MAYBE BETTER TO SET TO LOWEST GRADE, THAN CREATE OBJECT WITH INVALID GRADE 
-			throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-		}
+			throw GradeTooHighException("Cannot create this bureaucrat: invalid grade (too high)");	
 		if (_grade > 150)
-		{
-			_grade = 150; // ADDED: MAYBE BETTER TO SET TO LOWEST GRADE, THAN CREATE OBJECT WITH INVALID GRADE 
-			throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-		}
-	//}
-
+			throw GradeTooLowException("Cannot create this bureaucrat: invalid grade (too low)");	
 	//catch(const std::exception& e)
 	//{
-	//	std::cout << GRN"   Thrown exception from the param constr\n" RES;
 	//	std::cerr << e.what() << '\n';
 	//}
 }
@@ -110,7 +44,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 // Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name + "_copy")
 {
-	std::cout << GRE"Copy constructor:   " << _name << "\n" RES;
+	std::cout << GRE"Copy constr. Bureaucrat:   " << _name << "\n" RES;
 	*this = src;
 }
 
@@ -123,25 +57,6 @@ Bureaucrat& Bureaucrat::operator= (const Bureaucrat &src)
 
 	if (this == &src)
 		return *this;
-
-	// try
-	// {
-	// 	if (src._grade < 1)
-	// 	{
-	// 		std::cout << LRD"   Copying a bureaucrat with too high grade!\n" RES;
-	// 		throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-	// 	}
-	// 	if (src._grade > 150)
-	// 	{
-	// 		std::cout << LRD"   Copying a bureaucrat with too low grade!\n" RES;
-	// 		throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-	// 	}
-	// }
-
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
 	
 	this->_grade = src._grade;
 	return *this;
@@ -150,95 +65,128 @@ Bureaucrat& Bureaucrat::operator= (const Bureaucrat &src)
 // Destructor
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << GRE"Destructor: " << _name << "\n" RES;
+	std::cout << GRE"Destructor Bureaucrat: " << _name << "\n" RES;
 }
 
 
 //////////////////////////////////////////////////////////
 
+
 // Public member functions
 
 // CLASS INSIDE CLASS
-
-
 void	Bureaucrat::incr_grade()
 {
-	std::cout << BLU"   Incrementing grade " << this->_grade << "\n" RES;
+	std::cout << BLU"   Incrementing grade " << _grade << " to " << _grade - 1 << "\n" RES;
 
 	// Exceptions
-	// try
-	// {
+	//try
+	//{
 		if (_grade < 2)
-			throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
+			throw GradeTooHighException("   Cannot increment higher than 1!");
 		_grade--;
-	// }
-	// catch(const std::exception& e)
-	// {
+	//}
+	//catch(const std::exception& e)
+	//{
 	//	std::cerr << e.what() << '\n';
-	// }
+	//}
 }
 
 
 
 void	Bureaucrat::decr_grade()
 {
-	std::cout << BLU"   Decrementing grade " << this->_grade << "\n" RES;
+	std::cout << BLU"   Decrementing grade " << _grade << " to " << _grade + 1 << "\n" RES;
 
-	// try
-	// {
+	//try
+	//{
 		if (_grade >= 150)
-			throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
-		else
-			_grade++;
-	// }
-	// catch(const std::exception& e)
-	// {
+			throw GradeTooLowException("   Cannot increment lower than 150!");
+		_grade++;
+	//}
+	//catch(const std::exception& e)
+	//{
 	//	std::cerr << e.what() << '\n';
-	// }
+	//}
 }
 
 
 
-// Getter
-int			Bureaucrat::getGrade() const
+// Getters /////////////////////////////////////////////////////////////////
+
+int	Bureaucrat::getGrade() const
 {
 	return this->_grade;
 }
 
-std::string Bureaucrat::getName() const		// maybe return const ???
+const std::string Bureaucrat::getName() const
 {
 	return this->_name;
 }
 
 
 
-// Setter
+// Setters //////////////////////////////////////////////////////////////////
+
 void	Bureaucrat::setGrade(int grade)
 {
-	std::cout << BLU"   Setting grade " << _grade << " to " << grade << "\n" RES;
+	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
 
 	//try
 	//{
 		if (grade < 1)
-			throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
+			throw GradeTooHighException("Cannot set invalid grade (too high)");
 
 		else if (grade > 150)
-			throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
-		else
-			this->_grade = grade;
+			throw GradeTooLowException("Cannot set invalid grade (too low)");
+		
+		this->_grade = grade;
 	//}
-
 	//catch(const std::exception& e)
 	//{
 	//	std::cerr << e.what() << '\n';
 	//}
-
 }
 
 
 // THIS IS OUTSIDE OF THE CLASS !!!
 std::ostream& operator<< (std::ostream& outstream, Bureaucrat &bur)
 {
-	outstream << "Bureaucrat " << bur.getName() << ", grade: " << bur.getGrade() <<"\n";
+	outstream << "Bureaucrat name: " << bur.getName() << ", grade " << bur.getGrade() <<"\n";
 	return (outstream);
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// Default constructor for Exceptions
+// (not needed)
+
+
+// Param. constructor for Exceptions
+Bureaucrat::GradeTooLowException::GradeTooLowException(const char *msg) throw()
+{
+   	std::cout << LRD << msg << "\n" RES;
+}
+Bureaucrat::GradeTooHighException::GradeTooHighException(const char *msg) throw()
+{
+   	std::cerr << LRD << msg << "\n" RES;
+}
+//////////////////////////////////////////////////////////////////////
+
+
+
+// Override  what() 
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("");
+	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+}
+
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("");
+	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+}
+//////////////////////////////////////////////////////////////////////

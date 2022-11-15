@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/13 20:11:58 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/15 17:45:57 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,63 @@
 		(so, the _name cannot be changed in overload= ,if it is a const) 
 
 
-	QUESTIONS
-	- If trying to copy a bur. with too low grade, shall it copy or refuse to copy?
-			- difference in copy(src)  vs   cpy = src
+		Differences in copy(src)  vs   cpy = src
+		Three variants:			a)	Bureaucrat br2(br1);		copy constr
+								b)	Bureaucrat br3 = br2;		copy constr
+								c)	Bureaucrat br3;				default +_ overload=
+										br3 = br2;
+	
+	You can do the throw anywhere in the code. It does not have to be in the try block.
+	After throw you need to provide something (int, string, class ...)
+		throw 1,    throw "some msg",   throw SomeClass
+	
+	If you wanna throw a class, it can be declared inside another class (ie: class Form
+	will create an object Form, but if you try to create it with invalid args, it throws an
+	exception. And this exception can be another class, declared inside the Form class.)
+	(You can also add custom constructors for your exception class, ie: a constructor with
+	a string as a parameter.)
+	
+	If you wanna throw a class , it can be with or without argm:
+		throw SomeClass();						--> calls default constr.
+		throw SomeClass("some string", ...);	--> calls param constr.
 
-			Three variants:			a)	Bureaucrat br2(br1);		copy constr
-        							b)	Bureaucrat br3 = br2;		copy constr
-        							c)	Bureaucrat br3;				default +_ overload=
-        								   br3 = br2;
+	In case of class throw, the class must have the brackets:  throw SomeClass()
+	This calls the class contructor. In this constructor, you can add other things, 
+	like printing something.
+		 
+	If you put a string in the class throw (ie: throw SomeClass("some string"), you can imm. 
+	print it in the constructor of this class.
+	For this, you don't need the what() function. 
+	
+	
+	So in which case is good to have a what() ???
+	You can also make use of the function what(), which is included in std::exception.
+	You can call it in the catch block, like this:
+				e.what()    (e is the arg, this the object)
+				It returns whatever string, and you can put more code into it.
+		 	
+				(If there is no override of what() function, it will just print 
+				std::exception, when e.what() is used in cathc block.)
+	
+	
+	QUESTIONS:
+
+		- Not clear when this what() is useful? (Now I override each Exception() with
+			parma exception(*str), so it always prints specific message. What() I dont use )
 */
+
+
+
 
 int main()
 {
 	{
+		// std::cout << YEL"Test: Create and copy default bureaucrat - - - - - - - - - - - - - - -\n\n" RES;
+
 		// Bureaucrat br1;
 		// std::cout << br1;
 
         // Bureaucrat br2(br1);
-		// // std::cout << br1;
 		// std::cout << br2;
 
         // Bureaucrat br3 = br2;
@@ -48,115 +87,57 @@ int main()
         // Bureaucrat br4;
         // br4 = br3;
 		// std::cout << br4;
-	}
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
 
 	{
-		Bureaucrat br1("Rudi", 0);
+		std::cout << YEL"Test: all variations - - - - - - - - - - - - - - -\n\n" RES;
 
-		br1.incr_grade();
-		std::cout << br1;
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+		try	// First, all parameters are invalid, try changing one by one
+		{
+			Form form1("Form_A", 5, 5);	
+			std::cout << form1 << "\n";
 
-	{
-		Bureaucrat br1("Natasha", 151);
-
-		br1.decr_grade();
-		std::cout << br1;
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-	{
-		Bureaucrat br1("Will", 1);
-
-		br1.incr_grade();
-		std::cout << br1;
-		br1.incr_grade();
-		std::cout << br1;
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+			Bureaucrat br1("Natasha", 6);
+			//br1.setGrade(4);
+			br1.incr_grade();
+			br1.incr_grade();
+			br1.incr_grade();
+			//br1.incr_grade();
+			form1.beSigned(br1);
+			br1.signForm(form1); 
+			br1.incr_grade();	
+			std::cout << br1;
 
 
-	{
-		Bureaucrat br1("Maria", 149);
-
-		br1.decr_grade();
-		std::cout << br1;
-		br1.decr_grade();
-		std::cout << br1;
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-	{
-
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-
-
-	{
-		Bureaucrat br1("Alfons", 33);
-
-		br1.setGrade(177);
-		std::cout << br1;
-		br1.setGrade(-99);
-		std::cout << br1;
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-    {
-		Bureaucrat br1("Lidia", 999);
-
-        Bureaucrat br2(br1);
-        Bureaucrat br3; // = br2;
-        br3 = br2;
-		// HOW SHOULD br3 BEHAVE in different copy variants? 
-		// Should he preserve Default value 150, if the copy value is out of range?
-		// ???
-
-
-		
-		std::cout << br1;
-		std::cout << br2;
-		std::cout << br3;
-	}	
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-	// {
-	// 	Form fm1;
-	// 	Form fm2("myForm", 11, 33);
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-	// {
-	// 	Form fm1("myForm", 166, 0);
-		
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-	// {
-	// 	Bureaucrat br1("Hans", 100);
-	// 	Form fm1("Form_A", 10, 10);
-	// 	fm1.beSigned(br1);
-	// 	br1.setGrade(5);
-	// 	fm1.beSigned(br1);
-	// 	//fm1.beSigned(br1);
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-
-	// {
-	// 	Bureaucrat br1("Joseph", 5);
-	// 	Form fm1("Form-A", 2, 1);
-	// 	br1.signForm(fm1);
-	// }
+			form1.beSigned(br1);
+			br1.signForm(form1);
+			std::cout << form1 << "\n";
+		}
+		catch (Form::GradeTooLowException &e) // can use specific Exception and add more detailed message
+		{
+			std::cerr << e.what() << '\n';
+			//std::cout << form1;
+		}
+		catch (Form::GradeTooHighException &e) // can use specific Exception and add more detailed message
+		{
+			std::cerr << e.what() << '\n';
+			//std::cout << form1;
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch(const std::exception& e)  // ANY OTHER EXCEPTION
+		{
+			//std::cout << form1;
+			std::cerr << e.what() << '\n';
+		}
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
 	return 0;
 }

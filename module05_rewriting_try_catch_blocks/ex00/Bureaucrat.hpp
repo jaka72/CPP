@@ -6,15 +6,30 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/14 12:28:54 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/15 17:53:46 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Bureaucrat.hpp                                     :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/20 09:54:42 by jaka          #+#    #+#                 */
+/*   Updated: 2022/10/23 13:07:45 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+
 #include "colors.h"
+#include <iostream>
+#include <exception>
+
+
 
 class Bureaucrat
 {
@@ -46,33 +61,31 @@ class Bureaucrat
 		void	decr_grade();
 
 
-		// Getter
-		int			getGrade() const;
-		std::string getName() const;		// maybe return const ???
+		// Getters
+		int					getGrade() const;
+		const std::string	getName() const;
 
 
-		// Setter
+		// Setters
 		void	setGrade(int grade);
 
 
 		// Exceptions
-		// CLASS INSIDE CLASS
-		class GradeTooHighException : public std::exception
-		{
-            public:
-    			           const char* what() const throw();
-    			// virtual const char* what() const throw();	// SHOULD BETTER BE VIRTUAL ???
-		};
-
-        // CLASS INSIDE CLASS
 		class GradeTooLowException : public std::exception
 		{
             public:
+				//GradeTooLowException() throw();
+				GradeTooLowException(const char* msg) throw();
     			const char* what() const throw();
 		};
-
-
-
+		
+		class GradeTooHighException : public std::exception
+		{
+            public:
+				//GradeTooHighException() throw();               
+				GradeTooHighException(const char* msg) throw();               
+    			const char* what() const throw();
+		};
 };
 
 std::ostream &operator<< (std::ostream& outstream, Bureaucrat& bur);

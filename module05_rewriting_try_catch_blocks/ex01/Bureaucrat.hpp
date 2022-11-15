@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/13 19:39:54 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/15 17:19:58 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@
 #include "colors.h"
 #include <iostream>
 #include <exception>
-// #include <string>	// ???
-// #include "Form.hpp"
+// #include "Form.hpp"  // must be in Bureaucrat.cpp
 
 
-class Form; // Is this needed?
-
+class Form; // necessary
 
 class Bureaucrat
 {
@@ -67,8 +65,8 @@ class Bureaucrat
 
 
 		// Getters
-		int			getGrade() const;
-		std::string getName() const;		// maybe return const ???
+		int					getGrade() const;
+		const std::string	getName() const;
 
 
 		// Setters
@@ -76,17 +74,19 @@ class Bureaucrat
 
 
 		// Exceptions
-		// THIS CLASS IS INSIDE THE CLASS Bureaucrat
-		class GradeTooHighException : public std::exception
-		{
-            // public:
-    			const char* what() const throw();
-		};
-
-        // CLASS INSIDE CLASS
 		class GradeTooLowException : public std::exception
 		{
-            // public:
+            public:
+				//GradeTooLowException() throw();
+				GradeTooLowException(const char* msg) throw();
+    			const char* what() const throw();
+		};
+		
+		class GradeTooHighException : public std::exception
+		{
+            public:
+				//GradeTooHighException() throw();               
+				GradeTooHighException(const char* msg) throw();               
     			const char* what() const throw();
 		};
 };

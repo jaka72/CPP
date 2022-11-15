@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/28 08:11:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/15 20:56:21 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,25 @@
 // Constructor
 // ShrubberyCreationForm::ShrubberyCreationForm() : _name("Default_form"), _reqGradeSign(1), _reqGradeExec(1)
 ShrubberyCreationForm::ShrubberyCreationForm()
-                       : Form("Form_base", 145, 137), _name("ShrubberyForm")
+					   : Form("Form_base", 145, 137), _name("ShrubberyForm")
 {
 	std::cout << GRE"   Default constr ShrubberyForm:  " << _name << "\n" RES;
-    //_isSigned = false;
-    _target = "file_default";
+	//_isSigned = false;
+	_target = "file_default";
 }
 
 
 // Param. constr.
 ShrubberyCreationForm::ShrubberyCreationForm(std::string targetFile)
-                       : Form("Base_form", 145, 137), _name("Shrubbery_form")
+					   : Form("Base_form", 145, 137), _name("Shrubbery_form")
 {
 	std::cout << GRE"   Param. constr ShrubberyForm:  " << _name << ",  sign " << _reqGradeSign << ",  exec " << _reqGradeExec << "\n" RES;
-    //_isSigned = false;
-    _target = targetFile;
-    
+	//_isSigned = false;
+	_target = targetFile;
+	
 
-    // NO TRY/CATCH CHECKING NEEDED HERE,
-    // BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST
+	// NO TRY/CATCH CHECKING NEEDED HERE,
+	// BECAUSE ALL VALUES ARE FIXED ABOVE IN INIT. LIST
 }
 
 
@@ -49,7 +49,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string targetFile)
 // Destructor
 ShrubberyCreationForm::~ShrubberyCreationForm() throw()
 {
-    // WILL READ FROM BASE: Form
+	// WILL READ FROM BASE: Form
 	std::cout << GRE"   Destructor ShrubberyForm:  " << _name << "\n" RES;
 }
 
@@ -62,86 +62,87 @@ ShrubberyCreationForm::~ShrubberyCreationForm() throw()
 // Public member functions
 void    ShrubberyCreationForm::execute(const Bureaucrat& bur)
 {
-    std::cout << "   EXECUTE:";
-    try
-    {
-        if (this->_isSigned == false)
-        {
-            std::cout << LRD" This form is not yet signed, cannot execute.\n" RES;
-            return ; // MAYBE NOT NEEDED, TRY ADDING TO NEXT IF, ISSIGNED IS TRUE
-        }
-        if (bur.getGrade() > this->getReqGradeExec())
-            throw GradeTooLowException(" can't execute: bureaucrat's grade too low.");
-        else
-        {
-            std::cout << GRN" Bur. " << bur.getName() << " executed " << this->_name << "\n" RES;
-            this->print_shrubbery();
-        }
-    }
-    catch (GradeTooLowException& e)
-    {
-        std::cerr << LRD" Catch (shrubbery): " << e.what(e._msg) << "\n" RES;
-    }
-    catch (const std::exception& e)
-    {
-        std::cerr << LRD " Catch (shrubbery), other exception: " RES << e.what() << '\n';
-    }   
+	std::cout << "   EXECUTE:";
+	//try
+	//{
+		if (this->_isSigned == false)
+		{
+			std::cout << LRD"      This form is not yet signed, cannot execute.\n" RES;
+			return ; // MAYBE NOT NEEDED, TRY ADDING TO NEXT IF, ISSIGNED IS TRUE
+		}
+		if (bur.getGrade() > this->getReqGradeExec())
+			throw GradeTooLowException("      Can't execute: bureaucrat's grade too low.");
+		else
+		{
+			std::cout << GRN"      Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
+			this->print_shrubbery();
+		}
+	// }
+	// catch (GradeTooLowException& e)
+	// {
+	//     std::cerr << LRD" Catch (shrubbery) ...\n" RES;
+	// }
+	// catch (const std::exception& e)
+	// {
+	//     // std::cerr << LRD " Catch (shrubbery), other exception: " RES << e.what() << '\n';
+	//     std::cerr << LRD " Catch (shrubbery), other exception ... \n";
+	// }   
 }
 
 
 void    ShrubberyCreationForm::print_shrubbery()
 {
-    std::cout << MAG"   Drawing shrubbery to file: " << _target << "\n" RES;
-    
-    this->_target = this->_target + "_shrubbery";
-    const char *str = this->_target.c_str();
-    std::ofstream myFile;
-    myFile.open(str);
-    
-    myFile << "\n\n\n\n\n";
-    myFile << "       o       o       o\n";
-    myFile << "     WWWWW   WWWWW   WWWWW\n";
-    myFile << "      WWW     WWW     WWW\n";
-    myFile << "       W       W       W\n";
-    myFile << "       |       |       |\n";
-    myFile.close();
+	std::cout << MAG"   Drawing shrubbery to file: " << _target << "\n" RES;
+	
+	this->_target = this->_target + "_shrubbery";
+	const char *str = this->_target.c_str();
+	std::ofstream myFile;
+	myFile.open(str);
+	
+	myFile << "\n\n\n\n\n";
+	myFile << "       o       o       o\n";
+	myFile << "     WWWWW   WWWWW   WWWWW\n";
+	myFile << "      WWW     WWW     WWW\n";
+	myFile << "       W       W       W\n";
+	myFile << "       |       |       |\n";
+	myFile.close();
 }
 
 
 //void    ShrubberyCreationForm::ShrubberyCreationForm::beSigned(Bureaucrat& bur)
 //{
 
-    // SHOULD READ FROM BASE: Form
+	// SHOULD READ FROM BASE: Form
 
-    // try
-    // {   // maybe it can be shorter (if, then throw, = true to the end)      
-    //     if (bur.getGrade() <= this->_reqGradeSign && this->_isSigned == false)
-    //     {
-    //         this->_isSigned = true;
-    //         std::cerr << GRN"   This form can be signed.\n" RES;
-    //         bur.signForm(*this);
-    //     }
-    //     else if (this->_isSigned == true)
-    //     {
-    //         std::cerr << CYN"   This form is already signed.\n" RES;
-    //     }
-    //     else
-    //     {
-    //         // std::string str = "   This form has too high grade to be signed by bureaucrat "; // + bur.getName();
-    //         // const char *msg = str.c_str();
-    //         // const char *msg2 = str.c_str();
-    //         // throw GradeTooLowException(msg2);
-    //         throw GradeTooLowException("   This form has too high grade to be signed by this bureaucrat"); //+ bur.getName() + "\n");
-    //     }    
-    // }
-    // catch (const GradeTooLowException& e)
-    // {
-    //     std::cerr << LRD"   Catch: " << e.what(e._msg) << "\n" RES;
+	// try
+	// {   // maybe it can be shorter (if, then throw, = true to the end)      
+	//     if (bur.getGrade() <= this->_reqGradeSign && this->_isSigned == false)
+	//     {
+	//         this->_isSigned = true;
+	//         std::cerr << GRN"   This form can be signed.\n" RES;
+	//         bur.signForm(*this);
+	//     }
+	//     else if (this->_isSigned == true)
+	//     {
+	//         std::cerr << CYN"   This form is already signed.\n" RES;
+	//     }
+	//     else
+	//     {
+	//         // std::string str = "   This form has too high grade to be signed by bureaucrat "; // + bur.getName();
+	//         // const char *msg = str.c_str();
+	//         // const char *msg2 = str.c_str();
+	//         // throw GradeTooLowException(msg2);
+	//         throw GradeTooLowException("   This form has too high grade to be signed by this bureaucrat"); //+ bur.getName() + "\n");
+	//     }    
 	// }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << LRD "   After beSigned, Some other exception occured: " RES << e.what() << '\n';
-    // }
+	// catch (const GradeTooLowException& e)
+	// {
+	//     std::cerr << LRD"   Catch: " << e.what(e._msg) << "\n" RES;
+	// }
+	// catch(const std::exception& e)
+	// {
+	//     std::cerr << LRD "   After beSigned, Some other exception occured: " RES << e.what() << '\n';
+	// }
 // }
 
 
@@ -157,7 +158,7 @@ void    ShrubberyCreationForm::print_shrubbery()
 // THIS ONE IS = 0 IN THE FORM HEADER FILE
 std::string ShrubberyCreationForm::getName() const
 {
-    return (this->_name);
+	return (this->_name);
 }
 
 

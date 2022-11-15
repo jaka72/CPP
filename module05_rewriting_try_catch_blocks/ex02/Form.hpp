@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:35:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 21:32:04 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/15 20:30:42 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,73 +17,63 @@
 
 class Form
 {
-    protected:
-        const std::string   _name;
-        bool                _isSigned;
-        const int           _reqGradeSign;
-        const int           _reqGradeExec;
-        std::string         _target;
+	protected:		// WHY SUBJECGT SAYS, MUST BE private ???
+		const std::string   _name;
+		bool                _isSigned;
+		const int           _reqGradeSign;
+		const int           _reqGradeExec;
+		std::string         _target;
 
-    public:
+	public:
 		// Constructor
-        Form();
-        
+		Form();
+		
 		// Param. constr.
-        Form(std::string name, int gradeSign, int gradeExec);
-        
+		Form(std::string name, int gradeSign, int gradeExec);
+		
 		// Destructor
-        virtual ~Form() throw();
+		virtual ~Form() throw();
 
 		// Copy constructor
+		Form(const Form& src);
 		
-        // Overload operators
+		// Overload operators
+		Form& operator= (const Form& src);
 
 
 		// Exceptions
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				GradeTooHighException(const char* msg) throw();
+				const char* what() const throw();
+				//GradeTooHighException() throw();
+				//~GradeTooHighException() throw();
+		};
+		
+		class GradeTooLowException  : public std::exception
+		{
+			public:
+				GradeTooLowException(const std::string msg) throw();
+				const char* what() const throw();
+				// GradeTooLowException() throw();
+				//~GradeTooLowException() throw();
+		};
 
-        class GradeTooHighException : public std::exception
-        {
-            public:
-                const char* _msg;
+		// Getters
+		virtual std::string getName() const  =  0;		// == Abstract Class 
+		virtual bool        getIsSigned() const;
+		virtual int         getReqGradeSign() const;
+		virtual int         getReqGradeExec() const;
+		
+		
+		// Setters
+		virtual void    setIsSigned(bool b);
 
-                GradeTooHighException() throw();
-                GradeTooHighException(const char* msg) throw();                
-                ~GradeTooHighException() throw();
-                
-                const char* what(const char* msg) const throw();
-                // const char* what() const throw();
-        };
-        
-        class GradeTooLowException  : public std::exception
-        {
-            public:
-                const char* _msg;
-
-                GradeTooLowException() throw();
-                GradeTooLowException(const char* msg) throw();                
-                virtual ~GradeTooLowException() throw();
-
-                const char* what(const char* msg) const throw();
-                // const char* what() const throw();
-        };
-
-        // Getters
-        virtual std::string getName() const  =  0;
-        virtual bool        getIsSigned() const;
-        virtual int         getReqGradeSign() const;
-        virtual int         getReqGradeExec() const;
-        
-        
-        // Setters
-        virtual void    setIsSigned(bool b);
-
-        
-        // Public member functions
-        virtual void    beSigned(Bureaucrat& bur);
-
-
-        //void
-
+		
+		// Public member functions
+		virtual void	beSigned(Bureaucrat& bur);
+		virtual void	execute(Bureaucrat const & executor) const;	// SHOULD IT BE VOID ?
 };
 
 std::ostream& operator<< (std::ostream& outstream, Form& form);
