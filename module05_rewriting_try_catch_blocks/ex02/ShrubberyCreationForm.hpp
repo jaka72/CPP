@@ -6,92 +6,57 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 21:37:10 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 13:16:59 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-
 
 
 #ifndef SHRUBBERY_CREATION_FORM_H
 #define SHRUBBERY_CREATION_FORM_H
 
+
+#include <fstream>  // for files
+#include <iostream>
+#include <exception>
+#include "colors.h"
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-class ShrubberyCreationForm : public virtual Form // should be virtual here ???
-// class ShrubberyCreationForm    : public         Form // should be virtual here ???
+
+class ShrubberyCreationForm : public virtual Form
 {
-    private:
-        //std::string         _target;
-        const std::string   _name;  // according to subject, it must be in the base class,
-                                    // but then both parent & child must have same name
-        // bool                _isSigned;
-        // const int           _reqGradeSign;
-        // const int           _reqGradeExec;
+	private:
+		const std::string	_target;
 
-    public:
+	public:
 		// Constructor
-        ShrubberyCreationForm();
-        
-		// Param. constr.  - NOT USED
-        ShrubberyCreationForm(std::string targetFile);
-        
-		// Destructor
-        ~ShrubberyCreationForm() throw();
-
-		// Copy constructor
+		ShrubberyCreationForm();
 		
-        // Overload operators
+		// Param. constr.
+		ShrubberyCreationForm(std::string targetFile);
+		
+		// Copy constructor
+		ShrubberyCreationForm(ShrubberyCreationForm &src);
+		
+		// Destructor
+		~ShrubberyCreationForm() throw();
+
+		// Overload operators
+		ShrubberyCreationForm &operator= (const ShrubberyCreationForm &src);
 
 
 		// Exceptions
-        
-    // THIS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN THIS CHILD, 
-    // BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE IT CLASS INSIDE CLASS )
-    // SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
+		// THE EXCEPTIONS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN CHILDREN, 
+		// BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE ITS CLASS INSIDE CLASS )
+		// SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
 
-        // class GradeTooHighException : public std::exception
-        // {
-        //     public:
-        //         const char* _msg;
+		// Getters
+		std::string   getTarget(void) const;
 
-        //         // constructors
-        //         GradeTooHighException() throw();
-        //         GradeTooHighException(const char* msg) throw();                
-        //         ~GradeTooHighException() throw();
-                
-        //         const char* what(const char* msg) const throw();
-        //         // const char* what() const throw();
-        // };
-        
-        // class GradeTooLowException  : public std::exception
-        // {
-        //     public:
-        //         const char* _msg;
-
-        //         // constructors
-        //         GradeTooLowException() throw();
-        //         GradeTooLowException(const char* msg) throw();                
-        //         ~GradeTooLowException() throw();
-
-        //         const char* what(const char* msg) const throw();
-        //         // const char* what() const throw();
-        // };
-
-        // Getters
-        std::string getName() const; // THIS FUNC MUST BE PRESENT, BECAUSE IN BASE-FORM IS SET TO = 0
-        //bool        getIsSigned() const;
-        //int         getReqGradeSign() const;
-        //int         getReqGradeExec() const;
-        
-        // Public member functions
-        void    execute(const Bureaucrat& bur);
-        void    print_shrubbery();
-
-        //void    beSigned(Bureaucrat& bur);
-
+		
+		// Public member functions
+		void    execute(const Bureaucrat& bur) const;
+		void    print_shrubbery() const;
 };
 
 std::ostream& operator<< (std::ostream& outstream, Form& form);

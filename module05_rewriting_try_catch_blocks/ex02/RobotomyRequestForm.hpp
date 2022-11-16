@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:19:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 21:37:05 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 13:15:54 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,60 +14,50 @@
 #ifndef ROBOTOMY_REQUEST_FORM_H
 #define ROBOTOMY_REQUEST_FORM_H
 
+
+#include <fstream>  // for files
+#include <cstdlib>  // for rand
+#include <iostream>
+#include <exception>
+
+#include "colors.h"
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-class RobotomyRequestForm : public virtual Form // should be virtual here ???
-// class RobotomyRequestForm    : public         Form // should be virtual here ???
+// class RobotomyRequestForm : public Form	// tblase has no virtual ????
+class RobotomyRequestForm : public virtual Form
 {
-    private:
-        //std::string         _target;
-        const std::string   _name;  // according to subject, it must be in the base class,
-                                    // but then both parent & child must have same name
-        // bool                _isSigned;
-        // const int           _reqGradeSign;
-        // const int           _reqGradeExec;
-
-    public:
-		// Constructor
-        RobotomyRequestForm();
-        
-		// Param. constr.  - NOT USED
-        RobotomyRequestForm(std::string targetFile);
-        
-		// Destructor
-        ~RobotomyRequestForm() throw();
-
-		// Copy constructor
+	private:
+		const std::string	 _target;
 		
-        // Overload operators
-
+	public:
+		// Constructor
+		RobotomyRequestForm();
+		
+		// Param. constructor
+		RobotomyRequestForm(std::string targetFile);
+		
+		// Copy constructor
+		RobotomyRequestForm(RobotomyRequestForm &src);
+		
+		// Destructor
+		~RobotomyRequestForm() throw();
+		
+		// Overload operators
+		RobotomyRequestForm &operator= (RobotomyRequestForm &src);
 
 		// Exceptions
-        
-    // THIS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN THIS CHILD, 
-    // BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE IT CLASS INSIDE CLASS )
-    // SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
+		// THE EXCEPTIONS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN CHILDREN, 
+		// BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE IT IS CLASS INSIDE CLASS )
+		// SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
 
-        // class GradeTooHighException : public std::exception
-        // { }
-         
-        // class GradeTooLowException  : public std::exception
-        // { }
+		// Getters
+		std::string   getTarget(void) const;
 
-        // Getters
-        std::string getName() const; // THIS FUNC MUST BE PRESENT, BECAUSE IN BASE-FORM IS SET TO = 0
-        //bool        getIsSigned() const;
-        //int         getReqGradeSign() const;
-        //int         getReqGradeExec() const;
-        
-        // Public member functions
-        void    execute(const Bureaucrat& bur);
-        void    makeDrillNoise();
-
-
-        //void    beSigned(Bureaucrat& bur);
-
+		
+		// Public member functions
+		void    execute(const Bureaucrat& bur) const;
+		void    makeDrillNoise() const;
 };
 
 std::ostream& operator<< (std::ostream& outstream, Form& form);

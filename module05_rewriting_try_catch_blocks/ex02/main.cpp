@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 21:11:07 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 14:33:03 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,210 +17,97 @@
 #include "PresidentialPardonForm.hpp"
 
 
+void testSchruberryForm()
+{
+	std::cout << "TEST Shrubbery Creation Form - - - - - - - - - - - - -\n\n";
+
+	ShrubberyCreationForm shrub1("target_file");
+	std::cout << shrub1;
+	Bureaucrat bur1("Erman", 143);
+	shrub1.execute(bur1);
+
+	bur1.signForm(shrub1);
+	std::cout << GRE"   Check signed status: " << shrub1.getIsSigned() << "\n" RES;
+
+	for (int i = 0; i < 6; i++)
+		bur1.incr_grade();
+		
+	shrub1.execute(bur1);
+}
+
+
+
+void testRobotomyForm()
+{
+	std::cout << "TEST Robotomy Request Form - - - - - - - - - - - - -\n\n";
+	
+	RobotomyRequestForm rob1("target_robot");
+	std::cout << rob1;
+	Bureaucrat bur1("Sabine", 46);
+	rob1.execute(bur1);
+	
+	bur1.signForm(rob1);
+	bur1.signForm(rob1);
+	std::cout << GRE"   Check signed status: " << rob1.getIsSigned() << "\n" RES;
+	
+	for (int i = 0; i < 3; i++)
+		bur1.incr_grade();
+		
+	rob1.execute(bur1);
+}
+
+
+
+void testPardonForm()
+{
+	std::cout << "TEST Presidential Pardon Form - - - - - - - - - - - - -\n\n";
+	
+	PresidentialPardonForm pardon1("Luis");
+	std::cout << pardon1;
+	Bureaucrat bur1("Felix", 8);
+	pardon1.execute(bur1);
+	
+	bur1.signForm(pardon1);
+	bur1.signForm(pardon1);
+	std::cout << GRE"   Check signed status: " << pardon1.getIsSigned() << "\n" RES;
+	
+	for (int i = 0; i < 3; i++)
+		bur1.incr_grade();
+		
+	pardon1.execute(bur1);
+}
+
 
 int main()
 {
-
-	// {
-	// 	Bureaucrat br1;
-	// 	std::cout << br1;
-
-    //     Bureaucrat br2(br1);
-	// 	// std::cout << br1;
-	// 	std::cout << br2;
-
-    //     Bureaucrat br3 = br2;
-	// 	std::cout << br3;
-
-    //     Bureaucrat br4;
-    //     br4 = br3;
-	// 	std::cout << br4;
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-		
-	// {
-	// 	Bureaucrat br1("Br1", 0);
-
-	// 	br1.incr_grade();
-	// 	std::cout << br1;
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-	
-	// {
-	// 	Bureaucrat br1("Br1", 1);
-
-	// 	br1.incr_grade();
-	// 	std::cout << br1;
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-
-	// {
-	// 	Bureaucrat br1("Br1", 149);
-
-	// 	br1.decr_grade();
-	// 	std::cout << br1;
-	
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-	
-	// {
-	// 	Bureaucrat br1("Br1", 150);
-
-	// 	br1.decr_grade();
-	// 	std::cout << br1;
-	
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-
-	// {
-	// 	Bureaucrat br1("Br1", 151);
-
-	// 	br1.decr_grade();
-	// 	std::cout << br1;
-	
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-
-	// {
-	// 	Bureaucrat br1("Br1", 33);
-
-	// 	br1.setGrade(177);
-	// 	std::cout << br1;
-	// 	br1.setGrade(-99);
-	// 	std::cout << br1;
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-
-    // {
-	// 	Bureaucrat br1("Br1", 999);
-
-    //     Bureaucrat br2(br1);
-    //     // Bureaucrat br2 = br1;
-    //     // br2 = br1;
-		
-	// 	std::cout << br1;
-	// 	std::cout << br2;
-	// }	
-	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-
-// FROM EX01 /////////////////////////////////////////////////////////
-// Form is now ABSTRACT, cant be used
-	// {
-	// 	Form fm1;
-	// 	Form fm2("myForm", 11, 33);
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-	// {
-	// 	Form fm1("myForm", 166, 0);
-		
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
-	// {
-	// 	Bureaucrat br1("Hans", 100);
-	// 	Form fm1("Form_A", 10, 10);
-	// 	fm1.beSigned(br1);
-	// 	br1.setGrade(5);
-	// 	fm1.beSigned(br1);
-	// 	fm1.beSigned(br1);
-	// }
-//////////////////////////////////////////////////////////
-
-
-
-
-CHECK IF TBLAASE HAS THE SAME STRUCTURE, REGARDING VIRTUAL ... WHICH DEFINITIONS IN WHICH FILE , ETC ..
-
-
-
-
-
-	// EX02 ////////////////////////////////////////
+	try
 	{
-		std::cout << "TEST Shrubbery Creation Form - - - - - - - - - - - - -\n\n";
+		testSchruberryForm();
+		// testRobotomyForm();
+		// testPardonForm();
+	}
 
-		try
-		{
-			Bureaucrat bur1("Erman", 140);
-			ShrubberyCreationForm shrub1("target_file");
-			std::cout << shrub1;
-			std::cout << GRE"   Check signed status: " << shrub1.getIsSigned() << "\n" RES;
-			shrub1.execute(bur1);
 
-			// Form fm1;
-			// bur1.signForm(shrub1);
-			shrub1.beSigned(bur1);
-			// std::cout << shrub1.getName() << "\n";
-			std::cout << GRE"   Check signed status: " << shrub1.getIsSigned() << "\n" RES;
-
-			shrub1.execute(bur1);
-
-			bur1.setGrade(5);
-			shrub1.beSigned(bur1);
-			shrub1.execute(bur1);
-		}
-		catch (Form::GradeTooLowException &e) // can use specific Exception and add more detailed message
-		{
-			std::cerr << e.what() << '\n';
-			//std::cout << form1;
-		}
-		catch (Form::GradeTooHighException &e) // can use specific Exception and add more detailed message
-		{
-			std::cerr << e.what() << '\n';
-			//std::cout << form1;
-		}
-		catch (Bureaucrat::GradeTooLowException &e)
-		{
-			std::cout << e.what() << "\n";
-		}
-		catch (Bureaucrat::GradeTooHighException &e)
-		{
-			std::cout << e.what() << "\n";
-		}
-		catch(const std::exception& e)  // ANY OTHER EXCEPTION
-		{
-			//std::cout << form1;
-			std::cerr << e.what() << '\n';
-		}
-	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
-
-	// {
-	// 	std::cout << "TEST Robotomy Request Form - - - - - - - - - - - - - -\n\n";
-
-	// 	Bureaucrat bur1("George", 6);
-	// 	RobotomyRequestForm robo1("target_Robo");
-
-	// 	robo1.beSigned(bur1);
-	// 	bur1.signForm(robo1);
-	// 	//std::cout << robo1.getIsSigned() << "\n";
-	// 	robo1.execute(bur1);
-
-	// 	// Form fm1;
-	// 	// bur1.signForm(robo1);
-	// 	// std::cout << robo1.getName() << "\n";
-	// 	//std::cout << robo1.getIsSigned() << "\n";
-
-	// 	//robo1.execute(bur1);
-	// }
-	// 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << e.what() << "\n";
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		std::cout << e.what() << "\n";
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
-	// {
-	// 	std::cout << "TEST Presidential Pardon Form - - - - - - - - - -\n\n";
-
-	// 	Bureaucrat bur1("Severin", 111);
-	// 	PresidentialPardonForm pardon1("Kennedy");
-
-	// 	bur1.signForm(pardon1);
-	// 	pardon1.execute(bur1);
-
-	// 	bur1.setGrade(22);
-	// 	bur1.signForm(pardon1);
-	// 	pardon1.execute(bur1);
-
-	// 	bur1.setGrade(3);
-	// 	bur1.signForm(pardon1);
-	// 	pardon1.execute(bur1);
-	// }
-
-
 	return 0;
 }

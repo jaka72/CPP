@@ -6,29 +6,35 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:35:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 20:30:42 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 10:57:47 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_H
 #define FORM_H
 
+// ALSO HERE PROBABLY MUST BE ALL DEPENDECIES, WHICH ARE NEEDED IN THE Form.cpp
+#include <iostream>
+#include <exception>
+#include "colors.h"
 #include "Bureaucrat.hpp"
+
+// class Bureaucrat; // TBLASE DOES NOT WORK IWTHOUT THIS, MINE DOES??? 
+
 
 class Form
 {
-	protected:		// WHY SUBJECGT SAYS, MUST BE private ???
+	protected:
 		const std::string   _name;
 		bool                _isSigned;
 		const int           _reqGradeSign;
 		const int           _reqGradeExec;
-		std::string         _target;
+		//std::string         _target;		// specific vars are in children, here only the essential vars
+
 
 	public:
-		// Constructor
+		// Constructors
 		Form();
-		
-		// Param. constr.
 		Form(std::string name, int gradeSign, int gradeExec);
 		
 		// Destructor
@@ -51,7 +57,7 @@ class Form
 				//~GradeTooHighException() throw();
 		};
 		
-		class GradeTooLowException  : public std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				GradeTooLowException(const std::string msg) throw();
@@ -61,19 +67,22 @@ class Form
 		};
 
 		// Getters
-		virtual std::string getName() const  =  0;		// == Abstract Class 
-		virtual bool        getIsSigned() const;
-		virtual int         getReqGradeSign() const;
-		virtual int         getReqGradeExec() const;
+		std::string	getName() const;
+		bool	getIsSigned() const;
+		int		getReqGradeSign() const;
+		int		getReqGradeExec() const;
 		
 		
 		// Setters
-		virtual void    setIsSigned(bool b);
+		virtual void	setIsSigned(bool b);
 
 		
 		// Public member functions
-		virtual void	beSigned(Bureaucrat& bur);
-		virtual void	execute(Bureaucrat const & executor) const;	// SHOULD IT BE VOID ?
+		void			beSigned(Bureaucrat& bur);
+
+		// PURE VIRTUAL FUNCTION: IT IS ONLY DEFINED LATER IN THE CHILDREN CLASSES
+		// THIS IS ABSTRACT CLASS
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<< (std::ostream& outstream, Form& form);

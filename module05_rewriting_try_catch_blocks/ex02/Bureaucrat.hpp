@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 20:09:32 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 17:57:23 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,11 @@
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
 
-#include "colors.h"
 #include <iostream>
 #include <exception>
-// #include "Form.hpp"
-
+#include "colors.h"
 
 class Form;
-
 
 class Bureaucrat
 {
@@ -62,9 +59,7 @@ class Bureaucrat
 		// Public member functions
 		void	incr_grade();
 		void	decr_grade();
-
 		void    signForm(Form &form);
-		void    executeForm(Form const &form); // STILL NEED TO ADD IT !!!!
 
 
 		// Getter

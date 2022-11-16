@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 20:53:35 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 14:35:45 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,25 +116,12 @@ void	Bureaucrat::decr_grade()
 void   Bureaucrat::signForm(Form &form)
 {
 	std::cout << "   SIGN FORM: ";
-
-	if (_grade <= form.getReqGradeSign() && form.getIsSigned() == false)
-	{
-		form.setIsSigned(true);
-		std::cout << GRN"   Bureaucrat " << _name << " signed the form " << form.getName() << "\n" RES;
-	}
-	else if (_grade > form.getReqGradeSign() && form.getIsSigned() == false)
-	{
-		throw GradeTooLowException("   Bureaucrat can't sign the form, because his sign grade is too low.");
-	}
-	else if (form.getIsSigned() == true)
-		std::cout << CYN"   This form is already signed.\n";
+	form.beSigned(*this);
 }
 
 
 
-
-
-// Getters /////////////////////////////////////////////////////////////////
+// Getters
 
 int	Bureaucrat::getGrade() const
 {
@@ -148,7 +135,7 @@ const std::string Bureaucrat::getName() const
 
 
 
-// Setters //////////////////////////////////////////////////////////////////
+// Setters
 
 void	Bureaucrat::setGrade(int grade)
 {
@@ -180,7 +167,8 @@ std::ostream& operator<< (std::ostream& outstream, Bureaucrat &bur)
 
 
 
-////////////////////////////////////////////////////////////////////////////
+// EXCEPTIONS //////////////////////////////////////////////////////
+
 // Default constructor for Exceptions
 // (not needed)
 

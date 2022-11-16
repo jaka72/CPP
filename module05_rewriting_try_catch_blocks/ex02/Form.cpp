@@ -6,13 +6,11 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:55:58 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 20:53:44 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 17:57:33 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-
 
 
 // Constructor
@@ -72,35 +70,25 @@ Form& Form::operator= (const Form& src)
 // Public member functions
 void    Form::beSigned(Bureaucrat& bur)
 {
-	std::cout << "   BE SIGNED: ";
-
-	if (this->_isSigned == true)
-		std::cerr << CYN"   This form is already signed.\n" RES;
-	else if (bur.getGrade() <= this->_reqGradeSign && this->_isSigned == false)
+	if (bur.getGrade() <= getReqGradeSign() && getIsSigned() == false)
 	{
-		std::cerr << GRN"   This form can be signed.\n" RES;
-		bur.signForm(*this);
+		setIsSigned(true);
+		std::cout << GRN"   Bureaucrat " << _name << " signed the form " << getName() << "\n" RES;
 	}
-	else
+	else if (bur.getGrade() > getReqGradeSign() && getIsSigned() == false)
 	{
-		std::string msg = "   This form has too high grade to be signed by bureaucrat " + bur.getName() + ".\n";
-		throw GradeTooLowException(msg);
+		throw GradeTooLowException("   Bureaucrat can't sign the form, because his sign grade is too low.");
+	}
+	else if (getIsSigned() == true)
+	{
+		std::cout << CYN"   This form is already signed.\n" RES;
 	}
 }
 
 
-
-
-
-
-
-
-
-
-// LOOKS LIKE IT MUST BE IN THE BASE, THEN HOW WILL THE CHILD CALL IT ???
-// MAYBE THE CHILD MUSTS HAVE ITS OWN OVERRIDE execute() ???
-// SO THIS ONE HERE DOES NOTHING (MAYBE IT CAN HAVE EMPTY BODY ??)
-void	Form::execute(Bureaucrat const & executor) const	// SHOULD IT BE VOID ?
+// TIS IS PURE VIRTUAL FUNCTION IN HEADER. MAYBE THIS DEFINITION IS NOT NEEDED?
+// (TBLASE WORKS WITHOUT THIS DEFINITION, ONLY DECLERATION IN HEADER)
+void	Form::execute(Bureaucrat const & executor) const
 {
     std::cout << "(EXECUTE IN BASE)";
     
@@ -128,24 +116,6 @@ void	Form::execute(Bureaucrat const & executor) const	// SHOULD IT BE VOID ?
     //     std::cerr << LRD " Catch (pardon), other exception: " RES << e.what() << '\n';
     // }   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Getters /////////////////////////////////////////////
@@ -219,16 +189,3 @@ Form::GradeTooLowException::GradeTooLowException(const std::string msg) throw()
    	std::cout << LRD << msg << "\n" RES;
 }
 //////////////////////////////////////////////////////////////////////
-
-
-// Destructors Exceptions
-// Form::GradeTooLowException::~GradeTooLowException() throw()
-// {
-//    	// std::cout << GRE"   Destruct Form::Exception GradeTooLow\n" RES;
-// }
-
-// Form::GradeTooHighException::~GradeTooHighException() throw()
-// {
-//    	// std::cout << GRE"   Destruct Form::Exception GradeTooHigh\n" RES;
-// }
-

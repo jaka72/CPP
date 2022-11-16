@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 17:53:46 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 17:56:18 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 #include "colors.h"
 #include <iostream>
 #include <exception>
-
 
 
 class Bureaucrat

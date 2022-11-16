@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 19:59:35 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 17:56:22 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@
 	case to set the invalid grade to the lowest grade.
 
 */
-
-
 
 
 

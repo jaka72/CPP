@@ -14,60 +14,52 @@
 #ifndef PRESIDENTIAL_PARDON_FORM_H
 #define PRESIDENTIAL_PARDON_FORM_H
 
+#include <fstream>  // for files
+#include <cstdlib>  // for rand()
+#include <iostream>
+#include <exception>
+
+#include "colors.h"
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-class PresidentialPardonForm : public virtual Form // should be virtual here ???
-// class PresidentialPardonForm    : public         Form // should be virtual here ???
+class PresidentialPardonForm : public virtual Form
 {
-    private:
-        //std::string         _target;
-        const std::string   _name;  //  ??? according to subject, it must be in the base class,
-                                    // but then both parent & child must have same name
-        // bool                _isSigned;
-        // const int           _reqGradeSign;
-        // const int           _reqGradeExec;
+	private:
+		const std::string	_target;    // must be here, but not in base class (probably because the base
+										// is considered a template, which only has the most crucial vars, 
+										// but specific vars we only put into children)
 
-    public:
+	public:
 		// Constructor
-        PresidentialPardonForm();
-        
-		// Param. constr.  - NOT USED
-        PresidentialPardonForm(std::string targetFile);
-        
-		// Destructor
-        ~PresidentialPardonForm() throw();
-
-		// Copy constructor
+		PresidentialPardonForm();
 		
-        // Overload operators
+		// Param. constructor
+		PresidentialPardonForm(std::string targetFile);
+		
+		// Copy constructor
+		PresidentialPardonForm(PresidentialPardonForm &src);
+		
+		// Destructor
+		~PresidentialPardonForm() throw();
+		
+		// Overload operators
+		PresidentialPardonForm &operator= (const PresidentialPardonForm &src);
+
+		/// Exceptions
+		// THE EXCEPTIONS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN CHILDREN, 
+		// BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE ITS CLASS INSIDE CLASS )
+		// SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
 
 
-		// Exceptions
-        
-    // THIS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN THIS CHILD, 
-    // BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE IT CLASS INSIDE CLASS )
-    // SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
-
-        // class GradeTooHighException : public std::exception
-        // { }
-         
-        // class GradeTooLowException  : public std::exception
-        // { }
-
-        // Getters
-        std::string getName() const; // THIS FUNC MUST BE PRESENT, BECAUSE IN BASE-FORM IS SET TO = 0
-        //bool        getIsSigned() const;
-        //int         getReqGradeSign() const;
-        //int         getReqGradeExec() const;
-        
-        // Public member functions
-        void    execute(const Bureaucrat& bur); // MAYBE NOT NEEDED HERE, IT IS ALREADY IN BASE FROM, AS VIRTUAL ???
-        void    pardonize();
+		// Getters
+		std::string getTarget(void) const;
 
 
-        //void    beSigned(Bureaucrat& bur);
+		// Public member functions
+		void    execute(const Bureaucrat& bur) const;
 
+		void    pardonize() const;
 };
 
 std::ostream& operator<< (std::ostream& outstream, Form& form);

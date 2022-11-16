@@ -5,8 +5,20 @@
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
+/*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
+/*   Updated: 2022/11/16 14:36:00 by jaka          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Bureaucrat.hpp                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
 /*   Created: 2022/10/20 09:54:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/28 08:24:39 by jaka          ########   odam.nl         */
+/*   Updated: 2022/10/23 13:07:45 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +28,8 @@
 #include "colors.h"
 #include <iostream>
 #include <exception>
-// #include <string>	// ???
-// #include "Form.hpp"
 
-
-class Form; // Is this needed?
-
+class Form;
 
 class Bureaucrat
 {
@@ -51,14 +59,12 @@ class Bureaucrat
 		// Public member functions
 		void	incr_grade();
 		void	decr_grade();
-
-
 		void    signForm(Form &form);
 
 
 		// Getter
-		int			getGrade() const;
-		std::string getName() const;		// maybe return const ???
+		int					getGrade() const;
+		const	std::string getName() const;
 
 
 		// Setter
@@ -66,17 +72,19 @@ class Bureaucrat
 
 
 		// Exceptions
-		// CLASS INSIDE CLASS
-		class GradeTooHighException : public std::exception
-		{
-            // public:
-    			const char* what() const throw();
-		};
-
-        // CLASS INSIDE CLASS
 		class GradeTooLowException : public std::exception
 		{
-            // public:
+            public:
+				//GradeTooLowException() throw();
+				GradeTooLowException(const char* msg) throw();
+    			const char* what() const throw();
+		};
+		
+		class GradeTooHighException : public std::exception
+		{
+            public:
+				//GradeTooHighException() throw();               
+				GradeTooHighException(const char* msg) throw();               
     			const char* what() const throw();
 		};
 };

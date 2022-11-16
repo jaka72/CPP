@@ -6,31 +6,16 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:24:13 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/29 21:08:27 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/16 17:49:43 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>	// exit
-#include "Form.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-//#include "WrongForm.hpp"
+
+// #include "Form.hpp"
+// #include "ShrubberyCreationForm.hpp"
+// #include "RobotomyRequestForm.hpp"
+// #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
-
-#define NR_FORMS 4
-
-// FUNCTION wait() IN CLASS INSIDE CLASS,  DERIVED FROM std::exception
-// const char* Intern::GradeTooHighException::what() const throw()
-// {
-// 	return (LRD"   Thrown exception, Grade Too High\n" RES);
-// }
-
-
-// const char* Intern::GradeTooLowException::what() const throw()
-// {
-// 	return (LRD"   Thrown exception, Grade Too Low\n" RES);
-// }
 
 
 
@@ -38,33 +23,7 @@
 Intern::Intern()
 {
 	std::cout << GRE"Default constr. Intern\n" RES;
-
-	_form[0] = new ShrubberyCreationForm();
-	_form[1] = new RobotomyRequestForm();
-	_form[2] = new PresidentialPardonForm();
-	_form[3] = new WrongForm("Not recognized");
 }
-
-
-// Param. constr.
-//Intern::Intern(std::string name, int grade)
-//{
-//	std::cout << GRE"Param. constr. Intern\n" RES;
-
-	// try
-	// {
-	// 	if (_grade < 1)
-	// 		throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-
-	// 	if (_grade > 150)
-	// 		throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-	// }
-
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-//}
 
 
 
@@ -72,40 +31,21 @@ Intern::Intern()
 Intern::Intern(const Intern &src)
 {
 	std::cout << GRE"Copy constr. Intern\n" RES;
+
 	*this = src;
 }
-
-
-
 
 
 // Overload operators
 Intern& Intern::operator= (const Intern &src)
 {
 	std::cout << GRE"Overload operator=  , Intern\n" RES;
-
-	// try
-	// {
-	// 	if (src._grade < 1)
-	// 	{
-	// 		std::cout << LRD"   Copying a bureaucrat with too high grade!\n" RES;
-	// 		throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-	// 	}
-	// 	if (src._grade > 150)
-	// 	{
-	// 		std::cout << LRD"   Copying a bureaucrat with too low grade!\n" RES;
-	// 		throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE CATCH
-	// 	}
-	// }
-
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
 	
-	// this->_grade = src._grade;
-	// this->_name = src._name; // Name cant be copied to const
-	*this = src;
+	if (this == &src)
+		return *this;
+		
+	// Needs to deep copy the forms array ???  
+	
 	return *this;
 }
 
@@ -113,178 +53,56 @@ Intern& Intern::operator= (const Intern &src)
 Intern::~Intern()
 {
 	std::cout << GRE"Destructor Intern\n" RES;
-	
-	int i = 0;
-	while (i < NR_FORMS)
-	{	
-		std::cout << GRE"   delete " << i << ": " << _form[i]->getName() << "\n" RES;
-		delete _form[i];
-		i++;
-	}
 }
 
 
 //////////////////////////////////////////////////////////
 
-// Public member functions
+Form *makePardonForm(const std::string target)  // &target arg cannot be a referrence ??? maybe because
+{												//  this function returns a pointer ???
+	return (new PresidentialPardonForm(target));
+}
 
-// int get_level(std::string formName)
-// {
-// 	std::string arr[3] =
-// 	{
-// 		"shrubbery request",
-// 		"robotomy request",
-// 		"pardon request"
-// 	};
-
-// 	int i = 0;
-// 	while (i < 3)
-// 	{
-// 		if (formName == arr[i])
-// 			return i;
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-
-
-Form*  Intern::makeForm(std::string formName, std::string formTarget)
+Form *makeSchrubberyForm(const std::string target)
 {
-	// Form	*f1;
-	//int		level = get_level(formName);
+	return (new ShrubberyCreationForm(target));
+}
 
-	// _form[0] = new ShrubberyCreationForm();
-	// _form[1] = new RobotomyRequestForm();
-	// _form[2] = new PresidentialPardonForm();
-	// _form[3] = new WrongForm(formName);
-	
-	int i = 0;
-	while (i < NR_FORMS)
-	{
-		if (formName == _form[i]->getName())
-		{
-			// std::cout << "formname: " << _form[i]->getName() << "\n"; 
-			// std::cout << "formtarget: " << _form[i]->getTarget() << "\n"; 
-			_form[i]->setTarget(formTarget);
-			
-			std::cout << CYN"   The Intern has made the Form: " << formName << ", with target: " << formTarget << "\n" RES;
-			return (_form[i]);
-		}
-		i++;
-	}
-	
-	 std::cout << "A) " << i << "\n";
-	
-	std::cout << LRD"   The Intern has made a Wrong Form: " << formName << ", with target: " << formTarget << "\n" RES;
-	return (_form[--i]); // !!! SHOULD GIVE WRONGFORM, INSTEAD OF NOW SHRUBERRY
+Form *makeRobotomyForm(const std::string target)
+{
+	return (new RobotomyRequestForm(target));
 }
 
 
 
 
-// void Intern::test1()
-// {
-// 	std::cout << "Test from intern1\n";
-// }
 
+Form*  Intern::makeForm(std::string formName, std::string formTarget)
+{	
 
-// CLASS INSIDE CLASS
-
-
-//void	Intern::incr_grade()
-//{
-	// std::cout << BLU"   Incrementing grade " << this->_grade << "\n" RES;
-
-	// // Exceptions
-	// try
-	// {
-	// 	if (_grade < 2)
-	// 		throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
-	// 	_grade--;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-//}
-
-
-//void	Intern::decr_grade()
-//{
-	// std::cout << BLU"   Decrementing grade " << this->_grade << "\n" RES;
-
-	// try
-	// {
-	// 	if (_grade >= 150)
-	// 		throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
-	// 	_grade++;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-//}
-
-
-
-//void   Intern::signForm(Form &form)
-//{
-//    std::cout << "   SIGN FORM:";
+	formPointers[0] = &makePardonForm;
+	formPointers[1] = &makeSchrubberyForm;
+	formPointers[2] = &makeRobotomyForm;
 	
-	// if (_grade <= form.getReqGradeSign() && form.getIsSigned() == false)
-	// {
-    //     form.setIsSigned(true);
-	// 	std::cout << GRN" Bur. " << _name << " signed " << form.getName() << "\n" RES;
-	// }
-	// else if (_grade > form.getReqGradeSign() && form.getIsSigned() == false)
-	// 	std::cout << LRD" Bur. " << _name << " can't sign " << form.getName()
-	// 				<< ", his grade is too low (" << _grade <<")\n" RES;
-	// else if (form.getIsSigned() == true)
-	// 	std::cout << GRN" This form is already signed.\n" RES;
-//}
+	// Form *(*formPointers[])(const std::string formTarget) = 
+	// { 	&makePardonForm,
+	// 	&makeSchrubberyForm,
+	// 	&makeRobotomyForm
+	// };
 
+	std::string formNames[] = {"pardon request", "schrubbery request", "robotomy request"};
 
-
-// Getters /////////////////////////////////////////////////////////
-
-// int			Intern::getGrade() const
-// {
-// 	return this->_grade;
-// }
-
-// std::string Intern::getName() const		// maybe return const ???
-// {
-// 	return this->_name;
-// }
-
-
-
-// Setter
-//void	Intern::setGrade(int grade)
-//{
-	// std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
-
-	// try
-	// {
-	// 	if (grade < 1)
-	// 		throw GradeTooHighException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
-
-	// 	if (grade > 150)
-	// 		throw GradeTooLowException();	// CREATES/RETURNS THE CLASS, WHICH IS DETECTED BY THE THROW
-	// 	this->_grade = grade;
-	// }
-
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-//}
-
-
-// THIS IS OUTSIDE OF THE CLASS !!!
-// std::ostream& operator<< (std::ostream& outstream, Intern &bur)
-// {
-	//outstream << "Intern " << bur.getName() << ", grade: " << bur.getGrade() <<"\n";
-	// return (outstream);
-// }
+	int i = 0;
+	while (i < NR_FORMS)
+	{
+		if (formName == formNames[i])
+		{
+			std::cout << CYN"   Intern has made the Form: [" << formName << "] for target: " << formTarget << "\n" RES;
+			return (formPointers[i](formTarget)); // MUST BE DELETED IN MAIN!
+		}
+		i++;
+	}
+	
+	std::cout << LRD"   Intern cannot create this form. Name [" << formName << "] doesn't exist." << "\n" RES;
+	return (NULL);
+}
