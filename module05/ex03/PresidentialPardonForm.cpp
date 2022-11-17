@@ -61,7 +61,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPar
 // Public member functions
 
 // THIS FUNC COULD MAYBE BE DEFINED ONLY IN THE BASE, AND CALL A GENERIC FUNCTION, IE 
-//   execute_task(), HICH WOULD BE DIFFERENT IN EVERY CHILD FORM
+//   execute_task(), WHICH WOULD BE DIFFERENT IN EVERY CHILD FORM
 void    PresidentialPardonForm::execute(const Bureaucrat& bur) const
 {
 	std::cout << "   EXECUTE:";

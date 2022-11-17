@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 21:28:26 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 13:32:37 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ class Bureaucrat
 
 
 		// Setters
-		void	setGrade(int grade);
+		// void	setGrade(int grade);
 
 
 		// Exceptions
@@ -74,7 +74,7 @@ class Bureaucrat
 		{
             public:
 				GradeTooLowException(const char* msg) throw();
-    			virtual const char* what() const throw();	// Check in which cases musts  be virtual
+    			virtual const char* what() const throw();
 		};
 		
 		class GradeTooHighException : public std::exception

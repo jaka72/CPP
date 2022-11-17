@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:55:58 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 17:57:33 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 15:48:30 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ Form::~Form() throw()
 Form::Form(const Form& src)  : _name(src._name + "_copy"), _isSigned(src._isSigned),
 					_reqGradeSign(src._reqGradeExec), _reqGradeExec(src._reqGradeExec)
 {
+	std::cout << GRE"Copy constr. Form:  " << _name << "\n" RES;
 	*this = src;
 }
 
@@ -86,36 +87,23 @@ void    Form::beSigned(Bureaucrat& bur)
 }
 
 
-// TIS IS PURE VIRTUAL FUNCTION IN HEADER. MAYBE THIS DEFINITION IS NOT NEEDED?
-// (TBLASE WORKS WITHOUT THIS DEFINITION, ONLY DECLERATION IN HEADER)
-void	Form::execute(Bureaucrat const & executor) const
-{
-    std::cout << "(EXECUTE IN BASE)";
+// THIS IS PURE VIRTUAL FUNCTION IN THE HEADER.
+// void	Form::execute(Bureaucrat const & executor) const
+// {
+//     std::cout << "EXECUTE (from Base)";
     
-    //try
-    //{
-        if (this->_isSigned == false)
-        {
-            std::cout << LRD" IN BASE: This form is not yet signed, cannot execute.\n" RES;
-            return ;
-        }
-        if (executor.getGrade() > this->getReqGradeExec())
-            throw GradeTooLowException(" IN BASE: Can't execute, this bureaucrat has too low grade.");
-        else
-        {
-            std::cout << GRN" IN BASE: Bureaucrat " << executor.getName() << " executed " << this->_name << "\n" RES;
-            //this->pardonize();
-        }
-    //}
-    // catch (GradeTooLowException& e)
-    // {
-    //     std::cerr << LRD " Catch (pardon), " << e.what(e._msg) << "\n" RES;
-    // }
-    // catch (const std::exception& e)
-    // {
-    //     std::cerr << LRD " Catch (pardon), other exception: " RES << e.what() << '\n';
-    // }   
-}
+// 	if (this->_isSigned == false)
+// 	{
+// 		std::cout << LRD" IN BASE: This form is not yet signed, cannot execute.\n" RES;
+// 		return ;
+// 	}
+// 	if (executor.getGrade() > this->getReqGradeExec())
+// 		throw GradeTooLowException(" IN BASE: Can't execute, this bureaucrat has too low grade.");
+// 	else
+// 	{
+// 		std::cout << GRN" IN BASE: Bureaucrat " << executor.getName() << " executed " << this->_name << "\n" RES;
+// 	}
+// }
 
 
 // Getters /////////////////////////////////////////////
@@ -149,22 +137,6 @@ void    Form::setIsSigned(bool b)
 
 
 
-// Overload for WHAT()
-///////////////////////////////////////////////////////////////////
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return ("");
-	// return (LRD"   (exception from the Form)" RES);
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return ("");
-	// return (LRD"   (exception from the Form)" RES);
-}
-
-
-
 // Operator<< overload
 std::ostream& operator<< (std::ostream& outstream, Form &form)
 {
@@ -187,5 +159,21 @@ Form::GradeTooHighException::GradeTooHighException(const char *msg) throw()
 Form::GradeTooLowException::GradeTooLowException(const std::string msg) throw()
 {
    	std::cout << LRD << msg << "\n" RES;
+}
+//////////////////////////////////////////////////////////////////////
+
+
+// Override  what() 
+const char* Form::GradeTooHighException::what() const throw()
+{
+	//return ("");
+	return (LRD"   (exception from Form)\n" RES);
+}
+
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	//return ("");
+	return (LRD"   (exception from Form)\n" RES);
 }
 //////////////////////////////////////////////////////////////////////

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:55:58 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 17:24:54 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 15:20:06 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,10 @@ Form::~Form() throw()
 
 
 // Copy constructor
-Form::Form(const Form& src)  : _name(src._name + "_copy"), _isSigned(src._isSigned),
-					_reqGradeSign(src._reqGradeExec), _reqGradeExec(src._reqGradeExec)
+Form::Form(const Form& src)  : _name(src._name + "_copy"), _reqGradeSign(src._reqGradeExec),
+								_reqGradeExec(src._reqGradeExec), _isSigned(src._isSigned)
 {
+	std::cout << GRE"Copy Form:  " << _name << "\n" RES;
 	*this = src;
 }
 
@@ -70,19 +71,19 @@ Form& Form::operator= (const Form& src)
 // Public member functions
 void    Form::beSigned(Bureaucrat& bur)
 {
-	std::cout << "   Calling BE SIGNED:\n";
-
-	if (this->_isSigned == true)
-		std::cerr << CYN"   This form is already signed.\n" RES;
-	else if (bur.getGrade() <= this->_reqGradeSign && this->_isSigned == false)
+	std::cout << "   SIGN FORM: ";
+	if (bur.getGrade() <= getReqGradeSign() && getIsSigned() == false)
 	{
-		std::cerr << GRN"   This form can be signed.\n" RES;
-		bur.signForm(*this);
+		setIsSigned(true);
+		std::cout << GRN"   Bureaucrat " << _name << " signed the form " << getName() << "\n" RES;
 	}
-	else
+	else if (bur.getGrade() > getReqGradeSign() && getIsSigned() == false)
 	{
-		std::string msg = "   This form has too high grade to be signed by bureaucrat " + bur.getName() + ".\n";
-		throw GradeTooLowException(msg);
+		throw GradeTooLowException("   Bureaucrat can't sign the form, because his sign grade is too low.");
+	}
+	else if (getIsSigned() == true)
+	{
+		std::cout << CYN"   This form is already signed.\n" RES;
 	}
 }
 
@@ -119,22 +120,6 @@ void    Form::setIsSigned(bool b)
 
 
 
-// Overload for WHAT()
-///////////////////////////////////////////////////////////////////
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return ("");
-	// return (LRD"   (exception from the Form)" RES);
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return ("");
-	// return (LRD"   (exception from the Form)" RES);
-}
-
-
-
 // Operator<< overload
 std::ostream& operator<< (std::ostream& outstream, Form &form)
 {
@@ -161,14 +146,17 @@ Form::GradeTooLowException::GradeTooLowException(const std::string msg) throw()
 //////////////////////////////////////////////////////////////////////
 
 
-// Destructors Exceptions
-// Form::GradeTooLowException::~GradeTooLowException() throw()
-// {
-//    	// std::cout << GRE"   Destruct Form::Exception GradeTooLow\n" RES;
-// }
+// Override  what() 
+const char* Form::GradeTooHighException::what() const throw()
+{
+	//return ("");
+	return (LRD"   (exception from Form)\n" RES);
+}
 
-// Form::GradeTooHighException::~GradeTooHighException() throw()
-// {
-//    	// std::cout << GRE"   Destruct Form::Exception GradeTooHigh\n" RES;
-// }
 
+const char* Form::GradeTooLowException::what() const throw()
+{
+	//return ("");
+	return (LRD"   (exception from Form)\n" RES);
+}
+//////////////////////////////////////////////////////////////////////

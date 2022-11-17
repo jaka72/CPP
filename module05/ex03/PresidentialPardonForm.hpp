@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   PresidentialPardonForm.hpp                            :+:    :+:            */
+/*   PresidentialPardonForm.hpp                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:19:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/27 20:56:02 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 12:23:07 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@
 class PresidentialPardonForm : public virtual Form
 {
 	private:
-		const std::string	_target;    // must be here, but not in base class (probably because the base
-										// is considered a template, which only has the most crucial vars, 
-										// but specific vars we only put into children)
+		const std::string	_target;
 
 	public:
 		// Constructor
@@ -46,11 +44,7 @@ class PresidentialPardonForm : public virtual Form
 		// Overload operators
 		PresidentialPardonForm &operator= (const PresidentialPardonForm &src);
 
-		/// Exceptions
-		// THE EXCEPTIONS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN CHILDREN, 
-		// BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE ITS CLASS INSIDE CLASS )
-		// SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
-
+		// Exceptions come from the parent
 
 		// Getters
 		std::string getTarget(void) const;

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 21:13:00 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 15:10:43 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Bureaucrat::incr_grade()
 	//try
 	//{
 		if (_grade < 2)
-			throw GradeTooHighException("   Cannot increment higher than 1!");
+			throw GradeTooHighException("Cannot increment higher than 1!");
 		_grade--;
 	//}
 	//catch(const std::exception& e)
@@ -100,7 +100,7 @@ void	Bureaucrat::decr_grade()
 	//try
 	//{
 		if (_grade >= 150)
-			throw GradeTooLowException("   Cannot increment lower than 150!");
+			throw GradeTooLowException("Cannot increment lower than 150!");
 		_grade++;
 	//}
 	//catch(const std::exception& e)
@@ -127,25 +127,18 @@ const std::string Bureaucrat::getName() const
 
 // Setters //////////////////////////////////////////////////////////////////
 
-void	Bureaucrat::setGrade(int grade)
-{
-	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
+// void	Bureaucrat::setGrade(int grade)
+// {
+// 	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
 
-	//try
-	//{
-		if (grade < 1)
-			throw GradeTooHighException("Cannot set invalid grade (too high)");
+// 	if (grade < 1)
+// 		throw GradeTooHighException("Cannot set invalid grade (too high)");
 
-		else if (grade > 150)
-			throw GradeTooLowException("Cannot set invalid grade (too low)");
-		
-		this->_grade = grade;
-	//}
-	//catch(const std::exception& e)
-	//{
-	//	std::cerr << e.what() << '\n';
-	//}
-}
+// 	else if (grade > 150)
+// 		throw GradeTooLowException("Cannot set invalid grade (too low)");
+	
+// 	this->_grade = grade;
+// }
 
 
 // THIS IS OUTSIDE OF THE CLASS !!!
@@ -178,14 +171,14 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const char *msg) throw(
 // Override  what() 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("");
-	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+	// return ("");
+	return (LRD"   (exception from Bureaucrat)\n" RES);
 }
 
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("");
-	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+	//return ("");
+	return (LRD"   (exception from Bureaucrat)\n" RES);
 }
 //////////////////////////////////////////////////////////////////////

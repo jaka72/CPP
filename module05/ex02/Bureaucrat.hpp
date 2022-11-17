@@ -6,21 +6,10 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 17:57:23 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 15:49:01 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   Bureaucrat.hpp                                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: jaka <jaka@student.codam.nl>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2022/10/20 09:54:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/23 13:07:45 by jaka          ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
 
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
@@ -68,7 +57,7 @@ class Bureaucrat
 
 
 		// Setter
-		void	setGrade(int grade);
+		// void	setGrade(int grade);
 
 
 		// Exceptions

@@ -6,17 +6,12 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:24:13 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 17:49:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 11:24:45 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-// #include "Form.hpp"
-// #include "ShrubberyCreationForm.hpp"
-// #include "RobotomyRequestForm.hpp"
-// #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
-
 
 
 // Constructor
@@ -44,8 +39,7 @@ Intern& Intern::operator= (const Intern &src)
 	if (this == &src)
 		return *this;
 		
-	// Needs to deep copy the forms array ???  
-	
+	// No vars to copy
 	return *this;
 }
 
@@ -76,20 +70,12 @@ Form *makeRobotomyForm(const std::string target)
 
 
 
-
 Form*  Intern::makeForm(std::string formName, std::string formTarget)
 {	
-
 	formPointers[0] = &makePardonForm;
 	formPointers[1] = &makeSchrubberyForm;
 	formPointers[2] = &makeRobotomyForm;
 	
-	// Form *(*formPointers[])(const std::string formTarget) = 
-	// { 	&makePardonForm,
-	// 	&makeSchrubberyForm,
-	// 	&makeRobotomyForm
-	// };
-
 	std::string formNames[] = {"pardon request", "schrubbery request", "robotomy request"};
 
 	int i = 0;

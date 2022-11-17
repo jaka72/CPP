@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:23:56 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 17:51:19 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 11:33:15 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,13 @@
 #include "colors.h"
 
 
-// #include "ShrubberyCreationForm.hpp"	// to recognize the dummy form
-
-
-class Form; // Is this needed?
-
 #define NR_FORMS 3
-
 
 class Intern
 {
 	private:
 
-		//Form *(*formPointers2[3]);		// Form is Abstract, only possible via pointer
-
-		Form *(*formPointers[NR_FORMS])(std::string formTarget);		// Form is Abstract, only possible via pointer
-
-
+		Form *(*formPointers[NR_FORMS])(std::string formTarget);		// Form is Abstract, only possible via a pointer
 
 	public:
 
@@ -54,7 +44,6 @@ class Intern
 
 		// Overload operators
 		Intern &operator= (const Intern &src);
-
 
 		// Public member functions
 		Form  *makeForm(std::string formName, std::string formTarget);

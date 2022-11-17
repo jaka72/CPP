@@ -6,12 +6,12 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 17:59:05 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 12:50:41 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-// #include "Form.hpp"
+
 #include "ShrubberyCreationForm.hpp"
 
 
@@ -58,8 +58,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 }
 
 
-// THIS FUNC COULD MAYBE BE DEFINED ONLY IN THE BASE, AND CALL A GENERIC FUNCTION, IE 
-//   execute_task(), HICH WOULD BE DIFFERENT IN EVERY CHILD FORM
 // Public member functions
 void    ShrubberyCreationForm::execute(const Bureaucrat& bur) const
 {

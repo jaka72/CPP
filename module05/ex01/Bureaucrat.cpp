@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 17:44:56 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 15:19:57 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,19 +115,7 @@ void	Bureaucrat::decr_grade()
 
 void   Bureaucrat::signForm(Form &form)
 {
-	std::cout << "   Calling SIGN FORM:\n";
-
-	if (_grade <= form.getReqGradeSign() && form.getIsSigned() == false)
-	{
-		form.setIsSigned(true);
-		std::cout << GRN"   Bureaucrat " << _name << " signed the form " << form.getName() << "\n" RES;
-	}
-	else if (_grade > form.getReqGradeSign() && form.getIsSigned() == false)
-	{
-		throw GradeTooLowException("   Bureaucrat can't sign the form, because his sign grade is too low.");
-	}
-	else if (form.getIsSigned() == true)
-		std::cout << CYN"   This form is already signed.\n";
+	form.beSigned(*this);
 }
 
 
@@ -150,25 +138,18 @@ const std::string Bureaucrat::getName() const
 
 // Setters //////////////////////////////////////////////////////////////////
 
-void	Bureaucrat::setGrade(int grade)
-{
-	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
+// void	Bureaucrat::setGrade(int grade)
+// {
+// 	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
 
-	//try
-	//{
-		if (grade < 1)
-			throw GradeTooHighException("Cannot set invalid grade (too high)");
+// 	if (grade < 1)
+// 		throw GradeTooHighException("Cannot set invalid grade (too high)");
 
-		else if (grade > 150)
-			throw GradeTooLowException("Cannot set invalid grade (too low)");
-		
-		this->_grade = grade;
-	//}
-	//catch(const std::exception& e)
-	//{
-	//	std::cerr << e.what() << '\n';
-	//}
-}
+// 	else if (grade > 150)
+// 		throw GradeTooLowException("Cannot set invalid grade (too low)");
+	
+// 	this->_grade = grade;
+// }
 
 
 // THIS IS OUTSIDE OF THE CLASS !!!
@@ -201,14 +182,14 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const char *msg) throw(
 // Override  what() 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("");
-	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+	//return ("");
+	return (LRD"   (exception from Bureaucrat)\n" RES);
 }
 
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("");
-	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+	//return ("");
+	return (LRD"   (exception from Bureaucrat)\n" RES);
 }
 //////////////////////////////////////////////////////////////////////

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/07 14:49:44 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 18:05:40 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 #include <cstring>   // strlen
 #include <cstdlib>
 #include <limits>       // overflow CPP
-#include<bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
+//#include<bits/stdc++.h> // overflow C   for Linux
 
 #include "Conversion.hpp"
 
 /* QUESTIONS
 
     - Shall I use getters and setters always for all private vars??
-
+    
+    SUBJECT SAYS, YOU NEED TO ACQUIRE THE STRING INTO THE RIGHT TYPE, SO IT IS NOT 
+    A STRING ANYMORE. SO THIS PROBABLY MEANS, FIRST INTO DOUBLE, THEN INTO 
+    EVERYTHING ELSE.
+    
 */
 
 
 /*
-    TYPE CASTNG (TYPE CONVERSION)
+    TYPE CASTING (TYPE CONVERSION)
 
     a) Implicit (automatic by compiler)
     b) Explicit (manual by programmer)
@@ -40,14 +44,11 @@
 
             - dynamic_cast          To handle polimorphism. Only used when casting from base to derived class
                                     (at runtime, only for class pointers)
-            
             - const_cast
             
             - reinterpret_cast
 
             - regular cast
-
-
 */
 
 
@@ -98,6 +99,14 @@ int main(int argc, char **argv)
 
     // float f7 = 2147483646.0f;
     // std::cout << f7 << "\n";
+
+    
+    char c = '\n';
+
+    if (isprint(c))
+        std::cout << "yes is print\n";
+    else    
+        std::cout << "no is not print\n";
 
     
     return 0;

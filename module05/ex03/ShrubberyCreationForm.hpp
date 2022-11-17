@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 13:16:59 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 12:23:59 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ class ShrubberyCreationForm : public virtual Form
 		ShrubberyCreationForm &operator= (const ShrubberyCreationForm &src);
 
 
-		// Exceptions
-		// THE EXCEPTIONS CLASS APPARENTLY DOES NOT HAVE TO BE REPEATED IN CHILDREN, 
-		// BUT IN PARENT IT CANNOT BE SET TO VIRTUAL (BECAUSE ITS CLASS INSIDE CLASS )
-		// SO IT WILL BE ALWAYS USED FROM PARENT, NEVER FROM HERE
+		// Exceptions from the parent
 
 		// Getters
 		std::string   getTarget(void) const;

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/07 15:13:31 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 17:46:15 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cstring>   // strlen
 #include <cstdlib>
 #include <limits>       // overflow CPP
-#include <bits/stdc++.h> // overflow C   PROBABLY BETTER USE THE CPP LIMITS
+// #include <bits/stdc++.h> // overflow C   Linux
 #include "colors.h"
 
 #define INVALID_INPUT -1
@@ -101,14 +101,14 @@ class Conversion
 
 
 
-// For Process Input String
+// To process Input String
 int		checkSpaces(int _type, std::string &_inputStr, char &_c, int &_isNotDigit);
 void	checkDotOrSign(std::string &_inputStr, int &_i, int &_sign, char &_c, int &_isNeg);
 void	checkString(std::string &_inputStr, int &_i, int &_isDigit, int &_isNotDigit,
 							int &_isPoint, int &_isF, char &_checkIf_F, char &_c);
 
 
-// For Check Int Overflow
+// To check Int Overflow
 int		checkIntOverflow(std::string str, int limit);
 int		countDigits(int limit);
 

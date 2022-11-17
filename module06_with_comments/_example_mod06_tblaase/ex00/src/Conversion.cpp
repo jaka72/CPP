@@ -6,11 +6,11 @@
 /*   By: tblaase <tblaase@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/07 16:37:12 by tblaase       #+#    #+#                 */
-/*   Updated: 2022/11/03 08:29:51 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 17:58:57 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include "../include/Conversion.hpp"
 
 // Constructors
 Conversion::Conversion()

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:35:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/15 17:26:12 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 14:16:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Form
 {
 	private:
 		const std::string   _name;
-		bool                _isSigned;
 		const int           _reqGradeSign;
 		const int           _reqGradeExec;
+		bool                _isSigned;
 
 	public:
 		// Constructor

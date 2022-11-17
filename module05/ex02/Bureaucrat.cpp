@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 14:35:45 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 15:48:50 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	_grade = grade;
 	std::cout << GRE"Param. constr. Bureaucrat: name " << _name << ", grade " << _grade << "\n" RES;
 
-	//try
-	//{
-		if (_grade < 1)
-			throw GradeTooHighException("Cannot create this bureaucrat: invalid grade (too high)");	
-		if (_grade > 150)
-			throw GradeTooLowException("Cannot create this bureaucrat: invalid grade (too low)");	
-	//catch(const std::exception& e)
-	//{
-	//	std::cerr << e.what() << '\n';
-	//}
+	if (_grade < 1)
+		throw GradeTooHighException("Cannot create this bureaucrat: invalid grade (too high)");	
+	if (_grade > 150)
+		throw GradeTooLowException("Cannot create this bureaucrat: invalid grade (too low)");	
 }
 
 
@@ -80,17 +74,10 @@ void	Bureaucrat::incr_grade()
 {
 	std::cout << BLU"   Incrementing grade " << _grade << " to " << _grade - 1 << "\n" RES;
 
-	// Exceptions
-	//try
-	//{
-		if (_grade < 2)
-			throw GradeTooHighException("   Cannot increment higher than 1!");
-		_grade--;
-	//}
-	//catch(const std::exception& e)
-	//{
-	//	std::cerr << e.what() << '\n';
-	//}
+	if (_grade < 2)
+		throw GradeTooHighException("Cannot increment higher than 1!");
+	_grade--;
+
 }
 
 
@@ -99,16 +86,9 @@ void	Bureaucrat::decr_grade()
 {
 	std::cout << BLU"   Decrementing grade " << _grade << " to " << _grade + 1 << "\n" RES;
 
-	//try
-	//{
-		if (_grade >= 150)
-			throw GradeTooLowException("   Cannot increment lower than 150!");
-		_grade++;
-	//}
-	//catch(const std::exception& e)
-	//{
-	//	std::cerr << e.what() << '\n';
-	//}
+	if (_grade >= 150)
+		throw GradeTooLowException("Cannot increment lower than 150!");
+	_grade++;
 }
 
 
@@ -137,25 +117,18 @@ const std::string Bureaucrat::getName() const
 
 // Setters
 
-void	Bureaucrat::setGrade(int grade)
-{
-	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
+// void	Bureaucrat::setGrade(int grade)
+// {
+// 	std::cout << BLU"   Setting grade from " << _grade << " to " << grade << "\n" RES;
 
-	//try
-	//{
-		if (grade < 1)
-			throw GradeTooHighException("Cannot set invalid grade (too high)");
+// 	if (grade < 1)
+// 		throw GradeTooHighException("Cannot set invalid grade (too high)");
 
-		else if (grade > 150)
-			throw GradeTooLowException("Cannot set invalid grade (too low)");
-		
-		this->_grade = grade;
-	//}
-	//catch(const std::exception& e)
-	//{
-	//	std::cerr << e.what() << '\n';
-	//}
-}
+// 	else if (grade > 150)
+// 		throw GradeTooLowException("Cannot set invalid grade (too low)");
+	
+// 	this->_grade = grade;
+// }
 
 
 // THIS IS OUTSIDE OF THE CLASS !!!
@@ -189,14 +162,14 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const char *msg) throw(
 // Override  what() 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("");
-	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+	//return ("");
+	return (LRD"   (exception from Bureaucrat)\n" RES);
 }
 
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("");
-	//return (LRD"   (exception from the Bureaucrat)\n" RES);
+	//return ("");
+	return (LRD"   (exception from Bureaucrat)\n" RES);
 }
 //////////////////////////////////////////////////////////////////////

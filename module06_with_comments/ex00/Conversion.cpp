@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/07 15:10:06 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 17:55:09 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ Conversion& Conversion::operator= (const Conversion &src)
 	// catch(const std::exception& e)
 	// { 		std::cerr << e.what() << '\n';	}
 	
+	// PROBABLY NEED TO COPY ALL VARS HERE !!!
+
 	this->_inputStr = src._inputStr;
 	return *this;
 }
@@ -140,28 +142,6 @@ void	Conversion::print_all()
 }
 
 
-int	Conversion::processInputString()
-{
-	int ret = checkSpaces(_type, _inputStr, _c, _isNotDigit);
-	if (ret != 0)
-		return (ret);
-	
-	checkDotOrSign(_inputStr, _i, _sign, _c, _isNeg);
-
-	_start = _i;			// first char after . + - 
-	checkString(_inputStr, _i, _isDigit, _isNotDigit, _isPoint, _isF, _checkIf_F, _c);
-	
-	while (_inputStr[_i]) 	// check the rest of space after 1st group of chars
-	{
-		if (isprint(_inputStr[_i]) && _inputStr[_i] != ' ')
-		{
-			std::cout << _inputStr[_i] << " !!! Error, invalid input: found more chars after space!\n";
-			return 1;
-		}
-		_i++;
-	}
-	return 0;
-}
 
 
 int	Conversion::storeCorrectType()
@@ -187,5 +167,30 @@ int	Conversion::storeCorrectType()
 		return (isFloat());
 	else
 		return (isNan_Inf_Invalid());									// it's nan, inf or invalid string
+	return 0;
+}
+
+
+
+int	Conversion::processInputString()
+{
+	int ret = checkSpaces(_type, _inputStr, _c, _isNotDigit);
+	if (ret != 0)
+		return (ret);
+	
+	checkDotOrSign(_inputStr, _i, _sign, _c, _isNeg);
+
+	_start = _i;			// first char after . + - 
+	checkString(_inputStr, _i, _isDigit, _isNotDigit, _isPoint, _isF, _checkIf_F, _c);
+	
+	while (_inputStr[_i]) 	// check the rest of space after 1st group of chars
+	{
+		if (isprint(_inputStr[_i]) && _inputStr[_i] != ' ')
+		{
+			std::cout << _inputStr[_i] << " !!! Error, invalid input: found more chars after space!\n";
+			return 1;
+		}
+		_i++;
+	}
 	return 0;
 }

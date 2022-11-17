@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:07 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 11:36:18 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/17 13:53:00 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ class Bureaucrat
 
 
 		// Setters
-		void	setGrade(int grade);
+		// void	setGrade(int grade);
 
 
 		// Exceptions
