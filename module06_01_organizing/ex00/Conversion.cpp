@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 15:00:41 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/19 20:00:20 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,34 +81,6 @@ Conversion::~Conversion()
 
 //////////////////////////////////////////////////////////
 // Public member functions
-
-// int	Conversion::convert_OLD()
-// {
-// 	//std::cout << "Convert: \n";
-// 	if (_type == CHAR)
-// 	{
-// 		_intg	= (int)_c;
-// 		_f		= (float)_c;
-// 		_d		= (double)_c;
-// 	}
-// 	else if (_type == INT)
-// 		_c = (int)_intg;
-// 	else if (_type == FLOAT)
-// 	{
-// 		_c 		= (char)_f;
-// 		_intg 	= (int)_f;
-// 	}
-// 	else if (_type == DOUBLE)
-// 	{
-// 		_c 		= (char)_d;
-// 		_intg 	= (int)_d;
-// 		_f 		= (double)_d;
-// 	}
-// 	else if (_type == NAN_OR_INF)
-// 		return (0);
-// 	return (0);
-// }
-
 
 int	Conversion::convert()
 {
@@ -189,7 +161,7 @@ int	Conversion::storeCorrectType()
 			return (_type);		
 		else
 		{
-			std::cout << "Error: INVALID INPUT: _sign and alpha\n";
+			std::cerr << "Error: INVALID INPUT: _sign and alpha\n";
 			throw (ErrorException("Exception: INVALID INPUT _sign and alphabet"));
 		}
 	}
@@ -234,3 +206,19 @@ int	Conversion::processInputString()
 	}
 	return 0;
 }
+
+
+
+
+///////////////////////////////////////////////////////
+// EXCEPTIONS
+Conversion::ErrorException::ErrorException(const char* msg) throw()
+{
+	std::cout << msg << "\n";
+}
+
+const char* Conversion::ErrorException::what() const throw()
+{
+	return ("(Exception from Conversion)\n");
+}
+

@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/media/jaka/Windows/Users/admin/Desktop/codam_projects/CPP/module06_01_organizing'
+make: Leaving directory '/media/jaka/Windows/Users/admin/Desktop/codam_projects/CPP/module06_01_organizing'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

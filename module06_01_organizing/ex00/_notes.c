@@ -1,8 +1,15 @@
 /* QUESTIONS
 
+    - stoi not recognized! Error 'not declared in this scope ???'
+
+
     - Now I treat " " as a valid printable char, but
                   "   " I treat as invalid string, just empty spaces
                             Shall I say it is valid, like 1 space?
+
+
+    - In what situation would you use a struct inside a class?
+
 
     - Shall I use getters and setters always for all private vars??
     

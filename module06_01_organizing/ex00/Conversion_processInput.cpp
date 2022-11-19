@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:43:17 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 15:01:01 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/19 20:00:42 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,36 +77,6 @@ void	checkDotOrSign(std::string &_inputStr, int &_i, int &_sign, char &_c, int &
 }
 
 
-// Checks if multiple . or f in the input string
-// void checkStringOLD(std::string &_inputStr, int &_i, int &_isDigit, int &_isNotDigit,
-// 						 int &_isPoint, int &_isF, char &_checkIf_F, char &_c)
-// {
-// 	while (_inputStr[_i])
-// 	{
-// 		if (!isdigit(_inputStr[_i]) && _inputStr[_i] != '.' && _inputStr[_i] != 'f' && _inputStr[_i] != ' ')
-// 		{
-// 			_isNotDigit++;
-// 			_c = _inputStr[_i];
-// 		}
-// 		if (isdigit(_inputStr[_i]))
-// 			_isDigit++;
-// 		if (_inputStr[_i] == '.')
-// 			_isPoint++;
-// 		if (_inputStr[_i] == 'f')
-// 		{
-// 			_isF++;
-// 			if (_inputStr[_i + 1] == '\0' || _inputStr[_i + 1] == ' ') // found space or \0
-// 				_checkIf_F = _inputStr[_i];
-// 		}
-// 		if (_inputStr[_i] == ' ')	// found space before end
-// 		{
-// 			_checkIf_F = _inputStr[_i - 1];
-// 			break ;
-// 		}
-// 		_i++;
-// 	}
-// }
-
 
 // Checks if multiple . or f in the input string
 void Conversion::checkString()
@@ -137,16 +107,3 @@ void Conversion::checkString()
 	}
 }
 
-
-
-///////////////////////////////////////////////////////
-// EXCEPTIONS
-Conversion::ErrorException::ErrorException(const char* msg) throw()
-{
-	std::cout << msg << "\n";
-}
-
-const char* Conversion::ErrorException::what() const throw()
-{
-	return ("(Exception from Conversion)\n");
-}

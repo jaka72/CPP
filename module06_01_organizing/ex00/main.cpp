@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 14:17:42 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/19 22:03:09 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #include <iomanip>
 #include <cstring>   // strlen
 #include <cstdlib>
-#include <limits>       // overflow CPP
-//#include<bits/stdc++.h> // overflow C   for Linux
+
+
+
+
 
 #include "Conversion.hpp"
 
@@ -25,15 +27,12 @@
 
 int main(int argc, char **argv)
 {
-    // std::cout << "Main start\n";
     if (argc != 2)
     {
         std::cout << "Only 1 argument allowed.\n";
         return (1);
     }
-    
-
-   
+       
 
     try
     {
@@ -46,7 +45,18 @@ int main(int argc, char **argv)
     }
 
 
+//////////////////////////////////////////////////////////
+	// int n;
+    // std::cout << argv[1] << "\n";
+    // std::string s1 = "1234";
+	// n = stoi(s1);			// stoi not recognized here, but works in _test_stoi ???????
+     //   std::cout << n << "\n";
+    return 0;
+}
 
+
+
+/*
 
     // double f = -99999999999999999999999999.123f;
     // std::cout << " m_float " << f << "\n";
@@ -95,5 +105,4 @@ int main(int argc, char **argv)
 	// indx._start = 0;
 
 
-    return 0;
-}
+*/
