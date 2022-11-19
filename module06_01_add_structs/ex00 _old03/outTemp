@@ -1,0 +1,32 @@
+Main start
+[2;37mParam. constructor (Conversion) inputStr: [-inff]
+[0mPIS [-inff]
+SCT before trim [-inff]
+SCT after trim  [-inff]
+ first i=0,  limit 2147483647
+check overflow
+      lenStr 4
+      lenLim 10
+      digits:     0
+      non-digits: 2
+      points:     0
+      fs:         2
+      sign:       1
+      isNeg:      1
+      isSpace:    0
+Found alphabet  [-inff]
+        after trim [-inff]  len: 5 
+Found string '+inf' [-inff]
+CONVERT() 
+Print all()      _c [n] 
+PRINT NAN OR INF, sign: 1
+char: not-possible
+int: not-possible
+float:  -inff
+double: -inf
+ m_float -1e+26
+ m_int -2147483648
+99999.9, 1e+07, 1e+08, inf
+2.14748e+09
+[2;37mDestructor (Conversion) 
+[0m

@@ -62,18 +62,17 @@ PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPar
 
 void    PresidentialPardonForm::execute(const Bureaucrat& bur) const
 {
-	std::cout << "   EXECUTE:";
-	
+	std::cout << "   EXECUTE FORM: ";
 	if (this->_isSigned == false)
 	{
-		std::cout << LRD"      This form is not yet signed, cannot execute.\n" RES;
+		std::cout << LRD"This form is not yet signed, cannot execute.\n" RES;
 		//return ;
 	}
 	else if (bur.getGrade() > this->getReqGradeExec())
 		throw GradeTooLowException("      Can't execute, this bureaucrat has too low grade.");
 	else
 	{
-		std::cout << GRN"      Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
+		std::cout << GRN"Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
 		this->pardonize();
 	} 
 }
@@ -81,7 +80,7 @@ void    PresidentialPardonForm::execute(const Bureaucrat& bur) const
 
 void	PresidentialPardonForm::pardonize() const
 {
-	std::cout << MAG"                 Mr. " << _target << " has been pardoned by Zaphod Beeblebrox.\n" RES;
+	std::cout << MAG"   Mr. " << _target << " has been pardoned by Zaphod Beeblebrox.\n" RES;
 }
 
 

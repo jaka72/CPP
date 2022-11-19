@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 21:25:57 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 12:50:41 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/18 16:20:04 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,16 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 // Public member functions
 void    ShrubberyCreationForm::execute(const Bureaucrat& bur) const
 {
-	std::cout << "   EXECUTE:";
-
+	std::cout << "   EXECUTE FORM: ";
 	if (this->_isSigned == false)
 	{
-		std::cout << LRD"      This form is not yet signed, cannot execute.\n" RES;
+		std::cout << LRD"This form is not yet signed, cannot execute.\n" RES;
 	}
 	else if (bur.getGrade() > this->getReqGradeExec())
 		throw GradeTooLowException("      Can't execute: bureaucrat's grade too low.");
 	else
 	{
-		std::cout << GRN"      Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
+		std::cout << GRN"Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
 		this->print_shrubbery();
 	}
 }

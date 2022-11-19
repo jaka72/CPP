@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/jmurovec/Desktop/projects/CPP/module06_01_add_structs'
+make: Leaving directory `/Users/jmurovec/Desktop/projects/CPP/module06_01_add_structs'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

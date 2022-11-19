@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 15:48:50 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/18 16:25:35 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,15 @@ void	Bureaucrat::decr_grade()
 
 void   Bureaucrat::signForm(Form &form)
 {
-	std::cout << "   SIGN FORM: ";
 	form.beSigned(*this);
 }
+
+
+void    Bureaucrat::executeForm(Form const & form)
+{
+	form.execute(*this);
+}
+
 
 
 

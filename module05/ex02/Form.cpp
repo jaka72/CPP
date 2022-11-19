@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 10:55:58 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 15:48:30 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/18 16:25:54 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ Form& Form::operator= (const Form& src)
 // Public member functions
 void    Form::beSigned(Bureaucrat& bur)
 {
+	std::cout << "   SIGN FORM: ";
 	if (bur.getGrade() <= getReqGradeSign() && getIsSigned() == false)
 	{
 		setIsSigned(true);

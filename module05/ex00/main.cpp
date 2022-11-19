@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 15:12:30 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/18 16:07:26 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ int main()
         Bureaucrat br4;
         br4 = br3;
 		std::cout << br4;
+
+		std::cout << &br1 << "\n";
+		std::cout << &br2 << "\n";
+		std::cout << &br3 << "\n";
+		std::cout << &br4 << "\n";
+		
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
 
@@ -77,37 +83,38 @@ int main()
 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
 
 
-	{
-		std::cout << YEL"Test 5: Create *bureaucrats as pointers - - - - - - - - - - - - - - -\n\n" RES;
-		Bureaucrat *br1 = NULL;
-		Bureaucrat *br2 = NULL;
-		Bureaucrat *br3 = NULL;
+	// {
+	// 	std::cout << YEL"Test 5: Create and copy *bureaucrats as pointers - - - - - - - - - - - - - - -\n\n" RES;
+	// 	Bureaucrat *br1 = NULL;
+	// 	Bureaucrat *br2 = NULL;
+	// 	Bureaucrat *br3 = NULL;
 		
-		try
-		{
-			br1 = new Bureaucrat("John", 5);
-			std::cout << *br1 << "\n";
+	// 	try
+	// 	{
+	// 		br1 = new Bureaucrat("John", 5);
+	// 		std::cout << *br1 << "\n";
 
-			br2 = new Bureaucrat("Nina", 5);
-			std::cout << *br2 << "\n";
+	// 		br2 = new Bureaucrat("Nina", 5);
+	// 		std::cout << *br2 << "\n";
 			
-			br3 = new Bureaucrat("Lex", 999);
-			std::cout << *br3 << "\n";
-		}
+	// 		br3 = new Bureaucrat("Lex", 999);
+	// 		std::cout << *br3 << "\n";
+	// 	}
 
-		catch (const std::exception& e)
-		{
-			std::cerr << e.what() << "\n";	
-		}
+	// 	catch (const std::exception& e)
+	// 	{
+	// 		std::cerr << e.what() << "\n";	
+	// 	}
 		
-		if (br1)
-			delete br1;
-		if (br2)
-			delete br2;
-		if (br3)
-			delete br3;
-	}
-	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+	// 	if (br1)
+	// 		delete br1;
+	// 	if (br2)
+	// 		delete br2;
+	// 	if (br3)
+	// 		delete br3;
+	// }
+	// std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n";
+
 
 	//system ("leaks a.out");
 	return 0;

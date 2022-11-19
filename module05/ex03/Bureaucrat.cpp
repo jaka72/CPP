@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/16 21:19:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 13:17:51 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/18 16:24:00 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,10 @@ void   Bureaucrat::signForm(Form &form)
 	form.beSigned(*this);
 }
 
+void    Bureaucrat::executeForm(Form const & form)
+{
+	form.execute(*this);
+}
 
 
 // Getters

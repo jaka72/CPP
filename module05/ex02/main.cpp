@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 08:43:11 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 15:53:54 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/18 16:26:44 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void testPardonForm()
 	
 	bur1.signForm(pardon1);
 	bur1.signForm(pardon1);
+	//pardon1.beSigned(bur1);
 	std::cout << GRE"   Check signed status: " << pardon1.getIsSigned() << "\n" RES;
 	
 	for (int i = 0; i < 3; i++)

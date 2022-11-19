@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:20:41 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/16 17:59:13 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/18 16:21:26 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,17 @@ RobotomyRequestForm&  RobotomyRequestForm::operator= (RobotomyRequestForm &src)
 // Public member functions
 void    RobotomyRequestForm::execute(const Bureaucrat& bur) const
 {
-	std::cout << "   EXECUTE:";
-
+	std::cout << "   EXECUTE FORM: ";
 	if (this->_isSigned == false)
 	{
-		std::cout << LRD"      This form is not yet signed, cannot execute.\n" RES;
+		std::cout << LRD"This form is not yet signed, cannot execute.\n" RES;
 		//return ;
 	}
 	else if (bur.getGrade() > this->getReqGradeExec())
 		throw GradeTooLowException("      Can't execute, this bureaucrat's grade too low.");
 	else
 	{
-		std::cout << GRN"      Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
+		std::cout << GRN"Bureaucrat " << bur.getName() << " executed " << this->_name << "\n" RES;
 		this->makeDrillNoise();
 	}
 }
