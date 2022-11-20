@@ -6,13 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:43:17 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 20:00:42 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/20 10:34:56 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Conversion.hpp"
 
-// IT NEEDS TO DETECT A SINGLE SPACE AND SINGLE DOT !!!
+
 std::string trimWhiteSpaces(std::string str)
 {
 	const char* whiteSpaces = " \n\r\t\f\v";
@@ -26,12 +26,10 @@ std::string trimWhiteSpaces(std::string str)
 
 
 //	Checks if input is just a single or multiple spaces 
-// int	Conversion::checkSpaces(int _type, std::string &_inputStr, char &_c, int &_isNotDigit)
 int	Conversion::checkSpaces()
 {
 	if (strlen(_inputStr.c_str()) == 1 && _inputStr[0] == ' ')
 	{
-		//std::cout << "CS: IS CHAR)\n";
 		_c = _inputStr[0];
 		_isNotDigit++;
 		return (_type = CHAR);	// is single space
@@ -46,12 +44,8 @@ int	Conversion::checkSpaces()
 			i++;
 		}
 		if (i == strlen(_inputStr.c_str()))
-		{
-			//std::cout << "CS: STRING JUST SPACES\n";
 			return (_type = INVALID_INPUT); // only empty spaces in string
-		}
 	}
-	//std::cout << "CS: B)\n";
 	_inputStr = trimWhiteSpaces(_inputStr);
 	return (0);
 }
@@ -106,4 +100,3 @@ void Conversion::checkString()
 		_i++;
 	}
 }
-

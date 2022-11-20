@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:39:44 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 22:04:47 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/20 10:40:32 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 int	Conversion::isSingleChar()
 {
 	if ((_isNotDigit == 1 || _isPoint == 1 || _isSpace == 1) && _sign != 1)
-	{
 		return (_type = CHAR);
-	}
+
 	if (_isDigit == 1)
 	{
 		_intg = static_cast<int>(_inputStr[_start] - 48);
@@ -36,13 +35,6 @@ int	Conversion::isSingleChar()
 
 int	Conversion::isInt()
 {
-	// int n;
-    // std::string s1 = "1234";
-	// n = stoi(s1);			// stoi not recognized here, but works in _test_stoi ???????
-    //     std::cout << n << "\n";
-
-
-	
 	long double temp = atof(&_inputStr[_start]);	// check_overflow via long double
 	if (temp > INT_MAX || temp < INT_MIN)			// int overflow
 		_int_overflow = 1;;
@@ -54,8 +46,12 @@ int	Conversion::isInt()
 	// TEMPORARY DISABLE ALL FLAGS IN MAKEFILE and then put it back ???
 	std::string str;
 	str.assign(&_inputStr[_start]);
-	_intg = stoi(str);  // issue in linux, not recognized stof ???
-
+	 _intg = stoi(str);  // issue in linux, not recognized stof ???
+	// _f    = stof(str);	// IN CASE OF OVERFLOW IT MUST 
+	// _d    = stof(str);	// RETAIN THE ORIG VALUE FOR THE FLOAT
+	/////// above added, but nos sure if works on Mac
+	
+	/////// temporarily commented
 	//_intg = atoi(&_inputStr[_start]);  // issue in linux, not recognized stof ???
 	_f    = atof(&_inputStr[_start]);	// IN CASE OF OVERFLOW IT MUST 
 	_d    = atof(&_inputStr[_start]);	// RETAIN THE ORIG VALUE FOR THE FLOAT
@@ -78,6 +74,7 @@ int Conversion::isDouble()
 	return (_type = DOUBLE);		
 }
 
+
 int	Conversion::isFloat()
 {
 	_f = atof(&_inputStr[_start]);
@@ -89,6 +86,7 @@ int	Conversion::isFloat()
 	}
 	return (_type = FLOAT);
 }
+
 
 int	Conversion::isNan_Inf_Invalid()
 {

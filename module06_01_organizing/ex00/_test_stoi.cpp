@@ -33,9 +33,15 @@ int main()
         // n = stoi(s6);
         // std::cout << n << "\n";
     
+    
+    std::string s8 = "2147483648";  // no conversion
+    n = stoi(s6);
+    std::cout << "n: " << n << "\n";
+    
+    
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Exception: " << e.what() << '\n';
     }
 }

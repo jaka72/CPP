@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 20:43:38 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/20 10:28:07 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 class Conversion
 {
 	private:
-	
 		// input
 		std::string _inputStr;
 
@@ -109,13 +108,9 @@ class Conversion
 
 		void	checkString();
 		int		checkSpaces();
-	
-		
+			
 		// Getters
 		// Setters
-
-
-		// int		checkSpaces(int _type, std::string &_inputStr, char &_c, int &_isNotDigit);
 };
 
 // Process Input String

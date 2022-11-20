@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/04 13:27:03 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/20 11:12:15 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
 		Data* d0;
 		Data* d1;
 		
-		std::cout << BLU"Declare two structs Data:\n" RES;
+		std::cout << BLU"Declare 2 pointers to structs Data:\n" RES;
 		std::cout << "  Address of Data d0: " << d0 << "\n";
 		std::cout << "  Address of Data d1: " << d1 << "\n\n";
 

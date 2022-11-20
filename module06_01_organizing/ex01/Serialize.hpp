@@ -67,17 +67,12 @@ class Serialize
 		// int			getId();
 		// std::string getName();
 
-
-
 		// Setter
 
-
 		// Exceptions
-
-
 };
 
-// THIS IS OUTSIDE OF THE CLASS !!!
+
 // std::ostream& operator<< (std::ostream& outstream, Serialize &d)
 // {
 // 	outstream << "Serialize, " <<  d.getId()<<  d.getName() <<"\n";

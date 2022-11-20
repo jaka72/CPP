@@ -18,26 +18,17 @@
 #include "colors.h"
 #include "Base.hpp"
 
+// PROBABLY SHOULD DELETE CONSTRUCTORS A, B ,C , BECAUSE SUBJECTS SAYS MUST ME EMPTY CLASS !!
 
-
-
-
-
-// class A	: virtual public Base
-class A	:              public Base
+class A	: public Base
 {
 	private:
-		// int			_id;
-		// std::string	_name;
-		
 
 	public:
-		// int	_dummy;
 
 		// Constructor
-		//A();
+		A();
 
-		
 		// Param. constr.
 
 		// Copy constructor
@@ -46,27 +37,18 @@ class A	:              public Base
 		//~A();
 
 		// Overload operators
+
 		// Serialize &operator= (const Serialize &src);
 
-
 		// Public member functions
-
 		
 		// Getter
-		// int			getId();
-		// std::string getName();
-
-
 
 		// Setter
 
-
 		// Exceptions
-
-
 };
 
-// THIS IS OUTSIDE OF THE CLASS !!!
 // std::ostream& operator<< (std::ostream& outstream, Serialize &d)
 // {
 // 	outstream << "Serialize, " <<  d.getId()<<  d.getName() <<"\n";
@@ -74,14 +56,3 @@ class A	:              public Base
 // }
 
 #endif
-
-/////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-

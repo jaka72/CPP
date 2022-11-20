@@ -1,6 +1,11 @@
 /* QUESTIONS
 
-    - stoi not recognized! Error 'not declared in this scope ???'
+    - stoi nhas issue on linux, works after disableing makefile: -std=c++98
+
+    - stoi throws exception 'stoi' if int overflows and exists. I dont want this.
+        I want to print 'impossible' and also print value of float and double
+        Therefore I dont want to use stoi()
+
 
 
     - Now I treat " " as a valid printable char, but
@@ -41,7 +46,7 @@
                                         (at runtime, only for class pointers)
                 - const_cast
                 
-                - reinterpret_cast
+                - reinterpret_cast      To store a pointer ???
 
                 - regular cast
 

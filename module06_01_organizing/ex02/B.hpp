@@ -19,54 +19,32 @@
 #include "Base.hpp"
 
 
-
-
-
-
-// class B	: virtual public Base
-class B	:             public Base
+class B	: public Base
 {
 	private:
-		// int			_id;
-		// std::string	_name;
-		
 
 	public:
-		// int	_dummy;
 
 		// Constructor
-		//B();
+		B();
 
-		
 		// Param. constr.
 
 		// Copy constructor
 
 		// Destructor
-		//~A();
 
 		// Overload operators
-		// Serialize &operator= (const Serialize &src);
-
 
 		// Public member functions
-
 		
 		// Getter
-		// int			getId();
-		// std::string getName();
-
-
 
 		// Setter
 
-
 		// Exceptions
-
-
 };
 
-// THIS IS OUTSIDE OF THE CLASS !!!
 // std::ostream& operator<< (std::ostream& outstream, Serialize &d)
 // {
 // 	outstream << "Serialize, " <<  d.getId()<<  d.getName() <<"\n";
@@ -74,14 +52,3 @@ class B	:             public Base
 // }
 
 #endif
-
-/////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-

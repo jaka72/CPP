@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:54:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/18 17:34:51 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/20 10:35:39 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ void	Conversion::print_nan_or_inf()
 
 void	Conversion::printFloatAndDouble()
 {
-	//std::cout << BLU "FROM PFAD, _type: " << _type << "\n" RES; // 999999999999999999999999999999999999999.9 
-
-
 	if (_type == INT)
 	{
 		if (_f - (int)_f == 0 && _f < 10000)	//std::cout << "FLOAT, no decimals\n";

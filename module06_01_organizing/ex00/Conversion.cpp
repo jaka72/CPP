@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/19 20:00:20 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/20 10:47:43 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ Conversion::Conversion()
 // Param. constr.
 Conversion::Conversion(std::string str) : _inputStr(str)
 {
-
-	_i          	= 0;
+	_i				= 0;
 	_c				= 'x';
 	_intg			= 0;
 	_type			= 0;
@@ -39,14 +38,8 @@ Conversion::Conversion(std::string str) : _inputStr(str)
 
 	processInputString();
 	storeCorrectType(); // ??? If this returns INVALID_INPUT, now still continues to convert()
-						// Should it not then just exit here ??
-	convert();
+	convert();										// Should it not then just exit here ??
 	print_all();
-
-	// try
-	// { ;	}
-	// catch(const std::exception& e)
-	// { std::cerr << e.what() << '\n'; }
 }
 
 // Copy constructor
@@ -60,14 +53,22 @@ Conversion::Conversion(const Conversion &src)
 Conversion& Conversion::operator= (const Conversion &src)
 {
 	std::cout << GRE"Overload operator=  (Conversion)" << "\n" RES;
-
-	// try
-	// {	}
-	// catch(const std::exception& e)
-	// { 		std::cerr << e.what() << '\n';	}
-	
-	// PROBABLY NEED TO COPY ALL VARS HERE !!!
-
+	_i			= src._i;
+	_start		= src._start;
+	_c			= src._c;			
+	_intg		= src._intg;
+	_f			= src._f;
+	_d			= src._d;
+	_type		= src._type;
+	_isDigit	= src._isDigit;
+	_isNotDigit	= src._isNotDigit;
+	_isPoint	= src._isPoint;
+	_isSpace	= src._isSpace;
+	_isF		= src._isF;
+	_isNeg		= src._isNeg;
+	_int_overflow	= src._int_overflow;
+	_sign		= src._sign;
+	_checkIf_F	= src._c;
 	this->_inputStr = src._inputStr;
 	return *this;
 }
@@ -129,28 +130,22 @@ void	Conversion::print_all()
 	if (_type == NAN_OR_INF)
 		print_nan_or_inf();
 
-	// ??????????????
-	if (_type == INVALID_INPUT)	// this is not ok here, it should probably go to 
-	{							// the convert section, and there check overflow for each type
-		if (_int_overflow == 1)
-		{
-			std::cout << "char:  'not-possible'\n";
-			std::cout << "int:   'not-possible'\n";
-		}
-	}
+	// if (_type == INVALID_INPUT)	// this is not ok here, it should probably go to 
+	// {							// the convert section, and there check overflow for each type
+	// 	if (_int_overflow == 1)
+	// 	{
+	// 		std::cout << "char:  'not-possible'\n";
+	// 		std::cout << "int:   'not-possible'\n";
+	// 	}
+	// }
 }
 
 
 
 int	Conversion::storeCorrectType()
 {
-	//std::cout << "SCT: _type " << _type << " \n"; // HOW CAN _type HERE BE ZERO ??? IN CASE INPUT: "    "
-
 	if (_type == INVALID_INPUT)
-	{
 		throw (ErrorException("Exception: INVALID INPUT, empty string"));
-		return (INVALID_INPUT);
-	}
 	if (checkIntOverflow(&_inputStr[_start], INT_MAX) == 1)
 		_int_overflow = 1;
 	if (_sign == 1 && (_isNotDigit + _isPoint + _isF + _isDigit == 0)) // single sign found
@@ -160,36 +155,27 @@ int	Conversion::storeCorrectType()
 		if (isSingleChar() != 0)
 			return (_type);		
 		else
-		{
-			std::cerr << "Error: INVALID INPUT: _sign and alpha\n";
 			throw (ErrorException("Exception: INVALID INPUT _sign and alphabet"));
-		}
 	}
 	else if (_isPoint == 0 && _isNotDigit == 0 && _isF == 0)						// all digits, it's INT
 		return (isInt());
 	else if (_isPoint == 1 && _isNotDigit == 0 && _isF == 0 && _isDigit >= 1)		// it's DOUBLE
 		return (isDouble());
 	else if (_isPoint == 1 && _isNotDigit == 0 && _isF == 1 && _checkIf_F == 'f')	// it's FLOAT
-	{
-		//std::cout << BLU "SCT: is float: [" << _inputStr << "]\n" RES;
 		return (isFloat());
-	}
 	else
 		return (isNan_Inf_Invalid());									// it's nan, inf or invalid string
 	return 0;
 }
 
 
+
 // Checks for invalid input, such as multiple . + - f . or multiple words, overflow, etc
 int	Conversion::processInputString()
 {
-	// int ret = checkSpaces(_type, _inputStr, _c, _isNotDigit);
 	int ret = checkSpaces();
 	if (ret != 0)
-	{
-		//std::cout << "ret from CS: " << ret << "\n";
 		return (ret);
-	}
 	checkDotOrSign(_inputStr, _i, _sign, _c, _isNeg);
 
 	_start = _i;			// first char after . + - 
@@ -197,11 +183,7 @@ int	Conversion::processInputString()
 	while (_inputStr[_i]) 	// check the rest of space after 1st group of chars
 	{
 		if (isprint(_inputStr[_i]) && _inputStr[_i] != ' ')
-		{
-			//std::cout << _inputStr[_i] << " !!! Error, invalid input: found more chars after space!\n";
 			throw(ErrorException("Exception: Invalid input: found more chars after space"));
-			//return (1);
-		}
 		_i++;
 	}
 	return 0;
