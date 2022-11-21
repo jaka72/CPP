@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/20 10:28:07 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/21 10:57:32 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 #include "colors.h"
 
 #ifdef __linux__
-# include<bits/stdc++.h> // overflow C   for Linux
+# include<bits/stdc++.h> //  for Linux
 #endif
 #ifdef __APPLE__
-# include <limits>       // overflow CPP
+# include <limits>       // 
 #endif
 
 

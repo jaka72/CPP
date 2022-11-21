@@ -1,5 +1,5 @@
 #ifndef COLORS_H
-#define COLORS_H
+# define COLORS_H
 
 # define BLKB  "\e[40m"
 

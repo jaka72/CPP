@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/20 10:47:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/21 11:43:01 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ Conversion::Conversion(std::string str) : _inputStr(str)
 	_checkIf_F		= 'a';
 
 	processInputString();
-	storeCorrectType(); // ??? If this returns INVALID_INPUT, now still continues to convert()
-	convert();										// Should it not then just exit here ??
+	storeCorrectType();
+	convert();
 	print_all();
 }
 
@@ -85,7 +85,6 @@ Conversion::~Conversion()
 
 int	Conversion::convert()
 {
-	//std::cout << "Convert: \n";
 	if (_type == CHAR)
 	{
 		_intg	= static_cast<int>(_c);
@@ -93,7 +92,7 @@ int	Conversion::convert()
 		_d		= static_cast<double>(_c);
 	}
 	else if (_type == INT)
-		_c = static_cast<int>(_intg);
+		_c = static_cast<char>(_intg);
 	else if (_type == FLOAT)
 	{
 		_c 		= static_cast<char>(_f);
@@ -103,7 +102,7 @@ int	Conversion::convert()
 	{
 		_c 		= static_cast<char>(_d);
 		_intg 	= static_cast<int>(_d);
-		_f 		= static_cast<double>(_d);
+		_f 		= static_cast<float>(_d);
 	}
 	else if (_type == NAN_OR_INF)
 		return (0);
@@ -129,15 +128,6 @@ void	Conversion::print_all()
 	}
 	if (_type == NAN_OR_INF)
 		print_nan_or_inf();
-
-	// if (_type == INVALID_INPUT)	// this is not ok here, it should probably go to 
-	// {							// the convert section, and there check overflow for each type
-	// 	if (_int_overflow == 1)
-	// 	{
-	// 		std::cout << "char:  'not-possible'\n";
-	// 		std::cout << "int:   'not-possible'\n";
-	// 	}
-	// }
 }
 
 
@@ -203,4 +193,3 @@ const char* Conversion::ErrorException::what() const throw()
 {
 	return ("(Exception from Conversion)\n");
 }
-

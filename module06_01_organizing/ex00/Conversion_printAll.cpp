@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:54:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/20 10:35:39 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/21 12:51:49 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ void	Conversion::print_int()
 
 void	Conversion::print_nan_or_inf()
 {
-	if (_inputStr == "-inff")
+	if (_inputStr == "nanf")
+		_inputStr = "nan";
+	else if (_inputStr == "-inff")
 		_inputStr = "-inf";
 	else if (_inputStr == "+inff")
 		_inputStr = "+inf";
-	if (_inputStr == "+inf" || _inputStr == "-inf")
+	if (_inputStr == "+inf" || _inputStr == "-inf" || _inputStr == "nan")
 	{
 		std::cout << "char: not-possible\n";
 		std::cout << "int: not-possible\n";
@@ -55,61 +57,15 @@ void	Conversion::print_nan_or_inf()
 
 void	Conversion::printFloatAndDouble()
 {
-	if (_type == INT)
+	if (_type == INT || _type == FLOAT || _type == DOUBLE)
 	{
 		if (_f - (int)_f == 0 && _f < 10000)	//std::cout << "FLOAT, no decimals\n";
 		{
-			//std::cout << BLU "a)\n" RES;
 			std::cout << "float:  " << _f 		<<  ".0f\n";
 			std::cout << "double: " << _d 		<<  ".0\n";
 		}
-		else		// THIS ALSO WORKS FOR OVERFLOW ???
+		else
 		{
-			//std::cout << BLU "b)\n" RES; 
-			std::cout << "float:  " << _f 		<<  "f\n";
-			std::cout << "double: " << _d 		<<  "\n";
-		}
-	}
-	if (_type == FLOAT)
-	{
-		if (_f - (int)_f == 0 && _f < 10000)	//std::cout << "FLOAT, no decimals\n";
-		{
-			//std::cout << BLU "a)\n" RES; 
-			std::cout << "float:  " << _f 		<<  ".0f\n";
-			std::cout << "double: " << _d 		<<  ".0\n";
-		}
-		else		// THIS ALSO WORKS FOR OVERFLOW ???
-		{
-			//std::cout << BLU "b)\n" RES;
-			
-			std::cout << "float:  " << _f 		<<  "f\n";
-			
-			if (isinf(_f))
-				std::cout << "double: " << _d 		<<  ".0\n";
-			else
-				std::cout << "double: " << _d 		<<  "\n";
-		}
-	}
-	else if (_type == DOUBLE)
-	{
-		if (_d - (int)_d == 0)	//std::cout << "FLOAT, no decimals\n";
-		{						// This is weird, because here it thinks there are no decimals,
-								// because it already takes 1e+39.0, which is kind of rounded	
-			//std::cout << BLU "c) from PFAD: \n" RES; // 999999999999999999999999999999999999999.9 
-			
-			
-			if (isinf(_f))
-				std::cout << "float:  " << _f 		<<  "f\n";
-			else
-				std::cout << "float:  " << _f 		<<  ".0f\n";
-			
-			
-			
-			std::cout << "double: " << _d 		<<  ".0\n";
-		}
-		else	// THIS ALSO WORKS FOR OVERFLOW ???
-		{
-			//std::cout << BLU "d) from PFAD: \n" RES;
 			std::cout << "float:  " << _f 		<<  "f\n";
 			std::cout << "double: " << _d 		<<  "\n";
 		}

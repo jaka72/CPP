@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 08:24:13 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/17 11:24:45 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/21 11:51:22 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ Form*  Intern::makeForm(std::string formName, std::string formTarget)
 		}
 		i++;
 	}
-	
+
 	std::cout << LRD"   Intern cannot create this form. Name [" << formName << "] doesn't exist." << "\n" RES;
 	return (NULL);
 }

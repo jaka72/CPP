@@ -1,0 +1,4 @@
+char:  'not-possible'
+int:    not-possible
+float:  inff
+double: inf
