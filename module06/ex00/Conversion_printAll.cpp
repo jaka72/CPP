@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:54:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/21 16:35:55 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/21 20:39:27 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,14 @@ void	Conversion::print_nan_or_inf()
 //    		if (_f - (int)_f == 0 && _f < 10000)
 // 					OR THE OTHER WAY AROUND
 
-ISSUE !!!!
+// ISSUE !!!!
 
 void	Conversion::printFloatAndDouble()
 {
+	//std::cout << "check substracted: " << _f - (int)_f << ",   _f " << _f << "\n";
 	if (_type == INT || _type == FLOAT || _type == DOUBLE)
 	{
-		if (_f - (int)_f == 0 && _f < 10000)	//std::cout << "FLOAT, no decimals\n";
+		if (_f - (int)_f == 0 && abs(_f) < 10000)	//std::cout << "FLOAT, no decimals\n";
 		{
 			std::cout << "float:  " << _f 		<<  ".0f\n";
 			std::cout << "double: " << _d 		<<  ".0\n";
