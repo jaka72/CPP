@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/20 18:18:06 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/22 14:13:36 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-// #include "Base.hpp" //  IF BASE IS FIRST, IT CAUSES CIRCULAR SITUATION, ERROR
-
-
 
 
 // Found here: www.tutorialspoint.com/cplusplus-equivalent-of-instanceof
@@ -27,17 +24,38 @@
 
 // This dynamic cast is trying to cast a given argument (pointer) to the Base class.
 // So, casting a child to its parent.
-template <typename BaseParent, typename DerivedChild>
+template <typename Parent>
+// template <typename Parent, typename Child>
 
-inline bool myInstanceOf(const DerivedChild *ptr)
+// inline bool myInstanceOf(const Child *ptr)
+inline bool myInstanceOf(const Base* ptr)
 {
-	const Base *temp = dynamic_cast <const BaseParent*> (ptr);
+	// const Base *temp = dynamic_cast <const Parent*> (ptr);
+	const Base *temp = dynamic_cast <const Parent*> (ptr);
 
 	std::cout << BLU"   instanceOf, temp: " << temp << ",  ptr: " << ptr << "\n" RES;
 
 	return temp;	
 //  return ( dynamic_cast <const BaseParent*> (ptr) );
 }
+
+
+
+/////
+template <typename Parent, typename ChildDummy>
+
+inline bool myInstanceOf_OLD(const ChildDummy *ptr)
+{
+	const Base *temp = dynamic_cast <const Parent*> (ptr);
+
+	std::cout << BLU"   instanceOf, temp: " << temp << ",  ptr: " << ptr << "\n" RES;
+
+	return temp;	
+//  return ( dynamic_cast <const BaseParent*> (ptr) );
+}
+
+/////
+
 
 
 
