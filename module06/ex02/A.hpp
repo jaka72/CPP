@@ -18,7 +18,6 @@
 #include "colors.h"
 #include "Base.hpp"
 
-// PROBABLY SHOULD DELETE CONSTRUCTORS A, B ,C , BECAUSE SUBJECTS SAYS MUST ME EMPTY CLASS !!
 
 class A	: public Base
 {
@@ -27,7 +26,7 @@ class A	: public Base
 	public:
 
 		// Constructor
-		A();
+		//A();
 
 		// Param. constr.
 

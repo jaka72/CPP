@@ -23,18 +23,15 @@
 
 
 
-class C	: virtual public Base
+class C	: public Base
 {
 	private:
-		// int			_id;
-		// std::string	_name;
-		
 
 	public:
 		// int	_dummy;
 
 		// Constructor
-		C();
+		//C();
 
 		
 		// Param. constr.

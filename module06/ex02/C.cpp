@@ -13,7 +13,7 @@
 #include "C.hpp"
 
 // Constructor
-C::C()
-{
-	std::cout << GRE"Default constr (C) " << "\n" RES;
-}
+// C::C()
+// {
+// 	std::cout << GRE"Default constr (C) " << "\n" RES;
+// }

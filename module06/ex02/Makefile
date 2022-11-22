@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/05 14:09:11 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/22 15:53:02 by jaka          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ RED		=	\033[31m
 NAME		=	a.out
 
 CC			=	c++
-CFLAGS		=	-std=c++98 -Wall -Wextra -Werror		-Wshadow -Wno-shadow     -O2   -Ofast
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror	# -pedantic	-Wshadow -Wno-shadow     -O2   -Ofast
 
 CPP_FILES	=	main.cpp Base.cpp A.cpp B.cpp C.cpp
 				

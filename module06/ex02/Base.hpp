@@ -16,18 +16,12 @@
 
 #include <iostream>
 #include "colors.h"
-// #include "A.hpp"	// HERE CHILD MAKES ERROR, expected classname 
-// #include "B.hpp"	//                          before {
-// #include "C.hpp"
-
 
 class Base
 {
 	protected:
 
 	public:
-		// int	_dummy;
-
 		// Constructor
 		
 		// Param. constr.
@@ -39,8 +33,6 @@ class Base
 
 		// Overload operators
 	
-		// Serialize &operator= (const Serialize &src);
-
 		// Public member functions
 		
 		// Getter

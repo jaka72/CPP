@@ -12,9 +12,8 @@
 
 #include "A.hpp"
 
-
 // Constructor
-A::A()
-{
-	std::cout << GRE"Default constr (A) " << "\n" RES;
-}
+// A::A()
+// {
+// 	std::cout << GRE"Default constr (A) " << "\n" RES;
+// }

@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include "B.hpp"
-// #include "Base.hpp"
 
 // Constructor
-B::B()
-{
-	std::cout << GRE"Default constr (B) " << "\n" RES;
-}
+// B::B()
+// {
+// 	std::cout << GRE"Default constr (B) " << "\n" RES;
+// }
 
 

@@ -26,7 +26,7 @@ class B	: public Base
 	public:
 
 		// Constructor
-		B();
+		//B();
 
 		// Param. constr.
 
