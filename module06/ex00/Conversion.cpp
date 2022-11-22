@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/21 16:25:37 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 15:57:43 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,8 +190,8 @@ int	Conversion::processInputString()
 
 
 
-///////////////////////////////////////////////////////
-// EXCEPTIONS
+// EXCEPTIONS ///////////////////////////////////////////////////////
+
 Conversion::ErrorException::ErrorException(const char* msg) throw()
 {
 	std::cout << msg << "\n";

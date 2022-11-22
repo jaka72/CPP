@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 10:36:45 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/11/12 11:26:26 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 20:42:19 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,18 @@ class Array
 		// Copy constructor - must be deep copy!
 		Array(const Array &src)
 		{
-			std::cout << GRE"Copy constructor Array\n" RES;
+			std::cout << GRE"\nCopy constructor Array\n" RES;
 			std::cout << GRE"   (THE COPY HAS NO new ALLOCATED MEMORY YET, SO YOU CANT DELETE IT HERE, JUST SET TO NULL)\n" RES;
-			std::cout << GRN"       what is src._arr at this point: " << src._arr << "\n" RES;
-			std::cout << GRN"       what is arr at this point:      " << this->_arr << "\n" RES;
+			std::cout << GRN"       what is src._arr  at this point: "      << src._arr << "\n" RES;
+			std::cout << GRN"       what is this->arr at this point:      " << this->_arr << "\n" RES;
 
             if (this->_arr == NULL)
-			    std::cout << LRD"       _arr is NULL\n" RES;
+			    std::cout << LRD"       this->_arr is NULL\n" RES;
             else
             {
-                std::cout << LRD"       _arr is NOT NULL\n" RES;                
-			    std::cout << BLU"       what is src[0] at this point:   " << src._arr[0] << "\n" RES;
+                std::cout << LRD"       this->_arr is NOT NULL\n" RES;                
+			    std::cout << BLU"       what is this->_arr[0] at this point:   " << src._arr[0] << "\n" RES;
+			    std::cout << BLU"       what is src._arr[0] at this point:   " << src._arr[0] << "\n" RES;
             }
             
 			//std::cout << BLU"       what is arr[0] at this point:   " << this->_arr[0] << " (random value or segfault ?)\n" RES;
@@ -77,10 +78,10 @@ class Array
 			// here above the =overload already happened, so the duplicate already has different addresses
 			
 			// NOW THE _arr HAS SAME COPIED VALUES, BUT AT DIFFERENT ADDRESSES: 
-			std::cout << BLU"       src[0] address: " <<   src._arr << "\n" RES;
-			std::cout << BLU"       src[0] address: " << this->_arr << "\n" RES;
-			std::cout << GRN"       src[0] value:   " <<   src._arr[0] << "\n" RES;
-			std::cout << GRN"       src[0] value:   " << this->_arr[0] << "\n" RES;
+			// std::cout << BLU"       src[0] address: " <<   src._arr << "\n" RES;
+			// std::cout << BLU"       src[0] address: " << this->_arr << "\n" RES;
+			// std::cout << GRN"       src[0] value:   " <<   src._arr[0] << "\n" RES;
+			// std::cout << GRN"       src[0] value:   " << this->_arr[0] << "\n" RES;
 		}
 
 
@@ -141,33 +142,68 @@ class Array
 		}
 
 
-		// subscript operator[] overload, with catching exception when out of bounds
+		// // subscript operator[] overload, with catching exception when out of bounds
+		// T &operator[] (unsigned int i)
+		// {
+		// 	try
+		// 	{
+		// 		if (i < 0 || i >= _size || _arr == NULL)  // WHEN IS THIS SET TO NULL ?
+		// 		{
+		// 			//std::cout << "   Error, index is out of range!\n";
+		// 			throw "    Throw: Error, index is out of range! Value: ";
+		// 		}
+		// 	}
+		// 	catch(const char* str)
+		// 	{
+		// 		std::cout << str;
+		// 	}
+		// 	catch(const std::exception& e) // Is this needed ???
+		// 	{
+		// 		std::cerr << e.what() << '\n';
+		// 	}
+		// 	return (_arr[i]);
+		// }
+
+
+				// subscript operator[] overload, with catching exception when out of bounds
 		T &operator[] (unsigned int i)
 		{
-			try
+			if (i < 0 || i >= _size || _arr == NULL)  // WHEN IS THIS SET TO NULL ?
 			{
-				if (i < 0 || i >= _size || _arr == NULL)  // WHEN IS THIS SET TO NULL ?
-				{
-					//std::cout << "   Error, index is out of range!\n";
-					throw "    Throw: Error, index is out of range! Value: ";
-				}
+				//std::cout << "   Error, index is out of range!\n";
+				//throw "    Throw: Error, index is out of range! Value: ";
+				throw Array<T>::ArrayException(); //"    Throw: Error, index is out of range! Value: ";
 			}
-			catch(const char* str)
-			{
-				std::cout << str;
-			}
-			catch(const std::exception& e) // Is this needed ???
-			{
-				std::cerr << e.what() << '\n';
-			}
+
 			return (_arr[i]);
 		}
 
 
-       	unsigned int size() const
+		unsigned int size() const
 		{
 			return (this->_size);
 		}
+
+
+
+		// Exceptions
+
+		class ArrayException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 };
+
+template <typename T>
+
+const char* Array<T>::ArrayException::what() const throw()
+{
+	return ("(Exception from Array)\n");
+}
+
+
+
+
 
 #endif

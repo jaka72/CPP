@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:43:17 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/21 15:56:08 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 15:58:20 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ std::string trimWhiteSpaces(std::string str)
 	str.erase(str.find_last_not_of(whiteSpaces) + 1);	// at end
 	return str;
 }
-
 
 
 

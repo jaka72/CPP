@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Serialize.cpp                                           :+:    :+:            */
+/*   Serialize.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/04 08:45:54 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/22 16:19:19 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 Serialize::Serialize() 
 {
 	std::cout << GRE"Default constr (Serialize) " << "\n" RES;
-	// _id = 0;
-	// _name = "Default_name";
 }
 
 
@@ -26,8 +24,6 @@ Serialize::Serialize(int, std::string)
 {
 	// std::cout << GRE"Param. constructor (Serialize), id: [" << _id << "], "
 	// 									"name: [" << _name << "],  \n" RES;
-	// _id = id;
-	// _name = name;
 }
 
 
@@ -42,11 +38,9 @@ Serialize::Serialize(const Serialize &src)
 
 
 // Overload operators
-Serialize& Serialize::operator= (const Serialize &src)
+Serialize& Serialize::operator= (const Serialize &)
 {
 	std::cout << GRE"Overload operator=  (Serialize)" << "\n" RES;
-	_dummy = src._dummy;
-	// _name = src._name;
 	return *this;
 }
 
@@ -61,19 +55,6 @@ Serialize::~Serialize()
 //////////////////////////////////////////////////////////
 
 // Public member functions
-// int Serialize::getId()
-// {
-// 	std::cout << "ID: " << _id << "\n";
-// 	return (_id);
-// }
-
-
-// std::string Serialize::getName()
-// {
-// 	std::cout << "Name: " << _name << "\n";
-// 	return (_name);
-// }
-
 
 
 uintptr_t	Serialize::serialize(Data* ptr)
@@ -81,8 +62,8 @@ uintptr_t	Serialize::serialize(Data* ptr)
 	uintptr_t	i;
 	i = reinterpret_cast<uintptr_t>(ptr);
 	
-	std::cout << MAG"   Called function serialize()\n" RES;
-	std::cout << MAG"   The Pointer is now stored into uintptr\n" RES;
+	std::cout << MAG"   Called serialize(): " RES;
+	std::cout << MAG"   The Pointer is now stored into uintptr_t\n" RES;
 	
 	return (i);
 }
@@ -90,8 +71,8 @@ uintptr_t	Serialize::serialize(Data* ptr)
 
 Data*		Serialize::deserialize(uintptr_t raw)
 {
-	std::cout << MAG"   Called function deserialize()\n" RES;
-	std::cout << MAG"   The uintptr is now returned to a pointer\n" RES;
+	std::cout << MAG"   Called deserialize(): " RES;
+	std::cout << MAG" The uintptr_t is now returned to a pointer\n" RES;
 	
 	return (reinterpret_cast<Data*>(raw));
 }

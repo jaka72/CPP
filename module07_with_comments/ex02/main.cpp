@@ -6,20 +6,100 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/12 13:04:50 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 20:45:40 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 #include <stdio.h>		// for perror
 #include "colors.h"
 #include "Array.hpp"
 
 
 
+#define MAX_VAL 750
+// #define MAX_VAL 5
+
+int main(int, char**)
+{
+    Array <int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+	
+	std::cout << "Store random values to numbers[] and mirror[]\n";
+    
+	
+	for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+		std::cout << " value: " << value;
+    }
+	
+    //SCOPE
+    {
+		std::cout << YEL"\nA) Copy Array<int> tmp = numbers;\n" RES;
+        Array<int> tmp = numbers;
+		
+		std::cout << YEL"B) Copy Array<int> test(tmp);\n" RES;
+        Array<int> test(tmp);
+    }
 
 
-int main()
+	std::cout << YEL"C) loop and compare mirror[i] vs numbers[i]\n" RES;
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+		std::cout << "loop i" << i << "\n";
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+	
+
+	std::cout << YEL"D) TEST ERRORS\n" RES;
+	
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Error: Index is negative " << e.what() << '\n';
+    }
+	
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Error: Index is MAX_VAL " << e.what() << '\n';
+    }
+
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+	
+    delete [] mirror;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+int mainXXXXX()
 {   // QUESTIONS ////////////////////////////////////////////
 
 	// WHAT IS THE DIFFERENCE IN COPY CONTRUCTOR IN THESE 2 CASES:  - if in main the array is created as non pointer

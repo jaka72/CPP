@@ -6,25 +6,25 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/21 13:36:11 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 15:57:11 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONVERSION_H
 #define CONVERSION_H
 
-#include <math.h>	// for isinf()
+#include <math.h>	// isinf
+#include <cstring>	// strlen
 #include <iostream>
 #include <iomanip>
-#include <cstring>   // strlen
 #include <cstdlib>
 #include "colors.h"
 
 #ifdef __linux__
-# include<bits/stdc++.h> //  for Linux
+# include<bits/stdc++.h> //  Linux
 #endif
 #ifdef __APPLE__
-# include <limits>       // 
+# include <limits>       // Mac
 #endif
 
 

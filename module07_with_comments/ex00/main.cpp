@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/13 10:55:17 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 19:23:21 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,89 +39,100 @@ int main()
 {
 	{
 		std::cout << BLU"\nSwap two chars:\n" RES;
+		char c1 = 'A';
+		char c2 = 'B';
+		
 		std::cout << BLU"Before swapping:" RES;
-
-		char a = 'x', b = 'y';
-		std::cout << "  a: " << a << ", b: " << b << "\n";
-		swap(a, b);
-		std::cout << "         a: " << a << ", b: " << b << "\n";
+		std::cout << "  c1: " << c1 << ", c2: " << c2 << "\n";
 		
-		::swap(a, b);
-		std::cout << "         a: " << a << ", b: " << b << "\n";
+		::swap(c1, c2);
+		std::cout << "         c1: " << c1 << ", c2: " << c2 << "\n";
 		
-		std::swap(a, b);
-		std::cout << "                  a: " << a << ", b: " << b << "\n\n";
+		// swap(c1, c2);
+		// std::cout << "         c1: " << c1 << ", c2: " << c2 << "\n";
+		// std::swap(c1, c2);
+		// std::cout << "                  c1: " << c1 << ", c2: " << c2 << "\n\n";
 		
-		std::cout << "Min: " << min(a, b) << "\n";
-		std::cout << "Max: " << max(a, b) << "\n";
+		std::cout << "Min: " << ::min(c1, c2) << "\n";
+		std::cout << "Max: " << ::max(c1, c2) << "\n";
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 
 
 	{
 		std::cout << BLU"\nSwap two integers:\n" RES;
-		std::cout << BLU"Before swapping:" RES;
+		int a = 33;
+		int b = 77;
 		
-		int a = 3, b = 7;
+		std::cout << BLU"Before swapping:" RES;
 		std::cout << "  a: " << a << ", b: " << b << "\n";
+
 		::swap(a, b);
 		std::cout << "         a: " << a << ", b: " << b << "\n\n";
 
-		std::cout << "Min: " << min(a, b) << "\n";
-		std::cout << "Max: " << max(a, b) << "\n";
+		std::cout << "Min: " << ::min(a, b) << "\n";
+		std::cout << "Max: " << ::max(a, b) << "\n";
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 
 
 	{
 		std::cout << BLU"\nSwap two floats:\n" RES;
-		std::cout << BLU"Before swapping:" RES;
+		float a = 3.3f;
+		float b = 7.7f;
 		
-		float a = 3.3f, b = 7.7f;
+		std::cout << BLU"Before swapping:" RES;
 		std::cout << "  a: " << a << ", b: " << b << "\n";
+
 		::swap(a, b);
 		std::cout << "         a: " << a << ", b: " << b << "\n\n";
-		std::cout << "Min: " << min(a, b) << "\n";
-		std::cout << "Max: " << max(a, b) << "\n";
+		
+		std::cout << "Min: " << ::min(a, b) << "\n";
+		std::cout << "Max: " << ::max(a, b) << "\n";
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 
 
 	{
 		std::cout << BLU"\nSwap two doubles:\n" RES;
+		double a = 11.11;
+		double b = 55.55;
+		
 		std::cout << BLU"Before swapping:" RES;
+		std::cout << "         a: " << a << ", b: " << b << "\n";
 		
-		double a = 11.11, b = 55.55;
+		::swap(a, b);
 		std::cout << "  a: " << a << ", b: " << b << "\n";
-		     swap(a, b);
-		std::cout << "         a: " << a << ", b: " << b << "\n";
-		   ::swap(a, b);
-		std::cout << "         a: " << a << ", b: " << b << "\n";
-		std::swap(a, b);
-		std::cout << "                  a: " << a << ", b: " << b << "\n\n";
 		
-		// std::cout << " a: " << a << ", b: " << b << "\n";
-		std::cout << "Min: " << min(a, b) << "\n";
-		std::cout << "Max: " << max(a, b) << "\n";
+		// swap(a, b);
+		// std::cout << "         a: " << a << ", b: " << b << "\n";
+		// std::swap(a, b);
+		// std::cout << "                  a: " << a << ", b: " << b << "\n\n";
+		
+		std::cout << "Min: " << ::min(a, b) << "\n";
+		std::cout << "Max: " << ::max(a, b) << "\n";
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 
 
 	{
 		std::cout << BLU"\nSwap two strings:\n" RES;
-		std::cout << BLU"Before swapping:" RES;
 		std::string a = "wine";
 		std::string b = "beer";
 
+		std::cout << BLU"Before swapping:" RES;
 		std::cout << "  a: " << a << ", b: " << b << "\n";
-		swap(a, b);
-		std::cout << "                  a: " << a << ", b: " << b << "\n";
+		
 		::swap(a, b);
 		std::cout << "         a: " << a << ", b: " << b << "\n";
-		std::swap(a, b);
-		std::cout << "                  a: " << a << ", b: " << b << "\n\n";
-		std::cout << "Min: " << min(a, b) << "\n";
-		std::cout << "Max: " << max(a, b) << "\n";
+		
+		// swap(a, b);
+		// std::cout << "                  a: " << a << ", b: " << b << "\n";
+		// std::swap(a, b);
+		// std::cout << "                  a: " << a << ", b: " << b << "\n\n";
+		
+		std::cout << "Min: " << ::min(a, b) << "\n";
+		std::cout << "Max: " << ::max(a, b) << "\n";
 	}
 		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 

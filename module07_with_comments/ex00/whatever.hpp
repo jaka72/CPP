@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 19:30:20 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/13 10:52:19 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/22 19:12:01 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ class Whatever
 	private:
 	
 	public:
-		int         x;
-		std::string s;		// maybe could also try swap as private ?
+		int			x;
+		std::string s;
 
 		bool operator== (const Whatever &src) const
 		{
-				std::cout << "From comparisson operator== \n";
-				if (this->x == src.x && this->s == src.s)
-					return (true);
-				return (false);
+			std::cout << "From comparisson operator== \n";
+			if (this->x == src.x && this->s == src.s)
+				return (true);
+			return (false);
 		} 
 };
 

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Serialize.hpp                                     :+:    :+:            */
+/*   Serialize.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/03 13:59:58 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/22 16:17:01 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef Serialize_H
-#define Serialize_H
+#ifndef SERIALIZE_H
+#define SERIALIZE_H
 
 #include <stdint.h>		// for type uintptr_t
 // #include <cstdint>		// for type uintptr_t
 #include <iostream>
+#include "data.hpp"
 #include "colors.h"
 
-
-
-struct Data
-{
-	int			id;
-	std::string name;
-	Data		*next;
-};
 
 
 
@@ -35,10 +28,7 @@ struct Data
 class Serialize
 {
 	private:
-		int	_dummy;
-		// int			_id;
-		// std::string	_name;
-		
+		// int	_dummy;		
 
 	public:
 
