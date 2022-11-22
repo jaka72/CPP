@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/jmurovec/Desktop/testIfPushed/mod05_test00'
-make: Leaving directory `/Users/jmurovec/Desktop/testIfPushed/mod05_test00'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
