@@ -7,14 +7,38 @@
 	- Shall I use getters and setters always for all private vars??
 		Or only when it is necessary?
 	
-	SUBJECT SAYS, YOU NEED TO ACQUIRE THE STRING INTO THE RIGHT TYPE, SO IT IS NOT 
-	A STRING ANYMORE. SO THIS PROBABLY MEANS, FIRST INTO DOUBLE, THEN INTO 
-	EVERYTHING ELSE.
-	OR IT MEANS, FIRST THE CORRESPONDING TYPE, AND THEN TO ALL OTHER TYPES?
-	
-	Can you put class member functions definitions in more other files, how do you then name those files?
+	- Can you put class member functions definitions in more other files, how do you then name those files?
 */
 
+
+/*
+	STRANGE BEHAVIOUR OF FLOAT, LOOSING PRECISION:
+	
+	If input is a large float, then Int overflow must be checked before casting int 
+	into float. because a large float is stored in scient. representation which can 
+	be rounded down, therefore it will not be overflow, after casting this float to int.
+				float f = 2147483647.0f;
+					== 2.14748e+09      stored as float. point representation (printed as scient)   
+					== 2147480000	   casted to int (smaller than original)
+	So, casting a larger float to int, seems to always give back distorted int ????
+	But above a certain value (around 2147483600), cast to int starts giving back INT_MIN -2147483648
+
+	Interestingly, substracting these gives wrong result, zero:
+				float f1 = 2147483647.0f;
+				float f2 = 2147483648.0f;
+				std::cout << "float " << f2 - f1 << "\n";    --->>>   result: 0
+*/
+
+/*
+// 
+// ISSUE IN PRINT FLOATANDDOUBLE: NOW IM PRINTING .0  FOR FLOAT AND DOUBLE AFTER SCIENT. NOTATION,
+//  WHEN CONVERTING FROM NEGATIVE INTEGER, LARGER THAN 6 DIGITS !!!
+// HERE IT NEEDS TO CHECK IF IT IS NEGATIVE, AND THEN DECIDE WHAT TO SUBSTRACT,
+//    		if (_f - (int)_f == 0 && _f < 10000)
+// 					OR THE OTHER WAY AROUND
+
+// ISSUE !!!!
+*/
 
 
 /*
@@ -27,8 +51,7 @@
 		I want to print 'impossible' and also print value of float and double
 		Therefore I dont want to use stoi()
 
-
-	- Now I treat " " as a valid printable char, but
+	- Now I treat space " " as a valid printable char, but
 				  "   " I treat as invalid string, just empty spaces,
 		Similarly, "a" is valid, "aaaa" is invalid
 */
@@ -44,7 +67,7 @@
 			In computers, scalars are integers (maybe also pointers) (contain a single value)
 						 non-scalars: arrays, classes, .. what else?)
 		
-		The other type is a VECTOR. It has magnitute and direction (force and velocity)
+		The other type is a VECTOR. It has magnitude and direction (force and velocity)
 
 
 
@@ -54,7 +77,7 @@
 				- integral:         int, char, bool, short, long
 				- floating point:   float, double, long double
 				- void:             void
-		- Compound (array, struct, class, function, pointers, referrences ... ? )
+		- Compound (array, struct, class, function, pointers, references ... ? )
 
 	Learncpp 4.6 - Finish reading and clarify, fixed types, 
 				- To be defined on architecture, what does it mean exactly?
@@ -74,16 +97,16 @@
 
 			b2) With <> cast operator (used in C++, has compile time checking)
 
-				- static_cast (ex00)        Most common cast. COnverts from one fund. type to another fund. type
+				- static_cast (ex00)        Most common cast. Converts from one fundam. type to 
+											another fundam. type:
 											static_cast < new_data_type > (expression); 
-											x = static_cast < int > (y); 
+											int x = static_cast < int > (y); 
 
 				- reinterpret_cast(ex01)    To store a pointer ???
 				
-				- dynamic_cast(ex02         To handle polimorphism. Only used when casting from base to derived class
+				- dynamic_cast(ex02)        To handle polymorphism. Only used when casting from
+											base to derived class
 											(at runtime, only for class pointers)
-				
-
 				- const_cast
 
 

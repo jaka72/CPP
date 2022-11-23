@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/04 09:31:53 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/23 13:03:44 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,12 @@ RED		=	\033[31m
 NAME		=	a.out
 
 CC			=	c++
-CFLAGS		=	-std=c++98 -Wall -Wextra -Werror		-Wshadow -Wno-shadow     -O2   -Ofast
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror	# -pedantic	-Wshadow -Wno-shadow     -O2   -Ofast
 
 CPP_FILES	=	main.cpp Serialize.cpp
 				
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
-
 
 HEADERS		=	Serialize.hpp
 

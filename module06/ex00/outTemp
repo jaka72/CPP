@@ -1,4 +1,4 @@
 char:  'not-possible'
 int:    not-possible
-float:  inff
-double: inf
+float:  -2.14748e+09f
+double: -2.14748e+09

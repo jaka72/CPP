@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 19:02:39 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/23 13:00:58 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 		Serialize	s;
 
 		
-		std::cout << BLU"\nConvert pointer d0 to uintptr_t via function serialize()\n" RES;
+		std::cout << BLU"\nConvert pointer d0 to type uintptr_t via function serialize()\n" RES;
 		uintptr_t	i = s.serialize(d0);
 
 		std::cout << BLU"\nConvert uintptr_t to a pointer d1\n" RES;

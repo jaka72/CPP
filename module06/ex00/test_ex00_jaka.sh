@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/11/02 18:29:52 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/21 16:29:50 by jmurovec      ########   odam.nl          #
+#    Updated: 2022/11/23 12:05:10 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -334,28 +334,6 @@ echo ; i=0
 
 
 
-echo "- - - TEST INT - OVEFLOWS - - - - - - - - - - - -"
-
-#														!!! should be without 0.
-testChars "214748364"	"not-possible"	"214748364"		"2.14748e+08f"	"2.14748e+08"
-
-#										XXX: int says imposs.,  should be normal int
-#												float and double, should be without 0f
-testChars "2147483646"	"not-possible"	"2147483646"	"2.14748e+09f"	"2.14748e+09"
-testChars "2147483647"	"not-possible"	"2147483647"	"2.14748e+09f"	"2.14748e+09"
-testChars "2147483648"	"not-possible"	"not-possible"	"2.14748e+09f"	"2.14748e+09"
-
-testChars "-2147483646"	"not-possible"	"-2147483646"	"-2.14748e+09f"	"-2.14748e+09"
-testChars "-2147483647"	"not-possible"	"-2147483647"	"-2.14748e+09f"	"-2.14748e+09"
-
-
-testChars "999999999999999999999999999999999999999"	"not-possible"	"not-possible" "inff"	"1e+39" 
-
-																					   #Float wrong: inf.0f, should be inff 
-testChars "999999999999999999999999999999999999999.9"	"not-possible"	"not-possible" "inff"	"1e+39"	
-echo ; i=0
-
-
 
 
 
@@ -394,6 +372,64 @@ echo "- - - NAN and INF - - - - - - - - - - - - - - - - - -"
 # test_NanInf "+inff"	"char:   not-possible"	"int:    not-possible" "float:  +inff"	"+inf"
 # test_NanInf "-inff"	"char: not-possible"	"int: not-possible" "float:  -inff"	"-inf"
 # 											 #int:    not-possible
+
+
+
+
+echo "- - - TEST INT OVEFLOWS - - - - - - - - - - - -"
+
+#														!!! should be without 0.
+testChars "214748364"	"not-possible"	"214748364"		"2.14748e+08f"	"2.14748e+08"
+
+#										XXX: int says imposs.,  should be normal int
+#												float and double, should be without 0f
+testChars "2147483646"	"not-possible"	"2147483646"	"2.14748e+09f"	"2.14748e+09"
+testChars "2147483647"	"not-possible"	"2147483647"	"2.14748e+09f"	"2.14748e+09"
+testChars "2147483648"	"not-possible"	"not-possible"	"2.14748e+09f"	"2.14748e+09"
+
+testChars "-2147483646"	"not-possible"	"-2147483646"	"-2.14748e+09f"	"-2.14748e+09"
+
+testChars "-2147483647"	"not-possible"	"-2147483647"	"-2.14748e+09f"	"-2.14748e+09"
+
+
+# in result there is no minus at float and double !!!
+testChars "-2147483648"	"not-possible"	"-2147483648"	"-2.14748e+09f"	"-2.14748e+09"
+
+testChars "-2147483649"	"not-possible"	"not-possible"	"-2.14748e+09f"	"-2.14748e+09"
+
+testChars "999999999999999999999999999999999999999"	"not-possible"	"not-possible" "inff"	"1e+39" 
+
+																					   #Float wrong: inf.0f, should be inff 
+testChars "999999999999999999999999999999999999999.9"	"not-possible"	"not-possible" "inff"	"1e+39"	
+echo ; i=0
+
+
+
+echo "- - - TEST FLOAT TO INT OVEFLOWS - - - - - - - - - - - -"
+
+											# int err, not possible
+testChars "2147483646.0f"	"not-possible"	"2147483646"	"2.14748e+09f"	"2.14748e+09"
+
+											# int err, not possible
+testChars "2147483647.0f"	"not-possible"	"2147483647"	"2.14748e+09f"	"2.14748e+09"
+
+testChars "2147483648.0f"	"not-possible"	"not-possible"	"2.14748e+09f"	"2.14748e+09"
+
+											# int err, not possible
+testChars "-2147483646.0f"	"not-possible"	"-2147483646"	"-2.14748e+09f"	"-2.14748e+09"
+											# int err, not possible
+testChars "-2147483647.0f"	"not-possible"	"-2147483647"	"-2.14748e+09f"	"-2.14748e+09"
+
+											# int err, not possible
+testChars "-2147483648.0f"	"not-possible"	"-2147483648"	"-2.14748e+09f"	"-2.14748e+09"
+
+testChars "-2147483649.0f"	"not-possible"	"not-possible"	"-2.14748e+09f"	"-2.14748e+09"
+
+
+
+
+
+
 
 
 echo

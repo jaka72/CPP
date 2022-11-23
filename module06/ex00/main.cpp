@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 15:56:21 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/23 12:53:15 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,5 @@ int main(int argc, char **argv)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-
-	
 	return 0;
 }

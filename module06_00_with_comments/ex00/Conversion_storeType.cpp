@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:39:44 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/07 14:40:19 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/23 11:37:10 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	Conversion::isFloat()
 {
 	_f = atof(&_inputStr[_start]);
 	_d = atof(&_inputStr[_start]);
+
 	if (_isNeg == 1)
 	{
 		_f *= -1;

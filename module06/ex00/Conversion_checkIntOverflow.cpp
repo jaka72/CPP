@@ -6,11 +6,20 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:51:26 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/21 16:24:44 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/23 12:50:56 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Conversion.hpp"
+
+
+int ft_strlen(const char *str)	// stop at decimal point
+{
+	int i = 0;
+	while (str[i] != '\0' && str[i] != '.')
+		i++;
+	return (i);
+}
 
 
 int countDigits(int limit)
@@ -32,7 +41,7 @@ int checkIntOverflow(std::string str, int sign)
 	if (sign == 1) 
 		limit = INT_MIN;
 
-	int lenStr = strlen(str.c_str());
+	int lenStr = ft_strlen(str.c_str());
 	int lenLim = countDigits(limit);
 
 	if (lenStr > lenLim)		// string is longer than limit

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/07 14:54:37 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/21 20:39:27 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/23 12:50:11 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ void	Conversion::print_char()
 }
 
 
-// HERE IS A PROBLEM, BECAUSE THE FLOAT IS BY NOW IN SCIENTIFIC NOTATION, WHICH IS
-// ROUNDED UP OR DOWN, SO _f IS SMALLER THAN max(), INSTEAD OF SAME OR BIGGER.
-// (AT MORE THAN 6 DIGITS, THE FLOAT CHANGES INTO SCIENTIFIC NOTATION)
-// I NEED TO CHECK FOR INT OVERFLOW ALREADY AT START, BEFORE SAVING IT INTO FLOAT
+// Int overflow must be checked before casting int, in case the input is a large float
 void	Conversion::print_int()
 {
 	if (_int_overflow == 1)
@@ -54,17 +51,10 @@ void	Conversion::print_nan_or_inf()
 	}
 }
 
-// ISSUE: NOW IM PRINTING .0  FOR FLOAT AND DOUBLE AFTER SCIENT. NOTATION,
-//  WHEN CONVERTING FROM NEGATIVE INTEGER, LARGER THAN 6 DIGITS !!!
-// HERE IT NEEDS TO CHECK IF IT IS NEGATIVE, AND THEN DECIDE WHAT TO SUBSTRACT,
-//    		if (_f - (int)_f == 0 && _f < 10000)
-// 					OR THE OTHER WAY AROUND
 
-// ISSUE !!!!
 
 void	Conversion::printFloatAndDouble()
 {
-	//std::cout << "check substracted: " << _f - (int)_f << ",   _f " << _f << "\n";
 	if (_type == INT || _type == FLOAT || _type == DOUBLE)
 	{
 		if (_f - (int)_f == 0 && abs(_f) < 10000)	//std::cout << "FLOAT, no decimals\n";

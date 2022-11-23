@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 17:59:25 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 15:57:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/23 18:08:32 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Conversion::Conversion(std::string str) : _inputStr(str)
 	_c				= 'x';
 	_intg			= 0;
 	_type			= 0;
+	_start			= 0;
 	_isDigit		= 0;
 	_isNotDigit		= 0;
 	_isPoint		= 0;
@@ -96,7 +97,6 @@ int	Conversion::convert()
 	else if (_type == FLOAT)
 	{
 		_c 		= static_cast<char>(_f);
-		_intg 	= static_cast<int>(_f);
 	}
 	else if (_type == DOUBLE)
 	{
@@ -134,18 +134,8 @@ void	Conversion::print_all()
 
 int	Conversion::storeCorrectType()
 {
-	// if (checkIntOverflow(&_inputStr[_start], INT_MAX) == 1)
 	if (checkIntOverflow(&_inputStr[_start], _sign) == 1)
 		_int_overflow = 1;
-
-	// std::cout << "Found overflow, INT_MIN " << INT_MIN << "\n";
-	// long double temp = atof(&_inputStr[_start]);	// check_overflow via long double
-	// if (temp > (((long double)INT_MAX)) || temp < ((long double)(INT_MIN) - 2))
-	// {
-	// 	std::cout << "Found overflow, temp " << temp << "\n";
-	// 	_int_overflow = 1;;
-	// }
-		
 	if (_sign == 1 && (_isNotDigit + _isPoint + _isF + _isDigit == 0)) // single sign found
 		return (_type = CHAR);
 	if ((_isNotDigit + _isPoint + _isF + _isDigit) == 1)	           // single char or a sign and 1 char
