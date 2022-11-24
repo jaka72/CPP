@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/24 10:53:17 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/24 19:56:57 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ int main()
 		
 		::swap(c1, c2);
 		std::cout << "         c1: " << c1 << ", c2: " << c2 << "\n";
-		
-		// swap(c1, c2);
-		// std::cout << "         c1: " << c1 << ", c2: " << c2 << "\n";
-		// std::swap(c1, c2);
-		// std::cout << "                  c1: " << c1 << ", c2: " << c2 << "\n\n";
 		
 		std::cout << "Min: " << ::min(c1, c2) << "\n";
 		std::cout << "Max: " << ::max(c1, c2) << "\n";

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/24 16:37:46 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/24 20:42:42 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,24 +137,6 @@ int main(int, char**)
 	
 
 	{
-		std::cout << "? ? ? ? ? ? Array as a pointer ? ? ? ? ? ? \n";
-		std::cout << "   How to make a pointer Array ???\n\n";
-		// Array <int> *A = new Array<int> (2);  // HOW TO DO THIS
-		Array <int> *A = new Array<int>(2);  // HOW TO DO THIS
-		std::cout << "Array size: " << A->size() << "\n";
-
-	// 	HOW TO ASSIGN VALUES TO THESE MEMBERS OF A POINTER ARRAY	
-		//A[0] = 5;
-
-		//std::cout << "A[0]:  " <<  A[0] << '\n';
-		std::cout << "A[0]:  " << &A[0] << '\n';
-		delete A;
-	}
-		std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
-
-
-
-	{
 		std::cout << MAG"Check if deep copy:   B = A;\n" RES;
 		Array <int> A(3);
 		A[0] = 11;
@@ -191,7 +173,7 @@ int main(int, char**)
 
 	{
 		std::cout << MAG"Check if deep copy:   B(A);\n" RES;
-		std::cout << BLU"Duplicate object A to B using brackets:   Array <int> C(A) \n" RES;
+		std::cout << MAG"Duplicate object A to B using brackets:   Array <int> C(A) \n" RES;
 		Array <int> A(3);
 		A[0] = 11;
 		A[1] = 22;
@@ -251,11 +233,13 @@ int main(int, char**)
 		std::cout << MAG"Testing   int* a = new int();\n" RES;
 		std::cout << MAG"Testing   int* b = new int[10];\n" RES;
 		int* a = new int();
-		int* b = new int[10]; // MAKING ARRAY b WITH 10 INTS
+		int* b = new int[3]; // MAKING ARRAY b WITH 3 INTS
 		std::cout << "    *a: " << *a << "\n";
 		std::cout << "    *b: " << *b << "\n";
 		
 		b[0] = 11;
+		b[1] = 22;
+		b[2] = 33;
 
 		std::cout << "     b[0]: " << b[0] << "\n";
 		std::cout << "     b[1]: " << b[1] << "\n";
@@ -264,7 +248,7 @@ int main(int, char**)
 		std::cout << "    &b[0]: " << &b[0] << "\n";
 		std::cout << "    &b[1]: " << &b[1] << "\n";
 		std::cout << "    &b[2]: " << &b[2] << "\n";
-		
+
 		delete a;
 		delete[] b;
 	} 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
@@ -274,15 +258,110 @@ int main(int, char**)
 	{
 		std::cout << MAG"Testing   Array object as a pointer\n" RES;
 
-		Array <int> *arr = new Array<int>(5);
+		Array <int> *arrA = new Array<int>(3);
+		Array <int> *arrB = new Array<int>();
 
-		(*arr)[0] = 2;
-		std::cout << "     (*arr)[0]: " << (*arr)[0] << "\n";
+		(*arrA)[0] = 2;
+		std::cout << "     (*arrA)[0]: " << (*arrA)[0] << "\n";
+
+		std::cout << "     arrA:       " << arrA << "\n";
+		std::cout << "     arrB:       " << arrB << "\n";
+
+		*arrB = *arrA;
+		delete arrA;
+		delete arrB;
+	} 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
+
+	{
+		std::cout << MAG"Testing more variants,  Array as a pointer\n" RES;
+
+		Array <int> *arrA = new Array<int>(3);
+		(*arrA)[0] = 11;
+		
+		// Array <int> *arrB;						// calls default constructor
+		// Array <int> *arrB(arrA);					// copies just to the same address
+		Array <int> *arrB = new Array<int>(*arrA);	// creates a copy at new address and copies all values
+
+		std::cout << "     (*arrA)[0]: " << (*arrA)[0] << "\n";
+		std::cout << "     (*arrB)[0]: " << (*arrB)[0] << "\n";
+
+		std::cout << "     arrA:       " << arrA << "\n";
+		std::cout << "     arrB:       " << arrB << "\n";
+
+		// arrB = new Array<int>();
+
+		// *arrB = *arrA;
+		delete arrA;
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
+
+
+
+	{
+		std::cout << MAG"2) Testing more variants,  Array as a pointer\n" RES;
+
+		Array <int> *arrA = new Array<int>(3);
+		Array <int> *arrB = new Array<int>(10);
+		(*arrA)[0] = 11;
+		(*arrB)[0] = 66;
+		
+		
+		std::cout << "     (*arrA)[0]: " << (*arrA)[0] << "\n";
+		std::cout << "     (*arrB)[0]: " << (*arrB)[0] << "\n";
+		std::cout << "     arrA:       " << arrA << "\n";
+		std::cout << "     arrB:       " << arrB << "\n";
+
+		*arrB = *arrA;
+		std::cout << "     (*arrA)[0]: " << (*arrA)[0] << "\n";
+		std::cout << "     (*arrB)[0]: " << (*arrB)[0] << "\n";
+		std::cout << "     arrA:       " << arrA << "\n";
+		std::cout << "     arrB:       " << arrB << "\n";
+
+		// *arrB = *arrA;
+		delete arrA;
+		delete arrB;
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
+
+
+
+
+
+
+
+
+
+
+
+	{
+		std::cout << MAG"Check if deep copy:   B(A);\n" RES;
+		std::cout << MAG"Duplicate object A to B using brackets:   Array <int> C(A) \n" RES;
+		Array <int> A(3);
+		Array <int> B(A);
+
+		A[0] = 11;
+		A[1] = 22;
+		A[2] = 33;
+
+		//B(A);
+
 
 		
-	}
+		//Array <int> B(A); // FOR B, ONLY COPY CONSTRUCTOR IS CALLED, SO IT NEVER GETS THE new MEMORY
+						  // THEREFORE YOU CANT DELETE THE B._arr, JUST MUST SET IT TO NULL	
+						  // B._arr IS SET TO NULL IN COPY CONSTR., SO IT COMES AS NULL INTO =overload
+		
+		// std::cout << "    A.size: " << A.size() << "\n    B.size: " << B.size() << "\n";
+		// std::cout << "   &A: " << &A       << "\n   &B: " << &B << "\n\n";
+		
+		// std::cout << "    A[0] " << A[0] << ", A[1] " << A[1] << ", A[2] " << A[2] << "\n";
+		// std::cout << "    B[0] " << B[0] << ", B[1] " << B[1] << ", B[2] " << B[2] << "\n";
 
-
+		// std::cout << BLU"    Change values in the array A\n" RES;
+		// A[0] = 77;
+		// A[1] = 88;
+		// A[2] = 99;
+		// std::cout << "    A[0] " << A[0] << ", A[1] " << A[1] << ", A[2] " << A[2] << "\n";
+		// std::cout << "    B[0] " << B[0] << ", B[1] " << B[1] << ", B[2] " << B[2] << "\n";
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 
 	//system ("leaks a.out");
     return 0;
@@ -315,22 +394,22 @@ int mainXXXXX()
 
 	{
 	 	std::cout << MAG"TEST_temp:  Is _arr always NULL when Array <int> A() \n" RES;
-			Array <int> A;
-			Array <int> B;
-			Array <int> C;
-									// _arr THEY ALL HAVE ADDRESSES
-			std::cout << BLU "      " << A[0] << "\n" RES;
-			// std::cout << BLU "      " << B._arr << "\n" RES;
-			// std::cout << BLU "      " << C._arr << "\n\n" RES;
+			// Array <int> A;
+			// Array <int> B;
+			// Array <int> C;
+			// 						// _arr THEY ALL HAVE ADDRESSES
+			// std::cout << BLU "      " << A[0] << "\n" RES;
+			// // std::cout << BLU "      " << B._arr << "\n" RES;
+			// // std::cout << BLU "      " << C._arr << "\n\n" RES;
 
-			std::cout << "* * * * * * * * * * \n\n";
+			// std::cout << "* * * * * * * * * * \n\n";
 
-			Array <int> D(3);
-			Array <int> F(D); // NO new _arr IS ALLOCATED FOR F, BUT
-							  //  THE COPY CONSTR IS CALLED IMMEDIATELY
-							  //  SO IT MUST SET _arr TO NULL, BECAUSE IT
-							  //   WILL BE CHECKED AND DELETED IN =overload
-							  //   IF THE TARGET HAS PREVIOUSLY MEMORY ALLOCATED
+			// Array <int> D(3);
+			// Array <int> F(D); // NO new _arr IS ALLOCATED FOR F, BUT
+			// 				  //  THE COPY CONSTR IS CALLED IMMEDIATELY
+			// 				  //  SO IT MUST SET _arr TO NULL, BECAUSE IT
+			// 				  //   WILL BE CHECKED AND DELETED IN =overload
+			// 				  //   IF THE TARGET HAS PREVIOUSLY MEMORY ALLOCATED
 	}
 	 	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - \n\n";
 

@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/13 11:26:04 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/11/24 16:53:02 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/24 20:07:05 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void    print_elem(const T &c)
 {
 	std::cout << std::setw(10) << std::left;
 	std::cout  << c;
-	// return (1);
 }
 
 
@@ -53,8 +52,7 @@ void    iter(T *arr,  size_t len,  void (*func)(const T& n))
 		func(arr[i]);
 		i++;
 	}
-	//if (func(1) == 1)
-		std::cout << "\n";
+	std::cout << "\n";
 }
 
 #endif

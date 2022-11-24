@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 19:30:20 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/24 10:53:44 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/24 19:58:02 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <iostream>
 #include "colors.h"
 
-// // THIS CLASS IS NOT MANDATORY, JUST TO DEMONSTRATE HOW 'T' CAN TAKE AN OBJECT
 // class Whatever
 // {
 // 	private:

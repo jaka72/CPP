@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 10:36:45 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/11/24 16:12:50 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/24 20:46:30 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ class Array
 			    std::cout << LRD"   this->_arr is NULL\n" RES;
             else
 			{
-                std::cout << LRD"   this->_arr is NOT NULL\n" RES;                
-            	std::cout << GRE"   Setting this->_arr to NULL\n" RES; // here it is still garbage 	
+                std::cout << LRD"   _arr is not NULL. Now setting _arr to NULL\n" RES; // here it is still garbage 	
 				this->_arr = NULL;	// This is crucial, to prevent leaks or double free !!
 			}
 			
@@ -62,16 +61,14 @@ class Array
 		Array &operator= (const Array &src)
 		{
 			std::cout << GRE"Assignment operator= overload\n" RES;
-			// std::cout << GRN"      src address:    " << src._arr << "\n" RES;
-			// std::cout << GRN"     _arr address:    " << this->_arr << "\n" RES;
 			if (this == &src)
 				return (*this);
 
 			if (this->_arr == NULL)	
-				std::cout << LRD"     _arr IS NULL!\n" RES;
+				std::cout << LRD"     _arr is NULL. It can get new memory\n" RES;
             else
 			{
-				std::cout << LRD"     _arr IS NOT NULL, NOW deleting []_arr\n" RES;
+				std::cout << LRD"     _arr is not NULL. Now deleting _arr, before allocating new memory\n" RES;
 				delete []this->_arr;
 			}		
 			
