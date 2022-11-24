@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/13 11:26:04 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/11/22 19:59:20 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/24 11:25:47 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,34 @@
 
 #include <iostream>
 
-template <typename T>
 
+template <typename T>
+void    print_elem(T &c)
+{
+	std::cout << std::setw(10) << std::left;
+	std::cout  << c;
+	// return (1);
+}
+
+
+
+template <typename T>
+void	addOne(T &n)
+{
+	n++;
+}
+
+
+
+// Non-template function, just for strings
+void	addOne(std::string &str)
+{
+	str[0] = str[0] + 1;
+}
+
+
+
+template <typename T>
 void    iter(T *arr,  size_t len,  void (*func)(T& n))
 {
 	if (arr == NULL || func == NULL)
@@ -28,7 +54,8 @@ void    iter(T *arr,  size_t len,  void (*func)(T& n))
 		func(arr[i]);
 		i++;
 	}
-	std::cout << "\n";
+	//if (func(1) == 1)
+		std::cout << "\n";
 }
 
 #endif

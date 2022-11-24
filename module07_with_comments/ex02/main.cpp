@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 20:45:40 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/24 12:51:51 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 
 
-#define MAX_VAL 750
-// #define MAX_VAL 5
+// #define MAX_VAL 750
+#define MAX_VAL 5
 
 int main(int, char**)
 {
@@ -35,20 +35,20 @@ int main(int, char**)
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
-		std::cout << " value: " << value;
+		std::cout << "   value: " << value << "\n";
     }
 	
     //SCOPE
     {
-		std::cout << YEL"\nA) Copy Array<int> tmp = numbers;\n" RES;
+		std::cout << YEL"\nA) Copy array:   tmp = numbers;\n" RES;
         Array<int> tmp = numbers;
 		
-		std::cout << YEL"B) Copy Array<int> test(tmp);\n" RES;
+		std::cout << YEL"\nB) Copy array:   test(tmp);\n" RES;
         Array<int> test(tmp);
     }
 
 
-	std::cout << YEL"C) loop and compare mirror[i] vs numbers[i]\n" RES;
+	std::cout << YEL"\n\nC) loop and compare mirror[i] vs numbers[i]\n\n" RES;
 
     for (int i = 0; i < MAX_VAL; i++)
     {
@@ -61,7 +61,7 @@ int main(int, char**)
     }
 	
 
-	std::cout << YEL"D) TEST ERRORS\n" RES;
+	std::cout << YEL"\nD) TEST ERRORS\n\n" RES;
 	
     try
     {
@@ -88,6 +88,22 @@ int main(int, char**)
     }
 	
     delete [] mirror;
+
+
+
+
+
+
+	// std::cout << "\n---------------------------------------------------\n";
+
+	// int *a = new int();
+	// std::cout << "*a: " << *a << "\n";
+	// std::cout << "a: " << a << "\n";
+	// std::cout << "&a: " << &a << "\n";
+
+
+	// delete a;
+	
     return 0;
 }
 

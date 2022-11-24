@@ -6,20 +6,13 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/08 18:05:21 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 21:01:53 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/24 11:54:36 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iomanip>      // std::setw
 #include "iter.hpp"
  
-template <typename T>
-
-void    print_arr(T &c)
-{
-	std::cout << std::setw(10) << std::left;
-	std::cout  << c;;
-}
 
 
 // template <typename T>
@@ -38,6 +31,7 @@ int main()
 	float		arrC[] = {11.1f, 22.2f, 33.3f, 44.4f, 55.5f};
 	double		arrD[] = {11.1, 22.2, 33.3, 44.4, 55.5};
 	std::string	arrE[] = {"John", "Maria", "Joseph", "Natasha", "George"};
+
 	
 	size_t lenA = sizeof(arrA) / sizeof(arrA[0]);
 	size_t lenB = sizeof(arrB) / sizeof(arrB[0]);
@@ -47,12 +41,44 @@ int main()
 	
 	
 	{
-		::iter(arrA, lenA, print_arr);
-		::iter(arrB, lenB, print_arr);
-		::iter(arrC, lenC, print_arr);
-		::iter(arrD, lenD, print_arr);
-		::iter(arrE, lenE, print_arr);
+		::iter(arrA, lenA, print_elem);
+		::iter(arrB, lenB, print_elem);
+		::iter(arrC, lenC, print_elem);
+		::iter(arrD, lenD, print_elem);
+		::iter(arrE, lenE, print_elem);
+		std::cout << "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
 	}
-	
+
+	{
+		::iter(arrA, lenA, print_elem);
+		::iter(arrA, lenA, addOne);
+		::iter(arrA, lenA, print_elem);
+		std::cout << "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
+		
+
+		::iter(arrB, lenB, print_elem);
+		::iter(arrB, lenB, addOne);
+		::iter(arrB, lenB, print_elem);
+		std::cout << "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
+
+
+		::iter(arrC, lenC, print_elem);
+		::iter(arrC, lenC, addOne);
+		::iter(arrC, lenC, print_elem);
+		std::cout << "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
+
+
+		::iter(arrD, lenD, print_elem);
+		::iter(arrD, lenD, addOne);
+		::iter(arrD, lenD, print_elem);
+		std::cout << "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
+
+
+		::iter(arrE, lenE, print_elem);
+		::iter(arrE, lenE, addOne);
+		::iter(arrE, lenE, print_elem);
+		std::cout << "\n\n- - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
+	}
+
 	return 0;
 }
