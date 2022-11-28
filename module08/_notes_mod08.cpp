@@ -24,6 +24,15 @@
 */
 
 
+/*		- - - STL, THE STANDARD TEMPLATE LIBRARY - - -
+	
+	It provides common data structures and functions:
+		- Container classes:  	list, stack, vector, array ...
+		- Algorithms:			sort ???
+		- Iterators:
+*/
+
+
 /*				- - - CONTAINERS - - -
 
 	SEQUENCE CONTAINERS			ADAPTOR CONTAINERS			ASSOCIATIVE CONTAINERS
@@ -42,4 +51,18 @@
 
 	Container c  !!!
 	Is the underlying container. It is a protected member object of Stack
+*/
+
+/*
+	Creating a templated object from class:
+		Class definition needs a template line:		template <typename T, typename U>
+													class ABC { }
+
+		Then, when creating the object, you need to put <argument list> after the object name.
+		This arg list must correspond to the types after the object name( i, f )
+					ABC<int, float>  		abc1(i, f);		
+					ABC<char, int> 			abc('x', 33);		// creating object with 2 args (char, int)
+					ABC<int, std::string> 	abc(22, "milk");
+   					ABC<float, double> 		abc(2.25, 3.33);
+					... etc
 */

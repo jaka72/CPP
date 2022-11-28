@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 15:51:09 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/28 11:48:41 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ inline bool myInstanceOf(const Base* ptrChild)
 
 
 // The dynamic_cast does not work for referrence, because
-// it doesn't return Beoolean. Better way is
+// it doesn't return Boolean. Better way is
 // to use try/catch block inside the identify(Base &) 
 
 

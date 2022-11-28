@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/27 21:12:31 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/28 16:43:26 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,19 @@ class Span
 		~Span();
 
 		// Getters
-		unsigned int getSize() const;
-		std::vector<int> getVect() const;
+		unsigned int		getSize() const;
+		std::vector<int>	getVect() const;
+		unsigned int		getCurrentNrElements();
+		void 				printContainerInfo2(); // ON MAC NOT PRINTING CORRECT 
+
+
 
 
 		// Public member functions
 		void			addNumber(int n);
 		unsigned int	shortestSpan();
+		unsigned int 	shortestSpanIT();
+
 		unsigned int	longestSpan();
 		//void			printElements();
 

@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/26 09:55:16 by jaka          ########   odam.nl          #
+#    Updated: 2022/11/28 11:10:25 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-HEADERS		=	#whatever.hpp
+HEADERS		=	easyfind.hpp
 
 
 

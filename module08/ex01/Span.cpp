@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:28 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/27 21:16:43 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/28 17:12:37 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ unsigned int Span::getSize() const
 }
 
 
+// Getters
+unsigned int Span::getCurrentNrElements()
+{
+	std::cout << "Container now has " << _vect.size() << " elements (of max " << _size << ")\n";
+	return (_vect.size());
+}
+
+
+
+
 std::vector<int> Span::getVect() const
 {
 	return (_vect);
@@ -68,12 +78,14 @@ void Span::addNumber(int n)
 		throw (std::exception());
 	}
 	_vect.push_back(n);
+	//std::cout << "addnumber, new size: " << _vect.size() << "\n";
 }
 
 
 
 unsigned int Span::shortestSpan()
 {
+	std::cout << GRN"Shortest Span:    " RES;
 	if (_vect.size() <= 1)
 	{
 		std::cout << LRD << "Cannot compare 0 or 1 element.\n";
@@ -83,19 +95,42 @@ unsigned int Span::shortestSpan()
 	std::sort(_vect.begin(), _vect.end());
 
 	unsigned int i = 0;
-	int span = *(_vect.begin() + 1) - *(_vect.begin());
-	std::cout << BLU"        begin +1: " << *(_vect.begin() + i + 1) << ",   begin: " << *(_vect.begin() + i) << "\n" RES;
-	std::cout << GRN"Shortest span a) " << span << "\n" RES;
+	unsigned int span = *(_vect.begin() + 1) - *(_vect.begin());
 	i++;
-	// for (  ; i < _size - 1; i++)
 	for (  ; i < _vect.size() - 1; i++)
 	{
 		if ( span > (*(_vect.begin() + i+1)) - (*(_vect.begin() + i)))
 			span = (*(_vect.begin() + (i+1))) - (*(_vect.begin() + i));
-		std::cout << BLU"        begin+i+1: " << *(_vect.begin() + i + 1) << ",   begin+i: " << *(_vect.begin() + i) << "\n" RES;
 	}
-	std::cout << GRN"Shortest span: END " << span << "\n" RES;
-	return (0);
+	std::cout << GRN << span << "\n" RES;
+	return (span);
+}
+
+
+
+unsigned int Span::shortestSpanIT()
+{
+	std::cout << GRN"Shortest Span it: " RES;
+	if (_vect.size() <= 1)
+	{
+		std::cout << LRD << "Cannot compare 0 or 1 element.\n";
+		throw (std::exception());
+	}
+	std::sort(_vect.begin(), _vect.end());
+
+	std::vector<int>::iterator itPrev = _vect.begin();
+	std::vector<int>::iterator itNext = _vect.begin() + 1;
+
+	unsigned int span = *itNext - *itPrev;
+	for ( ;  itNext != _vect.end() ; )
+	{
+		if (span > (*itNext - *itPrev))
+			span = (*itNext - *itPrev);
+		itPrev++;
+		itNext++;
+	}
+	std::cout << GRN << span << "\n" RES;
+	return (span);
 }
 
 
@@ -103,31 +138,21 @@ unsigned int Span::shortestSpan()
 
 unsigned int Span::longestSpan()
 {
+	std::cout << GRN"Longest Span:  " RES;
+
 	if (_vect.size() <= 1)
 	{
 		std::cout << LRD << "Cannot compare 0 or 1 element.\n";
 		throw (std::exception());
 	}
-
-
-	// max_elem() is maybe not in c98 ???
-	//std::vector<int>::iterator it_largest = max_element(vect.begin(), vect.end());
-
-	//std::cout << "Before, first elem: " <<  *(_vect.begin()) << "\n";
-	//std::cout << "Before, last  elem: " <<  *(_vect.end() - 1) << "\n";
 	std::sort(_vect.begin(), _vect.end());
-	std::cout << "Sorted, first elem: " <<  *(_vect.begin()) << "\n";
-	std::cout << "Sorted, last  elem: " <<  *(_vect.end() - 1) << "\n";
 
 	// 								largest				smallest
 	unsigned int longestSpan = *(_vect.end() - 1) - *(_vect.begin());
 
-	std::cout << GRN"Longest  span: " <<  longestSpan << "\n" RES;
-
+	std::cout << GRN"" <<  longestSpan << "\n" RES;
 	return (longestSpan);
 }
-
-
 
 
 
