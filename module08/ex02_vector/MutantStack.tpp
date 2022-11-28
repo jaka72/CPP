@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 17:00:54 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 19:24:38 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/28 20:26:29 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,30 @@ template <typename T>
 MutantStack<T> ::~MutantStack()
 {
 	std::cout << "Destructor (MutantStack)\n";
+}
+
+
+
+template <typename T>
+void MutantStack<T>::test_iterator()
+{
+	typename myStack::iterator it;
+	it = this->begin();
+	std::cout << "test_iterator: " << *it << "\n";
+}
+
+
+
+
+// THIS ONLY WORKS IN THE HPP FILE, BUT NOT HERE ????
+template <typename T>
+typename MutantStack<T>::myIterator2 MutantStack<T>::myBegin()
+{
+	std::cout << "From myBegin: " << *(MutantStack<T>::begin()) << "\n";
+	//return (myStack::c.begin());	// NO
+	
+	return (MutantStack<T>::begin());		// OK
+	// return (this->begin());				// OK
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 16:59:47 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 19:18:50 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/28 20:15:31 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,24 @@ int main()
 {
 	MutantStack<int> ms;
 
-	ms.push(11);
-	ms.push(22);
-	ms.push(33);
-	ms.push(44);
-	ms.push(55);
+	ms.push_back(11);
+	ms.push_back(22);
+	ms.push_back(33);
+	ms.push_back(44);
+	ms.push_back(55);
 	
 	std::cout << "First element: " << *(ms.myBegin()) << "\n";
-	std::cout << "Last element:  " << *(ms.myEnd() - 1) << "\n";
-	std::cout << "top() element: " << ms.top() << "\n";
+	// std::cout << "Last element:  " << *(ms.myEnd() - 1) << "\n";
+	std::cout << "First element: " << *(ms.begin()) << "\n";
+	std::cout << "Last element:  " << *(ms.end() - 1) << "\n";
+	// std::cout << "top() element: " << ms.top() << "\n";
 	std::cout << "stack size:    " << ms.size() << "\n";
 
 	// std::cout << "myEnd() element: " << *(ms.myEnd2()) << "\n";
+
+	
+	ms.test_iterator();
+
 
 	
 	// Print out the vector // NOT WORKING WITH STACK CONTAINER

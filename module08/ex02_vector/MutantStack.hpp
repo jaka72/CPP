@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 17:00:06 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 19:24:35 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/28 20:28:11 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <stack>	// for stack
+#include <vector>	// for vector
 #include<iterator>	// for iterator
 #include <functional>
 #include "colors.h"
@@ -22,14 +23,17 @@
 
 
 template <typename T>
-class MutantStack : public std::stack<T>
+// class MutantStack : public std::stack<T>
+class MutantStack : public std::vector<T>
 {
 	private:
 		//
 
 	public:
-		typedef std::stack <T>		myStack;
-		//typedef std::iterator<T>		myIterator2;
+		typedef std::vector <T>		myStack;
+		// typedef typename std::iterator		myIterator2;
+		// typedef typename std::iterator<T>		myIterator2;
+		typedef typename myStack::iterator		myIterator2;
 		
 		// WHAT ARE THESE ???
 		//	typedef DEFINES A NEW TYPE 'myIterator'
@@ -39,7 +43,7 @@ class MutantStack : public std::stack<T>
 		//					container_type						parent
 		//							iterator						grandParent
 		// https://stackoverflow.com/questions/18385418/c-meaning-of-a-statement-combining-typedef-and-typename
-		typedef typename myStack::container_type::iterator	myIterator;
+		//typedef typename myStack::container_type::iterator	myIterator;
 
 
 	// CONSTRUCTORS ONLY WORK IF DEFINITIONS ARE IN .tpp
@@ -75,16 +79,43 @@ class MutantStack : public std::stack<T>
 		return (*this);
 	}
 
-	// myIterator myBegin();
-	myIterator myBegin()
-	{
-		return (myStack::c.begin());
-	}
 
-	myIterator myEnd()
-	{
-		return (myStack::c.end());
-	}
+
+	//typename MutantStack::iterator myBegin()   // ok
+	//typename myStack::iterator myBegin()   	// ok
+	myIterator2 myBegin();						// ok if line:  typedef typename myStack::iterator		myIterator2;
+	// myIterator2 myBegin()						// ok if line:  typedef typename myStack::iterator		myIterator2;
+	// {
+	// 	// std::cout << "From myBegin: " << *(this->begin()) << ", ";		// OK
+	// 	std::cout << "From myBegin: " << *(myStack::begin()) << ", ";		// OK
+	// 	//return (myStack::c.begin());	// NO
+		
+	// 	return (myStack::begin());		// OK
+	// 	// return (this->begin());			// OK
+	// }
+
+
+
+
+	void test_iterator();		// MOVED TO .tpp file
+	// void test_iterator()
+	// {
+	// 	typename myStack::iterator it;
+	// 	it = this->begin();
+	// 	std::cout << "test_iterator: " << *it << "\n";
+	// }
+
+
+
+
+
+	// myIterator myEnd()
+	// myStack myEnd()
+	// {
+	// 	// return (myStack::c.end());
+	// 	// return (myStack::end());
+	// 	return (end());
+	// }
 
 	/*
 		Container c  !!!

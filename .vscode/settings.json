@@ -91,6 +91,7 @@
         "libft_mains.h": "c",
         "colors.h": "c",
         "random": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "*.tpp": "cpp"
     }
 }
