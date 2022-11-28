@@ -19,10 +19,11 @@
 
 
 /*
-    If I get this well, the copy constructor is always called at the very start only, when the object doesn't yet exist.
-    In this case, it is good to set the address of this object to NULL. In order to be recognized later in the =operator.
-
-    Because the next step is calling the =operator, where the new copy will get new memory allocated.
-    So, if the object has just been created, the delete of member _array must not happen.
-    But if the object has already existed, then the delete must be done, before allocating new memory.
+    Hoi, let me try to explain this,
+    In the copy constructor it is necessary to set the member _array to NULL, so that in the next step, when the =overload is called,
+    the =overload will recognize that the copy is fresh (it does not have any new memory allocated yet).
+    In this case, the _array must not be deleted, but just allocate new memory to it.
+    In the other case, the _array already had memory allocated before (was created in the default constructor), so it must first be deleted,
+    and only then can get new memory allocated.
+    Something like this : )
 */

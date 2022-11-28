@@ -6,7 +6,7 @@
 /*   By: jmurovec <jmurovec@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/12 10:36:45 by jmurovec      #+#    #+#                 */
-/*   Updated: 2022/11/24 20:46:30 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/25 10:57:28 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Array
 
 	public:
 	// Constructors
-		Array() : _size(0)	// create array with 0 size
+		Array() : _size(0)
 		{
 			std::cout << GRE"Default constructor Array: created empty array\n" RES;
 			_arr = new T[0];
@@ -37,17 +37,17 @@ class Array
 		};
 		
 		
-		// Copy constructor - must be deep copy!
+		// Copy constructor
 		// The copy has no NEW allocated memory yet, so it cannot be deleted here, just must be set to NULL0
 		Array(const Array &src)
 		{
 			std::cout << GRE"\nCopy constructor Array\n" RES;
 
             if (this->_arr == NULL)
-			    std::cout << LRD"   this->_arr is NULL\n" RES;
+			    ; //std::cout << LRD"   this->_arr is NULL\n" RES;
             else
 			{
-                std::cout << LRD"   _arr is not NULL. Now setting _arr to NULL\n" RES; // here it is still garbage 	
+                //std::cout << LRD"   _arr is not NULL. Now setting _arr to NULL\n" RES; // here it is still garbage 	
 				this->_arr = NULL;	// This is crucial, to prevent leaks or double free !!
 			}
 			
@@ -57,7 +57,7 @@ class Array
 
 
 		// Assignment operator= overload
-		// If the copy is not NULL, it has to be freed
+		// If the member _array is not NULL, it has to be freed, then it can get new memory 
 		Array &operator= (const Array &src)
 		{
 			std::cout << GRE"Assignment operator= overload\n" RES;
@@ -65,25 +65,24 @@ class Array
 				return (*this);
 
 			if (this->_arr == NULL)	
-				std::cout << LRD"     _arr is NULL. It can get new memory\n" RES;
+				; //std::cout << LRD"   _arr is NULL. It can get new memory\n" RES;
             else
 			{
-				std::cout << LRD"     _arr is not NULL. Now deleting _arr, before allocating new memory\n" RES;
+				//std::cout << LRD"   _arr is not NULL. Now deleting _arr, before allocating new memory\n" RES;
 				delete []this->_arr;
 			}		
 			
 			this->_size = src._size;
 
-			// Allocate memory to the new copy
-			this->_arr = new T[src._size];
-			std::cout << GRN"    _arr new address: " << this->_arr << "\n" RES;
+			this->_arr = new T[src._size];		// Allocate memory to the new copy
+			//std::cout << GRN"   _arr new address: " << this->_arr << "\n" RES;
 			
-			std::cerr << GRE"   Copying array:\n" RES;
+			std::cerr << GRE"   Copying array ...\n" RES;
 			size_t i = 0;
 			while (i < _size)
 			{
 				this->_arr[i] = src._arr[i];
-				std::cout << GRE"       arr[i] = " << this->_arr[i] << "\n" RES;
+				//std::cout << GRE"       arr[i] = " << this->_arr[i] << "\n" RES;
 				i++; 
 			}
 			return (*this);
@@ -92,15 +91,14 @@ class Array
         ~Array()
 		{
 			std::cout << GRE"Destructor\n" RES;
-
-			if (_arr != NULL)	// ADDED FROM TBLASE, WHERE WOULD_arr BE SET TO NULL ??
+			if (_arr != NULL)
 				delete []_arr;
 		}
 
 		// subscript operator[] overload, with catching exception when out of bounds
 		T &operator[] (unsigned int i)
 		{
-			if (i < 0 || i >= _size || _arr == NULL)  // WHEN IS THIS SET TO NULL ?
+			if (i < 0 || i >= _size || _arr == NULL)
 			{
 				throw Array<T>::ArrayException();
 			}
@@ -129,9 +127,6 @@ const char* Array<T>::ArrayException::what() const throw()
 {
 	return ("(Exception from Array)\n");
 }
-
-
-
 
 
 #endif
