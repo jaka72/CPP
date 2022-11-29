@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:28 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:58:28 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/28 17:12:37 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ unsigned int Span::shortestSpan()
 	i++;
 	for (  ; i < _vect.size() - 1; i++)
 	{
-		if ( (int)span > (*(_vect.begin() + i+1)) - (*(_vect.begin() + i)))
+		if ( span > (*(_vect.begin() + i+1)) - (*(_vect.begin() + i)))
 			span = (*(_vect.begin() + (i+1))) - (*(_vect.begin() + i));
 	}
 	std::cout << GRN << span << "\n" RES;
@@ -124,7 +124,7 @@ unsigned int Span::shortestSpanIT()
 	unsigned int span = *itNext - *itPrev;
 	for ( ;  itNext != _vect.end() ; )
 	{
-		if ((int)span > (*itNext - *itPrev))
+		if (span > (*itNext - *itPrev))
 			span = (*itNext - *itPrev);
 		itPrev++;
 		itNext++;

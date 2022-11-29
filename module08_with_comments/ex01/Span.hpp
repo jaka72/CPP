@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 16:03:14 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/28 16:43:26 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ class Span
 		unsigned int		getSize() const;
 		std::vector<int>	getVect() const;
 		unsigned int		getCurrentNrElements();
+		void 				printContainerInfo2(); // ON MAC NOT PRINTING CORRECT 
+
+
 
 
 		// Public member functions
@@ -53,5 +56,7 @@ class Span
 				virtual const char *what() const throw();
 		};
 };
+
+
 
 #endif

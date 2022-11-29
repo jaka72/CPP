@@ -6,29 +6,30 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 12:09:27 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:48:47 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/29 10:15:20 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+
 #include "easyfind.hpp"
+
+
 // #include <array>  // only c11
 
 
 template <typename T>
 void	printElements(T arr)
 {
-	std::cout << "Print all elements:   ";
-	if (arr.size() == 0)
-		std::cout << BLU"Container is empty.\n" RES;
+	std::cout << "Print all elements:\n   ";
 	for (typename T::iterator it = arr.begin(); it != arr.end(); it++)
-		std::cout << BLU << *it << " " RES;
+		std::cout << *it << " ";
 	std::cout << "\n";
 }
 
 
-#define SIZE 5
-#define TOFIND 50
+#define SIZE 0		// MAYBE THIS IS NOT NEEDED, WHY IT IS ALWAYS ZERO ???
+#define TOFIND 55
 
 int main()
 {
@@ -37,7 +38,6 @@ int main()
 		long unsigned int i;
 		std::vector<int> vect;
 
-		printElements(vect);
 		for (i = 0; i < SIZE; i++)
 			vect.push_back((i+1) * 10);
 
@@ -46,10 +46,12 @@ int main()
 		try
 		{
 			std::vector<int>::iterator it = ::easyfind(vect,  TOFIND);
+			//if (it != vect.end())
 			std::cout << GRN"Element found: " << *it << "\n" RES;
 		}
 		catch(const std::exception& e)
 		{
+			// std::cerr << "\nIndex out of range (" << e.what() << ")\n";
 			std::cerr << "(" << e.what() << ")\n";
 		}
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
@@ -69,15 +71,15 @@ int main()
 		try
 		{
 			std::deque<int>::iterator it = ::easyfind(arr,  TOFIND);
+			//if (it != arr.end())
 			std::cout << GRN"Element found: " << *it << "\n" RES;
 		}
 		catch(const std::exception& e)
 		{
+			// std::cerr << "\nIndex out of range (" << e.what() << ")\n";
 			std::cerr << "(" << e.what() << ")\n";
 		}
-	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
-	
-
+	}
 	
 	{
 		std::cout << "\nContainer List - - - - - - - - - - - - - - - - \n\n";
@@ -92,39 +94,41 @@ int main()
 		try
 		{
 			std::list<int>::iterator it = ::easyfind(arr,  TOFIND);
+			//if (it != arr.end())
 			std::cout << GRN"Element found: " << *it << "\n" RES;
 		}
 		catch(const std::exception& e)
 		{
+			// std::cerr << "\nIndex out of range (" << e.what() << ")\n";
 			std::cerr << "(" << e.what() << ")\n";
 		}
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
 
 
-	// {
-	// 	std::cout << "\nContainer Array (only C11)  - - - - - - - - - - - - - \n\n";
-	// 	std::array<int, 5> arr;		// ARRAY does not have push_back(), or push()
+	{
+		std::cout << "\nContainer Array (only C11)  - - - - - - - - - - - - - \n\n";
+		std::array<int, 5> arr;		// ARRAY does not have push_back(), or push()
 
-	// 	arr.fill(22);
-	// 	printElements(arr);
+		arr.fill(22);
+		printElements(arr);
 
-	// 	arr.fill(50);
-	// 	printElements(arr);
+		arr.fill(50);
+		printElements(arr);
 
-	// 	//arr.fill( {10, 20, 30, 40, 50} );
+		//arr.fill( {10, 20, 30, 40, 50} );
 
-	// 	try
-	// 	{
-	// 		std::array<int, 5>::iterator it = ::easyfind(arr,  TOFIND);
-	// 		//if (it != arr.end())
-	// 		std::cout << GRN"Element found: " << *it << "\n" RES;
-	// 	}
-	// 	catch(const std::exception& e)
-	// 	{
-	// 		// std::cerr << "\nIndex out of range (" << e.what() << ")\n";
-	// 		std::cerr << "(" << e.what() << ")\n";
-	// 	}
-	// }	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
+		try
+		{
+			std::array<int, 5>::iterator it = ::easyfind(arr,  TOFIND);
+			//if (it != arr.end())
+			std::cout << GRN"Element found: " << *it << "\n" RES;
+		}
+		catch(const std::exception& e)
+		{
+			// std::cerr << "\nIndex out of range (" << e.what() << ")\n";
+			std::cerr << "(" << e.what() << ")\n";
+		}
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
 }

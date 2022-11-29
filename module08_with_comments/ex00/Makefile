@@ -6,7 +6,7 @@
 #    By: jaka <jaka@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/21 18:29:17 by jaka          #+#    #+#                  #
-#    Updated: 2022/11/29 15:33:06 by jmurovec      ########   odam.nl          #
+#    Updated: 2022/11/28 11:10:25 by jmurovec      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,21 +24,22 @@ RED		=	\033[31m
 NAME		=	a.out
 
 CC			=	c++
-CFLAGS		=	-std=c++98 -Wall -Wextra -Werror	#-pedantic	# -Wshadow -Wno-shadow     -O2   -Ofast
+CFLAGS		=	-std=c++98 -Wall -Wextra -Werror	# -pedantic	-Wshadow -Wno-shadow     -O2   -Ofast
 
 CPP_FILES	=	main.cpp
+# CPP_FILES	=	main_subject.cpp
 				
 OBJ_DIR		=	obj_dir
 OBJ_FILES	=	$(patsubst %, $(OBJ_DIR)/%, $(CPP_FILES:.cpp=.o))
 
 
-HEADERS		=	MutantStack.hpp #MutantStack.tpp
+HEADERS		=	easyfind.hpp
 
 
 
 all:		$(NAME)
 	@printf "$(GRN)DONE\n$(RES)"
-	@printf "$(YEL)\n --- CPP MODULE08, EXCERCISE 02 --- \n\n$(RES)"
+	@printf "$(YEL)\n --- CPP MODULE08, EXCERCISE 00 --- \n\n$(RES)"
 
 
 #compile the objects
@@ -68,7 +69,7 @@ fclean: clean
 re: fclean all
 
 exe:
-	make re
+	make
 	./a.out
 
 .PHONY: all clean fclean re

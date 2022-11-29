@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 16:59:47 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:36:35 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/29 15:29:45 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,11 @@ int main()
 		std::cout << "ms.top():   " << ms.top() << "\n";
 		std::cout << "Stack size: " << ms.size() << "\n";
 
+		//ms.test_iterator();
 		printAllElements(ms);
 
-		MutantStack<int>::myIterator it1 = ms.myBegin();
-		std::cout << "    it1: " << *it1 << "\n";
-
-		std::deque<int>::iterator it2 = ms.myBegin();
-		std::cout << "     it2: " << *it2 << "\n";
-		
+		MutantStack<int>::myIterator it = ms.myBegin();
+		std::cout << "     main, it: " << *it << "\n";
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
 
@@ -64,7 +61,11 @@ int main()
 		std::cout << "ms.top():   " << ms.top() << "\n";
 		std::cout << "Stack size: " << ms.size() << "\n";
 
+		//ms.test_iterator();
 		printAllElements(ms);
+
+		MutantStack<float>::myIterator it = ms.myBegin();
+		std::cout << "     main, it: " << *it << "\n";
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
 
@@ -80,7 +81,12 @@ int main()
 		std::cout << "ms.top():   " << ms.top() << "\n";
 		std::cout << "Stack size: " << ms.size() << "\n";
 
+		//ms.test_iterator();
 		printAllElements(ms);
+
+
+		MutantStack<char>::myIterator it = ms.myBegin();
+		std::cout << "     main, it: " << *it << "\n";
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
 
@@ -100,10 +106,17 @@ int main()
 		std::cout << "ms.top():   " << ms.top() << "\n";
 		std::cout << "Stack size: " << ms.size() << "\n";
 
+		//ms.test_iterator();
+
+		MutantStack<std::string>::myIterator it = ms.myBegin();
+		std::cout << "     main, it: " << *it << "\n";
+
 		printAllElements(ms);
+
+		// std::cout << "myEnd() element: " << *(ms.myEnd2()) << "\n";
+
 	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 	
-
 
 	{
 		std::cout << "Test COPY CONSTR. AND OVERLOAD= - - - - - - - - - - - - - - - \n\n";
@@ -121,9 +134,10 @@ int main()
 
 		printAllElements(ms);
 		printAllElements(ms2);
-	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
-	
+		// std::cout << "myEnd() element: " << *(ms.myEnd2()) << "\n";
+
+	}	std::cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - \n\n\n";
 
 	
 	// Print out the vector // NOT WORKING WITH STACK CONTAINER

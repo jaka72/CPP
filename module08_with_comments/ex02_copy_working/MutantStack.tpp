@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 17:00:54 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 20:26:29 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/29 13:20:11 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,20 @@
 template <typename T>
 MutantStack<T> ::MutantStack()	//: myStack()
 {
-	std::cout << "Default contructor (MutantStack)\n";
+	std::cout << GRE"Default contructor (MutantStack)\n" RES;
 }
 
 template <typename T>
 MutantStack<T> ::MutantStack(const myStack &src)
 {
-	std::cout << "Copy contructor (MutantStack)\n";
+	std::cout << GRE"Copy contructor (MutantStack)\n" RES;
 	*this = src;
 }
 
 template <typename T>
 MutantStack<T> ::~MutantStack()
 {
-	std::cout << "Destructor (MutantStack)\n";
-}
-
-
-
-template <typename T>
-void MutantStack<T>::test_iterator()
-{
-	typename myStack::iterator it;
-	it = this->begin();
-	std::cout << "test_iterator: " << *it << "\n";
-}
-
-
-
-
-// THIS ONLY WORKS IN THE HPP FILE, BUT NOT HERE ????
-template <typename T>
-typename MutantStack<T>::myIterator2 MutantStack<T>::myBegin()
-{
-	std::cout << "From myBegin: " << *(MutantStack<T>::begin()) << "\n";
-	//return (myStack::c.begin());	// NO
-	
-	return (MutantStack<T>::begin());		// OK
-	// return (this->begin());				// OK
+	std::cout << GRE"Destructor (MutantStack)\n" RES;
 }
 
 
@@ -85,6 +61,39 @@ typename MutantStack<T>::myIterator2 MutantStack<T>::myBegin()
 // {
 // 	return (myStack::c.end());
 // }
+
+template <typename T>
+void MutantStack<T>::test_iterator()
+{	
+	std::cout << BLU"test_iterator, begin " << *(myBegin()) << "\n" RES;
+	std::cout << BLU"test_iterator, end   " << *(myEnd() - 1) << "\n" RES;
+
+	//typename myStack::myIterator it; 
+
+
+	// it = this->begin();
+	//it = myStack::c.begin();
+	// std::cout << BLU"test_iterator, begin " << *it << "\n" RES;
+	
+	// it = this->end() - 1;
+	// //it++;
+	// std::cout << BLU"test_iterator, end   " << *it << "\n" RES;
+}
+
+
+template <typename T>
+void MutantStack<T>::printAllElements()
+{
+	typename MutantStack::myIterator it;
+	it = myBegin();
+	std::cout << "Print all elements:   ";
+	for (unsigned int i = 0; i < this->size(); i++)
+		std::cout << BLU" " << *(it++) << " " RES;
+	std::cout << "\n";
+}
+
+
+
 
 
 #endif

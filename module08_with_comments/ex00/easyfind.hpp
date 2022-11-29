@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 14:40:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:39:48 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/29 10:22:42 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@
 #include <array>
 #include "colors.h"
 
+
+// INTERESTING, NO NEED FOR <algorithm> HEADER, TO USE T::iterator
+
+// typename T::iterator it = std::find(arr.begin(), arr.end(), n); // FIND IS C11 ???
+
+
+//	THIS typename MUST BE PRESENT, WHEN USED INSIDE OF A TEMPLATE
+// 		a) typename T::iterator easyfind(T& arr, const int n)
+//		b) std::vector<int>::iterator it = ...
 
 
 template <typename T>

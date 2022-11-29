@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 17:00:54 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 19:24:38 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/29 15:31:59 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,41 @@
 #include "MutantStack.hpp"
 
 
-template <typename T>
-MutantStack<T> ::MutantStack()	//: myStack()
-{
-	std::cout << "Default contructor (MutantStack)\n";
-}
-
-template <typename T>
-MutantStack<T> ::MutantStack(const myStack &src)
-{
-	std::cout << "Copy contructor (MutantStack)\n";
-	*this = src;
-}
-
-template <typename T>
-MutantStack<T> ::~MutantStack()
-{
-	std::cout << "Destructor (MutantStack)\n";
-}
-
-
-
-
-// template <typename T>
-// MutantStack<T> &MutantStack<T>::operator= (const myStack<T> &src)
+// template <typename T, typename Container>
+// MutantStack<T, Container> ::MutantStack()	//: myStack()
 // {
-// 	std::cout << "Overload= (MutantStack)\n";
-// 	return (*this);
+// 	std::cout << GRE"Default contructor (MutantStack)\n" RES;
 // }
 
 
-// // WHAT IS THIS c.   ???
-// template <typename T>
-// myIterator MutantStack<T>::myBegin()
+// template <typename T, typename Container>
+// MutantStack<T, Container> ::MutantStack(const myStack &src) : std::stack<T>(src)
 // {
-// 	return (myStack::c.begin());
+// 	std::cout << GRE"Copy contructor (MutantStack)\n" RES;
+// 	*this = src;
 // }
 
 
-// template <typename T>
-
-// myIterator<T> MutantStack::myEnd()
+// template <typename T, typename Container>
+// MutantStack<T, Container> ::~MutantStack()
 // {
-// 	return (myStack::c.end());
+// 	std::cout << GRE"Destructor (MutantStack)\n" RES;
 // }
+
+
+
+// template <typename T, typename Container>
+// void MutantStack<T, Container>::printAllElements()
+// {
+// 	typename MutantStack::myIterator it;
+// 	it = myBegin();
+// 	std::cout << "Print all elements:   ";
+// 	for (unsigned int i = 0; i < this->size(); i++)
+// 		std::cout << BLU" " << *(it++) << " " RES;
+// 	std::cout << "\n";
+// }
+
+
 
 
 #endif

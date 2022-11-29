@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 16:59:47 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 20:15:31 by jaka          ########   odam.nl         */
+/*   Updated: 2022/11/29 11:29:58 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 	If I move definitions to .cpp, it says error "undefined reference to MutantStack<int>::MutantStack()"
 
 */
-
 
 
 int main()
