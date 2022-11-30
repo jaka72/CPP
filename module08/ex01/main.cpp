@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:39:08 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 16:15:12 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 13:04:19 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,6 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include "Span.hpp"
-
-
-// template <typename T>
-// void printElements_template(T vect)
-// {
-// 	std::cout << "Print elements: ";
-
-// 	typename T::iterator it;
-// 	for (it = vect.begin(); it != vect.end(); it++ )
-// 	{
-// 		std::cout << "loop ";
-// 		std::cout << *it << " ";
-// 	}
-// 	std::cout << "\n";
-// }
 
 
 
@@ -41,7 +26,6 @@ void printElements(std::vector<int> vect)
 		std::cout << "Nothing to print, container is empty\n";
 		return ;
 	}
-	//std::cout << "From printElements:   ";
 	unsigned int i;
 	unsigned int size = vect.size();
 	for (i = 0; i < size; i++)
@@ -102,7 +86,7 @@ int main()
 	//	Span sp0;		// called default constr, size is garbage
 	//	Span sp0();		// doesnt call any constr, object not created, unusable
 		Span sp1(5);			// param. constr.
-		Span sp2 = Span(5);		// param. constr.
+		Span sp2 = Span(6);		// param. constr.
 
 		printElements(sp2.getVect());
 
@@ -114,6 +98,8 @@ int main()
 			sp2.addNumber(17);
 			sp2.addNumber(9);
 			sp2.addNumber(11);
+
+
 			
 			sp2.getCurrentNrElements();
 			sp2.addNumber(55);
@@ -125,10 +111,13 @@ int main()
 		
 		try
 		{
-			sp2.longestSpan();
+			//sp2.longestSpan();
 			printElements(sp2.getVect());
 			sp2.shortestSpan();
 			sp2.shortestSpanIT();
+			sp2.shortestSpanAD();
+			//printElements(sp1.getVect());	
+
 		}
 		catch(const std::exception& e)
 		{
@@ -143,16 +132,17 @@ int main()
 	{
 		std::cout << YEL"Test: Add 10 random numbers - - - - - - - - - - - \n\n" RES;
 
-		// time_t seed = time(NULL);
 		srand(time(NULL));
-		Span sp1 = Span(10);
+		Span sp1 = Span(5);
 		
 		try
 		{
 			fillWithRandom(sp1);
+			//printElements(sp1.getVect());
 			sp1.longestSpan();
 			sp1.shortestSpan();
 			sp1.shortestSpanIT();
+			sp1.shortestSpanAD();
 			printElements(sp1.getVect());	
 		}
 		catch (const std::exception& e)
@@ -166,7 +156,6 @@ int main()
 	{
 		std::cout << YEL"Test: Add 20000 random numbers - - - - - - - - - - - \n\n" RES;
 
-		// time_t seed = time(NULL);
 		srand(time(NULL));
 		Span sp1 = Span(10000);
 		// Span sp1 = Span(20000);
@@ -177,12 +166,12 @@ int main()
 			sp1.longestSpan();
 			sp1.shortestSpan();
 			sp1.shortestSpanIT();
+			sp1.shortestSpanAD();
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << LRD << e.what() << "\n" RES;
 		}
-		//printElements(sp1.getVect());
 		
 	}	std::cout << YEL"- - -  - - - - - - - - - - - - - - - - - - - - - - -  \n\n\n" RES;
 

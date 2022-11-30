@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:39:08 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 17:13:01 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 11:48:10 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int main()
 
 		// time_t seed = time(NULL);
 		srand(time(NULL));
-		Span sp1 = Span(10);
+		Span sp1 = Span(5);
 	
 		
 		fillWithRandom(sp1);
@@ -150,8 +150,8 @@ int main()
 
 		// time_t seed = time(NULL);
 		srand(time(NULL));
-		Span sp1 = Span(10000);
-		// Span sp1 = Span(20000);
+		//Span sp1 = Span(5);
+		Span sp1 = Span(20000);
 	
 		
 		fillWithRandom(sp1);

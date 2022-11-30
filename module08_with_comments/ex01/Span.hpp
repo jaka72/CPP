@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 16:43:26 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 11:20:42 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class Span
 		// Public member functions
 		void			addNumber(int n);
 		unsigned int	shortestSpan();
+		unsigned int	shortestSpan_OLD();
 		unsigned int 	shortestSpanIT();
 
 		unsigned int	longestSpan();

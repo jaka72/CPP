@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 16:03:14 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 12:01:24 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <numeric>	// for adjacent_difference
 #include <iostream>
 #include "colors.h"
 
@@ -42,6 +43,7 @@ class Span
 		void			addNumber(int n);
 		unsigned int	shortestSpan();
 		unsigned int 	shortestSpanIT();
+		unsigned int 	shortestSpanAD();
 
 		unsigned int	longestSpan();
 		//void			printElements();

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 14:40:42 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:39:48 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 10:58:11 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,26 @@ typename T::iterator easyfind(T& arr, const int n)
 		throw (std::exception());
 	}
 
-	for (unsigned long i = 0; i < arr.size(); i++)
-	{
-		//std::cout << "   i" << i << ",  loop " << *it << "\n";
-		if (n == *it)
-			return (it);
-		it++;
-	}
-	std::cout << LRD"Element not found\n" RES;
-	throw (std::exception());
-	// it = arr.end();
-	// return (it);
+	typename T::iterator result;
+	result = find(arr.begin(), arr.end(), n);
+	
+	if (*result == n)
+		return (result);
+		
+	throw (std::out_of_range(LRD "c Element not found" RES));
+	// throw (std::runtime_error(LRD "c Element not found" RES));
+
+
+	// OLD WAY
+	// for (unsigned long i = 0; i < arr.size(); i++)
+	// {
+	// 	//std::cout << "   i" << i << ",  loop " << *it << "\n";
+	// 	if (n == *it)
+	// 		return (it);
+	// 	it++;
+	// }
+	// std::cout << LRD"Element not found\n" RES;
+	// throw (std::exception());
 }
 
 #endif

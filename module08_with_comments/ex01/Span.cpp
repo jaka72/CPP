@@ -6,10 +6,12 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:28 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 17:12:37 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 11:51:33 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <numeric>
+#include <algorithm>
 #include "Span.hpp"
 
 Span::Span()
@@ -83,7 +85,35 @@ void Span::addNumber(int n)
 
 
 
+
+
+
+// VERSION WITH ALGORITHM 'adjacent_difference'
 unsigned int Span::shortestSpan()
+{
+	std::cout << GRN"Shortest Span AD: " RES;
+	if (_vect.size() <= 1)
+	{
+		std::cout << LRD << "Cannot compare 0 or 1 element.\n";
+		throw (std::exception());
+	}
+
+	std::vector<int> result2;
+	int result[_vect.size()];
+	std::adjacent_difference (_vect.begin(), _vect.end(), result);
+
+	for (int i = 1; i < _vect.size(); i++)
+		result2.push_back(result[i]);
+
+	std::sort(result2.begin(), result2. end());
+	std::cout << GRN << result2[0] << "\n";
+	return (result2[0]);
+}
+
+
+
+// VERSION WITHOUT ALGORITHM AND WITHOUT ITERATOR
+unsigned int Span::shortestSpan_OLD()
 {
 	std::cout << GRN"Shortest Span:    " RES;
 	if (_vect.size() <= 1)
@@ -108,6 +138,9 @@ unsigned int Span::shortestSpan()
 
 
 
+
+
+// VERSION WITH ITERATOR
 unsigned int Span::shortestSpanIT()
 {
 	std::cout << GRN"Shortest Span it: " RES;

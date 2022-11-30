@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:28 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:58:28 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/11/30 13:04:05 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,35 @@ void Span::addNumber(int n)
 
 
 
+
+// VERSION WITH ALGORITHM 'adjacent_difference'
+unsigned int Span::shortestSpanAD()
+{
+	std::cout << GRN"Shortest Span AD: " RES;
+	if (_vect.size() <= 1)
+	{
+		std::cout << LRD << "Cannot compare 0 or 1 element.\n";
+		throw (std::exception());
+	}
+
+	std::sort(_vect.begin(), _vect.end());
+
+	// The problem is, that this function always measures from 0 to the first element.
+	// If this value is smaller than any other pair distance, it will be later detected
+	// as the smallest distance, which is wrong.
+	// But then, the calculate differencies are put back into the same array, so you 
+	// get same number of elements, instead of one less.
+	
+	std::adjacent_difference (_vect.begin(), _vect.end(), _vect.begin());
+
+	int min = *min_element(_vect.begin() + 1, _vect.end());
+	std::cout << GRN << min << "\n" RES;
+	return (min);
+}
+
+
+
+// VERSION WITHOUT ALGORITHM AND WITHOUT ITERATOR
 unsigned int Span::shortestSpan()
 {
 	std::cout << GRN"Shortest Span:    " RES;
@@ -95,11 +124,11 @@ unsigned int Span::shortestSpan()
 	std::sort(_vect.begin(), _vect.end());
 
 	unsigned int i = 0;
-	unsigned int span = *(_vect.begin() + 1) - *(_vect.begin());
+	int span = *(_vect.begin() + 1) - *(_vect.begin());
 	i++;
 	for (  ; i < _vect.size() - 1; i++)
 	{
-		if ( (int)span > (*(_vect.begin() + i+1)) - (*(_vect.begin() + i)))
+		if ( span > (*(_vect.begin() + i+1)) - (*(_vect.begin() + i)))
 			span = (*(_vect.begin() + (i+1))) - (*(_vect.begin() + i));
 	}
 	std::cout << GRN << span << "\n" RES;
@@ -108,9 +137,12 @@ unsigned int Span::shortestSpan()
 
 
 
+
+
+// VERSION WITH ITERATOR
 unsigned int Span::shortestSpanIT()
 {
-	std::cout << GRN"Shortest Span it: " RES;
+	std::cout << GRN"Shortest Span IT: " RES;
 	if (_vect.size() <= 1)
 	{
 		std::cout << LRD << "Cannot compare 0 or 1 element.\n";
@@ -121,10 +153,10 @@ unsigned int Span::shortestSpanIT()
 	std::vector<int>::iterator itPrev = _vect.begin();
 	std::vector<int>::iterator itNext = _vect.begin() + 1;
 
-	unsigned int span = *itNext - *itPrev;
+	int span = *itNext - *itPrev;
 	for ( ;  itNext != _vect.end() ; )
 	{
-		if ((int)span > (*itNext - *itPrev))
+		if (span > (*itNext - *itPrev))
 			span = (*itNext - *itPrev);
 		itPrev++;
 		itNext++;
@@ -132,6 +164,7 @@ unsigned int Span::shortestSpanIT()
 	std::cout << GRN << span << "\n" RES;
 	return (span);
 }
+
 
 
 
