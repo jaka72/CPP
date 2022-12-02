@@ -64,7 +64,7 @@
 		in parent.hpp:  nothing, no children
 		in parent.cpp:  only parent.hpp
 		in child.hpp:	only parent.hpp
-		in child.cpp:	only child.cpp
+		in child.cpp:	only child.hpp
 */
 
 
