@@ -6,11 +6,12 @@
 **==========================
 */
 #include <iostream>
-// #include "ASpell.hpp"
-#include "Warlock.hpp"
+// #include "Warlock.hpp"
 #include "colors.h"
 
 class ASpell;
+
+#include "ASpell.hpp"
 
 
 class ATarget //: public ASpell
@@ -42,3 +43,5 @@ class ATarget //: public ASpell
 		void getHitBySpell(const ASpell& asp) const;
 
 };
+
+// #include "ASpell.hpp"

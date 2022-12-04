@@ -11,6 +11,9 @@
 
 class ASpell;
 
+#include "ASpell.hpp"
+
+
 class SpellBook
 {
 	private:
@@ -36,5 +39,3 @@ class SpellBook
 
 };
 
-
-#include "ASpell.hpp"
