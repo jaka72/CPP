@@ -54,25 +54,33 @@ void SpellBook::learnSpell(ASpell* spell)
 
 void SpellBook::forgetSpell(std::string const &spellName)
 {
-	std::cout << BLU"called Forget Spell, name " << spellName << ",  vect.size: " << vect.size() << "\n" RES;
+	std::cout << BLU"Called Forget Spell (" << spellName << "),  vect.size: " << vect.size() << "\n" RES;
 
 	std::vector<ASpell*>::iterator it = vect.begin(); 	//     vect    IS NOT A POINTER, NO ->
 														// BUT vect[0] IS A POINTER, THE SPELL*
 	for ( ; it != vect.end() ; it++ )
 	{
 		if ((*it)->getName() == spellName)
+		{
 			vect.erase(it);
+			std::cout << BLU"   erased: " << spellName << "\n" RES;
+			if (this->vect.size() == 0)
+				return ;
+		}
 	}
 
+	std::cout << YEL"      a)\n" RES; 
+	return ;
 	if (vect.size() != 0)
 	{
-		//std::cout << BLU"Forget spell, vect size: " << vect.size() << "\n" RES;
-		std::cout << BLU"Forget spell,  getname() " <<   (*it)->getName() << "\n" RES;	// Still has the name after erase() ???
+		std::cout << BLU"   current vect.size: " << vect.size() << "\n" RES;
+		//std::cout << BLU"Forget spell,  getname() " <<   (*it)->getName() << "\n" RES;	// Still has the name after erase() ???
 		//std::cout << BLU"Forget spell, IT getname " << (*(*it)).getName() << "\n" RES;
 	}
 	else
 		std::cout << BLU"No spell to forget, the vector is empty\n" RES;
 
+	std::cout << YEL"      b)\n";  
 }
 
 

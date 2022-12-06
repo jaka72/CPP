@@ -9,12 +9,14 @@
 
 
 
-// #include "ATarget.hpp"
-#include "Warlock.hpp"
+// #include "Warlock.hpp"
 #include "colors.h"
 
 
 class ATarget;
+
+#include "ATarget.hpp"
+
 
 class ASpell
 {
@@ -46,3 +48,5 @@ class ASpell
 		void launch(const ATarget& trg);
 
 };
+
+// #include "ATarget.hpp"

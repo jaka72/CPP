@@ -45,39 +45,64 @@ int main()
       // ATarget* wall = tarGen.createTarget("incospic... ")
       //     can only creta/return a target, that has been previously learned!      
 
+
+      // CREATE WARLOCKS
       Warlock richard("Richard", "foo");
       richard.setTitle("Hello, I'm Richard the Warlock!");
       richard.introduce();
-      BrickWall model1;
-
-      Polymorph* polymorph = new Polymorph();
-      TargetGenerator tarGen;
-
-      tarGen.learnTargetType(&model1); // CAN LEARN, BECAUSE model WAS CREATED ABOVE
-      richard.learnSpell(polymorph);
-
-      Fireball*   fireball = new Fireball();
-      Fwoosh*     fwoosh   = new Fwoosh();
 
 
+      // CREATE SPELLS
+      Polymorph*  poly1       = new Polymorph();
+      Fireball*   fireball    = new Fireball();
+      Fwoosh*     fwoosh      = new Fwoosh();
 
+
+      // WARLOCK NEEDS TO LEARN THE CREATED SPELLS (STORED INTO ITS OBJECT SPELLBOOK)
+      richard.learnSpell(poly1);
       richard.learnSpell(fireball);
       richard.learnSpell(fwoosh);
 
+      
 
-      // It can only return a target, which exists in the target.vector
-      //    (which has been learned)
+
+      
+
+
+
+      // CREATE TARGETS
+      Fwoosh      woosh1;
+      BrickWall   model1;
+
+
+
+      // AFTER CREATING TARGETS, THESE CAN BE DUPLICATED VIA THE TARGET GENERATOR
+      TargetGenerator tarGen;
+
+      tarGen.learnTargetType(&model1); // THE EXISTING TARGETS CAN BE LEARNED BY THE GENERATOR
+      
+      // THEN, THE GENERATOR CAN RETURN A 'COPY' OF ANY TARGET, LEARNED IN ITS VECTOR
       ATarget* wall = tarGen.createTarget("Inconspicuous Red-brick Wall"); // NEEDS DELETE!
+      // It can only return a target, which exists in the target.vector (which has been learned above)
 
 
-      // It can only launch a spell, which has been LEARNED previously
+      // It can only launch a spell, which has been LEARNED previously by the Warlock
       //    (if it has not been learned, it will return NULL, no effect is printed)
       richard.launchSpell("Polymorph", *wall);
       richard.launchSpell("Fireball", *wall);
       richard.launchSpell("Fwoosh", *wall);
       richard.launchSpell("Fwoosh", model1);
 
-      delete polymorph;
+
+      richard.forgetSpell("Polymorph");
+      richard.forgetSpell("Fireball");
+      richard.forgetSpell("Fwoosh");
+
+      tarGen.forgetTargetType("Inconspicuous Red-brick Wall");
+
+
+
+      delete poly1;
       delete fireball;
       delete wall;
 }

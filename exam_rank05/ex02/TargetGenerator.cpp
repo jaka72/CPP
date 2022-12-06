@@ -56,12 +56,19 @@ void TargetGenerator::forgetTargetType(std::string const &type)
 	std::vector<ATarget*>::iterator it = this->vect.begin();
 	for ( ; it != this->vect.end()  ; it++ )
 	{
+		std::cout << LRD "   loop, vect.size: " << this->vect.size() << "\n";
+
 		if ((*it)->getType() == type)
 		{
-			std::cout << LRD "   Type found, now erase/forget\n";
+			std::cout << LRD "   erasing " << type << "\n" RES;
 			this->vect.erase(it);
+			std::cout << LRD "         j)\n";
+			if (this->vect.size() == 0)
+				return ;
 		}
+		std::cout << LRD "      i)\n";
 	}
+	std::cout << LRD "   k)\n";
 }
 
 
