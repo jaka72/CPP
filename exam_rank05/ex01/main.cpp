@@ -21,11 +21,19 @@ int main()
    richard.learnSpell(fwoosh);
    richard.learnSpell(hokus);
 
+  std::cout << "print spell effect: " << fwoosh->getEffects() << "\n";
+
+
    richard.introduce();
    richard.launchSpell("Fwoosh", bob);
    richard.launchSpell("Hokus", alice);
 
    richard.forgetSpell("Fwoosh");
+
+
+  std::cout << "print spell effect, after erase: " << fwoosh->getEffects() << "\n";
+
+
    richard.launchSpell("Fwoosh", bob);
 
 
