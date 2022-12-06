@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:06:34 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/04 12:12:47 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/06 16:23:24 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class HumanB
 	private:
 		std::string  _name;
 		Weapon      *_weapon;
+//		Weapon      &_weapon;		// A reference must be initialized in the constructors :init.list
+									// But a pointer can wait for later, to be assigned to some variable
 
 	public:
 

@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 13:12:52 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/04 11:57:11 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/06 16:00:06 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,4 @@ int main()
 	std::cout << "     &stringPTR            " << &stringPTR << "     (address of the pointer)\n";
 	std::cout << "   &(*stringPTR)           " << &(*stringPTR) << "\n";
 	std::cout << "&(*&(*stringPTR)))         " << &(*(&(*stringPTR))) << "\n\n";
-
 }

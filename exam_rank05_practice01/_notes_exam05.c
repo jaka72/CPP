@@ -63,6 +63,12 @@
                     int r = rand() % 10
 
 
+
+    // CONST BEFORE A FUNCTION
+        const before a function means that the return parameter is const, 
+        which only really makes sense if you return a reference or a pointer
+
+
     Where and how to put headers? Because I don't have the main()!
         <iostream> is in every header, needed for string, etc
         Warlock has included headers <Target> and <Spell>, no class define needed.
@@ -76,4 +82,122 @@
         
     *** PSEUDO CODE EX02 *****************************************
     
+*/
+
+
+// REPEAT THINGS ///////////////////////////
+
+/*
+    Allocating an array, with know number of element
+
+    Zombie *horde = new Zombie[33];
+    delete []horde
+
+
+
+
+
+    // OPEN INFILE, OUTFILE
+        std::ifstream infile;   std::ofstream outfile;
+
+        infile.open(argv[1]);
+        outfile.open(argv1.c_str());
+
+        if (infile.is_open() == 0)      // check if it opened
+
+        outfile << "something\n";
+
+        outfile.close();
+
+        std::cin.getline(strBuffer, 100);  // get line from cin int strBuffer   ? first arg
+
+        getline(inFile, name, ' ');         // get line from file int name      ? second arg
+
+
+    // USEFUL STRING FUNCTIONS: 
+        line.find(someStr)
+        line.substr(0, 33)      // returns substr from position 0 to 33
+        line.length()
+        std::getline(infile, line)
+
+        str.append("something")
+
+
+
+    // POINTER TO FUNCTION, OR ARRAY OF POINTERS
+
+        void		      (*pointerToFunction) (void);
+        void		(Harl::*pointerToFunction) (void);      // Harl is a Class, so this would be used in case when
+                                                            // this pointer is meant to point to a member function 
+                                                            // of the class Harl:   pointerTOFunction = &Harl::debug();
+        To call this function via pointer:
+                    *(pointerToFunction) ();
+    
+    // STRUCT AND ARRAY OF STRUCT 
+        typedef struct s_data
+		{
+			std::string	level;
+			void		(Harl::*pointerToFunction)(void);
+		} t_data;
+		t_data data[4];
+
+
+    // SWITCH SYNTAX
+
+    switch (some int or char)
+    {
+        case 0:
+            do something;
+            break ;         // pr maybe no break;
+        case 1: 
+            etc ...
+    }
+
+    Switch can be in a loop, then case would be the i++, each time calling the next case - so you get to print
+    from certain i to the end of i.
+
+*/
+
+
+
+
+/*  OVERLOADING OPERATORS SYNTAX
+
+    // COMPARISSON
+
+        bool	Fixed::operator== (const Fixed &fixed) const
+        {
+            return (this->_fpn == fixed._fpn);      // COMPARING THE PRIVATE MEMBERS OF 2 OBJECTS OF THE SAME CLASS
+        }                                           //    ie:    if (cat1 == cat2) ...
+
+
+*/
+
+
+
+
+
+/*  THE DIAMOND ISSUE
+
+    Default and param. constr.:     
+        The grandchild must instantiate the grandparent in the ::init.list.
+        Then it must declare both his parents in both constructors (default and param.)
+        Then it can inherit specific values from both parents by calling the getters!
+                    GrandChild::GrandChild()  :  GrandParent("someName")
+                    {
+                        ParentA pA;
+                        ParentB pB;
+
+                        pA.getName();
+                        pB.getTitle();
+                    }
+                    
+    Copy constructor:
+        It must instantiate all 3 ancestors in the :init.list.
+                    GrandChild::GrandChild(const GrandChild & copy) : GrandParent(), ParenA(), ParentB
+                    {
+                        *this = copy;
+                    }
+
+
 */

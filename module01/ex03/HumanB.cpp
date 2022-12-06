@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/28 12:06:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/04 12:16:26 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/06 16:25:10 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ HumanB::~HumanB()
 void HumanB::setWeapon(Weapon& weapon)
 {
 	
-	_weapon = &weapon;  // MUST BE WITH & ADDRESS, BECAUSE private _wp IS A POINTER WITH *
+	_weapon = &weapon;  // MUST TAKE THE & ADDRESS, BECAUSE private _weapon IS A * POINTER
 	std::cout << "   SetWeapon() to " << _weapon->getType() << ".\n\n";
 }
 

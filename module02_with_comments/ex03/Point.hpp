@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/02 17:55:19 by jaka          #+#    #+#                 */
-/*   Updated: 2022/10/03 12:09:45 by jaka          ########   odam.nl         */
+/*   Updated: 2022/12/06 18:37:32 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,8 +163,6 @@ bool Point::bsp(Point const a, Point const b, Point const c, Point const point)
 	Point bb(b);
 	Point cc(c);
 	Point p(point);
-
-
 
 	
 	// /* Calculate area of triangle ABC */
