@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/23 13:07:52 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/07 11:51:39 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #define SERIALIZE_H
 
 //#include <stdint.h>	// for type uintptr_t
-#include <cstdint>		// for type uintptr_t
 #include <iostream>
+#include <cstdint>
 #include "data.hpp"
 #include "colors.h"
 

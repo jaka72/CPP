@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/27 17:00:06 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/29 15:27:28 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/07 11:25:52 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ class MutantStack : public std::stack<T, Container>
 		typedef typename Container::iterator	myIterator;
 		// typedef typename std::deque<T>::iterator	myIterator;
 		// typedef typename myStack::container_type::iterator	myIterator;
+
+
+
+
+
+
+
+
+
+
 
 	MutantStack()
 	{

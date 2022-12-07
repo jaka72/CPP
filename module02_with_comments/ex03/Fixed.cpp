@@ -77,6 +77,8 @@ Fixed &Fixed::operator=(const Fixed &orig)
 }
 
 
+
+
 // DESTRUCTOR
 Fixed::~Fixed()
 {
@@ -132,3 +134,10 @@ std::ostream &operator<< (std::ostream &out, Fixed const &f)
 	// out << (f.getRawBits() / 256);
 	return (out);
 }
+
+
+
+/*
+
+
+*/

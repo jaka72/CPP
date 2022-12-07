@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 16:46:59 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/22 15:57:11 by jaka          ########   odam.nl         */
+/*   Updated: 2022/12/07 10:42:38 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,9 @@ class Conversion
 				ErrorException(const char* msg) throw();       
 				virtual const char *what() const throw();
 		};
+
+
+		
 
 		// Public member functions
 		int		processInputString();

@@ -1,5 +1,5 @@
 /*
-    How to use pragma correctly? Is it allowed insead of define header?
+    How to use pragma correctly? Is it allowed instead of define header?
 
 
     Exam needs to be in -std=c++98 ???
@@ -85,6 +85,8 @@
 */
 
 
+
+
 // REPEAT THINGS ///////////////////////////
 
 /*
@@ -128,7 +130,7 @@
 
         void		      (*pointerToFunction) (void);
         void		(Harl::*pointerToFunction) (void);      // Harl is a Class, so this would be used in case when
-                                                            // this pointer is meant to point to a member function 
+           pobably here should be definition                // this pointer is meant to point to a member function 
                                                             // of the class Harl:   pointerTOFunction = &Harl::debug();
         To call this function via pointer:
                     *(pointerToFunction) ();
@@ -163,7 +165,15 @@
 
 /*  OVERLOADING OPERATORS SYNTAX
 
-    // COMPARISSON
+    // ASSIGNMENT
+        ATarget &ATarget::operator=(ATarget const &other)
+        {
+
+        }
+
+
+
+    // COMPARISSON  (!!! no reference &operator)
 
         bool	Fixed::operator== (const Fixed &fixed) const
         {
@@ -171,8 +181,119 @@
         }                                           //    ie:    if (cat1 == cat2) ...
 
 
+
+    // OUTSTREAM OPERATOR
+    std::ostream &operator<< (std::ostream & out, const Object& object)
+    {
+        out << object.name;
+    }
+
+
+
+
+    // SUBSCSRIPT OPERATOR
+    int &Object::operator[] (const int index)
+    {
+        // test if index out of range
+        std::cout << _arr[index];
+    }
+
 */
 
+
+
+/*  EXCEPTIONS
+
+
+
+
+    virtual const char* what() const throw();
+
+*/
+
+
+
+/* MOD05 / EX03   FUNCTION POINTERS
+
+    ARRAY OF FUNCTION POINTERS
+        Form *(*formPointers[NR_FORMS])(std::string formTarget);		// Form is Abstract, only possible via a pointer
+
+
+
+        Object* (*func[NR](std::string &str) )
+
+
+    FUNCTION POINTER AS AN ARGUMENT 
+        void    iter(T *arr,  void (*func)(const T& elem))
+        {   }
+
+*/
+
+
+/*  CASTING
+
+    STATIC:
+        i = static_cast<int> (someFloat)
+
+    REINTERPRET:
+        uintptr_t x;
+        x = reinterpret_cast<uintptr_t> (somePtr);
+
+    DYNAMIC:
+        if (dynamic_cast < A* > (p) != NULL)
+	       	std::cout << "   This object is of class A, address:  " << p << "\n";
+
+*/
+
+
+
+
+/* POLYMORPHISM OF FUNCTIONS
+
+    You can have more functions with the same name, but a different argment type.
+    Compiler will recognize the type and call appropriate function.
+
+    You can also make a template of function and decide, when calling a function,
+    which type will the argument be.
+
+
+
+*/
+
+
+/* TEMPLATE CLASS
+
+    template <typename T>               THEN YOU CAN CREATE OBJECT:
+    class Cat                               Cat <int> cat1()
+    {                                       Cat <int> cat1("argument")
+        private:
+            T* _arr;
+    }
+
+*/
+
+
+/*  ITERATOR
+
+    std::vector<int>::iterator it = vect.begin();
+
+    typename T::iterator it         (if inside a template function)
+
+*/
+
+
+
+/*  CLASS, INHERITING FROM STACK
+    TEMPLATE ARGUMENT Container, WHICH WILL BE BY DEFAULT A VECTOR OF Ts 
+
+
+    template <typename T, typename Container = std::vector<T> >
+    class Cat : public std::stack< T, Container >		// INHERITING FROM STACK (no iterator), GIVING IT 2 TEMPLATE TYPES
+    {                                                   // THE 2nd ARG IS "UNDERLYING CONTAINER"
+                                                        // SO THAT STACK CAN USE THE ITERATOR FROM VECTOR
+        typedef typename Container::iterator it;
+    }
+*/
 
 
 
@@ -198,6 +319,24 @@
                     {
                         *this = copy;
                     }
+
+
+*/
+
+
+
+/*  HEADERS
+
+    #include <math.h>	// isinf
+    #include <cstring>	// strlen
+    #include <iostream>
+    #include <iomanip>
+    #include <cstdlib>
+
+    #include <vector>
+
+#include <algorithm>
+#include <functional>
 
 
 */

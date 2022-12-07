@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/01 18:09:32 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/28 11:48:41 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/07 10:29:05 by jaka          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Base* generate(void)
 
 
 template <typename T>
-
 inline bool myInstanceOf(const Base* ptrChild)
 {
 	const Base *ret = dynamic_cast <const T*> (ptrChild);
@@ -53,19 +52,44 @@ inline bool myInstanceOf(const Base* ptrChild)
 
 
 
+// VARIANT A)
 // DETECTING A POINTER:   ie: Base *p = generate()   returns a child A,B,C of parent Base
-void identify(Base* p)
+void identify2(Base* p)
 {
-	std::cout << BLU"Called identify pointer Base * p\n" RES"Identify the actual type of "
+	std::cout << BLU"Called a, identify pointer Base * p\n" RES"Identify the actual type of "
 				 "the object, pointed to by *p " << p << "\n";	// A, B or C
+
 
 	if (myInstanceOf <A>(p))
 		std::cout << GRN"   This object is of class A, address:  " << p << "\n" RES;
 	if (myInstanceOf <B>(p))
 		std::cout << GRN"   This object is of class B, address:  " << p << "\n" RES;
 	if (myInstanceOf <C>(p))
-		std::cout << GRN"   This object is of class C, address:  " << p << "\n" RES;
+		std::cout << GRN"   This object is of class C, address:  " << p << "\n" RES;	
 }
+
+
+
+// VARIANT B)
+// DETECTING A POINTER:   ie: Base *p = generate()   returns a child A,B,C of parent Base
+void identify(Base* p)
+{
+	std::cout << BLU"Called b, identify pointer Base * p\n" RES"Identify the actual type of "
+				 "the object, pointed to by *p " << p << "\n";	// A, B or C
+
+
+	//	Could also be simpler:
+		if (dynamic_cast < A* > (p) != NULL)
+			std::cout << GRN"   This object is of class A, address:  " << p << "\n" RES;
+
+		if (dynamic_cast < B* > (p) != NULL)
+			std::cout << GRN"   This object is of class A, address:  " << p << "\n" RES;
+
+		if (dynamic_cast < C* > (p) != NULL)
+			std::cout << GRN"   This object is of class A, address:  " << p << "\n" RES;
+		
+}
+
 
 
 
@@ -109,7 +133,6 @@ void identify(Base& p)
 
 
 
-
 int main()
 {
 	{
@@ -135,9 +158,9 @@ int main()
 		std::cout << GRE"Pointer    to generated object: " << ptr  << "\n" RES;
 		std::cout << GRE"Referrence to generated object: " << &ref << "\n" RES;
 		
-		identify(ref);
+		identify(ref);	// called reference
 		std::cout << "   ~ ~ ~ \n";
-		identify(&ref);
+		identify(&ref);	// called pointer ptr, same as &ref
 		delete ptr;
 	}
 }
