@@ -5,10 +5,9 @@
 
 void printArray(int *arr, size_t arrSize)
 {
-	printf("Final array:   ");
 	size_t i = 0;
 	while (i < arrSize)
-		printf("%d ", arr[i++]);
+		printf("%d,", arr[i++]);
 	printf("\n");
 }
 
@@ -23,10 +22,9 @@ void	printArrayReverse(int *arr, size_t arrSize, int sign)
 	if (arr[i] == 0)	// IT CAN HAPPEN THAT THERE ARE 2 ZEROS AT THE END OF ARRAY (end is the begining!)
 		i--;			// , MUST SKIP ZEROS
 
-	if (arrSize == 2 && arr[0] == 0 && arr[0] == 0)
+	if (arrSize == 2 && arr[0] == 0 && arr[1] == 0)
 		write(1, "0", 1);
 
-	
 	if (sign == -1)
 		write(1, "-", 1);
 	
@@ -37,16 +35,13 @@ void	printArrayReverse(int *arr, size_t arrSize, int sign)
 		{
 			c = arr[i] / 10 + 48;
 			write(1, &c, 1);
-			//write(1, " ", 1);
 			c = arr[i] % 10 + 48;
 			write(1, &c, 1);
-			//write(1, " ", 1);
 		}
 		else
 		{
 			c = arr[i] + 48;
 			write(1, &c, 1);
-			//write(1, " ", 1);
 		}
 		i--;
 	}
@@ -64,14 +59,16 @@ size_t ft_strlen(char *str)
 	return (i);
 }
 
+
+
+
 void reverseString(int newArr[], char *oldstr, size_t len, size_t biggerLen)
 {
-	printf("   --- ");
 	size_t i = 0;
 
 	while (i < biggerLen)	// Fill with zeroes
 	{
-		newArr[i++] = 0;
+		newArr[i] = 0;
 		i++;
 	}
 
@@ -79,13 +76,10 @@ void reverseString(int newArr[], char *oldstr, size_t len, size_t biggerLen)
 	while (len > 0)
 	{
 		newArr[i] = oldstr[len - 1] - 48;
-		printf(" %d", newArr[i]);
+
 		i++;
 		len--;
 	}
-	printf("\n");
-	//newstr[i] = '\0';
-
 }
 
 
@@ -121,12 +115,11 @@ int main(int argc, char **argv)
 
 
 
+	// IN CASE OF ONLY 1 STRING IS NEGATIVE
 
-	// IN CASE OF ONLY 1 STRING IS NEGATIVE:
-	// 		
-
-	// SWAP ALWAYS, IF A IS SMALLER THAN B
-	if (lenA < lenB && signA != signB)	// smaller must be at 2nd place
+	if (lenA > lenB && signA == 1)
+		finalSign = 1;
+	else if (lenA < lenB && signA != signB)	// smaller must be at 2nd place
 	{
 		printf("String length A is smaller, must swap!\n");
 		char *temp;
@@ -137,8 +130,8 @@ int main(int argc, char **argv)
 		tempLen = lenA;
 		lenA = lenB;
 		lenB = tempLen;
-		//if (signA == 1)
-			// finalSign = 1;
+		if (signB == 1)
+			finalSign = 1;
 	}
 	// IF BOTH HAVE SAME LENGTH, FIND BIGGER STRING, check each digit
 	else if (lenA == lenB && signA != signB)
@@ -166,11 +159,10 @@ int main(int argc, char **argv)
 		if (signA == 1 && AisBigger == 1)
 			finalSign = 1;
 	}
-	else if (lenA > lenB && signA == 1)
-		finalSign = 1;
 
-	printf("newstr strA: %s\n", strA);
-	printf("newstr strB: %s\n", strB);
+
+	printf("newstr A:  %s\n", strA);
+	printf("newstr B:  %s\n", strB);
 	printf("finalSign: %d\n", finalSign);
 
 
@@ -184,23 +176,23 @@ int main(int argc, char **argv)
 
 
 
+
 	int A[biggerLen];	// both lengths are now the same!
 	int B[biggerLen];
 
 	reverseString(A, strA, lenA, biggerLen);
 	reverseString(B, strB, lenB, biggerLen);
 
+	printArray(A, biggerLen);
+	printArray(B, biggerLen);
 
-	printf("    A[i]: %d,   B[i]: %d\n", A[0], B[0]);
-	//printf("newstr B: %s\n", B);
-
-
-	size_t arraySize = lenA + 1;	// Make array. Take size of the longer string, plus 1
-	if (lenA < lenB)				// WHY PLUS 1 ???
-		arraySize = lenB + 1;
+	// size_t arraySize = lenA + 1;	// Make array. Take size of the longer string, plus 1
+	// if (lenA < lenB)				// WHY PLUS 1 ???
+	//  	arraySize = lenB + 1;
 
 
-
+	size_t arraySize;		// Make array. Take size of the longer string, plus 1
+	arraySize = biggerLen + 1;
 
 	int arr[arraySize];
 	printf("   arrSize: %ld\n", arraySize);
@@ -208,23 +200,14 @@ int main(int argc, char **argv)
 		arr[i] = 0;
 
 
-	
-
-
-
 
 	int result = 0;
 	for (size_t i = 0; i < arraySize - 1; )
 	{
-		// ADDITION
-		if ((signA == 1 && signB == 1) || (signA == 0 && signB == 0) )
+		
+		if ((signA == 1 && signB == 1) || (signA == 0 && signB == 0) )	// ADDITION
 		{
-			// if (i >= lenA)
-			// 	result = (B[i]);
-			// else if (i >= lenB)
-			// 	result = (A[i]);
-			//else
-				result = (A[i])  +  (B[i]);
+			result = (A[i])  +  (B[i]);
 
 			printf("   i%ld,  result: %d,  a[i]: %d\n", i, result, A[i]);
 			arr[i] = arr[i] + result;
@@ -235,58 +218,37 @@ int main(int argc, char **argv)
 				arr[i] = arr[i] % 10;
 			}
 		}
-
-		// SUBSTRACTION
-		else if (signB != signA)
+		
+		else if (signB != signA)		// SUBSTRACTION
 		{
-			printf("Substraction:  a[i]: %d    b[i]: %d", A[i], B[i]);
+			printf("Substraction: %d - %d,   ", A[i], B[i]);
 
-			if (i >= lenA)
-				result = (B[i]);
-			else if (i >= lenB)
-				result = (A[i]);
-			else
+			if (A[i] >= B[i])					// a < b, can substract normally 
+				result = (A[i]) - (B[i]);
+
+			else if (A[i] < B[i])
 			{
-				if (A[i] < B[i])
-				{
-					printf("  A < B, ");
-					result = ((A[i]) + 10) - (B[i]);	// add 10 ->HERE IT MUST LOOP AND BORROW FROM THE NEXT
-					
-					if (A[i + 1] != 0)
-					{
-						printf("  Ai+1 != 0 \n");
-						A[i + 1] = A[i + 1] - 1;			// UNTIL IT FINDS THE DIGIT TO BORROW
-					}
-					else										// IN CASE OF ZEROES: 0 TURNS INTO 9, AND THE NEXT IS - 1
-					{
-						printf("  Ai+1 == 0 \n");
-						// for (size_t j = i + 1; j < lenA; j++)
-						for (size_t j = i + 1; j < arraySize; j++)
-						{
-							if (A[j] != 0)
-							{
-								A[j] = A[j] - 1;
-								printf("      break: Aj+1 != 0:   newA+1: %d \n", A[j]);
-								break ;
-							}
-							else
-							{
-								A[j] = 9;
-								printf("      loop:  Aj+1 == 0:   newA+1: %d \n", A[j + 1]);
-							}
-						}
-					}
-				}
+				result = ((A[i]) + 10) - (B[i]);	// add 10 ->HERE IT MUST LOOP AND BORROW FROM THE NEXT
+				
+				if (A[i + 1] != 0)					// Next is not zero, can borrow
+					A[i + 1] = A[i + 1] - 1;
 				else
 				{
-					printf("  no loop, a > b\n");
-					result = (A[i]) - (B[i]);
+					for (size_t j = i + 1; j < arraySize; j++)	// Next digit is zero. Turn 0 to 9 and loop all digits
+					{											// all zeroes turn to 9, until it finds non-zero
+						if (A[j] != 0)
+						{
+							A[j] = A[j] - 1;			// non-zero, can borrow
+							break ;
+						}
+						else
+							A[j] = 9;					// turn 0 to 9
+					}
 				}
-				arr[i] = result;
-				
-				
-				printf("   i%ld,  result: %d\n", i, result);
 			}
+
+			arr[i] = result;
+			printf("   i%ld,  result: %d\n", i, result);
 		}
 		i++;
 	}
@@ -301,3 +263,44 @@ int main(int argc, char **argv)
 
 
 }
+
+
+/*	INFIN_ADD
+
+	vars: signA, signB, finalSign
+			Check minus and store args to new string, from after minus
+			If both negative, store finalSign
+
+	vars: lenA, lenB
+			Store each length
+
+	var: AisBigger, finalSign
+	Scenario only 1 str is negative:
+			A is shorter than B:  swap strings and lengths, set finalSign
+			A is longer than B:  set finalSign minus, if signA is negative
+			A is same length B:	 loop A, compare each digit
+								 if encountered digit A[i] is smaller then B[i]
+								 		swap strings and lengths
+										set finalSign
+										set AisBigger = 0
+							after loop:
+								if A is negative and bigger, finalSign = 1 				
+	
+	vars: 2 new int arrays
+	Both arrays same size as the longest string.
+	Reset both arrays all to zeroes.
+	Store both strings into int arrays in reverse order
+
+	Loop 
+		Addition (both signs are same)
+			Add a + b, store to result		5 + 5 = 10	// in case the result is 10 or bigger:
+			arr[i] = arr[i] + result		15 = 5 + 10
+							5 stays %,  10 goes to next place
+		
+		
+		Substraction	
+			a) a >= b		5 - 3   --> simply substract, store to result
+
+			b) a < b		3 - 5
+				...... here need to continue
+*/

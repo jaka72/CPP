@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Tue Dec  6 15:53:03 2022
+# Make data base, printed on Mon Dec 12 12:51:37 2022
 
 # Variables
 
@@ -24,7 +24,7 @@ CPPFLAGS = -I/Users/jmurovec/.brew/opt/readline/include
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/jmurovec/Desktop/projects/cpp_6dec_00
+CURDIR := /Users/jmurovec/Desktop/projects/cpp_12_dec
 # makefile
 SHELL = /bin/sh
 # environment
@@ -36,7 +36,7 @@ MAKEFILE_LIST :=
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.DWlxh3X2Ac/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.XnQILZXeQw/Render
 # environment
 PATH = /Users/jmurovec/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
@@ -50,13 +50,13 @@ LDFLAGS = -L/Users/jmurovec/.brew/opt/readline/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.5prXX7f7Y2/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.yEbfOLQZLW/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
 HOMEBREW_TEMP = /tmp/jmurovec/Homebrew/Temp
 # environment
-PWD = /Users/jmurovec/Desktop/projects/cpp_6dec_00
+PWD = /Users/jmurovec/Desktop/projects/cpp_12_dec
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
@@ -112,7 +112,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x1000000b.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -128,7 +128,7 @@ MAKEFILES :=
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186d1
+SECURITYSESSIONID = 186a8
 # automatic
 ^F = $(notdir $^)
 # default
@@ -140,7 +140,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 35173
+VSCODE_PID = 33460
 # variable set hash-table stats:
 # Load=65/1024=6%, Rehash=0, Collisions=1/86=1%
 
@@ -150,7 +150,7 @@ VSCODE_PID = 35173
 
 # Directories
 
-# . (device 16777229, inode 1261886): 52 files, no impossibilities.
+# . (device 16777229, inode 1324160): 52 files, no impossibilities.
 
 # 52 files, no impossibilities in 1 directories.
 
@@ -224,7 +224,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Tue Dec  6 15:53:03 2022
+# Finished Make data base on Mon Dec 12 12:51:37 2022
 
  
 make: *** No rule to make target `all'.  Stop.
