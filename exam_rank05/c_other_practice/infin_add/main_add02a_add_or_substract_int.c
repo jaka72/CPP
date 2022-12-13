@@ -265,6 +265,9 @@ int main(int argc, char **argv)
 }
 
 
+
+
+
 /*	INFIN_ADD
 
 	vars: signA, signB, finalSign
@@ -302,5 +305,12 @@ int main(int argc, char **argv)
 			a) a >= b		5 - 3   --> simply substract, store to result
 
 			b) a < b		3 - 5
-				...... here need to continue
+				check next, if not zero, borrow 1
+							if zero, loop till found first non zero
+								turn each zero to 9
+								stop at first non zero and borrow 1
+
+	print minus, if finalSign is 1
+	print array in reverse, skip first zeroes
+
 */

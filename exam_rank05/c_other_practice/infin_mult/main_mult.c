@@ -83,7 +83,7 @@ size_t calculateArraysize(char *a, char *b, size_t *lenA, size_t *lenB, int *sig
 
 
 
-// WHEN BOTH ARE NEGATIVE, THEN IT PRINTS 1 ZERO IN FRONT 
+
 
 int main(int argc, char **argv)
 {
@@ -97,6 +97,7 @@ int main(int argc, char **argv)
 	size_t jEnd = 0;
 	size_t iEnd = 0;
 
+	// ArrSize is always: lenA + lenB -1 	(last element can be 2-digit number)
 	size_t const arrSize = calculateArraysize(a, b, &lenA, &lenB, &sign, &jEnd, &iEnd);
 	
 	
@@ -152,3 +153,18 @@ int main(int argc, char **argv)
 	printArrayReverse(arr, arrSize, sign);
 
 }
+
+
+
+
+/*
+
+	The Algorithm
+	for each digit in a, loop all digits in b
+		if result is > 9, loop the rest of arrFinal and add the modulo to next field
+
+
+
+
+
+*/
