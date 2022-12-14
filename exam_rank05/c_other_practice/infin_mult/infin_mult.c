@@ -16,7 +16,7 @@ void printArray(size_t *arr, size_t arrSize)
 
 void	printArrayReverse(size_t *arr, size_t arrSize, int sign)
 {
-	write(1, "\nFinal array Reverse:   ", 24);
+	//write(1, "\nFinal array Reverse:   ", 24);
 	int i = arrSize - 1;
 	
 	if (sign == -1)
@@ -53,7 +53,7 @@ size_t calculateArraysize(char *a, char *b, size_t *lenA, size_t *lenB, int *sig
 
 	while (a[*lenA])
 		(*lenA)++;
-	printf("lenA %zu\n", *lenA);
+	//printf("lenA %zu\n", *lenA);
 	if (a[0] == '-')
 	{
 		//(*lenA)--;
@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 	size_t const arrSize = calculateArraysize(a, b, &lenA, &lenB, &sign, &jEnd, &iEnd);
 	
 	
-	printf("lenA%zu, lenB%zu, jEnd%zu, iEnd%zu, arrSize%zu\n", lenA, lenB, jEnd, iEnd, arrSize);
+	//printf("lenA%zu, lenB%zu, jEnd%zu, iEnd%zu, arrSize%zu\n", lenA, lenB, jEnd, iEnd, arrSize);
 
 
 	size_t arr[arrSize];
@@ -146,9 +146,9 @@ int main(int argc, char **argv)
 		q++;
 	}
 
-	printf("array size: %lu\n", sizeof(arr) / sizeof(arr[0]));
+	//printf("array size: %lu\n", sizeof(arr) / sizeof(arr[0]));
 
-	printArray(arr, arrSize);
+	//printArray(arr, arrSize);
 
 	printArrayReverse(arr, arrSize, sign);
 
@@ -164,7 +164,23 @@ int main(int argc, char **argv)
 		if result is > 9, loop the rest of arrFinal and add the modulo to next field
 
 
+	It needs 2 main loops and 1 helper loop (in case of > 9):
+		- arrB	i
+		- arrA	j
+		- arrFinal q
+
+	Loop i: each b[i] 
+		loop j: b[i + j] and multiply with a[j] (a always from j0 to j[End])
+			if result > 9, 
+				loop q: arrFinal[q] (q = i + j)
+					modulo arrFinal[q]
+					divide and add to next [q + 1], repeat till end
 
 
+	// new
+	i0
+		multiply a * b, store result to: final i0 + result
+		if final i0 > 9, mod_i0 and div_i1
 
-*/
+		
+*/		

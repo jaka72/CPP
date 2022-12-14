@@ -90,30 +90,60 @@ int main(int argc, char **argv)
 		j = 0;
 		for ( ; j < lenB; j++)
 		{
-			result = arrA[i] * arrB[j];
-			printf("   result a): %d\n", result);
+			result = arrB[i] * arrA[j];
+			//arrFinal[j] = result;
+			printf("   a%d * b%d,   result a): %d\n", arrB[i], arrA[j], result);
 
 			if (result > 9)
 			{
-				printf("      --- %d\n", result);
-				for ( size_t q = j; q < lenB; q++)
+				arrFinal[i + j] = arrFinal[i + j] + (result % 10);
+				arrFinal[i + j + 1] = arrFinal[i + j + 1] + (result / 10);
+				printf("      i+j%zu,    result %d is > 9\n", i+j, result);
+				printf("      i+j%zu,    arr[i+j] %d\n", i+j, arrFinal[i + j]);
+				printf("      i+j+1%zu,  arr[i+j+1] %d\n", i+j, arrFinal[i + j + 1]);
+				for ( size_t q = i + j; q < lenB; q++)
 				{	
-					arrFinal[q] = arrFinal[q] + (result % 10);
-					arrFinal[q + 1] = arrFinal[q + 1] + (result / 10);
-					printf("      final[%zu]: %d\n", q, arrFinal[q]);
+					printf("             loop q%zu\n", q);
+					if (arrFinal[q] > 9)
+					{
+						arrFinal[q] = arrFinal[q] + (result % 10);
+						arrFinal[q + 1] = arrFinal[q + 1] + (result / 10);
+						printf("             arrFinal[%zu]: %d\n", q, arrFinal[q]);
+						printf("             arrFinal[%zu +1]: %d\n", q, arrFinal[q + 1]);
+					}
+					else
+					{
+						printf("          break\n");
+						break ;
+					}
 				}
 			}
 			else		// SOMEHERE HERE IS NOT CALCULATING CORRECTLY !!!
 			{
-				arrFinal[i + j] = arrFinal[i + j] + result; 
-				printf("   ... i+j%zu,  arrfinal:%d\n", i + j,  arrFinal[i + j]);
+				result = arrFinal[i + j] + result; 
+				//printf("   ... i+j%zu,  arrfinal:%d\n", i + j,  arrFinal[i + j]);
+				if (result > 9)
+				{
+					//printf("      --- %d\n", result);
+					for ( size_t q = i + j; q < lenB; q++)
+					{	
+						arrFinal[q] = arrFinal[q] + (result % 10);
+						arrFinal[q + 1] = arrFinal[q + 1] + (result / 10);
+						//printf("      final[%zu]: %d\n", q, arrFinal[q]);
+					}
+				}
 			}
 		}
 	}
 
 	printf("Final:\n");
-	for (i = 0; i < arrSize; i++)
-		printf(".%d", arrFinal[i]);
+	for (i = arrSize; i > 0; i--)
+	{
+		if (arrFinal[i - 1] != 0)
+			break ;
+	}
+	for ( ; i > 0; i--)
+		printf("%d", arrFinal[i - 1]);
 	printf("\n");
 
 }
