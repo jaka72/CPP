@@ -6,14 +6,12 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:39:08 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/30 13:04:19 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/15 15:02:48 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
 #include "Span.hpp"
 
 
@@ -36,21 +34,27 @@ void printElements(std::vector<int> vect)
 }
 
 
+// OLD
+// void fillWithRandom(Span& sp)
+// {	
+// 	std::cout << GRE"Adding " << sp.getSize() << " random numbers ...\n" RES;
 
-void fillWithRandom(Span& sp)
-{	
-	std::cout << GRE"Adding " << sp.getSize() << " random numbers ...\n" RES;
+// 	unsigned int i;
+// 	for (i = 0; i < sp.getSize(); i++)
+// 		//sp.addNumber(rand() % 10000000 );  // max 9.999.999
+// 		sp.addNumber(rand());
+// }
 
-	unsigned int i;
-	for (i = 0; i < sp.getSize(); i++)
-		//sp.addNumber(rand() % 10000000 );  // max 9.999.999
-		sp.addNumber(rand());
-}
+
+
+
 
 
 
 int main()
 {
+	std::srand(std::time(0));
+	
 	{
 		std::cout << YEL "\nTest: Empty container - - - - - - - - - - - - - - - - \n\n" RES;
 		Span sp1(0);
@@ -137,7 +141,7 @@ int main()
 		
 		try
 		{
-			fillWithRandom(sp1);
+			sp1.fillWithRandom(&sp1, 5);
 			//printElements(sp1.getVect());
 			sp1.longestSpan();
 			sp1.shortestSpan();
@@ -157,12 +161,13 @@ int main()
 		std::cout << YEL"Test: Add 20000 random numbers - - - - - - - - - - - \n\n" RES;
 
 		srand(time(NULL));
-		Span sp1 = Span(10000);
+		Span sp1 = Span(5);
 		// Span sp1 = Span(20000);
 		
 		try
 		{
-			fillWithRandom(sp1);
+			sp1.fillWithRandom(&sp1, 6);
+			//printElements(sp1.getVect());
 			sp1.longestSpan();
 			sp1.shortestSpan();
 			sp1.shortestSpanIT();

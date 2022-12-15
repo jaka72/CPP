@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:31 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/30 12:01:24 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/15 14:54:17 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ class Span
 
 		unsigned int	longestSpan();
 		//void			printElements();
+
+		void fillWithRandom(Span* sp, unsigned int N); // new
 
 
 		class SpanExceptions : public std::exception

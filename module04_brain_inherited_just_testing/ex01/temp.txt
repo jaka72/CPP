@@ -1,7 +1,0 @@
-
- - - - - - - - MAKE ARRAY OF Animals - - - - - - -
-
-[0;34mMaking Cat 1[0m
-[2;37mDefault constructor Animal,  type [0mDefault
-[2;37m   Default Constructor: Cat,    type [0mCat
-[2;37m      Default Constructor: Brain[0m

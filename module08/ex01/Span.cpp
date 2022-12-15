@@ -6,7 +6,7 @@
 /*   By: jaka <jaka@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/26 17:22:28 by jaka          #+#    #+#                 */
-/*   Updated: 2022/11/30 13:04:05 by jmurovec      ########   odam.nl         */
+/*   Updated: 2022/12/15 15:10:08 by jmurovec      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,28 @@ unsigned int Span::longestSpan()
 	std::cout << GRN"" <<  longestSpan << "\n" RES;
 	return (longestSpan);
 }
+
+
+
+
+static int getRandomNumber(void)
+{
+	return (rand());
+}
+
+
+/* Creates N random numbers, stored into vector Temp,
+	then inserts Temp into original Vector sp	*/
+void Span::fillWithRandom(Span* sp, unsigned int N)
+{
+	if (N > sp->getSize())
+		throw std::out_of_range("fillWithRandom: Cannot add, the vector is smaller than N\n");
+	std::vector<int> temp(N);
+	std::generate_n(temp.begin(), N, getRandomNumber);
+	//std::cout << temp[0] << "\n";
+	sp->_vect.insert(sp->_vect.begin(), temp.begin(), temp.end() );
+}
+
 
 
 
